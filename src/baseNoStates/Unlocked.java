@@ -3,21 +3,24 @@ package baseNoStates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Locked extends DoorState {
+/**
+ * Subclase que define los métodos de una puerta bloqueada.
+ */
+public class Unlocked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
-  public Locked(Door door) {
+
+  public Unlocked(Door door) {
     super(door);
-    logger.info("\n\n El tipo de la clase es la sigueinte: " + door.getClass().toString());
   }
 
   public void open() {
-    logger.info("Try to open a door...");
+    logger.info("Try to open the door" + this.name + " ...");
     //Do something
-    logger.info("Cannot open a locked door.");
+    logger.info("Door" + this.name + " opened.");
   }
 
   public void close() {
-    logger.info("Cannot close a closed locked door.");
+    logger.info("Closing the door " + this.name + ".");
   }
 
   public void lock() {

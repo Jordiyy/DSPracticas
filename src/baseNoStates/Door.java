@@ -2,15 +2,21 @@ package baseNoStates;
 
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Door {
   private final String id;
   private boolean closed; // physically
+  private String state;
+
+  static Logger logger = LoggerFactory.getLogger(Locked.class);
 
   public Door(String id) {
     this.id = id;
     closed = true;
+    state = getClass().getSimpleName().equalsIgnoreCase("locked") ? getClass().getSimpleName().toLowerCase() : "unlocked";
   }
 
   public void processRequest(RequestReader request) {
@@ -42,11 +48,15 @@ public class Door {
         }
         break;
       case Actions.LOCK:
-        // TODO
-        // fall through
+        if (state.equalsIgnoreCase("unlocked")) {
+          setState(new Locked(this));
+        }
+        break;
       case Actions.UNLOCK:
-        // TODO
-        // fall through
+        if (state.equalsIgnoreCase("locked")) {
+          setState(new Unlocked(this));
+        }
+        break;
       case Actions.UNLOCK_SHORTLY:
         // TODO
         System.out.println("Action " + action + " not implemented yet");
@@ -66,7 +76,7 @@ public class Door {
   }
 
   public String getStateName() {
-    return "unlocked";
+    return state;
   }
 
   @Override
@@ -86,4 +96,7 @@ public class Door {
     return json;
   }
 
+  public void setState(DoorState doorState) {
+    state = doorState.getClass().getSimpleName().toLowerCase();
+  }
 }
