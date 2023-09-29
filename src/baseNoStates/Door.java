@@ -85,4 +85,5 @@ public class Door {
     json.put("closed", closed);
     return json;
   }
+
 }
