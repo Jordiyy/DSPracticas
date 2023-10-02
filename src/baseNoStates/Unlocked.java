@@ -19,11 +19,14 @@ public class Unlocked extends DoorState {
   public void close() { }
 
   @Override
-  public void lock() {
-    door.setState(new Locked(door));
+  public void lock() { }
+
+  @Override
+  public void unlock() {
+    door.setState(new Unlocked(door));
     logger.info("Unlocked to Locked");
   }
 
   @Override
-  public void unlock() { }
+  public void unlockShortly() {}
 }

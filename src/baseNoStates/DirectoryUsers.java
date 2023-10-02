@@ -1,9 +1,13 @@
 package baseNoStates;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 
 public final class DirectoryUsers {
   private static final ArrayList<User> users = new ArrayList<>();
+  static Logger logger = LoggerFactory.getLogger(DirectoryUsers.class);
 
   public static void makeUsers() {
     //TODO: make user groups according to the specifications in the comments, because
@@ -45,7 +49,7 @@ public final class DirectoryUsers {
         return user;
       }
     }
-    System.out.println("user with credential " + credential + " not found");
+    logger.info("user with credential " + credential + " not found");
     return null; // otherwise we get a Java error
   }
 

@@ -4,6 +4,7 @@ import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.concurrent.TimeUnit;
 
 
 public class Door {
@@ -26,40 +27,55 @@ public class Door {
       String action = request.getAction();
       doAction(action);
     } else {
-      System.out.println("not authorized");
+      logger.info("not authorized");
     }
     request.setDoorStateName(getStateName());
   }
 
   private void doAction(String action) {
     switch (action) {
+
       case Actions.OPEN:
         if (closed && state.equalsIgnoreCase(State.UNLOCKED)) {
           closed = false;
         } else {
-          System.out.println("Can't open door " + id + " because it's already open");
+          logger.info("Can't open door " + id + " because it's already open");
         }
         break;
       case Actions.CLOSE:
         if (closed) {
-          System.out.println("Can't close door " + id + " because it's already closed");
+          logger.info("Can't close door " + id + " because it's already closed");
         } else {
           closed = true;
         }
         break;
       case Actions.LOCK:
         if (state.equalsIgnoreCase(State.UNLOCKED)) {
-          setState(new Locked(this));
+          Locked door = new Locked(this);
+          door.lock();
         }
         break;
       case Actions.UNLOCK:
         if (state.equalsIgnoreCase(State.LOCKED)) {
-          setState(new Unlocked(this));
+          Unlocked door = new Unlocked(this);
+          door.unlock();
         }
         break;
       case Actions.UNLOCK_SHORTLY:
-        // TODO
-        System.out.println("Action " + action + " not implemented yet");
+        logger.info("Action " + action + " not implemented yet");
+
+        Unlocked_Shortly door = new Unlocked_Shortly(this);
+        door.unlockShortly();
+
+        long startTime = System.currentTimeMillis();
+        long finishTime = startTime + 10000;
+        while(finishTime - startTime != 0){
+          startTime = System.currentTimeMillis();
+        }
+
+        /*Locked door2 = new Locked(this);
+        door2.lock();*/
+
         break;
       default:
         assert false : "Unknown action " + action;
