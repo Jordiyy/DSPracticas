@@ -12,11 +12,11 @@ public abstract class DoorState {
     name = door.getId();
   }
 
-  protected void open(){}
+  public abstract void open();
 
-  protected void close(){}
+  public abstract void close();
 
-  protected void lock(){}
+  public abstract void lock();
 
-  protected void unlocked(){}
+  public abstract void unlock();
 }
