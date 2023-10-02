@@ -7,7 +7,6 @@ public class Locked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
   public Locked(Door door) {
     super(door);
-    logger.info("\n\n El tipo de la clase es la sigueinte: " + door.getClass().toString());
   }
 
   public void open() {
