@@ -11,6 +11,7 @@ public class Main {
   public static void main(String[] args) {
     DirectoryDoors.makeDoors();
     DirectoryUsers.makeUsers();
+    DirectoryAreas.makeAreas();
     logger.info("\n\nTesting LOGGER\n\n");
     new WebServer();
   }
