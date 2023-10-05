@@ -2,19 +2,22 @@ package baseNoStates;
 
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
-
-import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.concurrent.TimeUnit;
 
 
 public class Door {
   private final String id;
   private boolean closed; // physically
-  private DoorState doorState;
+  private String state;
+
+  static Logger logger = LoggerFactory.getLogger(Locked.class);
 
   public Door(String id) {
     this.id = id;
-    //closed = true;
-    doorState = new Unlocked(this);
+    closed = true;
+    state = getClass().getSimpleName().equalsIgnoreCase(State.LOCKED) ? getClass().getSimpleName().toLowerCase() : State.UNLOCKED;
   }
 
   public void processRequest(RequestReader request) {
@@ -24,36 +27,55 @@ public class Door {
       String action = request.getAction();
       doAction(action);
     } else {
-      System.out.println("not authorized");
+      logger.info("not authorized");
     }
     request.setDoorStateName(getStateName());
   }
 
   private void doAction(String action) {
     switch (action) {
+
       case Actions.OPEN:
-        if (doorState.getIsClose() && Objects.equals(getStateName(), State.UNLOCKED)) {
-          doorState.open();
+        if (closed && state.equalsIgnoreCase(State.UNLOCKED)) {
+          closed = false;
         } else {
-          System.out.println("Can't open door " + id + " because it's already open");
+          logger.info("Can't open door " + id + " because it's already open");
         }
         break;
       case Actions.CLOSE:
-        if (doorState.getIsClose()) {
-          System.out.println("Can't close door " + id + " because it's already closed");
+        if (closed) {
+          logger.info("Can't close door " + id + " because it's already closed");
         } else {
-          doorState.close();
+          closed = true;
         }
         break;
       case Actions.LOCK:
-        if(!Objects.equals(getStateName(), State.LOCKED)) { doorState.lock(); }
+        if (state.equalsIgnoreCase(State.UNLOCKED)) {
+          Locked door = new Locked(this);
+          door.lock();
+        }
         break;
       case Actions.UNLOCK:
-        if(!Objects.equals(getStateName(), State.UNLOCKED)) { doorState.unlock(); }
+        if (state.equalsIgnoreCase(State.LOCKED)) {
+          Unlocked door = new Unlocked(this);
+          door.unlock();
+        }
         break;
       case Actions.UNLOCK_SHORTLY:
-        // TODO
-        System.out.println("Action " + action + " not implemented yet");
+        logger.info("Action " + action + " not implemented yet");
+
+        Unlocked_Shortly door = new Unlocked_Shortly(this);
+        door.unlockShortly();
+
+        long startTime = System.currentTimeMillis();
+        long finishTime = startTime + 10000;
+        while(finishTime - startTime != 0){
+          startTime = System.currentTimeMillis();
+        }
+
+        /*Locked door2 = new Locked(this);
+        door2.lock();*/
+
         break;
       default:
         assert false : "Unknown action " + action;
@@ -62,7 +84,7 @@ public class Door {
   }
 
   public boolean isClosed() {
-    return doorState.getIsClose();
+    return closed;
   }
 
   public String getId() {
@@ -70,14 +92,14 @@ public class Door {
   }
 
   public String getStateName() {
-    return doorState.getName();
+    return state;
   }
 
   @Override
   public String toString() {
     return "Door{"
         + ", id='" + id + '\''
-        + ", closed=" + doorState.getIsClose()
+        + ", closed=" + closed
         + ", state=" + getStateName()
         + "}";
   }
@@ -86,9 +108,11 @@ public class Door {
     JSONObject json = new JSONObject();
     json.put("id", id);
     json.put("state", getStateName());
-    json.put("closed", doorState.getIsClose());
+    json.put("closed", closed);
     return json;
   }
 
-  public void setState(DoorState doorState) { this.doorState = doorState; }
+  public void setState(DoorState doorState) {
+    state = doorState.getClass().getSimpleName().toLowerCase();
+  }
 }

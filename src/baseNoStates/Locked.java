@@ -8,17 +8,28 @@ public class Locked extends DoorState {
 
   public Locked(Door door) {
     super(door);
-    name = State.LOCKED;
   }
 
   @Override
-  public void lock() { logger.info("NOT IMPLEMENTED"); }
-  @Override
-  public void unlock(){
-    door.setState(new Unlocked(door));
-    logger.info("Locked to Unlocked door");
+  public void open() {
+    logger.info("NOT IMPLEMENTED");
   }
 
   @Override
-  public void unlockShortly(){ logger.info("NOT IMPLEMENTED"); }
+  public void close() {
+    logger.info("NOT IMPLEMENTED");
+  }
+
+  @Override
+  public void lock() {
+    door.setState(new Locked(door));
+    logger.info("Locked to Unlocked");
+  }
+  @Override
+  public void unlock(){ logger.info("NOT IMPLEMENTED"); }
+
+  @Override
+  public void unlockShortly(){
+    logger.info("NOT IMPLEMENTED");
+  }
 }

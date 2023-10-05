@@ -10,18 +10,23 @@ public class Unlocked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Unlocked.class);
   public Unlocked(Door door) {
     super(door);
-    name = State.UNLOCKED;
   }
 
   @Override
-  public void lock() {
-    door.setState(new Locked(door));
-    logger.info("Unlocked to Locked door");
+  public void open() { }
+
+  @Override
+  public void close() { }
+
+  @Override
+  public void lock() { }
+
+  @Override
+  public void unlock() {
+    door.setState(new Unlocked(door));
+    logger.info("Unlocked to Locked");
   }
 
   @Override
-  public void unlock() { logger.info("NOT IMPLEMENTED"); }
-
-  @Override
-  public void unlockShortly() { logger.info("NOT IMPLEMENTED"); }
+  public void unlockShortly() {}
 }
