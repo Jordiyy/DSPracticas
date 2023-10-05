@@ -2,6 +2,9 @@ package baseNoStates.areas;
 
 import baseNoStates.Door;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public abstract class Area {
   protected Door[] door;
   String areaBuilding;
@@ -12,6 +15,10 @@ public abstract class Area {
   }
 
   public Door[] getDoorsGivingAccess() {
-    return null;
+    return door;
+  }
+
+  public String getAreaBuilding() {
+    return areaBuilding;
   }
 }

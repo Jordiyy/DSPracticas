@@ -4,10 +4,12 @@ import baseNoStates.areas.*;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DirectoryAreas {
-  private static ArrayList[] allAreas;
+  private static ArrayList<Area> allAreas;
   private static Area area;
   static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
   public DirectoryAreas() {
@@ -19,7 +21,7 @@ public class DirectoryAreas {
   public static void makeAreas() {
     Area a1 = new Building("building");
     Area a2 = new Basement("basement");
-    Area a3 = new Basement("parking");
+    Area a3 = new Parking("parking");
     Area a4 = new GroundFloor("ground_floor");
     Area a5 = new GroundFloor("hall");
     Area a6 = new GroundFloor("room1");
@@ -31,6 +33,7 @@ public class DirectoryAreas {
     Area a12 = new Stairs("stairs");
     Area a13 = new Exterior("exterior");
 
+    allAreas = new ArrayList<>(Arrays.asList(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13));
 
         /*
         * new Area("building", 3,347,91,380),
@@ -50,9 +53,13 @@ public class DirectoryAreas {
   }
 
   public static Area findAreaById(String areaId) {
-    return getArea();
+    for (Area area : allAreas) {
+      if (area.getAreaBuilding().equals(areaId)) {
+        return area;
+      }
+    }
+    logger.info("area with id " + areaId + " not found");
+    return null;
   }
-  private static Area getArea() {
-    return area;
-  }
+
 }
