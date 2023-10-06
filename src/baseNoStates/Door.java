@@ -32,7 +32,7 @@ public class Door {
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (doorState.getIsClose() && Objects.equals(getStateName(), State.UNLOCKED)) {
+        if (doorState.getIsClose() && Objects.equals(doorState.getName(), State.UNLOCKED)) {
           doorState.open();
         } else {
           System.out.println("Can't open door " + id + " because it's already open");
@@ -46,10 +46,10 @@ public class Door {
         }
         break;
       case Actions.LOCK:
-        if(!Objects.equals(getStateName(), State.LOCKED)) { doorState.lock(); }
+        if(!Objects.equals(doorState.getName(), State.LOCKED)) { doorState.lock(); }
         break;
       case Actions.UNLOCK:
-        if(!Objects.equals(getStateName(), State.UNLOCKED)) { doorState.unlock(); }
+        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
         break;
       case Actions.UNLOCK_SHORTLY:
         // TODO
