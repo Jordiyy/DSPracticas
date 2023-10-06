@@ -69,6 +69,18 @@ class Main {
 + {static} main(args : String)
 }
 
+abstract class Area {
+    # areaNombre : String
+}
+
+class Partition extends Area{
+    # allAreas : ArrayList<Area>
+}
+
+class Space extends Area {
+    # door : Door[]
+}
+
 note right of Main::main
 DirectoryDoors.makeDoors()
 DiretoryUsers.makeUsers()
