@@ -14,13 +14,11 @@ public abstract class Area {
    * - fatherNode es para indicar el nodo del padre y se usara para acceder al nodo padre para añadir el contenido de tu nodo a su array children
    */
   String areaId;
-  ArrayList<Area> children = new ArrayList<Area>();
   Area fatherNode;
 
-  public Area(String areaName, Area nodeContent, Area fromNode) {
+  public Area(String areaName, Area fromNode) {
     areaId = areaName;
     fatherNode = fromNode;
-    children.add(nodeContent);
   }
 
   public Door[] getDoorsGivingAccess() {

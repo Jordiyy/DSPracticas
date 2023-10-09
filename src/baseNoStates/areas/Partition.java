@@ -8,9 +8,11 @@ public class Partition extends Area {
   /**
    * solo se que tiene que haber un arraylist de Area
    */
-  ArrayList<Area> contentTree;
+  //ArrayList<Area> contentTree;
+  ArrayList<Area> children = new ArrayList<Area>();
 
-  public Partition(String areaName, Area nodeContent, Area fromNode) {
-    super(areaName, nodeContent, fromNode);
+  public Partition(String areaName, Area fromNode, Area nodeContent) {
+    super(areaName, fromNode);
+    children.add(nodeContent);
   }
 }
