@@ -9,11 +9,11 @@ public abstract class Area {
    * - children es el arbol que hay en los niveles inferiores
    * - fatherNode es para indicar el nodo del padre y se usara para acceder al nodo padre para añadir el contenido de tu nodo a su array children
    */
-  String areaId;
-  String description;
-  Area fatherNode;
+  protected String areaId;
+  protected String description;
+  protected Partition fatherNode;
 
-  public Area(String areaName, String infoArea, Area fromNode) {
+  public Area(String areaName, String infoArea, Partition fromNode) {
     areaId = areaName;
     description = infoArea;
     fatherNode = fromNode;
