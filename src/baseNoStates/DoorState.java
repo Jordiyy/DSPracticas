@@ -6,18 +6,15 @@ package baseNoStates;
 public abstract class DoorState {
   protected Door door;
   protected String name;
-  private boolean isClosed;
 
   public DoorState(Door door) {
     this.door = door;
-    isClosed = true;
+    name = door.getId();
   }
-  public String getName() { return name; }
-  public boolean getIsClose() { return isClosed; }
 
-  protected void open() { isClosed=false; }
+  public abstract void open();
 
-  protected void close() { isClosed=true; }
+  public abstract void close();
 
   public abstract void lock();
 
