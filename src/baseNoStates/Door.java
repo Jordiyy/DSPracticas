@@ -2,22 +2,23 @@ package baseNoStates;
 
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import java.util.concurrent.TimeUnit;
+
+import java.util.Objects;
 
 
-public class Door {
+public class Door{
   private final String id;
+  private Space to;
+  private Space from;
   private boolean closed; // physically
-  private String state;
+  private DoorState doorState;
 
-  static Logger logger = LoggerFactory.getLogger(Locked.class);
-
-  public Door(String id) {
+  public Door(String id, Space to, Space from) {
     this.id = id;
-    closed = true;
-    state = getClass().getSimpleName().equalsIgnoreCase(State.LOCKED) ? getClass().getSimpleName().toLowerCase() : State.UNLOCKED;
+    this.to = to;
+    this.from = from;
+
+    doorState = new Unlocked(this);
   }
 
   public void processRequest(RequestReader request) {
@@ -27,55 +28,36 @@ public class Door {
       String action = request.getAction();
       doAction(action);
     } else {
-      logger.info("not authorized");
+      System.out.println("not authorized");
     }
     request.setDoorStateName(getStateName());
   }
 
   private void doAction(String action) {
     switch (action) {
-
       case Actions.OPEN:
-        if (closed && state.equalsIgnoreCase(State.UNLOCKED)) {
-          closed = false;
+        if (doorState.getIsClose() && Objects.equals(doorState.getName(), State.UNLOCKED)) {
+          doorState.open();
         } else {
-          logger.info("Can't open door " + id + " because it's already open");
+          System.out.println("Can't open door " + id + " because it's already open");
         }
         break;
       case Actions.CLOSE:
-        if (closed) {
-          logger.info("Can't close door " + id + " because it's already closed");
+        if (doorState.getIsClose()) {
+          System.out.println("Can't close door " + id + " because it's already closed");
         } else {
-          closed = true;
+          doorState.close();
         }
         break;
       case Actions.LOCK:
-        if (state.equalsIgnoreCase(State.UNLOCKED)) {
-          Locked door = new Locked(this);
-          door.lock();
-        }
+        if(!Objects.equals(doorState.getName(), State.LOCKED)) { doorState.lock(); }
         break;
       case Actions.UNLOCK:
-        if (state.equalsIgnoreCase(State.LOCKED)) {
-          Unlocked door = new Unlocked(this);
-          door.unlock();
-        }
+        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
         break;
       case Actions.UNLOCK_SHORTLY:
-        logger.info("Action " + action + " not implemented yet");
-
-        Unlocked_Shortly door = new Unlocked_Shortly(this);
-        door.unlockShortly();
-
-        long startTime = System.currentTimeMillis();
-        long finishTime = startTime + 10000;
-        while(finishTime - startTime != 0){
-          startTime = System.currentTimeMillis();
-        }
-
-        /*Locked door2 = new Locked(this);
-        door2.lock();*/
-
+        // TODO
+        System.out.println("Action " + action + " not implemented yet");
         break;
       default:
         assert false : "Unknown action " + action;
@@ -84,7 +66,7 @@ public class Door {
   }
 
   public boolean isClosed() {
-    return closed;
+    return doorState.getIsClose();
   }
 
   public String getId() {
@@ -92,14 +74,14 @@ public class Door {
   }
 
   public String getStateName() {
-    return state;
+    return doorState.getName();
   }
 
   @Override
   public String toString() {
     return "Door{"
         + ", id='" + id + '\''
-        + ", closed=" + closed
+        + ", closed=" + doorState.getIsClose()
         + ", state=" + getStateName()
         + "}";
   }
@@ -108,11 +90,9 @@ public class Door {
     JSONObject json = new JSONObject();
     json.put("id", id);
     json.put("state", getStateName());
-    json.put("closed", closed);
+    json.put("closed", doorState.getIsClose());
     return json;
   }
 
-  public void setState(DoorState doorState) {
-    state = doorState.getClass().getSimpleName().toLowerCase();
-  }
+  public void setState(DoorState doorState) { this.doorState = doorState; }
 }
