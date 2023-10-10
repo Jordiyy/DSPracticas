@@ -2,10 +2,6 @@ package baseNoStates.areas;
 
 import baseNoStates.Door;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public abstract class Area {
   /**
    * La idea de mi planteamiento es la siguiente:
@@ -14,10 +10,12 @@ public abstract class Area {
    * - fatherNode es para indicar el nodo del padre y se usara para acceder al nodo padre para añadir el contenido de tu nodo a su array children
    */
   String areaId;
+  String description;
   Area fatherNode;
 
-  public Area(String areaName, Area fromNode) {
+  public Area(String areaName, String infoArea, Area fromNode) {
     areaId = areaName;
+    description = infoArea;
     fatherNode = fromNode;
   }
 

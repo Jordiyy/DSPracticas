@@ -8,8 +8,8 @@ public class Space extends Area {
   /**
    *No estoy nada seguro de si tendria que ser asi o similar el cosntructor
    */
-  public Space(String areaName, Area fromNode, Door[] doorsAvailable) {
-    super(areaName, fromNode);
+  public Space(String areaName, String infoArea, Area fatherNode, Door[] doorsAvailable) {
+    super(areaName, infoArea, fatherNode);
     doorsInSpace = doorsAvailable;
   }
 

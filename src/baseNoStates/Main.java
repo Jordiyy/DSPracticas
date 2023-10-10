@@ -12,6 +12,7 @@ public class Main {
     DirectoryDoors.makeDoors();
     DirectoryUsers.makeUsers();
     DirectoryAreas.makeAreas();
+
     logger.info("\n\nTesting LOGGER\n\n");
     new WebServer();
   }

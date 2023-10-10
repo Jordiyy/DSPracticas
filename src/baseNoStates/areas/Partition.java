@@ -11,8 +11,11 @@ public class Partition extends Area {
   //ArrayList<Area> contentTree;
   ArrayList<Area> children = new ArrayList<Area>();
 
-  public Partition(String areaName, Area fromNode, Area nodeContent) {
-    super(areaName, fromNode);
+  public Partition(String areaName, String infoArea, Area fatherNode) {
+    super(areaName, infoArea, fatherNode);
+  }
+
+  public void addPartition(Area nodeContent) {
     children.add(nodeContent);
   }
 }
