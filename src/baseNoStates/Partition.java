@@ -6,25 +6,34 @@ import java.util.Arrays;
 public class Partition extends Area{
 
   private ArrayList<Area> allAreas;
-
-  public void setAllAreas(ArrayList<Area> doors) { allAreas.addAll(doors); }
-  public void setArea(Area area) { allAreas.add(area); }
   public Partition(String id, String noName, Partition partitionDad){
     super(id, noName, partitionDad);
+    allAreas = new ArrayList<>();
   }
+  public void setAllAreas(ArrayList<Area> areas) { allAreas.addAll(areas); }
+  public void setArea(Area area) { allAreas.add(area); }
+
 
   @Override
-  Door getDoorGivingAccess() {
+  Door getDoorsGivingAccess() {
     return null;
   }
 
   @Override
   Area findAreaById(String id) {
-    for(Area area : allAreas)
-      if(area.getId().equals(id))
-        return area;
+    Area trobada = null;
+    for (Area area : allAreas) {
+      if (trobada == null) {
+        if (area.getId().equals(id)) {
+          return area;
+        }
+        else {
+          trobada = area.findAreaById(id);
+        }
+      }
 
-    return null;
+    }
+    return trobada;
   }
   @Override
   ArrayList<Area> getSpaces() { return allAreas; }

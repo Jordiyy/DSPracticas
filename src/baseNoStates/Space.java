@@ -8,12 +8,17 @@ public class Space extends Area {
 
   public Space(String id, String noName, Partition partitionDad) {
     super(id, noName, partitionDad);
+    allDoors = new ArrayList<>();
   }
 
   public void setDoors(ArrayList<Door> doors) { allDoors.addAll(doors); }
+
+  public void setOneDoor(Door door) {
+    allDoors.add(door);
+  }
   @Override
-  Door getDoorGivingAccess() {
-    return null;
+  Door getDoorsGivingAccess() {
+    return allDoors.get(0);
   }
 
   @Override

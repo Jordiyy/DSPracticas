@@ -1,14 +1,13 @@
 package baseNoStates;
 
-import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DirectoryAreas {
+public final class DirectoryAreas {
   private static ArrayList<Door> allDoors;
   private static Area rootArea;
 
-  public void makeAreas(){
+  public static void makeAreas(){
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
@@ -35,7 +34,25 @@ public class DirectoryAreas {
     Door d8 = new Door("D8", corridor, room3);
     Door d9 = new Door("D9", corridor, IT);
 
-    allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
+    parking.setDoors(new ArrayList<>(Arrays.asList(d1, d2)));
+    hall.setDoors(new ArrayList<>(Arrays.asList(d3, d4)));
+    room1.setOneDoor(d5);
+    room2.setOneDoor(d6);
+    room3.setOneDoor(d8);
+    corridor.setOneDoor(d7);
+    IT.setOneDoor(d9);
+
+    basement.setArea(parking);
+    groundFloor.setAllAreas(new ArrayList<>(Arrays.asList(hall, room1, room2)));
+    floor1.setAllAreas(new ArrayList<>(Arrays.asList(room3, corridor, IT)));
+
+    building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
+
+    rootArea = building;
+    //allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
   }
 
+  public static Area findAreaById(String areaId) {
+    return rootArea.findAreaById(areaId);
+  }
 }
