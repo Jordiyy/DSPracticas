@@ -15,9 +15,13 @@ public abstract class Area {
     this.partitionDad = partitionDad;
   }
 
-  public String getId() { return id; }
+  public String getId() {
+    return id;
+  }
 
   public abstract List<Door> getDoorsGivingAccess();
 
   abstract Area findAreaById(String id);
+
+  public abstract Space[] getSpaces();
 }
