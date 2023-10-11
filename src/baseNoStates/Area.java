@@ -1,6 +1,7 @@
 package baseNoStates;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Area {
   protected String id;
@@ -16,10 +17,7 @@ public abstract class Area {
 
   public String getId() { return id; }
 
-  abstract Door getDoorsGivingAccess();
+  public abstract List<Door> getDoorsGivingAccess();
 
   abstract Area findAreaById(String id);
-
-  abstract ArrayList<?> getSpaces();
-
 }

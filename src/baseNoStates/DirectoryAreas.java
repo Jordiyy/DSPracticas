@@ -2,16 +2,17 @@ package baseNoStates;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public final class DirectoryAreas {
-  private static ArrayList<Door> allDoors;
+  private static List<Door> allDoors;
   private static Area rootArea;
 
   public static void makeAreas(){
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
-    Partition groundFloor = new Partition("groundFloor", "...", building);
+    Partition groundFloor = new Partition("ground_floor", "...", building);
     Partition floor1 = new Partition("floor1", "...", building);
 
     Space parking = new Space("parking", "...", basement);
@@ -49,7 +50,6 @@ public final class DirectoryAreas {
     building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
     rootArea = building;
-    //allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
   }
 
   public static Area findAreaById(String areaId) {
