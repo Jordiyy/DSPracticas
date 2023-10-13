@@ -54,6 +54,8 @@ public final class DirectoryAreas {
 
     building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
+    DirectoryDoors.setAllDoors(new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9)));
+
     rootArea = building;
   }
 

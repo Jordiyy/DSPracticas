@@ -9,8 +9,8 @@ public class Space extends Area {
 
   private List<Door> allDoors;
 
-  public Space(String id, String noName, Partition partitionDad) {
-    super(id, noName, partitionDad);
+  public Space(String id, String descripcion, Partition partitionDad) {
+    super(id, descripcion, partitionDad);
     allDoors = new ArrayList<>();
   }
 

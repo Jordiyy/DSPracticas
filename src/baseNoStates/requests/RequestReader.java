@@ -4,6 +4,7 @@ import baseNoStates.DirectoryDoors;
 import baseNoStates.DirectoryUsers;
 import baseNoStates.doorstates.Door;
 import baseNoStates.User;
+import baseNoStates.areas.Area;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -97,7 +98,13 @@ public class RequestReader implements Request {
     } else {
       //TODO: get the who, where, when and what in order to decide, and if not
       // authorized add the reason(s)
-      authorized = true;
+      String to = door.getTo().getId();
+      String from = door.getFrom().toString();
+      boolean check = user.canBeInSpace(door.getTo().getId(), door.getFrom().getId());
+      if (check)
+        authorized = true;
+      else
+        authorized = false;
     }
   }
 }

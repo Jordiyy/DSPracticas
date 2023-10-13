@@ -46,4 +46,8 @@ public final class DirectoryDoors {
     return allDoors;
   }
 
+  public static void setAllDoors(ArrayList<Door> lista) {
+    allDoors = lista;
+  }
+
 }

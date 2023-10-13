@@ -9,8 +9,8 @@ public class Partition extends Area{
 
   private List<Area> allAreas;
 
-  public Partition(String id, String noName, Partition partitionDad) {
-    super(id, noName, partitionDad);
+  public Partition(String id, String descripcion, Partition partitionDad) {
+    super(id, descripcion, partitionDad);
     allAreas = new ArrayList<>();
   }
 

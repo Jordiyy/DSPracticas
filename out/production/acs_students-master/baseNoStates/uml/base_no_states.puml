@@ -91,6 +91,25 @@ class Unlocked extends DoorState {
     + lock() : void
 }
 
+abstract class Area {
+    # id : String
+    # descripcion : String
+    # partitionDad : Partition
+    + Area(id : String, descripcion : String, partitionDad : Partition)
+    + getId() : String
+    + {abstract} getDoorsGivingAccess() : List<Door>
+    + {abstract} findAreaById(id : String) : Area
+    + {abstract} getSpaces() : Space[]
+}
+
+class Partition extends Area {
+
+}
+
+class SPace extends Area {
+
+}
+
 class Main {
     + {static} main(args : String)
 }

@@ -2,12 +2,14 @@ package baseNoStates;
 
 import baseNoStates.areas.Space;
 
+import java.util.List;
+
 public class User {
   private final String name;
   private final String credential;
-  private String[] accessibleSpaces;
+  private List<String> accessibleSpaces;
 
-  public User(String name, String credential, String[] accessibleSpaces) {
+  public User(String name, String credential, List<String> accessibleSpaces) {
     this.name = name;
     this.credential = credential;
     this.accessibleSpaces = accessibleSpaces;
@@ -43,11 +45,11 @@ public class User {
     return (cond1) && (cond2);
   }
 
-  public void setSpacesToBe(String[] possiblesSpaces) {
+  public void setSpacesToBe(List<String> possiblesSpaces) {
     accessibleSpaces = possiblesSpaces;
   }
 
-  private String[] getSpaces() {
+  private List<String> getSpaces() {
     return accessibleSpaces;
   }
 }

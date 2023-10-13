@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public final class DirectoryUsers {
   private static final ArrayList<User> users = new ArrayList<>();
@@ -17,8 +19,8 @@ public final class DirectoryUsers {
     // users without any privilege, just to keep temporally users instead of deleting them,
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
-    String[] possibleSpaces;
-    possibleSpaces = new String[]{};
+    List<String> possibleSpaces;
+    possibleSpaces = new ArrayList<String>();
     users.add(new User("Bernat", "12345", possibleSpaces));
     users.add(new User("Blai", "77532", possibleSpaces));
 
@@ -27,7 +29,7 @@ public final class DirectoryUsers {
     // week days 9-17h
     // just shortly unlock
     // ground floor, floor1, exterior, stairs (this, for all), that is, everywhere but the parking
-    possibleSpaces = new String[]{"ground_floor", "floor1", "exterior", "stairs"};
+    possibleSpaces = new ArrayList<String>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs"));
     users.add(new User("Ernest", "74984", possibleSpaces));
     users.add(new User("Eulalia", "43295", possibleSpaces));
 
@@ -36,7 +38,7 @@ public final class DirectoryUsers {
     // week days + saturday, 8-20h
     // all actions
     // all spaces
-    possibleSpaces = new String[]{"building", "ground_floor", "floor1", "exterior", "stairs", "basement"};
+    possibleSpaces = new ArrayList<String>(Arrays.asList("building", "ground_floor", "floor1", "exterior", "stairs", "basement", "parking", "hall", "room1", "room2", "room3", "corridor", "IT"));
     users.add(new User("Manel", "95783", possibleSpaces));
     users.add(new User("Marta", "05827", possibleSpaces));
 
