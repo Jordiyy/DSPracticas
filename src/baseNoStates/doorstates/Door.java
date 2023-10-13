@@ -1,5 +1,6 @@
-package baseNoStates;
+package baseNoStates.doorstates;
 
+import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
 

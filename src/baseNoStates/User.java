@@ -1,5 +1,7 @@
 package baseNoStates;
 
+import baseNoStates.areas.Space;
+
 public class User {
   private final String name;
   private final String credential;

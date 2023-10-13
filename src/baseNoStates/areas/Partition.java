@@ -1,4 +1,6 @@
-package baseNoStates;
+package baseNoStates.areas;
+
+import baseNoStates.doorstates.Door;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +56,6 @@ public class Partition extends Area{
 
   @Override
   public Space[] getSpaces() {
-    Space[] canBe = new Space[]{};
-    canBe = (Space[]) allAreas.toArray();
-    return canBe;
+    return (Space[]) allAreas.toArray();
   }
 }

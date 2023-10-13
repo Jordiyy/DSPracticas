@@ -1,5 +1,10 @@
 package baseNoStates;
 
+import baseNoStates.areas.Area;
+import baseNoStates.areas.Partition;
+import baseNoStates.areas.Space;
+import baseNoStates.doorstates.Door;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
