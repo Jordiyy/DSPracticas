@@ -6,13 +6,13 @@ import java.util.List;
 
 public abstract class Area {
   protected String id;
-  protected String noName; //Que el profe diga que es
+  protected String descripcion;
   protected Partition partitionDad;
 
 
-  public Area(String id, String noName, Partition partitionDad) {
+  public Area(String id, String descripcion, Partition partitionDad) {
     this.id = id;
-    this.noName = noName;
+    this.descripcion = descripcion;
     this.partitionDad = partitionDad;
   }
 

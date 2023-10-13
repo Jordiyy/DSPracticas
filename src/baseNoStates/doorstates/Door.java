@@ -96,4 +96,12 @@ public class Door{
   }
 
   public void setState(DoorState doorState) { this.doorState = doorState; }
+
+  public Space getTo() {
+    return to;
+  }
+
+  public Space getFrom() {
+    return from;
+  }
 }

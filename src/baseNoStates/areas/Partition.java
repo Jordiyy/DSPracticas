@@ -38,7 +38,7 @@ public class Partition extends Area{
   }
 
   @Override
-  Area findAreaById(String id) {
+  public Area findAreaById(String id) {
     if (this.getId().equals(id))
       return this;
 

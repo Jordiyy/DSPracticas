@@ -25,7 +25,7 @@ public class Space extends Area {
   public List<Door> getDoorsGivingAccess() { return allDoors; }
 
   @Override
-  Area findAreaById(String id) {
+  public Area findAreaById(String id) {
     return null;
   }
 
