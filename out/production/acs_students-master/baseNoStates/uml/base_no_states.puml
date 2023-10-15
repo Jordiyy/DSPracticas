@@ -32,6 +32,10 @@ class DirectoryDoors {
     + {static} getAllDoors() : Door[]
 }
 
+note right of DirectoryDoors
+se borra mas adelante
+end note
+
 DirectoryDoors --> "*" Door : "allDoors"
 
 class DirectoryUsers {
@@ -41,6 +45,19 @@ class DirectoryUsers {
 }
 
 DirectoryUsers --> "*" User : "users"
+
+class DirectoryAreas {
+    - {static} allDoors : List<Door>
+    - {static} rootArea : Area
+    + {static} makeAreas() : void
+    + {static} findAreaById(areaId : String) : Area
+}
+
+note right of DirectoryAreas
+se borra variables rootArea y allDoors ??
+end note
+
+DirectoryAreas --> Area : rootArea
 
 class Door {
     - id : String
@@ -58,6 +75,8 @@ class Door {
     + getStateName() : String
     - doAction(action : String) : void
 }
+
+DirectoryAreas --> "*" Door : allDoors
 
 class User {
     - name : String
@@ -103,11 +122,23 @@ abstract class Area {
 }
 
 class Partition extends Area {
-
+    - allAreas : List<Area>
+    + Partition(id : String, descripcion : String, partitionDad : Partition)
+    + setAllAreas(area : ArrayList<Area>) : void
+    + setArea(area: Area) : void
+    + getDoorsGivingAccess() : List<Door>
+    + findAreaById(id : String) : Area
+    + getSpaces() : Space[]
 }
 
-class SPace extends Area {
-
+class Space extends Area {
+    - allDoors : List<Door>
+    + setDoors(doors : ArrayList<Door>) : void
+    + getAllDoors() : List<Door>
+    + setOneDoor(door : Door) : void
+    + getDoorsGivingAccess() : List<Door>
+    + findAreaById(id : String) : Area
+    + getSpaces() : Space[]
 }
 
 class Main {

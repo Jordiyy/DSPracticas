@@ -1,5 +1,8 @@
 package baseNoStates.doorstates;
 
+/**
+ * Definicion de las cosntantes de las acciones que se pueden realizar sobre una puerta
+ */
 public final class Actions {
   // possible actions in reader and area requests
   public static final String LOCK = "lock";

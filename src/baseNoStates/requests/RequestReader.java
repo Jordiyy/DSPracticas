@@ -4,7 +4,7 @@ import baseNoStates.DirectoryDoors;
 import baseNoStates.DirectoryUsers;
 import baseNoStates.doorstates.Door;
 import baseNoStates.User;
-import baseNoStates.areas.Area;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
