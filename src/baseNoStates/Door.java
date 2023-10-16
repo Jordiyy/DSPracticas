@@ -18,6 +18,7 @@ public class Door{
     this.to = to;
     this.from = from;
 
+    //Toda puerta parte del estado UNLOCKED
     doorState = new Unlocked(this);
   }
 

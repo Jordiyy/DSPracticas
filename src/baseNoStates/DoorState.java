@@ -5,7 +5,7 @@ package baseNoStates;
  */
 public abstract class DoorState {
   protected Door door;
-  protected String name;
+  protected String name;  //Posibilidades (por ahora): locked, unlocked
   private boolean isClosed;
 
   public DoorState(Door door) {
