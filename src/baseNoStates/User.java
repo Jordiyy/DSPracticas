@@ -31,13 +31,13 @@ public class User {
     for (String space : accessibleSpaces) {
       if (space.equals(spaceTo)) {
         cond1 = true;
-        break;
       }
-    }
 
-    for (String space : accessibleSpaces) {
       if (space.equals(spaceFrom)) {
         cond2 = true;
+      }
+
+      if (cond1 && cond2) {
         break;
       }
     }
