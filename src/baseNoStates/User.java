@@ -7,12 +7,12 @@ import java.util.List;
 public class User {
   private final String name;
   private final String credential;
-  private List<String> accessibleSpaces;
+  //private List<String> accessibleSpaces;
 
-  public User(String name, String credential, List<String> accessibleSpaces) {
+  public User(String name, String credential/*, List<String> accessibleSpaces*/) {
     this.name = name;
     this.credential = credential;
-    this.accessibleSpaces = accessibleSpaces;
+    //this.accessibleSpaces = accessibleSpaces;
   }
 
   public String getCredential() {
@@ -24,7 +24,7 @@ public class User {
     return "User{name=" + name + ", credential=" + credential + "}";
   }
 
-  public boolean canBeInSpace(String spaceTo, String spaceFrom) {
+  /*public boolean canBeInSpace(String spaceTo, String spaceFrom) {
     boolean cond1 = false;
     boolean cond2 = false;
 
@@ -51,5 +51,7 @@ public class User {
 
   private List<String> getSpaces() {
     return accessibleSpaces;
-  }
+  }*/
+
+
 }
