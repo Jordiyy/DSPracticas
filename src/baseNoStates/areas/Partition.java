@@ -23,11 +23,13 @@ public class Partition extends Area{
     allAreas.addAll(areas);
   }
 
+  //Añade el area pasada por parámetro. Utilizamos esta función si sólo añadimos UNA área
   public void setArea(Area area) {
     allAreas.add(area);
   }
 
   //Devuelve una lista de puertas a las que tiene permiso realizar acciones.
+  //Ej: Si Partition = "ground floor" --> doors = (D3,D4,D5,D6)
   @Override
   public List<Door> getDoorsGivingAccess() {
     List<Door> doors = new ArrayList<>();
@@ -44,6 +46,7 @@ public class Partition extends Area{
   }
 
   //Realiza una búsqueda recursiva para encontrar el Area buscada a través del arbol.
+  //Ej: Buscamos id = "hall"; Si estamos en building; recursividad: building -->basement --> parking --> ground floor --> hall
   @Override
   public Area findAreaById(String id) {
     if (this.getId().equals(id))

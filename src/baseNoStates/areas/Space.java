@@ -30,7 +30,7 @@ public class Space extends Area {
     allDoors.add(door);
   }
 
-  //Devuelve la lista de puertas que se enceuntran en el area
+  //Devuelve la lista de puertas que se encuentran en el area
   @Override
   public List<Door> getDoorsGivingAccess() {
     return allDoors;
