@@ -1,14 +1,20 @@
-package baseNoStates;
+package baseNoStates.areas;
+
+import baseNoStates.doorstates.Door;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que actua como de contenedor del patrón Composite, almacenando una lista de objetos de tipo Area.
+ */
 public class Partition extends Area{
-
+  //Variable que almacena las areas de la que está formada dicha Area.
   private List<Area> allAreas;
 
-  public Partition(String id, String noName, Partition partitionDad) {
-    super(id, noName, partitionDad);
+  //Constructor de la clase Partition
+  public Partition(String id, String descripcion, Partition partitionDad) {
+    super(id, descripcion, partitionDad);
     allAreas = new ArrayList<>();
   }
 
@@ -20,6 +26,7 @@ public class Partition extends Area{
     allAreas.add(area);
   }
 
+  //Devuelve una lista de puertas a las que tiene permiso realizar acciones.
   @Override
   public List<Door> getDoorsGivingAccess() {
     List<Door> doors = new ArrayList<>();
@@ -35,8 +42,9 @@ public class Partition extends Area{
     return doors;
   }
 
+  //Realiza una búsqueda recursiva para encontrar el Area buscada a través del arbol.
   @Override
-  Area findAreaById(String id) {
+  public Area findAreaById(String id) {
     if (this.getId().equals(id))
       return this;
 
@@ -52,10 +60,9 @@ public class Partition extends Area{
     return null;
   }
 
+  //Devuelve todos las areas que se enceuntran a partir de su nodo/area
   @Override
   public Space[] getSpaces() {
-    Space[] canBe = new Space[]{};
-    canBe = (Space[]) allAreas.toArray();
-    return canBe;
+    return (Space[]) allAreas.toArray();
   }
 }

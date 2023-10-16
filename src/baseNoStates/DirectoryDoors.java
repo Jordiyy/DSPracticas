@@ -1,5 +1,6 @@
 package baseNoStates;
 
+import baseNoStates.doorstates.Door;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,6 +44,10 @@ public final class DirectoryDoors {
   public static ArrayList<Door> getAllDoors() {
     logger.info(allDoors.toString());
     return allDoors;
+  }
+
+  public static void setAllDoors(ArrayList<Door> lista) {
+    allDoors = lista;
   }
 
 }

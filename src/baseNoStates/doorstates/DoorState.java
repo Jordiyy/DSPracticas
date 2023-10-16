@@ -1,7 +1,10 @@
-package baseNoStates;
+package baseNoStates.doorstates;
 
 /**
- * Clase abtracta para definir los posibles estados de la puerta.
+ * Clase abtracta para definir los posibles estados de la puerta, siguiendo el patrón State.
+ * door -->  instancia de un objeto de tipo Door
+ * name --> identificador de la puerta
+ * isClosed --> indica el estado de la puerta, si esta abierto o cerrado
  */
 public abstract class DoorState {
   protected Door door;
