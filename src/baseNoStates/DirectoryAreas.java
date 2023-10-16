@@ -15,11 +15,11 @@ public final class DirectoryAreas {
 
   /**
    * Función para la creación de todas las areas junto a las puertas.
-   * Se sigue los siguientes pasos:
+   * Se siguen los siguientes pasos:
    *  1- Creación de todas las areas del edificio.
    *  2- Creación de todas las puertas.
    *  3- Asignación de las puertas a cada espacio.
-   *  4- Colocación de los espacion en forma de arbol según el patrón Composite.
+   *  4- Colocación de los espacios en forma de arbol según el patrón Composite.
    */
   public static void makeAreas() {
     Partition building = new Partition("building", "...", null);

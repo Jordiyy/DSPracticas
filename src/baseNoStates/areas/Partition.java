@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que actua como de contenedor del patrón Composite, almacenando una lista de objetos de tipo Area.
+ * Clase que actua como contenedor del patrón Composite, almacenando una lista de objetos de tipo Area.
  */
 public class Partition extends Area{
   //Variable que almacena las areas de la que está formada dicha Area.
@@ -18,6 +18,7 @@ public class Partition extends Area{
     allAreas = new ArrayList<>();
   }
 
+  //Añade las areas pasadas por parámetro al final de la lista allAreas
   public void setAllAreas(ArrayList<Area> areas) {
     allAreas.addAll(areas);
   }
@@ -60,7 +61,7 @@ public class Partition extends Area{
     return null;
   }
 
-  //Devuelve todos las areas que se enceuntran a partir de su nodo/area
+  //Devuelve todas las areas que se encuentran a partir de su nodo/area
   @Override
   public Space[] getSpaces() {
     return (Space[]) allAreas.toArray();
