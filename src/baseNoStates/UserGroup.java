@@ -1,16 +1,20 @@
 package baseNoStates;
 
+import baseNoStates.areas.Space;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class UserGroup {
   private final String groupName;
   private final ArrayList<User> userList;
   private final Calendar startTime;
   private final Calendar endTime;
+  private ArrayList<String> spacePermission;
 
   public UserGroup(String groupName, ArrayList<User> userList, String startTime, String endTime) throws ParseException {
     this.groupName = groupName;
@@ -25,6 +29,8 @@ public class UserGroup {
     this.endTime = Calendar.getInstance();
     this.endTime.setTime(time2);
     this.endTime.add(Calendar.DATE, 1);
+
+    spacePermission = new ArrayList<String>();
   }
 
   public String getGroupName() {
@@ -54,6 +60,14 @@ public class UserGroup {
       }
     }
     return null;
+  }
+
+  public void setSpacePermission(ArrayList<String> list) {
+    this.spacePermission = list;
+  }
+
+  public ArrayList<String> getSpacePermission() {
+    return spacePermission;
   }
 
   private int getDayAsInt(String day) {
@@ -91,11 +105,11 @@ public class UserGroup {
       return true;
     }
 
-    if (this.getGroupName().equals("managers")) {
+    if (this.getGroupName().equals("manager")) {
       return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.SATURDAY;
     }
 
-    if (this.getGroupName().equals("employees")) {
+    if (this.getGroupName().equals("employee")) {
       return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.FRIDAY;
     }
 

@@ -1,5 +1,6 @@
 package baseNoStates;
 
+import baseNoStates.doorstates.Door;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class DirectoryUserGroups {
   private static final ArrayList<UserGroup> userGroups = new ArrayList<>();
-  static Logger logger = LoggerFactory.getLogger(DirectoryUsers.class);
+  static Logger logger = LoggerFactory.getLogger(DirectoryUserGroups.class);
 
   public static void makeUserGroups() throws ParseException {
     //TODO: make user groups according to the specifications in the comments, because
@@ -20,17 +21,19 @@ public class DirectoryUserGroups {
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
     UserGroup ug1 = new UserGroup("admin", null, null, null);
-    UserGroup ug2 = new UserGroup("managers", null, "08:00:00", "20:00:00");
-    UserGroup ug3 = new UserGroup("employees", null, "09:00:00", "17:00:00");
+    UserGroup ug2 = new UserGroup("manager", null, "08:00:00", "20:00:00");
+    UserGroup ug3 = new UserGroup("employee", null, "09:00:00", "17:00:00");
     UserGroup ug4 = new UserGroup("noGroup", null, null, null);
 
-    User u1 = new User("Bernat", "12345");
-    User u2 = new User("Blai", "77532");
-    User u3 = new User("Ernest", "74984");
-    User u4 = new User("Eulalia", "43295");
-    User u5 = new User("Manel", "95783");
-    User u6 = new User("Marta", "05827");
-    User u7 = new User("Ana", "11343");
+    ug3.setSpacePermission(new ArrayList<>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs")));
+
+    User u1 = new User("Bernat", "12345", "noGroup");
+    User u2 = new User("Blai", "77532", "noGroup");
+    User u3 = new User("Ernest", "74984", "employee");
+    User u4 = new User("Eulalia", "43295", "employee");
+    User u5 = new User("Manel", "95783", "manager");
+    User u6 = new User("Marta", "05827", "manager");
+    User u7 = new User("Ana", "11343", "admin");
 
     ug1.addUser(u7);
     ug2.addAllUsers(new ArrayList<>(Arrays.asList(u5, u6)));
@@ -64,14 +67,21 @@ public class DirectoryUserGroups {
   }
 
   public static User findUserByCredential(String credential) {
-    for (User user : users) {
-      if (user.getCredential().equals(credential)) {
-        return user;
+    ArrayList<User> userList;
+    for (UserGroup group : userGroups) {
+      userList = group.getUserList();
+      for (User user : userList) {
+        if (user.getCredential().equals(credential)) {
+          return user;
+        }
       }
     }
     logger.info("user with credential " + credential + " not found");
     return null; // otherwise we get a Java error
   }
 
+  public static ArrayList<UserGroup> getUserGroups() {
+    return userGroups;
+  }
 
 }
