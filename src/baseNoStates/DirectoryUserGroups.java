@@ -20,10 +20,10 @@ public class DirectoryUserGroups {
     // users without any privilege, just to keep temporally users instead of deleting them,
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
-    UserGroup ug1 = new UserGroup("admin", null, null, null);
-    UserGroup ug2 = new UserGroup("manager", null, "08:00:00", "20:00:00");
-    UserGroup ug3 = new UserGroup("employee", null, "09:00:00", "17:00:00");
-    UserGroup ug4 = new UserGroup("noGroup", null, null, null);
+    UserGroup ug1 = new UserGroup("admin", new ArrayList<User>(), null, null);
+    UserGroup ug2 = new UserGroup("manager", new ArrayList<User>(), "08:00:00", "20:00:00");
+    UserGroup ug3 = new UserGroup("employee", new ArrayList<User>(), "09:00:00", "17:00:00");
+    UserGroup ug4 = new UserGroup("noGroup", new ArrayList<User>(), null, null);
 
     ug3.setSpacePermission(new ArrayList<>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs")));
 

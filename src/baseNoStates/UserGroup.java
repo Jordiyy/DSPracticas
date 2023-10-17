@@ -20,15 +20,23 @@ public class UserGroup {
     this.groupName = groupName;
     this.userList = userList;
 
-    Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
-    this.startTime = Calendar.getInstance();
-    this.startTime.setTime(time1);
-    this.startTime.add(Calendar.DATE, 1);
+    if (startTime != null) {
+      Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
+      this.startTime = Calendar.getInstance();
+      this.startTime.setTime(time1);
+      this.startTime.add(Calendar.DATE, 1);
+    } else {
+      this.startTime = null;
+    }
 
-    Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
-    this.endTime = Calendar.getInstance();
-    this.endTime.setTime(time2);
-    this.endTime.add(Calendar.DATE, 1);
+    if (endTime != null) {
+      Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
+      this.endTime = Calendar.getInstance();
+      this.endTime.setTime(time2);
+      this.endTime.add(Calendar.DATE, 1);
+    } else {
+      this.endTime = null;
+    }
 
     spacePermission = new ArrayList<String>();
   }
