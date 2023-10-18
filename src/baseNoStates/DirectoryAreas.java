@@ -1,10 +1,5 @@
 package baseNoStates;
 
-import baseNoStates.areas.Area;
-import baseNoStates.areas.Partition;
-import baseNoStates.areas.Space;
-import baseNoStates.doorstates.Door;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -70,5 +65,9 @@ public final class DirectoryAreas {
   //Busca el area desde el Area raíz hacia los niveles inferiores del arbol.
   public static Area findAreaById(String areaId) {
     return rootArea.findAreaById(areaId);
+  }
+
+  public static Area getRootArea() {
+    return rootArea;
   }
 }

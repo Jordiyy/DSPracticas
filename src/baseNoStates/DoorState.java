@@ -1,4 +1,4 @@
-package baseNoStates.doorstates;
+package baseNoStates;
 
 /**
  * Clase abtracta para definir los posibles estados de la puerta, siguiendo el patrón State.

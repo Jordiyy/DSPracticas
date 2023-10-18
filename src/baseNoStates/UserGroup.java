@@ -1,7 +1,5 @@
 package baseNoStates;
 
-import baseNoStates.areas.Space;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,10 +9,10 @@ import java.util.List;
 
 public class UserGroup {
   private final String groupName;
-  private final ArrayList<User> userList;
+  private List<User> userList = new ArrayList<User>();
   private final Calendar startTime;
   private final Calendar endTime;
-  private ArrayList<String> spacePermission;
+  private List<Space> spacePermission = new ArrayList<Space>();
 
   public UserGroup(String groupName, ArrayList<User> userList, String startTime, String endTime) throws ParseException {
     this.groupName = groupName;
@@ -38,14 +36,14 @@ public class UserGroup {
       this.endTime = null;
     }
 
-    spacePermission = new ArrayList<String>();
+    spacePermission = new ArrayList<Space>();
   }
 
   public String getGroupName() {
     return groupName;
   }
 
-  public ArrayList<User> getUserList() {
+  public List<User> getUserList() {
     return userList;
   }
 
@@ -70,14 +68,14 @@ public class UserGroup {
     return null;
   }
 
-  public void setSpacePermission(ArrayList<String> list) {
+  public void setSpacePermission(List<Space> list) {
     this.spacePermission = list;
   }
 
-  public ArrayList<String> getSpacePermission() {
+  public List<Space> getSpacePermission() {
     return spacePermission;
   }
-
+  //Cambiarlo completo
   private int getDayAsInt(String day) {
     switch (day) {
       case "Monday":

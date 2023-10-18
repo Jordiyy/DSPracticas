@@ -1,6 +1,4 @@
-package baseNoStates.areas;
-
-import baseNoStates.doorstates.Door;
+package baseNoStates;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +60,7 @@ public class Partition extends Area{
 
   //Devuelve todos las areas que se enceuntran a partir de su nodo/area
   @Override
-  public Space[] getSpaces() {
-    return (Space[]) allAreas.toArray();
+  public List<Area> getSpaces() {
+    return allAreas;
   }
 }

@@ -1,6 +1,4 @@
-package baseNoStates.areas;
-
-import baseNoStates.doorstates.Door;
+package baseNoStates;
 
 import java.util.List;
 
@@ -27,5 +25,5 @@ public abstract class Area {
 
   public abstract Area findAreaById(String id);
 
-  public abstract Space[] getSpaces();
+  public abstract List<Area> getSpaces();
 }

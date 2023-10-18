@@ -1,6 +1,4 @@
-package baseNoStates.areas;
-
-import baseNoStates.doorstates.Door;
+package baseNoStates;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +40,7 @@ public class Space extends Area {
   }
 
   @Override
-  public Space[] getSpaces() {
+  public List<Area> getSpaces() {
     return null;
   }
 }

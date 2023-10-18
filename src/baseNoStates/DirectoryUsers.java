@@ -1,7 +1,7 @@
 /*
 package baseNoStates;
 
-import baseNoStates.areas.Space;
+import baseNoStates.Space;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

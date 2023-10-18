@@ -1,4 +1,4 @@
-package baseNoStates.doorstates;
+package baseNoStates;
 
 /**
  * Definicion de las cosntantes de las acciones que se pueden realizar sobre una puerta

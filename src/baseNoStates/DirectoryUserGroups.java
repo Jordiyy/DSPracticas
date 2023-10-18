@@ -1,6 +1,5 @@
 package baseNoStates;
 
-import baseNoStates.doorstates.Door;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,15 +24,17 @@ public class DirectoryUserGroups {
     UserGroup ug3 = new UserGroup("employee", new ArrayList<User>(), "09:00:00", "17:00:00");
     UserGroup ug4 = new UserGroup("noGroup", new ArrayList<User>(), null, null);
 
-    ug3.setSpacePermission(new ArrayList<>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs")));
+    //ug1.setSpacePermission(new ArrayList<>(Arrays.asList("building", "ground_floor", "floor1", "exterior", "stairs", "basement", "parking", "hall", "room1", "room2", "room3", "corridor", "IT")));
+    //ug2.setSpacePermission(new ArrayList<>(Arrays.asList("building", "ground_floor", "floor1", "exterior", "stairs", "basement", "parking", "hall", "room1", "room2", "room3", "corridor", "IT")));
+    //ug3.setSpacePermission(new ArrayList<>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs")));
 
-    User u1 = new User("Bernat", "12345", "noGroup");
-    User u2 = new User("Blai", "77532", "noGroup");
-    User u3 = new User("Ernest", "74984", "employee");
-    User u4 = new User("Eulalia", "43295", "employee");
-    User u5 = new User("Manel", "95783", "manager");
-    User u6 = new User("Marta", "05827", "manager");
-    User u7 = new User("Ana", "11343", "admin");
+    User u1 = new User("Bernat", "12345"); // "noGroup"
+    User u2 = new User("Blai", "77532"); //, "noGroup"
+    User u3 = new User("Ernest", "74984"); //, "employee"
+    User u4 = new User("Eulalia", "43295"); //, "employee"
+    User u5 = new User("Manel", "95783"); //, "manager"
+    User u6 = new User("Marta", "05827"); //, "manager"
+    User u7 = new User("Ana", "11343"); //, "admin"
 
     ug1.addUser(u7);
     ug2.addAllUsers(new ArrayList<>(Arrays.asList(u5, u6)));
@@ -67,7 +68,7 @@ public class DirectoryUserGroups {
   }
 
   public static User findUserByCredential(String credential) {
-    ArrayList<User> userList;
+    List<User> userList = new ArrayList<User>();
     for (UserGroup group : userGroups) {
       userList = group.getUserList();
       for (User user : userList) {

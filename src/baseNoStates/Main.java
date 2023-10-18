@@ -12,8 +12,8 @@ public class Main {
   static Logger logger = LoggerFactory.getLogger(Main.class);
   public static void main(String[] args) throws ParseException {
     DirectoryDoors.makeDoors();
-    DirectoryUserGroups.makeUserGroups();
     DirectoryAreas.makeAreas();
+    DirectoryUserGroups.makeUserGroups();
 
     logger.info("\n\nTesting LOGGER\n\n");
     new WebServer();

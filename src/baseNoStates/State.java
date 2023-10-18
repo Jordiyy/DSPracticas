@@ -1,5 +1,5 @@
 //Constantes. NO se utiliza como clase sino como constantes
-package baseNoStates.doorstates;
+package baseNoStates;
 
 /**
  * Define las constantes de los diferentes estados de las puertas.

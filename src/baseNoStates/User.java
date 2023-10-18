@@ -1,7 +1,5 @@
 package baseNoStates;
 
-import baseNoStates.areas.Space;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +7,12 @@ public class User {
   private final String name;
   private final String credential;
   //private List<String> accessibleSpaces;
-  private String rol;
+  private UserGroup rol;
 
-  public User(String name, String credential, String rol/*, List<String> accessibleSpaces*/) {
+  public User(String name, String credential) {
     this.name = name;
     this.credential = credential;
-    this.rol = rol;
-    //this.accessibleSpaces = accessibleSpaces;
+    rol = null;
   }
 
   public String getCredential() {
@@ -27,30 +24,25 @@ public class User {
     return "User{name=" + name + ", credential=" + credential + "}";
   }
 
+  public void setRol (UserGroup group) {
+    rol = group;
+  }
+
+  public UserGroup getRol() {
+    return rol;
+  }
+
   public boolean canBeInSpace(String spaceTo, String spaceFrom) {
-    if (rol.equals("admin") || rol.equals("manager")) {
-      return true;
-    }
-
-    if (rol.equals("noGroup")) {
-      return false;
-    }
-
     boolean cond1 = false, cond2 = false;
+    List<Space> listSpaces = new ArrayList<>();
+    listSpaces = rol.getSpacePermission();
 
-    ArrayList<UserGroup> listSpaces;
-    listSpaces = DirectoryUserGroups.getUserGroups();
-    for (UserGroup group : listSpaces) {
-      if (group.getGroupName().equals("employee")) {
-        for (String s : group.getSpacePermission()) {
-          if (s.equals(spaceFrom)) {
-            cond1 = true;
-          }
-
-          if (s.equals(spaceTo)) {
-            cond2 = true;
-          }
-        }
+    for (Space sp : listSpaces) {
+      if (sp.getId().equals(spaceFrom)) {
+        cond1 = true;
+      }
+      if (sp.getId().equals(spaceTo)) {
+        cond2 = true;
       }
     }
 
