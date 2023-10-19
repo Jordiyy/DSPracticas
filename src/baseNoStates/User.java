@@ -1,5 +1,7 @@
 package baseNoStates;
 
+import java.text.ParseException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import baseNoStates.areas.Area;
 import java.util.List;
@@ -48,6 +50,10 @@ public class User {
     }
 
     return cond1 && cond2;
+  }
+
+  public boolean checkTime(LocalDateTime time) throws ParseException {
+    return rol.checkTime(time);
   }
 
   /*public boolean canBeInSpace(String spaceTo, String spaceFrom) {

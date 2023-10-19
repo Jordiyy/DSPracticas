@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,8 +22,8 @@ public class DirectoryUserGroups {
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
     UserGroup admin = new UserGroup("admin", new ArrayList<User>(), null, null);
-    UserGroup manager = new UserGroup("manager", new ArrayList<User>(), "08:00:00", "20:00:00");
-    UserGroup employee = new UserGroup("employee", new ArrayList<User>(), "09:00:00", "17:00:00");
+    UserGroup manager = new UserGroup("manager", new ArrayList<User>(), LocalDate.now().atTime(8, 0), LocalDate.now().atTime(20, 0));
+    UserGroup employee = new UserGroup("employee", new ArrayList<User>(), LocalDate.now().atTime(9, 0), LocalDate.now().atTime(17, 0));
     UserGroup noGroup = new UserGroup("noGroup", new ArrayList<User>(), null, null);
 
     User u1 = new User("Bernat", "12345", noGroup); // "noGroup"

@@ -4,6 +4,7 @@ import baseNoStates.areas.Area;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,28 +13,30 @@ import java.util.List;
 public class UserGroup {
   private final String groupName;
   private List<User> userList = new ArrayList<User>();
-  private final Calendar startTime;
-  private final Calendar endTime;
+  private final LocalDateTime startTime;
+  private final LocalDateTime endTime;
   private List<Area> spacePermission = new ArrayList<>();
 
-  public UserGroup(String groupName, ArrayList<User> userList, String startTime, String endTime) throws ParseException {
+  public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) throws ParseException {
     this.groupName = groupName;
     this.userList = userList;
 
     if (startTime != null) {
-      Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
+      /*Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
       this.startTime = Calendar.getInstance();
       this.startTime.setTime(time1);
-      this.startTime.add(Calendar.DATE, 1);
+      this.startTime.add(Calendar.DATE, 1);*/
+      this.startTime = startTime;
     } else {
       this.startTime = null;
     }
 
     if (endTime != null) {
-      Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
+      /*Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
       this.endTime = Calendar.getInstance();
       this.endTime.setTime(time2);
-      this.endTime.add(Calendar.DATE, 1);
+      this.endTime.add(Calendar.DATE, 1);*/
+      this.endTime = endTime;
     } else {
       this.endTime = null;
     }
@@ -124,7 +127,7 @@ public class UserGroup {
     return false;
   }
 
-  public boolean checkTime(String timeToCheck) throws ParseException {
+  public boolean checkTime(LocalDateTime timeToCheck) throws ParseException {
     if (this.getGroupName().equals("admin")) {
       return true;
     }
@@ -133,9 +136,9 @@ public class UserGroup {
       return false;
     }
 
-    Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
+    //Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
 
-    return check.after(startTime.getTime()) && check.before(endTime.getTime());
+    return timeToCheck.isAfter(startTime) && timeToCheck.isBefore(endTime);
     //Si el parametro es de tipo Date se borran las 2 lineas de arriba
     //return timeToCheck.after(startTime.getTime()) && timeToCheck.before(endTime.getTime());
   }

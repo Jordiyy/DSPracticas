@@ -5,6 +5,7 @@ import baseNoStates.DirectoryUserGroups;
 import baseNoStates.doorstates.Door;
 import baseNoStates.User;
 
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -77,7 +78,7 @@ public class RequestReader implements Request {
 
   // see if the request is authorized and put this into the request, then send it to the door.
   // if authorized, perform the action.
-  public void process() {
+  public void process() throws ParseException {
     User user = DirectoryUserGroups.findUserByCredential(credential);
     Door door = DirectoryAreas.findDoorById(doorId);
     assert door != null : "door " + doorId + " not found";
@@ -91,7 +92,7 @@ public class RequestReader implements Request {
 
   // the result is put into the request object plus, if not authorized, why not,
   // only for testing
-  private void authorize(User user, Door door) {
+  private void authorize(User user, Door door) throws ParseException {
     if (user == null) {
       authorized = false;
       addReason("user doesn't exists");
@@ -101,6 +102,7 @@ public class RequestReader implements Request {
       String to = door.getTo().getId();
       String from = door.getFrom().toString();
       boolean check = user.canBeInSpace(door.getTo().getId(), door.getFrom().getId());
+      check = user.checkTime(now);
       if (check)
         authorized = true;
       else
