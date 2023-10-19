@@ -13,33 +13,23 @@ import java.util.List;
 public class UserGroup {
   private final String groupName;
   private List<User> userList = new ArrayList<User>();
-  private final LocalDateTime startTime;
-  private final LocalDateTime endTime;
+  private final LocalDateTime startTime = null;
+  private final LocalDateTime endTime = null;
+  private final LocalDateTime startPeriod = null;
+  private final LocalDateTime endPeriod = null;
+  private final LocalDateTime startWeek = null;
+  private final LocalDateTime endWeek = null;
   private List<Area> spacePermission = new ArrayList<>();
 
   public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) throws ParseException {
     this.groupName = groupName;
     this.userList = userList;
 
-    if (startTime != null) {
-      /*Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
-      this.startTime = Calendar.getInstance();
-      this.startTime.setTime(time1);
-      this.startTime.add(Calendar.DATE, 1);*/
-      this.startTime = startTime;
-    } else {
-      this.startTime = null;
-    }
+    this.startTime.withHour(startTime.getHour()).withMinute(startTime.getMinute());
+    this.endTime.withHour(endTime.getHour()).withMinute(endTime.getMinute());
+    this.startPeriod.withYear(startTime.getYear()).withMonth(startTime.getMonthValue()).withDayOfMonth(startTime.getDayOfMonth());
+    this.endPeriod.withYear(endTime.getYear()).withMonth(endTime.getMonthValue()).withDayOfMonth(endTime.getDayOfMonth());
 
-    if (endTime != null) {
-      /*Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
-      this.endTime = Calendar.getInstance();
-      this.endTime.setTime(time2);
-      this.endTime.add(Calendar.DATE, 1);*/
-      this.endTime = endTime;
-    } else {
-      this.endTime = null;
-    }
 
     spacePermission = new ArrayList<Area>();
   }

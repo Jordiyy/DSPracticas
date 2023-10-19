@@ -2,6 +2,8 @@ package baseNoStates.requests;
 
 import baseNoStates.DirectoryAreas;
 import baseNoStates.doorstates.Door;
+
+import java.text.ParseException;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,7 +32,7 @@ public class RequestRefresh implements Request {
   // Also, to quickly test if the partition requests sent by the client app in Flutter
   // works or not, retrieves the state of all the doors so that the simulator can
   // repaint the readers
-  public void process() {
+  public void process() throws ParseException {
     for (Door door : DirectoryAreas.getAllDoors()) {
       jsonsDoors.add(door.toJson());
     }
