@@ -52,7 +52,7 @@ public class User {
     return cond1 && cond2;
   }
 
-  public boolean checkTime(LocalDateTime time) throws ParseException {
+  public boolean checkTime(LocalDateTime time) {
     return rol.checkTime(time);
   }
 

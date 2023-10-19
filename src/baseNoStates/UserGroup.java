@@ -25,10 +25,18 @@ public class UserGroup {
     this.groupName = groupName;
     this.userList = userList;
 
-    this.startTime.withHour(startTime.getHour()).withMinute(startTime.getMinute());
-    this.endTime.withHour(endTime.getHour()).withMinute(endTime.getMinute());
-    this.startPeriod.withYear(startTime.getYear()).withMonth(startTime.getMonthValue()).withDayOfMonth(startTime.getDayOfMonth());
-    this.endPeriod.withYear(endTime.getYear()).withMonth(endTime.getMonthValue()).withDayOfMonth(endTime.getDayOfMonth());
+    if (startTime != null) {
+      this.startTime.withHour(startTime.getHour()).withMinute(startTime.getMinute());
+      this.startPeriod.withYear(startTime.getYear()).withMonth(startTime.getMonthValue()).withDayOfMonth(startTime.getDayOfMonth());
+    }
+
+    if (endTime != null) {
+      this.endTime.withHour(endTime.getHour()).withMinute(endTime.getMinute());
+      this.endPeriod.withYear(endTime.getYear()).withMonth(endTime.getMonthValue()).withDayOfMonth(endTime.getDayOfMonth());
+    }
+
+
+
 
 
     spacePermission = new ArrayList<Area>();
@@ -117,7 +125,7 @@ public class UserGroup {
     return false;
   }
 
-  public boolean checkTime(LocalDateTime timeToCheck) throws ParseException {
+  public boolean checkTime(LocalDateTime timeToCheck) {
     if (this.getGroupName().equals("admin")) {
       return true;
     }

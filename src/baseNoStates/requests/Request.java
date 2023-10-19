@@ -9,5 +9,5 @@ public interface Request {
 
   String toString();
 
-  void process() throws ParseException;
+  void process();
 }
