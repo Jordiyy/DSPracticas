@@ -3,10 +3,10 @@ package baseNoStates.doorstates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Unlocked_Shortly extends DoorState{
+public class Unlocked_Shortly extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
 
-  public Unlocked_Shortly(Door door){
+  public Unlocked_Shortly(Door door) {
     super(door);
   }
 
@@ -18,6 +18,7 @@ public class Unlocked_Shortly extends DoorState{
 
   @Override
   public void lock() { }
+
   @Override
   public void unlock() { }
 

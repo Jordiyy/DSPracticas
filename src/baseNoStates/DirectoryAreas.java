@@ -16,7 +16,7 @@ public final class DirectoryAreas {
   private static Area rootArea;
   static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
 
-  public static void makeAreas(){
+  public static void makeAreas() {
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
@@ -78,6 +78,7 @@ public final class DirectoryAreas {
     logger.info("door with id " + id + " not found");
     return null; // otherwise we get a Java error
   }
+
   public static List<Door> getAllDoors() {
     logger.info(allDoors.toString());
     return allDoors;

@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import baseNoStates.DirectoryAreas;
 
-import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

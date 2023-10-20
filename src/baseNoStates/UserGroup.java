@@ -2,27 +2,16 @@ package baseNoStates;
 
 import baseNoStates.areas.Area;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class UserGroup {
   private final String groupName;
   private List<User> userList = new ArrayList<User>();
-  private final LocalDateTime startTime = null;
-  private final LocalDateTime endTime = null;
-  private final LocalDateTime startPeriod = null;
-  private final LocalDateTime endPeriod = null;
-  private final LocalDateTime startWeek = null;
-  private final LocalDateTime endWeek = null;
-  private AllowAccess access;
+  private AllowAccess access = null;
   private List<Area> spacePermission = new ArrayList<>();
 
   public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) {
@@ -71,7 +60,6 @@ public class UserGroup {
   public List<Area> getSpacePermission() {
     return spacePermission;
   }
-  //Cambiarlo completo
 
   public boolean checkDay(LocalDateTime dayToCheck) {
     return this.access.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
@@ -96,19 +84,23 @@ public class UserGroup {
       this.access.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
     }
 
-
-    if (this.groupName.equals("admin")) {
-      this.access.setStartingDayWeek(1);
-      this.access.setEndDayWeek(7);
-    } else if (this.groupName.equals("manager")) {
-      this.access.setStartingDayWeek(1);
-      this.access.setEndDayWeek(6);
-    } else if (this.groupName.equals("employee")) {
-      this.access.setStartingDayWeek(1);
-      this.access.setEndDayWeek(5);
-    } else {
-      this.access.setStartingDayWeek(0);
-      this.access.setEndDayWeek(0);
+    switch (this.groupName) {
+      case "admin":
+        this.access.setStartingDayWeek(1);
+        this.access.setEndDayWeek(7);
+        break;
+      case "manager":
+        this.access.setStartingDayWeek(1);
+        this.access.setEndDayWeek(6);
+        break;
+      case "employee":
+        this.access.setStartingDayWeek(1);
+        this.access.setEndDayWeek(5);
+        break;
+      default:
+        this.access.setStartingDayWeek(0);
+        this.access.setEndDayWeek(0);
+        break;
     }
   }
 

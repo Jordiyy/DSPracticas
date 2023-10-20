@@ -1,7 +1,6 @@
 package baseNoStates.areas;
 
 import baseNoStates.doorstates.Door;
-
 import java.util.ArrayList;
 import java.util.List;
 

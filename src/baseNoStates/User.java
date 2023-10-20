@@ -1,6 +1,5 @@
 package baseNoStates;
 
-import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import baseNoStates.areas.Area;
@@ -27,7 +26,7 @@ public class User {
     return "User{name=" + name + ", credential=" + credential + "}";
   }
 
-  public void setRol (UserGroup group) {
+  public void setRol(UserGroup group) {
     rol = group;
   }
 
@@ -36,17 +35,14 @@ public class User {
   }
 
   public boolean canBeInSpace(String spaceTo, String spaceFrom) {
-    boolean cond1 = false, cond2 = false;
+    boolean cond1 = false;
+    boolean cond2 = false;
     List<Area> listSpaces = new ArrayList<>();
     listSpaces = rol.getSpacePermission();
 
     for (Area area : listSpaces) {
-      if (area.getId().equals(spaceFrom)) {
-        cond1 = true;
-      }
-      if (area.getId().equals(spaceTo)) {
-        cond2 = true;
-      }
+      cond1 = area.getId().equals(spaceFrom) || cond1;
+      cond2 = area.getId().equals(spaceTo) || cond2;
     }
 
     return cond1 && cond2;

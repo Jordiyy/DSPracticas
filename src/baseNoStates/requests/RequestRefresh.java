@@ -3,7 +3,6 @@ package baseNoStates.requests;
 import baseNoStates.DirectoryAreas;
 import baseNoStates.doorstates.Door;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;

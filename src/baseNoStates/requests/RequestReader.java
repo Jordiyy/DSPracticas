@@ -5,7 +5,6 @@ import baseNoStates.DirectoryUserGroups;
 import baseNoStates.doorstates.Door;
 import baseNoStates.User;
 
-import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -46,7 +45,6 @@ public class RequestReader implements Request {
   public void addReason(String reason) {
     reasons.add(reason);
   }
-
 
   @Override
   public String toString() {
@@ -105,8 +103,8 @@ public class RequestReader implements Request {
       boolean checkDayWeek = user.checkDayWeek(now);
 
       authorized = check && checkTime && checkDate && checkDayWeek;
-
     }
   }
+
 }
 

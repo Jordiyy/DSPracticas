@@ -14,11 +14,11 @@ public class Locked extends DoorState {
   @Override
   public void lock() { logger.info("NOT IMPLEMENTED"); }
   @Override
-  public void unlock(){
+  public void unlock() {
     door.setState(new Unlocked(door));
     logger.info("Locked to Unlocked door");
   }
 
   @Override
-  public void unlockShortly(){ logger.info("NOT IMPLEMENTED"); }
+  public void unlockShortly() { logger.info("NOT IMPLEMENTED"); }
 }

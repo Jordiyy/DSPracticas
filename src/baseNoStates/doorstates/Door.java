@@ -2,12 +2,10 @@ package baseNoStates.doorstates;
 
 import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
+import java.util.Objects;
 import org.json.JSONObject;
 
-import java.util.Objects;
-
-
-public class Door{
+public class Door {
   private final String id;
   private Space to;
   private Space from;
@@ -51,10 +49,10 @@ public class Door{
         }
         break;
       case Actions.LOCK:
-        if(!Objects.equals(doorState.getName(), State.LOCKED)) { doorState.lock(); }
+        if (!Objects.equals(doorState.getName(), State.LOCKED)) { doorState.lock(); }
         break;
       case Actions.UNLOCK:
-        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
+        if (!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
         break;
       case Actions.UNLOCK_SHORTLY:
         // TODO
@@ -95,7 +93,9 @@ public class Door{
     return json;
   }
 
-  public void setState(DoorState doorState) { this.doorState = doorState; }
+  public void setState(DoorState doorState) {
+    this.doorState = doorState;
+  }
 
   public Space getTo() {
     return to;
