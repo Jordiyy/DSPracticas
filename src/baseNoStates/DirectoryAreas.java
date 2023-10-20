@@ -4,6 +4,8 @@ import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
 import baseNoStates.doorstates.Door;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,7 @@ import java.util.List;
 public final class DirectoryAreas {
   private static List<Door> allDoors;
   private static Area rootArea;
+  static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
 
   /**
    * Función para la creación de todas las areas junto a las puertas.
@@ -48,6 +51,8 @@ public final class DirectoryAreas {
     Door d8 = new Door("D8", corridor, room3);
     Door d9 = new Door("D9", corridor, IT);
 
+    allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
+
     parking.setDoors(new ArrayList<>(Arrays.asList(d1, d2)));
     hall.setDoors(new ArrayList<>(Arrays.asList(d3, d4)));
     room1.setOneDoor(d5);
@@ -62,7 +67,8 @@ public final class DirectoryAreas {
 
     building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
-    DirectoryDoors.setAllDoors(new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9)));
+    DirectoryUserGroups.setSpacesToUsers(new ArrayList<>(List.of(parking, hall, room1, room2,
+        room3, corridor, IT, stairs, exterior)));
 
     rootArea = building;
   }
@@ -71,4 +77,19 @@ public final class DirectoryAreas {
   public static Area findAreaById(String areaId) {
     return rootArea.findAreaById(areaId);
   }
+
+  public static Door findDoorById(String id) {
+    for (Door door : allDoors) {
+      if (door.getId().equals(id)) {
+        return door;
+      }
+    }
+    logger.info("door with id " + id + " not found");
+    return null; // otherwise we get a Java error
+  }
+  public static List<Door> getAllDoors() {
+    logger.info(allDoors.toString());
+    return allDoors;
+  }
+  
 }

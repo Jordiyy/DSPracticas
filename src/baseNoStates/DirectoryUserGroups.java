@@ -1,6 +1,6 @@
 package baseNoStates;
 
-import baseNoStates.doorstates.Door;
+import baseNoStates.areas.Area;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,27 +20,25 @@ public class DirectoryUserGroups {
     // users without any privilege, just to keep temporally users instead of deleting them,
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
-    UserGroup ug1 = new UserGroup("admin", new ArrayList<User>(), null, null);
-    UserGroup ug2 = new UserGroup("manager", new ArrayList<User>(), "08:00:00", "20:00:00");
-    UserGroup ug3 = new UserGroup("employee", new ArrayList<User>(), "09:00:00", "17:00:00");
-    UserGroup ug4 = new UserGroup("noGroup", new ArrayList<User>(), null, null);
+    UserGroup admin = new UserGroup("admin", new ArrayList<User>(), null, null);
+    UserGroup manager = new UserGroup("manager", new ArrayList<User>(), "08:00:00", "20:00:00");
+    UserGroup employee = new UserGroup("employee", new ArrayList<User>(), "09:00:00", "17:00:00");
+    UserGroup noGroup = new UserGroup("noGroup", new ArrayList<User>(), null, null);
 
-    ug3.setSpacePermission(new ArrayList<>(Arrays.asList("hall", "room1", "room2", "room3", "corridor", "IT", "exterior", "stairs")));
+    User u1 = new User("Bernat", "12345", noGroup); // "noGroup"
+    User u2 = new User("Blai", "77532", noGroup); //, "noGroup"
+    User u3 = new User("Ernest", "74984", employee); //, "employee"
+    User u4 = new User("Eulalia", "43295", employee); //, "employee"
+    User u5 = new User("Manel", "95783", manager); //, "manager"
+    User u6 = new User("Marta", "05827", manager); //, "manager"
+    User u7 = new User("Ana", "11343", admin); //, "admin"
 
-    User u1 = new User("Bernat", "12345", "noGroup");
-    User u2 = new User("Blai", "77532", "noGroup");
-    User u3 = new User("Ernest", "74984", "employee");
-    User u4 = new User("Eulalia", "43295", "employee");
-    User u5 = new User("Manel", "95783", "manager");
-    User u6 = new User("Marta", "05827", "manager");
-    User u7 = new User("Ana", "11343", "admin");
+    admin.addUser(u7);
+    manager.addAllUsers(new ArrayList<>(Arrays.asList(u5, u6)));
+    employee.addAllUsers(new ArrayList<>(Arrays.asList(u3, u4)));
+    noGroup.addAllUsers(new ArrayList<>(Arrays.asList(u1, u2)));
 
-    ug1.addUser(u7);
-    ug2.addAllUsers(new ArrayList<>(Arrays.asList(u5, u6)));
-    ug3.addAllUsers(new ArrayList<>(Arrays.asList(u3, u4)));
-    ug4.addAllUsers(new ArrayList<>(Arrays.asList(u1, u2)));
-
-    userGroups.addAll(new ArrayList<>(Arrays.asList(ug1, ug2, ug3, ug4)));
+    userGroups.addAll(new ArrayList<>(Arrays.asList(admin, manager, employee, noGroup)));
 
     // employees :
     // Sep. 1 2023 to Mar. 1 2024
@@ -65,9 +63,15 @@ public class DirectoryUserGroups {
     // all spaces
     //Ana
   }
+  public static void setSpacesToUsers(List<Area> areas){
+    userGroups.get(0).setSpacePermission(areas);
+    userGroups.get(1).setSpacePermission(areas);
+    userGroups.get(2).setSpacePermission(areas.subList(1, areas.size()));
+    userGroups.get(3).setSpacePermission(null);
+  }
 
   public static User findUserByCredential(String credential) {
-    ArrayList<User> userList;
+    List<User> userList = new ArrayList<User>();
     for (UserGroup group : userGroups) {
       userList = group.getUserList();
       for (User user : userList) {
