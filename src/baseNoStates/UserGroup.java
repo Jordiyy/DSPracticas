@@ -4,7 +4,10 @@ import baseNoStates.areas.Area;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,25 +22,15 @@ public class UserGroup {
   private final LocalDateTime endPeriod = null;
   private final LocalDateTime startWeek = null;
   private final LocalDateTime endWeek = null;
+  private AllowAccess access;
   private List<Area> spacePermission = new ArrayList<>();
 
-  public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) throws ParseException {
+  public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) {
     this.groupName = groupName;
     this.userList = userList;
+    this.access = new AllowAccess();
 
-    if (startTime != null) {
-      this.startTime.withHour(startTime.getHour()).withMinute(startTime.getMinute());
-      this.startPeriod.withYear(startTime.getYear()).withMonth(startTime.getMonthValue()).withDayOfMonth(startTime.getDayOfMonth());
-    }
-
-    if (endTime != null) {
-      this.endTime.withHour(endTime.getHour()).withMinute(endTime.getMinute());
-      this.endPeriod.withYear(endTime.getYear()).withMonth(endTime.getMonthValue()).withDayOfMonth(endTime.getDayOfMonth());
-    }
-
-
-
-
+    setAllowAccess(startTime, endTime);
 
     spacePermission = new ArrayList<Area>();
   }
@@ -79,66 +72,44 @@ public class UserGroup {
     return spacePermission;
   }
   //Cambiarlo completo
-  private int getDayAsInt(String day) {
-    switch (day) {
-      case "Monday":
-        return 2;
 
-      case "Tuesday":
-        return 3;
-
-      case "Wednesday":
-        return 4;
-
-      case "Thursday":
-        return 5;
-
-      case "Friday":
-        return 6;
-
-      case "Saturday":
-        return 7;
-
-      case "Sunday":
-        return 1;
-
-      default:
-        return 0;
-    }
-  }
-
-  public boolean checkDay(String dayToCheck) {
-    int dayAsInt = getDayAsInt(dayToCheck);
-
-    if (this.getGroupName().equals("admin")) {
-      return true;
-    }
-
-    if (this.getGroupName().equals("manager")) {
-      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.SATURDAY;
-    }
-
-    if (this.getGroupName().equals("employee")) {
-      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.FRIDAY;
-    }
-
-    return false;
+  public boolean checkDay(LocalDateTime dayToCheck) {
+    return this.access.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
   }
 
   public boolean checkTime(LocalDateTime timeToCheck) {
-    if (this.getGroupName().equals("admin")) {
-      return true;
+    return this.access.checkTime(timeToCheck.toLocalTime());
+  }
+
+  public boolean checkPeriod(LocalDateTime dateToCheck) {
+    return this.access.checkPeriod(dateToCheck.toLocalDate());
+  }
+
+  private void  setAllowAccess(LocalDateTime startTime, LocalDateTime endTime) {
+    if (startTime != null) {
+      this.access.setStartPeriod(LocalDate.of(startTime.getYear(), startTime.getMonth(), startTime.getDayOfMonth()));
+      this.access.setStartHour(LocalTime.of(startTime.getHour(), startTime.getMinute()));
     }
 
-    if (this.getGroupName().equals("noGroup")) {
-      return false;
+    if (endTime != null) {
+      this.access.setEndPeriod(LocalDate.of(endTime.getYear(), endTime.getMonth(), endTime.getDayOfMonth()));
+      this.access.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
     }
 
-    //Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
 
-    return timeToCheck.isAfter(startTime) && timeToCheck.isBefore(endTime);
-    //Si el parametro es de tipo Date se borran las 2 lineas de arriba
-    //return timeToCheck.after(startTime.getTime()) && timeToCheck.before(endTime.getTime());
+    if (this.groupName.equals("admin")) {
+      this.access.setStartingDayWeek(1);
+      this.access.setEndDayWeek(7);
+    } else if (this.groupName.equals("manager")) {
+      this.access.setStartingDayWeek(1);
+      this.access.setEndDayWeek(6);
+    } else if (this.groupName.equals("employee")) {
+      this.access.setStartingDayWeek(1);
+      this.access.setEndDayWeek(5);
+    } else {
+      this.access.setStartingDayWeek(0);
+      this.access.setEndDayWeek(0);
+    }
   }
 
 }

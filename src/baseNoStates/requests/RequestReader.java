@@ -99,14 +99,13 @@ public class RequestReader implements Request {
     } else {
       //TODO: get the who, where, when and what in order to decide, and if not
       // authorized add the reason(s)
-      String to = door.getTo().getId();
-      String from = door.getFrom().toString();
       boolean check = user.canBeInSpace(door.getTo().getId(), door.getFrom().getId());
-      check = user.checkTime(now);
-      if (check)
-        authorized = true;
-      else
-        authorized = false;
+      boolean checkTime = user.checkTime(now);
+      boolean checkDate = user.checkDate(now);
+      boolean checkDayWeek = user.checkDayWeek(now);
+
+      authorized = check && checkTime && checkDate && checkDayWeek;
+
     }
   }
 }

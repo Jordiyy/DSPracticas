@@ -22,7 +22,7 @@ public class DirectoryUserGroups {
     // users without any privilege, just to keep temporally users instead of deleting them,
     // this is to withdraw all permissions but still to keep user data to give back
     // permissions later
-    UserGroup admin = new UserGroup("admin", new ArrayList<User>(), null, null);
+    UserGroup admin = new UserGroup("admin", new ArrayList<User>(), LocalDateTime.of(2023,1,1,0,0), LocalDateTime.of(2100,12,31,23,59));
     UserGroup manager = new UserGroup("manager", new ArrayList<User>(), LocalDateTime.of(2023,9,1,8,0), LocalDateTime.of(2024,3,1,20,0));
     UserGroup employee = new UserGroup("employee", new ArrayList<User>(), LocalDateTime.of(2023,9,1,9,0), LocalDateTime.of(2024,3,1,17,0));
     UserGroup noGroup = new UserGroup("noGroup", new ArrayList<User>(), null, null);

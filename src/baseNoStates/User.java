@@ -56,34 +56,12 @@ public class User {
     return rol.checkTime(time);
   }
 
-  /*public boolean canBeInSpace(String spaceTo, String spaceFrom) {
-    boolean cond1 = false;
-    boolean cond2 = false;
-
-    for (String space : accessibleSpaces) {
-      if (space.equals(spaceTo)) {
-        cond1 = true;
-        break;
-      }
-    }
-
-    for (String space : accessibleSpaces) {
-      if (space.equals(spaceFrom)) {
-        cond2 = true;
-        break;
-      }
-    }
-
-    return (cond1) && (cond2);
+  public boolean checkDate(LocalDateTime date) {
+    return rol.checkPeriod(date);
   }
 
-  public void setSpacesToBe(List<String> possiblesSpaces) {
-    accessibleSpaces = possiblesSpaces;
+  public boolean checkDayWeek(LocalDateTime day) {
+    return rol.checkDay(day);
   }
-
-  private List<String> getSpaces() {
-    return accessibleSpaces;
-  }*/
-
 
 }
