@@ -1,4 +1,3 @@
-/*
 package baseNoStates;
 
 import baseNoStates.areas.Space;
@@ -62,4 +61,3 @@ public final class DirectoryUsers {
   }
 
 }
-*/
