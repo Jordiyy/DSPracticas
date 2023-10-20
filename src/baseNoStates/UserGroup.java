@@ -61,12 +61,15 @@ public class UserGroup {
     userList.remove(user);
   }
 
+  //Comprueba si un user pertenece al grupo
   public String userInGroup(User user) {
     for (User u : userList) {
+      //Si user pertence a grupo
       if (u.equals(user)) {
         return this.groupName;
       }
     }
+    //Si no pertenece
     return null;
   }
 
@@ -133,6 +136,7 @@ public class UserGroup {
       return false;
     }
 
+    //Si son employees
     Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
 
     return check.after(startTime.getTime()) && check.before(endTime.getTime());
