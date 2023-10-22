@@ -8,14 +8,11 @@ import org.slf4j.LoggerFactory;
  */
 public class Unlocked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Unlocked.class);
-
-  //Constructor de la clase Unlocked
   public Unlocked(Door door) {
     super(door);
     name = State.UNLOCKED;
   }
 
-  //Cambia la clase de la puerta seleccionada de Unlocked a Locked.
   @Override
   public void lock() {
     door.setState(new Locked(door));

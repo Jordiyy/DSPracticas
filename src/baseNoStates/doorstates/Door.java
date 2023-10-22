@@ -1,10 +1,6 @@
 package baseNoStates.doorstates;
 
 import baseNoStates.areas.Space;
-import baseNoStates.doorstates.Actions;
-import baseNoStates.doorstates.DoorState;
-import baseNoStates.doorstates.State;
-import baseNoStates.doorstates.Unlocked;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
 
@@ -18,13 +14,11 @@ public class Door{
   private boolean closed; // physically
   private DoorState doorState;
 
-  //Constructor del objeto de tipo Door.
   public Door(String id, Space to, Space from) {
     this.id = id;
     this.to = to;
     this.from = from;
 
-    //Toda puerta parte del estado UNLOCKED
     doorState = new Unlocked(this);
   }
 
@@ -40,7 +34,6 @@ public class Door{
     request.setDoorStateName(getStateName());
   }
 
-  //Switch case para las acciones a realizar sobre la puerta seleccionada.
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
@@ -81,12 +74,10 @@ public class Door{
     return id;
   }
 
-  //Devuelve el tipo de puerta al que pertenece.
   public String getStateName() {
     return doorState.getName();
   }
 
-  //Devuelve la información de la puerta en un String.
   @Override
   public String toString() {
     return "Door{"
@@ -96,7 +87,6 @@ public class Door{
         + "}";
   }
 
-  //Devuelve la información de la puerta en un documento JSON.
   public JSONObject toJson() {
     JSONObject json = new JSONObject();
     json.put("id", id);
@@ -105,17 +95,12 @@ public class Door{
     return json;
   }
 
-  //Cambia el tipo de clase de la varaible de tipo abstracta DooState.
-  public void setState(DoorState doorState) {
-    this.doorState = doorState;
-  }
+  public void setState(DoorState doorState) { this.doorState = doorState; }
 
-  //Devuelve el espacia correspondiente al otro lado del que abre la puerta.
   public Space getTo() {
     return to;
   }
 
-  //Devuelve el espacio al que pertenece hacia el lado que abre la puerta.
   public Space getFrom() {
     return from;
   }

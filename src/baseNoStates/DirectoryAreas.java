@@ -16,15 +16,7 @@ public final class DirectoryAreas {
   private static Area rootArea;
   static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
 
-  /**
-   * Función para la creación de todas las areas junto a las puertas.
-   * Se siguen los siguientes pasos:
-   *  1- Creación de todas las areas del edificio.
-   *  2- Creación de todas las puertas.
-   *  3- Asignación de las puertas a cada espacio.
-   *  4- Colocación de los espacios en forma de arbol según el patrón Composite.
-   */
-  public static void makeAreas() {
+  public static void makeAreas(){
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
@@ -67,12 +59,9 @@ public final class DirectoryAreas {
 
     building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
-    //DirectoryDoors.setAllDoors(new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9)));
-
     rootArea = building;
   }
 
-  //Busca el area desde el Area raíz hacia los niveles inferiores del arbol.
   public static Area findAreaById(String areaId) {
     return rootArea.findAreaById(areaId);
   }

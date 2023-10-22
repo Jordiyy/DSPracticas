@@ -6,11 +6,15 @@ package baseNoStates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.ParseException;
+
 public class Main {
   static Logger logger = LoggerFactory.getLogger(Main.class);
-  public static void main(String[] args) {
-    DirectoryUsers.makeUsers();
+  public static void main(String[] args) throws ParseException {
+
+
     DirectoryAreas.makeAreas();
+    DirectoryUserGroups.makeUserGroups();
 
     logger.info("\n\nTesting LOGGER\n\n");
     new WebServer();
