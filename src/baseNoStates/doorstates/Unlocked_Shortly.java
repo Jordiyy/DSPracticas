@@ -6,13 +6,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 public class Unlocked_Shortly extends DoorState{
   static Logger logger = LoggerFactory.getLogger(Locked.class);
 
-  public Unlocked_Shortly(Door door){
+  public Unlocked_Shortly(Door door) {
     super(door);
-    name=State.UNLOCKEDSHORTLY;
+    name = State.UNLOCKEDSHORTLY;
     final int period = 2;
 
   }
@@ -39,5 +40,11 @@ public class Unlocked_Shortly extends DoorState{
   @Override
   public void unlockShortly() {
 
+  }
+
+  @Override
+  public void update(Observable o, Object arg) {
+    logger.info("Unlocked_shortly ha sido notificado");
+    System.out.println("Unlocked_shortly ha sido notificado");
   }
 }

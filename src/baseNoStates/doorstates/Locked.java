@@ -3,6 +3,8 @@ package baseNoStates.doorstates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Observable;
+
 public class Locked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
 
@@ -28,5 +30,11 @@ public class Locked extends DoorState {
   public void unlockShortly(){
     door.setState(new Unlocked_Shortly(door));
     logger.info("Locked to Unlocked_Shortly");
+  }
+
+  @Override
+  public void update(Observable o, Object arg) {
+    logger.info("Locked ha sido notificado");
+    System.out.println("Locked ha sido notificado");
   }
 }

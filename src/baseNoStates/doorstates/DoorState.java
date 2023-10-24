@@ -1,9 +1,11 @@
 package baseNoStates.doorstates;
 
+import java.util.Observer;
+
 /**
  * Clase abtracta para definir los posibles estados de la puerta.
  */
-public abstract class DoorState {
+public abstract class DoorState implements Observer {
   protected Door door;
   protected String name;
   protected boolean isClosed;
