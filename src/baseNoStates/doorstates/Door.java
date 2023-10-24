@@ -1,5 +1,6 @@
 package baseNoStates.doorstates;
 
+import baseNoStates.Clock;
 import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
@@ -14,12 +15,18 @@ public class Door{
   private boolean closed; // physically
   private DoorState doorState;
 
+  private Clock clock;
+
   public Door(String id, Space to, Space from) {
     this.id = id;
     this.to = to;
     this.from = from;
 
     doorState = new Unlocked(this);
+
+    clock = new Clock(2);
+    clock.start();
+
   }
 
   public void processRequest(RequestReader request) {
@@ -37,7 +44,7 @@ public class Door{
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (doorState.getIsClose() && Objects.equals(doorState.getName(), State.UNLOCKED)) {
+        if (doorState.getIsClose() && (Objects.equals(doorState.getName(), State.UNLOCKED) || Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY))) {
           doorState.open();
         } else {
           System.out.println("Can't open door " + id + " because it's already open");
@@ -57,12 +64,25 @@ public class Door{
         if(!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
         break;
       case Actions.UNLOCK_SHORTLY:
-        // TODO
+        if(!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
+          doorState.unlockShortly();
+          clock.addDoor(doorState.door);
+          wait(11);
+         // doorState.lock();
+
+        }
         System.out.println("Action " + action + " not implemented yet");
         break;
       default:
         assert false : "Unknown action " + action;
         System.exit(-1);
+    }
+  }
+  private static void wait(int seconds){
+    try{
+      Thread.sleep(1000*seconds);
+    } catch (InterruptedException e){
+      e.printStackTrace();
     }
   }
 
