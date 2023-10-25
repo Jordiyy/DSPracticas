@@ -1,5 +1,6 @@
 package baseNoStates;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import baseNoStates.areas.Area;
 import java.util.List;
@@ -48,6 +49,18 @@ public class User {
     }
 
     return cond1 && cond2;
+  }
+
+  public boolean checkTime(LocalDateTime time) {
+    return rol.checkTime(time);
+  }
+
+  public boolean checkDate(LocalDateTime date) {
+    return rol.checkPeriod(date);
+  }
+
+  public boolean checkDayWeek(LocalDateTime day) {
+    return rol.checkDay(day);
   }
 
   /*public boolean canBeInSpace(String spaceTo, String spaceFrom) {

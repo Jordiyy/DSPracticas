@@ -13,7 +13,6 @@ public class AllowAccess {
   private LocalTime endHour;
 
   public AllowAccess() {
-    //void
     startPeriod = null;
     startingDayWeek = 0;
     startHour = null;
