@@ -1,25 +1,44 @@
 package baseNoStates;
 
 import baseNoStates.areas.Area;
+import baseNoStates.areas.Partition;
+import baseNoStates.areas.Space;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class UserGroup {
   private final String groupName;
   private List<User> userList = new ArrayList<User>();
-  private AllowAccess access = null;
+  private final Calendar startTime;
+  private final Calendar endTime;
   private List<Area> spacePermission = new ArrayList<>();
 
-  public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) {
+  public UserGroup(String groupName, ArrayList<User> userList, String startTime, String endTime) throws ParseException {
     this.groupName = groupName;
     this.userList = userList;
-    this.access = new AllowAccess();
 
-    setAllowAccess(startTime, endTime);
+    if (startTime != null) {
+      Date time1 = new SimpleDateFormat("HH:mm:ss").parse(startTime);
+      this.startTime = Calendar.getInstance();
+      this.startTime.setTime(time1);
+      this.startTime.add(Calendar.DATE, 1);
+    } else {
+      this.startTime = null;
+    }
+
+    if (endTime != null) {
+      Date time2 = new SimpleDateFormat("HH:mm:ss").parse(endTime);
+      this.endTime = Calendar.getInstance();
+      this.endTime.setTime(time2);
+      this.endTime.add(Calendar.DATE, 1);
+    } else {
+      this.endTime = null;
+    }
 
     spacePermission = new ArrayList<Area>();
   }
@@ -53,55 +72,85 @@ public class UserGroup {
     return null;
   }
 
-  public void setSpacePermission(List<Area> list) {
-    this.spacePermission = list;
+  public void setSpacePermission(List<Area> areas, List<String> notPermisionArea) {
+    for (Area area : areas) {
+      if (area instanceof Partition && !notPermisionArea.contains(area.getId()))
+        setSpacePermission(area.getSpaces(), notPermisionArea);
+
+      if (area instanceof Space) {
+        if(groupName=="admin" || groupName=="manager")
+          spacePermission.add(area);
+        else if (groupName=="employee" && !notPermisionArea.contains(area.getId())) {
+          spacePermission.add(area);
+        }
+      }
+    }
   }
 
   public List<Area> getSpacePermission() {
     return spacePermission;
   }
+  //Cambiarlo completo
+  private int getDayAsInt(String day) {
+    switch (day) {
+      case "Monday":
+        return 2;
 
-  public boolean checkDay(LocalDateTime dayToCheck) {
-    return this.access.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
-  }
+      case "Tuesday":
+        return 3;
 
-  public boolean checkTime(LocalDateTime timeToCheck) {
-    return this.access.checkTime(timeToCheck.toLocalTime());
-  }
+      case "Wednesday":
+        return 4;
 
-  public boolean checkPeriod(LocalDateTime dateToCheck) {
-    return this.access.checkPeriod(dateToCheck.toLocalDate());
-  }
+      case "Thursday":
+        return 5;
 
-  private void  setAllowAccess(LocalDateTime startTime, LocalDateTime endTime) {
-    if (startTime != null) {
-      this.access.setStartPeriod(LocalDate.of(startTime.getYear(), startTime.getMonth(), startTime.getDayOfMonth()));
-      this.access.setStartHour(LocalTime.of(startTime.getHour(), startTime.getMinute()));
-    }
+      case "Friday":
+        return 6;
 
-    if (endTime != null) {
-      this.access.setEndPeriod(LocalDate.of(endTime.getYear(), endTime.getMonth(), endTime.getDayOfMonth()));
-      this.access.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
-    }
+      case "Saturday":
+        return 7;
 
-    switch (this.groupName) {
-      case "admin":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(7);
-        break;
-      case "manager":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(6);
-        break;
-      case "employee":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(5);
-        break;
+      case "Sunday":
+        return 1;
+
       default:
-        this.access.setStartingDayWeek(0);
-        this.access.setEndDayWeek(0);
-        break;
+        return 0;
     }
+  }
+
+  public boolean checkDay(String dayToCheck) {
+    int dayAsInt = getDayAsInt(dayToCheck);
+
+    if (this.getGroupName().equals("admin")) {
+      return true;
+    }
+
+    if (this.getGroupName().equals("manager")) {
+      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.SATURDAY;
+    }
+
+    if (this.getGroupName().equals("employee")) {
+      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.FRIDAY;
+    }
+
+    return false;
+  }
+
+  public boolean checkTime(String timeToCheck) throws ParseException {
+    if (this.getGroupName().equals("admin")) {
+      return true;
+    }
+
+    if (this.getGroupName().equals("noGroup")) {
+      return false;
+    }
+
+    Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
+
+    return check.after(startTime.getTime()) && check.before(endTime.getTime());
+    //Si el parametro es de tipo Date se borran las 2 lineas de arriba
+    //return timeToCheck.after(startTime.getTime()) && timeToCheck.before(endTime.getTime());
   }
 
 }

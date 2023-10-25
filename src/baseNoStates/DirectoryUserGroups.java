@@ -42,9 +42,9 @@ public class DirectoryUserGroups {
     userGroups.addAll(new ArrayList<>(Arrays.asList(admin, manager, employee, noGroup)));
 
     Area area = DirectoryAreas.findAreaById("building");
-    userGroups.get(0).setAreaPermission(area.getSpaces(), new ArrayList<>(List.of("")));
-    userGroups.get(1).setAreaPermission(area.getSpaces(), new ArrayList<>(List.of("")));
-    userGroups.get(2).setAreaPermission(area.getSpaces(), new ArrayList<>(List.of("parking")));
+    userGroups.get(0).setSpacePermission(area.getSpaces(), new ArrayList<>(List.of("")));
+    userGroups.get(1).setSpacePermission(area.getSpaces(),  new ArrayList<>(List.of("")));
+    userGroups.get(2).setSpacePermission(area.getSpaces(),  new ArrayList<>(List.of("parking")));
 
     // employees :
     // Sep. 1 2023 to Mar. 1 2024
@@ -82,4 +82,9 @@ public class DirectoryUserGroups {
     logger.info("user with credential " + credential + " not found");
     return null; // otherwise we get a Java error
   }
+
+  public static ArrayList<UserGroup> getUserGroups() {
+    return userGroups;
+  }
+
 }

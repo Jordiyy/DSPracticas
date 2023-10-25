@@ -1,10 +1,12 @@
 package baseNoStates.areas;
 
 import baseNoStates.doorstates.Door;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Partition extends Area {
+public class Partition extends Area{
+
   private List<Area> allAreas;
 
   public Partition(String id, String descripcion, Partition partitionDad) {
@@ -53,7 +55,5 @@ public class Partition extends Area {
   }
 
   @Override
-  public Space[] getSpaces() {
-    return (Space[]) allAreas.toArray();
-  }
+  public List<Area> getSpaces() { return allAreas; }
 }

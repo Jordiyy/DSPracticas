@@ -1,15 +1,17 @@
 package baseNoStates.areas;
+
 import baseNoStates.doorstates.Door;
 import java.util.List;
 
 public abstract class Area {
   protected String id;
-  protected String description;
+  protected String descripcion;
   protected Partition partitionDad;
 
-  public Area(String id, String description, Partition partitionDad) {
+
+  public Area(String id, String descripcion, Partition partitionDad) {
     this.id = id;
-    this.description = description;
+    this.descripcion = descripcion;
     this.partitionDad = partitionDad;
   }
 
