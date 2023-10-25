@@ -1,21 +1,18 @@
 package baseNoStates.doorstates;
-
 import baseNoStates.Clock;
+import baseNoStates.areas.Area;
 import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
-import org.json.JSONObject;
-import java.util.Objects;
-import java.util.Observable;
-import java.util.Observer;
 
+import java.util.Objects;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Door {
   private final String id;
-  private Space to;
-  private Space from;
-  private boolean closed; // physically
+  private final Area to;
+  private final Area from;
   private DoorState doorState;
 
   private Clock ck;
@@ -123,11 +120,11 @@ public class Door {
 
   public void setState(DoorState doorState) { this.doorState = doorState; }
 
-  public Space getTo() {
+  public Area getTo() {
     return to;
   }
 
-  public Space getFrom() {
+  public Area getFrom() {
     return from;
   }
 }

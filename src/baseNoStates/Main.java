@@ -20,13 +20,6 @@ public class Main {
   }
   public static void main(String[] args) throws ParseException {
 
-    /*final int period = 2;
-    Clock clock = new Clock(period);
-    clock.start();
-    //wait(11);
-    clock.stop();*/
-
-
     DirectoryAreas.makeAreas();
     DirectoryUserGroups.makeUserGroups();
 

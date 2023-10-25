@@ -16,14 +16,9 @@ public abstract class DoorState implements Observer {
   }
   public String getName() { return name; }
   public boolean getIsClose() { return isClosed; }
-
-  //protected  void open() { isClosed=false; }
   protected abstract void open();
   protected void close() { isClosed=true; }
-
   public abstract void lock();
-
   public abstract void unlock();
-
   public abstract void unlockShortly();
 }

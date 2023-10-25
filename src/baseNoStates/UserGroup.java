@@ -12,11 +12,12 @@ import java.util.Date;
 import java.util.List;
 
 public class UserGroup {
+  private final List<User> userList;
+  private final List<Area> spacePermission;
   private final String groupName;
-  private List<User> userList = new ArrayList<User>();
   private final Calendar startTime;
   private final Calendar endTime;
-  private List<Area> spacePermission = new ArrayList<>();
+
 
   public UserGroup(String groupName, ArrayList<User> userList, String startTime, String endTime) throws ParseException {
     this.groupName = groupName;
@@ -42,11 +43,6 @@ public class UserGroup {
 
     spacePermission = new ArrayList<Area>();
   }
-
-  public String getGroupName() {
-    return groupName;
-  }
-
   public List<User> getUserList() {
     return userList;
   }
@@ -59,38 +55,23 @@ public class UserGroup {
     userList.addAll(arrayUsers);
   }
 
-  public void removeUser(User user) {
-    userList.remove(user);
-  }
-
-  public String userInGroup(User user) {
-    for (User u : userList) {
-      if (u.equals(user)) {
-        return this.groupName;
-      }
-    }
-    return null;
-  }
-
-  public void setSpacePermission(List<Area> areas, List<String> notPermisionArea) {
+  public void setAreaPermission(List<Area> areas, List<String> notPermissionArea) {
     for (Area area : areas) {
-      if (area instanceof Partition && !notPermisionArea.contains(area.getId()))
-        setSpacePermission(area.getSpaces(), notPermisionArea);
+      if (area instanceof Partition && !notPermissionArea.contains(area.getId()))
+        setAreaPermission(area.getSpaces(), notPermissionArea);
 
       if (area instanceof Space) {
         if(groupName=="admin" || groupName=="manager")
           spacePermission.add(area);
-        else if (groupName=="employee" && !notPermisionArea.contains(area.getId())) {
+        else if (groupName=="employee" && !notPermissionArea.contains(area.getId()))
           spacePermission.add(area);
-        }
       }
     }
   }
 
-  public List<Area> getSpacePermission() {
-    return spacePermission;
-  }
+  public List<Area> getSpacePermission() { return spacePermission; }
   //Cambiarlo completo
+
   private int getDayAsInt(String day) {
     switch (day) {
       case "Monday":
@@ -118,39 +99,4 @@ public class UserGroup {
         return 0;
     }
   }
-
-  public boolean checkDay(String dayToCheck) {
-    int dayAsInt = getDayAsInt(dayToCheck);
-
-    if (this.getGroupName().equals("admin")) {
-      return true;
-    }
-
-    if (this.getGroupName().equals("manager")) {
-      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.SATURDAY;
-    }
-
-    if (this.getGroupName().equals("employee")) {
-      return dayAsInt >= Calendar.MONDAY && dayAsInt <= Calendar.FRIDAY;
-    }
-
-    return false;
-  }
-
-  public boolean checkTime(String timeToCheck) throws ParseException {
-    if (this.getGroupName().equals("admin")) {
-      return true;
-    }
-
-    if (this.getGroupName().equals("noGroup")) {
-      return false;
-    }
-
-    Date check = new SimpleDateFormat("HH:mm:ss").parse(timeToCheck);
-
-    return check.after(startTime.getTime()) && check.before(endTime.getTime());
-    //Si el parametro es de tipo Date se borran las 2 lineas de arriba
-    //return timeToCheck.after(startTime.getTime()) && timeToCheck.before(endTime.getTime());
-  }
-
 }
