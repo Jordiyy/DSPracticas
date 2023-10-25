@@ -1,19 +1,21 @@
 package baseNoStates.areas;
-import baseNoStates.doorstates.Door;
 
+import baseNoStates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Partition extends Area{
+public class Partition extends Area {
   private List<Area> allAreas;
-  public Partition(String id, String description, Partition partitionDad) {
-    super(id, description, partitionDad);
+
+  public Partition(String id, String descripcion, Partition partitionDad) {
+    super(id, descripcion, partitionDad);
     allAreas = new ArrayList<>();
   }
 
   public void setAllAreas(ArrayList<Area> areas) {
     allAreas.addAll(areas);
   }
+
   public void setArea(Area area) {
     allAreas.add(area);
   }
@@ -32,6 +34,7 @@ public class Partition extends Area{
     }
     return doors;
   }
+
   @Override
   public Area findAreaById(String id) {
     if (this.getId().equals(id))
@@ -45,9 +48,12 @@ public class Partition extends Area{
       if (subArea != null)
         return subArea;
     }
+
     return null;
   }
 
   @Override
-  public List<Area> getSpaces() { return allAreas; }
+  public Space[] getSpaces() {
+    return (Space[]) allAreas.toArray();
+  }
 }

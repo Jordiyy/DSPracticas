@@ -75,6 +75,7 @@ public final class DirectoryAreas {
     logger.info("door with id " + id + " not found");
     return null; // otherwise we get a Java error
   }
+
   public static List<Door> getAllDoors() {
     logger.info(allDoors.toString());
     return allDoors;

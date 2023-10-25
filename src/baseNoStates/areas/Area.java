@@ -1,6 +1,5 @@
 package baseNoStates.areas;
 import baseNoStates.doorstates.Door;
-
 import java.util.List;
 
 public abstract class Area {
