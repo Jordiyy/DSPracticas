@@ -45,6 +45,5 @@ public class Unlocked_Shortly extends DoorState{
   @Override
   public void update(Observable o, Object arg) {
     logger.info("Unlocked_shortly ha sido notificado");
-    System.out.println("Unlocked_shortly ha sido notificado");
   }
 }

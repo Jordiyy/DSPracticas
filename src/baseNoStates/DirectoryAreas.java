@@ -16,7 +16,7 @@ public final class DirectoryAreas {
   private static Area rootArea;
   static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
 
-  public static void makeAreas(){
+  public static void makeAreas() {
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);

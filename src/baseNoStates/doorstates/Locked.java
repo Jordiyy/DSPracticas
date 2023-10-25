@@ -35,6 +35,5 @@ public class Locked extends DoorState {
   @Override
   public void update(Observable o, Object arg) {
     logger.info("Locked ha sido notificado");
-    System.out.println("Locked ha sido notificado");
   }
 }

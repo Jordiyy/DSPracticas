@@ -4,11 +4,12 @@ import baseNoStates.Clock;
 import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
+import java.util.Objects;
+import java.util.Observable;
+import java.util.Observer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Objects;
-
 
 public class Door {
   private final String id;
@@ -27,6 +28,9 @@ public class Door {
     this.from = from;
 
     doorState = new Unlocked(this);
+
+    ck = Clock.getInstance();
+    ck.addObserver(doorState);
   }
 
   public void processRequest(RequestReader request) {
@@ -67,8 +71,6 @@ public class Door {
         if(!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
           logger.info("Opcion unlocked");
           doorState.unlockShortly();
-          ck = Clock.getInstance();
-          ck.addObserver(doorState);
           ck.start();
           //clock.addDoor(doorState.door);
           //wait(11);
