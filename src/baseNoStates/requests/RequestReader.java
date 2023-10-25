@@ -80,7 +80,7 @@ public class RequestReader implements Request {
     User user = DirectoryUserGroups.findUserByCredential(credential);
     Door door = DirectoryAreas.findDoorById(doorId);
     assert door != null : "door " + doorId + " not found";
-    this.authorize(user, door);
+    authorize(user, door);
     // this sets the boolean authorize attribute of the request
     door.processRequest(this);
     // even if not authorized we process the request, so that if desired we could log all
