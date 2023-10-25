@@ -1,8 +1,8 @@
 package baseNoStates;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import baseNoStates.areas.Area;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -62,35 +62,5 @@ public class User {
   public boolean checkDayWeek(LocalDateTime day) {
     return rol.checkDay(day);
   }
-
-  /*public boolean canBeInSpace(String spaceTo, String spaceFrom) {
-    boolean cond1 = false;
-    boolean cond2 = false;
-
-    for (String space : accessibleSpaces) {
-      if (space.equals(spaceTo)) {
-        cond1 = true;
-        break;
-      }
-    }
-
-    for (String space : accessibleSpaces) {
-      if (space.equals(spaceFrom)) {
-        cond2 = true;
-        break;
-      }
-    }
-
-    return (cond1) && (cond2);
-  }
-
-  public void setSpacesToBe(List<String> possiblesSpaces) {
-    accessibleSpaces = possiblesSpaces;
-  }
-
-  private List<String> getSpaces() {
-    return accessibleSpaces;
-  }*/
-
 
 }

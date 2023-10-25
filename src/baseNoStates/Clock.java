@@ -25,12 +25,11 @@ public class Clock extends Observable {
         System.out.println("run() executed at " + date);
         setChanged();
         notifyObservers();
-        stop();
         //if(!unlockedShortlyDoors.isEmpty()){ stop(); }
       }
     };
 
-    timer.scheduleAtFixedRate(repeatedTask, 10000, 1000 * period);
+    timer.scheduleAtFixedRate(repeatedTask, 0, 1000 * period);
   }
 
   public void stop() {
