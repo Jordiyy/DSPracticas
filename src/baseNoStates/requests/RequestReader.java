@@ -33,7 +33,7 @@ public class RequestReader implements Request {
   public void setDoorStateName(String name) {
     doorStateName = name;
   }
-  
+
   public String getAction() {
     return action;
   }
