@@ -1,10 +1,13 @@
 package baseNoStates.doorstates;
 
 import java.util.Observable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Door locket status.
+ * Defines abstract methods to states that can change.
+ */
 public class Locked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
 
@@ -14,12 +17,9 @@ public class Locked extends DoorState {
   }
 
   @Override
-  protected void open() {
-    isClosed=false;
+  public void lock() {
+    logger.info("NOT IMPLEMENTED");
   }
-
-  @Override
-  public void lock() { logger.info("NOT IMPLEMENTED"); }
 
   @Override
   public void unlock() {
@@ -33,6 +33,17 @@ public class Locked extends DoorState {
     logger.info("Locked to Unlocked_Shortly");
   }
 
+  @Override
+  public void propped() {
+    logger.info("NOT IMPLEMENTED");
+  }
+
+  /**
+   * Notify the door in locket status.
+   * @param o     the observable object.
+   * @param arg   an argument passed to the {@code notifyObservers}
+   *                 method.
+   */
   @Override
   public void update(Observable o, Object arg) {
     logger.info("Locked ha sido notificado");

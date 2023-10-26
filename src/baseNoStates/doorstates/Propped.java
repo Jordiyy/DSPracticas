@@ -1,17 +1,15 @@
 package baseNoStates.doorstates;
 
-import baseNoStates.Clock;
+import java.util.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Observable;
-import java.util.Observer;
 
+/**
+ * Door Propped status.
+ * Defines abstract methods to states that can change.
+ */
 public class Propped extends DoorState {
-  Clock ck;
   static Logger logger = LoggerFactory.getLogger(Propped.class);
-  LocalDateTime unlockedShortlyStartTime;
 
   public Propped(Door door) {
     super(door);
@@ -20,26 +18,22 @@ public class Propped extends DoorState {
   }
 
   @Override
-  public void open() {
-    isClosed = false;
-  }
-
-  @Override
-  public void close() {
-    isClosed = true;
-    lock();
-  }
-
-  @Override
   public void lock() {
     door.setState(new Locked(door));
     logger.info("Unlocked_Shortly to Lock door");
   }
   @Override
-  public void unlock() { }
+  public void unlock() {
+    logger.info("NOT IMPLEMENTED");
+  }
 
   @Override
-  public void unlockShortly() { }
+  public void unlockShortly() {
+    logger.info("NOT IMPLEMENTED");
+  }
 
-  public void update(Observable o, Object arg) {  }
+  @Override
+  public void propped() {
+    logger.info("NOT IMPLEMENTED");
+  }
 }

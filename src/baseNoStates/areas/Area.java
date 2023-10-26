@@ -3,6 +3,14 @@ import baseNoStates.doorstates.Door;
 
 import java.util.List;
 
+/**
+ * We use a Composite Design Patters because the structure of the different spaces follows the
+ * principles of the composite pattern, which are a class with a list of objects of said class
+ * and another class that contains the values.
+ * Abstract class that defines a Partition (Node) or a Space (Leaf).
+ * Partition contains a list of more Partitions or Spaces. While Space contains a list of Door
+ * that are located in that Space.
+ */
 public abstract class Area {
   protected String id;
   protected String description;

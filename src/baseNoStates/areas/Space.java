@@ -1,18 +1,23 @@
 package baseNoStates.areas;
-import baseNoStates.doorstates.Door;
 
+import baseNoStates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that defines Space object.
+ */
 public class Space extends Area {
-  private final List<Door> allDoors;
+  private final List<Door> allDoors; //List of doors that are in one Space.
 
   public Space(String id, String description, Partition partitionDad) {
     super(id, description, partitionDad);
     allDoors = new ArrayList<>();
   }
 
-  public void setDoors(ArrayList<Door> doors) { allDoors.addAll(doors); }
+  public void setDoors(ArrayList<Door> doors) {
+    allDoors.addAll(doors);
+  }
 
   public List<Door> getAllDoors() { return allDoors; }
 

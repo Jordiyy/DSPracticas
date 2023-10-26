@@ -1,11 +1,14 @@
 package baseNoStates.areas;
-import baseNoStates.doorstates.Door;
 
+import baseNoStates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Partition extends Area{
-  private final List<Area> allAreas;
+/**
+ * Class that defines Partition object.
+ */
+public class Partition extends Area {
+  private final List<Area> allAreas; //List that contains Partitions or Spaces.
 
   public Partition(String id, String description, Partition partitionDad) {
     super(id, description, partitionDad);
@@ -20,6 +23,11 @@ public class Partition extends Area{
     allAreas.add(area);
   }
 
+  /**
+   * Get all doors that are in a Space recursively
+   *
+   * @return doors List of doors that are in a zone of Partitions and Spaces
+   */
   @Override
   public List<Door> getDoorsGivingAccess() {
     List<Door> doors = new ArrayList<>();
@@ -37,6 +45,12 @@ public class Partition extends Area{
     return doors;
   }
 
+  /**
+   * Get a Partition or Space recursively.
+   *
+   * @param id
+   * @return
+   */
   @Override
   public Area findAreaById(String id) {
     if (this.getId().equals(id)) { return this; }

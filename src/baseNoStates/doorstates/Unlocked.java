@@ -1,12 +1,12 @@
 package baseNoStates.doorstates;
 
-import java.util.Observable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.Observable;
 
 /**
- * Subclase que define los métodos de una puerta bloqueada.
+ * Door Unlocked status.
+ * Defines abstract methods to states that can change.
  */
 public class Unlocked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Unlocked.class);
@@ -16,22 +16,21 @@ public class Unlocked extends DoorState {
   }
 
   @Override
-  protected void open() {
-    isClosed = false;
-  }
-
-  @Override
   public void lock() {
     door.setState(new Locked(door));
     logger.info("Unlocked to Locked door");
   }
 
   @Override
-  public void unlock() { logger.info("NOT IMPLEMENTED"); }
+  public void unlock() {
+    logger.info("NOT IMPLEMENTED");
+  }
 
   @Override
-  public void unlockShortly() {
-    door.setState(new Unlocked_Shortly(door));
+  public void unlockShortly() { logger.info("NOT IMPLEMENTED"); }
+
+  @Override
+  public void propped() {
     logger.info("NOT IMPLEMENTED");
   }
 

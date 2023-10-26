@@ -3,8 +3,10 @@ package baseNoStates;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Class that checks access by date and time.
+ */
 public class AllowAccess {
-  //private UserGroup userGroup;
   private LocalDate startPeriod;
   private LocalDate endPeriod;
   private int startingDayWeek;
@@ -22,62 +24,53 @@ public class AllowAccess {
     endHour = null;
   }
 
-  public LocalDate getStartPeriod() {
-    return startPeriod;
-  }
-
   public void setStartPeriod(LocalDate startPeriod) {
     this.startPeriod = startPeriod;
-  }
-
-  public LocalDate getEndPeriod() {
-    return endPeriod;
   }
 
   public void setEndPeriod(LocalDate endPeriod) {
     this.endPeriod = endPeriod;
   }
 
-  public int getStartingDayWeek() {
-    return startingDayWeek;
-  }
-
   public void setStartingDayWeek(int startingDayWeek) {
     this.startingDayWeek = startingDayWeek;
-  }
-
-  public int getEndDayWeek() {
-    return endDayWeek;
   }
 
   public void setEndDayWeek(int endDayWeek) {
     this.endDayWeek = endDayWeek;
   }
 
-  public LocalTime getStartHour() {
-    return startHour;
-  }
-
   public void setStartHour(LocalTime startHour) {
     this.startHour = startHour;
-  }
-
-  public LocalTime getEndHour() {
-    return endHour;
   }
 
   public void setEndHour(LocalTime endHour) {
     this.endHour = endHour;
   }
 
+  /**
+   * Method that checks that the time is within the allowed range
+   * @param time is the time to check
+   * @return a condition fulfillment check boolean
+   */
   public boolean checkTime(LocalTime time) {
     return time.isAfter(startHour) && time.isBefore(endHour);
   }
 
+  /**
+   * Method that checks that the date is within the allowed range
+   * @param date is the date to check
+   * @return a condition fulfillment check boolean
+   */
   public boolean checkPeriod(LocalDate date) {
     return date.isAfter(startPeriod) && date.isBefore(endPeriod);
   }
 
+  /**
+   * Method that checks that the day is within the allowed range
+   * @param day is the day to check
+   * @return a condition fulfillment check boolean
+   */
   public boolean checkDayWeek(int day) {
     return day >= startingDayWeek && day <= endDayWeek;
   }

@@ -1,10 +1,8 @@
 package baseNoStates.doorstates;
-import baseNoStates.Clock;
+
 import baseNoStates.areas.Area;
 import baseNoStates.requests.RequestReader;
-
 import java.util.Objects;
-
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +16,6 @@ public class Door {
   private final Area to;        //Door destination area
   private final Area from;      //Door origin area
   private DoorState doorState;  //Door state
-  private final Clock ck;
   static Logger logger = LoggerFactory.getLogger(Door.class);
 
   public Door(String id, Area to, Area from) {
@@ -66,21 +63,19 @@ public class Door {
         }
         break;
       case Actions.LOCK:
-        if(!Objects.equals(doorState.getName(), State.LOCKED)) { doorState.lock(); }
+        if(!Objects.equals(doorState.getName(), State.LOCKED)) {
+          doorState.lock();
+        }
         break;
       case Actions.UNLOCK:
-        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) { doorState.unlock(); }
+        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) {
+          doorState.unlock();
+        }
         break;
       case Actions.UNLOCK_SHORTLY:
         if(!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
-          logger.info("Opcion unlocked");
           doorState.unlockShortly();
-          //clock.addDoor(doorState.door);
-          //wait(11);
-         // doorState.lock();
-
         }
-        System.out.println("Action " + action + " not implemented yet");
         break;
       default:
         assert false : "Unknown action " + action;
@@ -88,23 +83,17 @@ public class Door {
     }
   }
 
-  /**
-   * Getter method to check if the door is closed.
-   * @return return a boolean, True if closed or False if the door is open.
-   */
-  public boolean isClosed() { return doorState.getIsClose(); }
+  public boolean isClosed() {
+    return doorState.getIsClose();
+  }
 
-  /**
-   * Door id getter method.
-   * @return door id.
-   */
-  public String getId() { return id; }
+  public String getId() {
+    return id;
+  }
 
-  /**
-   * Door state name getter method.
-   * @return the name of the state.
-   */
-  public String getStateName() { return doorState.getName(); }
+  public String getStateName() {
+    return doorState.getName();
+  }
 
   /**
    * Getter method a string representation of this Door object.
@@ -131,21 +120,15 @@ public class Door {
     return json;
   }
 
-  /**
-   * Setter method that establishes the state of the door.
-   * @param doorState the new state of the door.
-   */
-  public void setState(DoorState doorState) { this.doorState = doorState; }
+  public void setState(DoorState doorState) {
+    this.doorState = doorState;
+  }
 
-  /**
-   * Door destination area getter method.
-   * @return the destination area of the door.
-   */
-  public Area getTo() { return to; }
+  public Area getTo() {
+    return to;
+  }
 
-  /**
-   * Getter method of the door's source area.
-   * @return la area origen de la puerta.
-   */
-  public Area getFrom() { return from; }
+  public Area getFrom() {
+    return from;
+  }
 }

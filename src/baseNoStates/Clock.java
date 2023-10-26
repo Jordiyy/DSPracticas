@@ -1,23 +1,25 @@
 package baseNoStates;
 
-import baseNoStates.doorstates.Door;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Background clock control class following Singleton Pattern because we only need one instance
+ * of the object Clock that will be shared with the rest of Doors.
+ */
 public class Clock extends Observable {
   private LocalDateTime date;
-  private Timer timer;
-  private int period;
-  private ArrayList<Door> listDoorsToNotify = new ArrayList<>();
-  //me gusta mas este nombre porque indica mejor para que sirve la varible
-  //private List<Door> unlockedShortlyDoors = new ArrayList<>();
-  private static Clock ck = null;
+  private final Timer timer;
+  private static Clock ck;
 
   public Clock() {
-    this.period = 1;
+    ck = null;
     timer = new Timer();
   }
 
+  /**
+   * Method that starts the clock
+   */
   public void start() {
     TimerTask repeatedTask = new TimerTask() {
       public void run() {
@@ -25,25 +27,16 @@ public class Clock extends Observable {
         System.out.println("run() executed at " + date);
         setChanged();
         notifyObservers();
-        //if(!unlockedShortlyDoors.isEmpty()){ stop(); }
       }
     };
 
-    timer.scheduleAtFixedRate(repeatedTask, 0, 1000 * period);
+    timer.scheduleAtFixedRate(repeatedTask, 0, 1000);
   }
 
-  public void stop() {
-    timer.cancel();
-  }
-
-  public int getPeriod() {
-    return getPeriod();
-  }
-
-  public LocalDateTime getDate() {
-    return date;
-  }
-
+  /**
+   * Recovers an instance of the Clock.
+   * @return The Clock instance.
+   */
   public static Clock getInstance() {
     if (ck == null) {
       ck = new Clock();
@@ -51,5 +44,4 @@ public class Clock extends Observable {
     return ck;
   }
 
-  //public void addDoor(Door door) { unlockedShortlyDoors.add(door); }
 }

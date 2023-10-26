@@ -3,19 +3,23 @@ import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
 import baseNoStates.doorstates.Door;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * Class that defines the different Areas and doors.
+ */
 public final class DirectoryAreas {
   private static List<Door> allDoors;
   private static Area rootArea;
   static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
 
+  /**
+   * Method that initializes the areas and doors.
+   */
   public static void makeAreas() {
     Partition building = new Partition("building", "...", null);
 
@@ -62,10 +66,20 @@ public final class DirectoryAreas {
     rootArea = building;
   }
 
+  /**
+   * Method that searches for an area from an id.
+   * @param areaId is the id of the area to search.
+   * @return area found.
+   */
   public static Area findAreaById(String areaId) {
     return rootArea.findAreaById(areaId);
   }
 
+  /**
+   * Method that searches for a door from an id.
+   * @param id is the id of the door to search.
+   * @return door found
+   */
   public static Door findDoorById(String id) {
     for (Door door : allDoors) {
       if (door.getId().equals(id)) {
