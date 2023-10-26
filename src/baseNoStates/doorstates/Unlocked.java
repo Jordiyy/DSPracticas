@@ -1,9 +1,9 @@
 package baseNoStates.doorstates;
 
+import java.util.Observable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Observable;
 
 /**
  * Subclase que define los métodos de una puerta bloqueada.

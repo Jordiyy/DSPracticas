@@ -1,24 +1,19 @@
 package baseNoStates;
-
 import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class UserGroup {
   private final String groupName;
-  private List<User> userList = new ArrayList<User>();
-  private AllowAccess access = null;
-  private List<Area> spacePermission = new ArrayList<>();
+  private final List<User> userList;
+  private final AllowAccess access;
+  private final List<Area> areaPermission;
 
   public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) {
     this.groupName = groupName;
@@ -27,11 +22,7 @@ public class UserGroup {
 
     setAllowAccess(startTime, endTime);
 
-    spacePermission = new ArrayList<Area>();
-  }
-
-  public String getGroupName() {
-    return groupName;
+    areaPermission = new ArrayList<>();
   }
 
   public List<User> getUserList() {
@@ -42,41 +33,28 @@ public class UserGroup {
     userList.add(user);
   }
 
-  public void addAllUsers(ArrayList<User> arrayUsers) {
+  public void addAllUsers(List<User> arrayUsers) {
     userList.addAll(arrayUsers);
   }
 
-  public void removeUser(User user) {
-    userList.remove(user);
-  }
-
-  public String userInGroup(User user) {
-    for (User u : userList) {
-      if (u.equals(user)) {
-        return this.groupName;
-      }
-    }
-    return null;
-  }
-
-  public void setSpacePermission(List<Area> areas, List<String> notPermisionArea) {
+  public void setAreaPermission(List<Area> areas, List<String> notPermissionArea) {
     for (Area area : areas) {
-      if (area instanceof Partition && !notPermisionArea.contains(area.getId()))
-        setSpacePermission(area.getSpaces(), notPermisionArea);
+      if (area instanceof Partition && !notPermissionArea.contains(area.getId())){
+        setAreaPermission(area.getSpaces(), notPermissionArea);
+      }
 
       if (area instanceof Space) {
-        if(groupName=="admin" || groupName=="manager")
-          spacePermission.add(area);
-        else if (groupName=="employee" && !notPermisionArea.contains(area.getId())) {
-          spacePermission.add(area);
+        if(groupName=="admin" || groupName=="manager") {
+          areaPermission.add(area);
+        }else if (groupName=="employee" && !notPermissionArea.contains(area.getId())) {
+          areaPermission.add(area);
         }
+
       }
     }
   }
 
-  public List<Area> getSpacePermission() {
-    return spacePermission;
-  }
+  public List<Area> getAreaPermission() { return areaPermission; }
 
   public boolean checkDay(LocalDateTime dayToCheck) {
     return this.access.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
@@ -120,5 +98,4 @@ public class UserGroup {
         break;
     }
   }
-
 }

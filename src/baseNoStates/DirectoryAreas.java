@@ -1,9 +1,9 @@
 package baseNoStates;
-
 import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
 import baseNoStates.doorstates.Door;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,5 +80,5 @@ public final class DirectoryAreas {
     logger.info(allDoors.toString());
     return allDoors;
   }
-  
+
 }

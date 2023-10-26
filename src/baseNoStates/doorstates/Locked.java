@@ -1,9 +1,9 @@
 package baseNoStates.doorstates;
 
+import java.util.Observable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Observable;
 
 public class Locked extends DoorState {
   static Logger logger = LoggerFactory.getLogger(Locked.class);
@@ -20,6 +20,7 @@ public class Locked extends DoorState {
 
   @Override
   public void lock() { logger.info("NOT IMPLEMENTED"); }
+
   @Override
   public void unlock() {
     door.setState(new Unlocked(door));

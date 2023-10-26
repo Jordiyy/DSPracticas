@@ -33,7 +33,7 @@ public class RequestReader implements Request {
   public void setDoorStateName(String name) {
     doorStateName = name;
   }
-
+  
   public String getAction() {
     return action;
   }
@@ -97,7 +97,7 @@ public class RequestReader implements Request {
     } else {
       //TODO: get the who, where, when and what in order to decide, and if not
       // authorized add the reason(s)
-      boolean check = user.canBeInSpace(door.getTo().getId(), door.getFrom().getId());
+      boolean check = user.canBeInArea(door.getTo().getId(), door.getFrom().getId());
       boolean checkTime = user.checkTime(now);
       boolean checkDate = user.checkDate(now);
       boolean checkDayWeek = user.checkDayWeek(now);

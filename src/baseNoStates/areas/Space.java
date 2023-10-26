@@ -1,15 +1,14 @@
 package baseNoStates.areas;
-
 import baseNoStates.doorstates.Door;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Space extends Area {
+  private final List<Door> allDoors;
 
-  private List<Door> allDoors;
-
-  public Space(String id, String descripcion, Partition partitionDad) {
-    super(id, descripcion, partitionDad);
+  public Space(String id, String description, Partition partitionDad) {
+    super(id, description, partitionDad);
     allDoors = new ArrayList<>();
   }
 
@@ -20,6 +19,7 @@ public class Space extends Area {
   public void setOneDoor(Door door) {
     allDoors.add(door);
   }
+
   @Override
   public List<Door> getDoorsGivingAccess() { return allDoors; }
 

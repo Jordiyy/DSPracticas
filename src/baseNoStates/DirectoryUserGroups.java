@@ -1,6 +1,6 @@
 package baseNoStates;
-
 import baseNoStates.areas.Area;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DirectoryUserGroups {
-  private static final ArrayList<UserGroup> userGroups = new ArrayList<>();
+  private static final List<UserGroup> userGroups = new ArrayList<>();
   static Logger logger = LoggerFactory.getLogger(DirectoryUserGroups.class);
 
   public static void makeUserGroups() throws ParseException {
@@ -42,49 +42,24 @@ public class DirectoryUserGroups {
     userGroups.addAll(new ArrayList<>(Arrays.asList(admin, manager, employee, noGroup)));
 
     Area area = DirectoryAreas.findAreaById("building");
-    userGroups.get(0).setSpacePermission(area.getSpaces(), new ArrayList<>(List.of("")));
-    userGroups.get(1).setSpacePermission(area.getSpaces(),  new ArrayList<>(List.of("")));
-    userGroups.get(2).setSpacePermission(area.getSpaces(),  new ArrayList<>(List.of("parking")));
+    userGroups.get(0).setAreaPermission(area.getSpaces(), new ArrayList<>(List.of("")));
+    userGroups.get(1).setAreaPermission(area.getSpaces(),  new ArrayList<>(List.of("")));
+    userGroups.get(2).setAreaPermission(area.getSpaces(),  new ArrayList<>(List.of("parking")));
 
-    // employees :
-    // Sep. 1 2023 to Mar. 1 2024
-    // week days 9-17h
-    // just shortly unlock
-    // ground floor, floor1, exterior, stairs (this, for all), that is, everywhere but the parking
-    //Ernest
-    //Eulalia
-
-    // managers :
-    // Sep. 1 2023 to Mar. 1 2024
-    // week days + saturday, 8-20h
-    // all actions
-    // all spaces
-    //Manel
-    //Marta
-
-    // admin :
-    // always=2023 to 2100
-    // all days of the week
-    // all actions
-    // all spaces
-    //Ana
   }
+
   public static User findUserByCredential(String credential) {
-    List<User> userList = new ArrayList<User>();
+    List<User> userList;
+
     for (UserGroup group : userGroups) {
       userList = group.getUserList();
       for (User user : userList) {
-        if (user.getCredential().equals(credential)) {
-          return user;
-        }
+        if (user.getCredential().equals(credential)) { return user; }
       }
     }
+
     logger.info("user with credential " + credential + " not found");
     return null; // otherwise we get a Java error
-  }
-
-  public static ArrayList<UserGroup> getUserGroups() {
-    return userGroups;
   }
 
 }
