@@ -64,9 +64,14 @@ class Door {
     + Door(id : String, to : Area, from : Area)
     + processRequest(request : RequestReader) : void
     - doAction(action : String) : void
+    + getId(): String
+    + getStateName(): String
     + isClosed() : boolean
     + toString() : String
     + toJson() : JSONObject
+    + setState(doorState : DoorState)
+    + getTo(): Area
+    + getFrom(): Area
 }
 
 
@@ -74,8 +79,14 @@ class Door {
 class User {
     - name : String
     - credential : String
-    + User(name: String, credential: String)
+    - rol : UserGroup
+    + User(name: String, credential: String, rol : UserGroup)
+    + getCredential() : String
     + toString() : String
+    + canBeInArea(areaTo : String, areaFrom : String) : boolean
+    + checkTime(time: LocalDateTime) : boolean
+    + checkDate(date: LocalDateTime) : boolean
+    + checkDayWeek(day: LocalDateTime) : boolean
 }
 
 
@@ -83,25 +94,29 @@ abstract class DoorState {
     # door : Door
     # name : String
     # isClosed : boolean
-    + open() : void
-    + close() : void
+    + DoorState(door : Door)
+    # open() : void
+    # close() : void
     + getName() : String
     + getIsClose() : boolean
     + {abstract} lock() : void
     + {abstract} unlock() : void
     + {abstract} unlockShortly() : void
     + {abstract} propped() : void
+    + update (o : Observable, arg : Object)
 }
 
 class Locked extends DoorState {
     + Locked(door : Door)
     + unlock() : void
     + unlockShortly() : void
+    + update (o : Observable, arg : Object)
 }
 
 class Unlocked extends DoorState {
     + Unlocked(door : Door)
     + lock() : void
+    + update (o : Observable, arg : Object)
 }
 
 class Unlocked_Shortly extends DoorState {
@@ -132,7 +147,9 @@ abstract class Area {
 
 class Partition extends Area {
     - allAreas : List<Area>
-    + Partition(id : String, descripcion : String, partitionDad : Partition)
+    + Partition(id : String, description : String, partitionDad : Partition)
+    + setAllAreas(areas : List<Area>) : void
+    + setArea(area: Area) : void
     + getDoorsGivingAccess() : List<Door>
     + findAreaById(id : String) : Area
     + getSpaces() : List <Area>
@@ -141,6 +158,9 @@ class Partition extends Area {
 class Space extends Area {
     - allDoors : List<Door>
     + getDoorsGivingAccess() : List<Door>
+    + setDoors(doors: List<Door>) : void
+    + getAllDoors(): List<Door>
+    + setOneDoor(door: Door) : void
     + findAreaById(id : String) : Area
     + getSpaces() : List <Area>
 }
@@ -200,14 +220,25 @@ end note
 
 Webserver +-right- SocketThread
 DirectoryUserGroups <-- "*" UserGroup : "userGroups"
-UserGroup "*" <-- "*" User : "userList"
+UserGroup "*" <-- "1" User : "userList"
 UserGroup <-- AllowAccess : "access"
-DirectoryAreas --> Area
+DirectoryAreas --> Area : "uses"
 Space *--|> Door
-Partition o--|> Area
 DirectoryAreas --> "*" Door
 Door --> "1" DoorState
+Partition o-- "1..*" Door
 Clock "1" <-- "*" Unlocked_Shortly
+Door --> Area : "uses"
+DoorState --|> Observable : observes
+Unlocked_Shortly --|> Observable : observes
+
+Propped --|> Observable : observes
+Locked --|> Observable : observes
+Clock --> Locked : <<observer>>
+Clock --> Unlocked : <<observer>>
+Clock --> Unlocked_Shortly : <<observer>>
+Clock --> Propped : <<observer>>
+
 
 
 Main -[hidden]down- Webserver
