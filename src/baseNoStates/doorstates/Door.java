@@ -27,9 +27,6 @@ public class Door {
     this.from = from;
 
     doorState = new Unlocked(this);
-
-    ck = Clock.getInstance();
-    ck.addObserver(doorState);
   }
 
   /**
@@ -78,7 +75,10 @@ public class Door {
         if(!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
           logger.info("Opcion unlocked");
           doorState.unlockShortly();
-          ck.start();
+          //clock.addDoor(doorState.door);
+          //wait(11);
+         // doorState.lock();
+
         }
         System.out.println("Action " + action + " not implemented yet");
         break;

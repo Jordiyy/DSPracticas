@@ -1,5 +1,7 @@
 package baseNoStates.doorstates;
 
+import java.time.LocalDateTime;
+import java.util.Observable;
 import java.util.Observer;
 
 /**
@@ -31,4 +33,6 @@ public abstract class DoorState implements Observer {
   public abstract void unlock();
 
   public abstract void unlockShortly();
+
+  public void update(Observable o, Object arg) {  }
 }

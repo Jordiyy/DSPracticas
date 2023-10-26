@@ -2,6 +2,8 @@ package baseNoStates;
 import baseNoStates.areas.Area;
 
 import java.time.LocalDateTime;
+import baseNoStates.areas.Area;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {

@@ -11,15 +11,7 @@ import java.text.ParseException;
 public class Main {
   static Logger logger = LoggerFactory.getLogger(Main.class);
 
-  private static void wait(int seconds){
-    try{
-      Thread.sleep(1000*seconds);
-    } catch (InterruptedException e){
-      e.printStackTrace();
-    }
-  }
   public static void main(String[] args) throws ParseException {
-
     DirectoryAreas.makeAreas();
     DirectoryUserGroups.makeUserGroups();
 
