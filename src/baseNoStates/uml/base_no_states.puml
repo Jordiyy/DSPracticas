@@ -240,7 +240,6 @@ Clock --> Unlocked_Shortly : <<observer>>
 Clock --> Propped : <<observer>>
 
 
-
 Main -[hidden]down- Webserver
 
 @enduml
