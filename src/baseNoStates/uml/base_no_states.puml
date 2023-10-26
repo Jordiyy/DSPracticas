@@ -23,10 +23,27 @@ inner class
 of Webserver
 end note
 
-class DirectoryUsers {
-    - {static} users : User[]
-    + {static} makeUsers()
+class DirectoryUserGroups {
+    - {static} userGroups : List<UserGroup>
+    + {static} makeUserGroups()
     + {static} findUserByCredential(credential : String) : User
+}
+
+class UserGroup {
+    - groupName : String
+    - userList : List<User>
+    - access : AllowAccess
+    - areaPermission : List<Area>
+    + UserGroup(groupName : String, userList : ArrayList<User>, startTime : LocalDateTime, endTime : LocalDateTime)
+    + getUserList() : List<User>
+    + addUser(user : User) : void
+    + addAllUsers(arrayUsers : List<User>) : void
+    + setAreaPermission(areas : List<Area>, notPermissionArea : List<String>) : void
+    + getAreaPermission() : List<Area>
+    + checkDay(dayToCheck : LocalDateTime) : boolean
+    + checkTime(timeToCheck : LocalDateTime) : boolean
+    + checkPeriod(dateToCheck : LocalDateTime) : boolean
+    - setAllowAccess(startTime: LocalDateTime, endTime : LocalDateTime) : void
 }
 
 class DirectoryAreas {
@@ -128,6 +145,25 @@ class Space extends Area {
     + getSpaces() : List <Area>
 }
 
+class AllowAccess {
+    - startPeriod : LocalDate
+    - endPeriod : LocalDate
+    - startingDayWeek : int
+    - endDayWeek : int
+    - startHour : LocalTime
+    - endHour : LocalTime
+    + AllowAccess()
+    + setStartPeriod(startPeriod : LocalDate) : void
+    + setEndPeriod(endPeriod : LocalDate) : void
+    + setStartingDayWeek(startingDayWeek : int) : void
+    + setEndDayWeek(endDayWeek : int) : void
+    + setStartHour(startHour : LocalTime) : void
+    + setEndHour(endHour : LocalTime) : void
+    + checkTime(time LocalTime) : boolean
+    + checkPeriod(date LocalDate) : boolean
+    + checkDayWeek(day : int) : boolean
+}
+
 class Clock extends Observable {
     - date : LocalDateTime
     - timer : Timer
@@ -135,6 +171,21 @@ class Clock extends Observable {
     + Clock()
     + start() : void
     + {static} getInstance() : Clock
+}
+
+class State {
+    + {static} LOCKED : String
+    + {static} UNLOCKED : String
+    + {static} UNLOCKEDSHORTLY : String
+    + {static} PROPPED : String
+}
+
+class Actions {
+    + {static} LOCK : String
+    + {static} UNLOCK : String
+    + {static} UNLOCK_SHORTLY : String
+    + {static} OPEN : String
+    + {static} CLOSE : String
 }
 
 class Main {
@@ -148,7 +199,9 @@ new Webserver()
 end note
 
 Webserver +-right- SocketThread
-DirectoryUsers --> "*" User : "users"
+DirectoryUserGroups <-- "*" UserGroup : "userGroups"
+UserGroup "*" <-- "*" User : "userList"
+UserGroup <-- AllowAccess : "access"
 DirectoryAreas --> Area
 Space *--|> Door
 Partition o--|> Area

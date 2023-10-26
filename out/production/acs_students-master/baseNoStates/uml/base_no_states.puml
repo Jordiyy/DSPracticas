@@ -18,25 +18,10 @@ class SocketThread {
     + run()
 }
 
-Webserver +-right- SocketThread
-
 note right of SocketThread
 inner class
 of Webserver
 end note
-
-class DirectoryDoors {
-    - {static} allDoors : Door[]
-    + {static} makeDoors()
-    + {static} findDoorById(id : String) : Door
-    + {static} getAllDoors() : Door[]
-}
-
-note right of DirectoryDoors
-se borra mas adelante
-end note
-
-DirectoryDoors --> "*" Door : "allDoors"
 
 class DirectoryUsers {
     - {static} users : User[]
@@ -44,39 +29,30 @@ class DirectoryUsers {
     + {static} findUserByCredential(credential : String) : User
 }
 
-DirectoryUsers --> "*" User : "users"
-
 class DirectoryAreas {
     - {static} allDoors : List<Door>
     - {static} rootArea : Area
     + {static} makeAreas() : void
     + {static} findAreaById(areaId : String) : Area
+    + {static} findDoorById(id : String) : Door
+    + {static} getAllDoors() : List<Door>
 }
-
-note right of DirectoryAreas
-se borra variables rootArea y allDoors ??
-end note
-
-DirectoryAreas --> Area : rootArea
 
 class Door {
     - id : String
-    - closed : boolean
-    - to : Space
-    - from : Space
-    + Door(id : String, to : Space, from : Space)
+    - to : Area
+    - from : Area
+    - doorState : DoorState
+
+    + Door(id : String, to : Area, from : Area)
     + processRequest(request : RequestReader) : void
-    + setState(doorState : DoorState) : void
-    + toJson() : JSONObject
-    + toString() : String
-    + isClosed() :boolean
-    + getId() : String
-    '+ setClosed(b : boolean)
-    + getStateName() : String
     - doAction(action : String) : void
+    + isClosed() : boolean
+    + toString() : String
+    + toJson() : JSONObject
 }
 
-DirectoryAreas --> "*" Door : allDoors
+
 
 class User {
     - name : String
@@ -85,7 +61,6 @@ class User {
     + toString() : String
 }
 
-Door --> "1" DoorState : doorState
 
 abstract class DoorState {
     # door : Door
@@ -97,12 +72,14 @@ abstract class DoorState {
     + getIsClose() : boolean
     + {abstract} lock() : void
     + {abstract} unlock() : void
-    '+ {abstract} unlockShortly() : void
+    + {abstract} unlockShortly() : void
+    + {abstract} propped() : void
 }
 
 class Locked extends DoorState {
     + Locked(door : Door)
     + unlock() : void
+    + unlockShortly() : void
 }
 
 class Unlocked extends DoorState {
@@ -110,35 +87,54 @@ class Unlocked extends DoorState {
     + lock() : void
 }
 
+class Unlocked_Shortly extends DoorState {
+    - ck : Clock
+    - unlockedShortlyStartTime : LocalDateTime
+    + Unlocked_Shortly(door : Door)
+    + lock() : void
+    + propped() : void
+    + update(o : Observable, arg :  Object) : void
+    - endDelay(timeToCompare : LocalDateTime) : double
+}
+
+class Propped extends DoorState {
+    + Propped(door : Door)
+    + lock() : void
+}
+
 abstract class Area {
     # id : String
-    # descripcion : String
+    # description : String
     # partitionDad : Partition
-    + Area(id : String, descripcion : String, partitionDad : Partition)
+    + Area(id : String, description : String, partitionDad : Partition)
     + getId() : String
     + {abstract} getDoorsGivingAccess() : List<Door>
     + {abstract} findAreaById(id : String) : Area
-    + {abstract} getSpaces() : Space[]
+    + {abstract} getSpaces() : List<Area>
 }
 
 class Partition extends Area {
     - allAreas : List<Area>
     + Partition(id : String, descripcion : String, partitionDad : Partition)
-    + setAllAreas(area : ArrayList<Area>) : void
-    + setArea(area: Area) : void
     + getDoorsGivingAccess() : List<Door>
     + findAreaById(id : String) : Area
-    + getSpaces() : Space[]
+    + getSpaces() : List <Area>
 }
 
 class Space extends Area {
     - allDoors : List<Door>
-    + setDoors(doors : ArrayList<Door>) : void
-    + getAllDoors() : List<Door>
-    + setOneDoor(door : Door) : void
     + getDoorsGivingAccess() : List<Door>
     + findAreaById(id : String) : Area
-    + getSpaces() : Space[]
+    + getSpaces() : List <Area>
+}
+
+class Clock extends Observable {
+    - date : LocalDateTime
+    - timer : Timer
+    - {static} ck : Clock
+    + Clock()
+    + start() : void
+    + {static} getInstance() : Clock
 }
 
 class Main {
@@ -146,12 +142,21 @@ class Main {
 }
 
 note right of Main::main
-DirectoryDoors.makeDoors()
-DiretoryUsers.makeUsers()
+DirectoryAreas.makeAreas()
+DirectoryUserGroups.makeUserGroups()
 new Webserver()
 end note
 
+Webserver +-right- SocketThread
+DirectoryUsers --> "*" User : "users"
+DirectoryAreas --> Area
+Space *--|> Door
+Partition o--|> Area
+DirectoryAreas --> "*" Door
+Door --> "1" DoorState
+Clock "1" <-- "*" Unlocked_Shortly
+
+
 Main -[hidden]down- Webserver
-Webserver -[hidden]down- DirectoryDoors
-DirectoryDoors -[hidden]right- DirectoryUsers
+
 @enduml
