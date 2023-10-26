@@ -209,7 +209,6 @@ DirectoryAreas --> "*" Door
 Door --> "1" DoorState
 Clock "1" <-- "*" Unlocked_Shortly
 
-
 Main -[hidden]down- Webserver
 
 @enduml
