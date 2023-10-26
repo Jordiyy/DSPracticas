@@ -4,20 +4,16 @@ import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class UserGroup {
   private final String groupName;
   private List<User> userList = new ArrayList<User>();
-  private AllowAccess access = null;
+  private AllowAccess access;
   private List<Area> spacePermission = new ArrayList<>();
 
   public UserGroup(String groupName, ArrayList<User> userList, LocalDateTime startTime, LocalDateTime endTime) {

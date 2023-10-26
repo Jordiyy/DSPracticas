@@ -14,7 +14,7 @@ public class Clock extends Observable {
   private static Clock ck = null;
 
   public Clock() {
-    this.period = 10;
+    this.period = 1;
     timer = new Timer();
   }
 

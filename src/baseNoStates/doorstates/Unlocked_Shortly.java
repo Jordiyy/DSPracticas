@@ -3,11 +3,8 @@ package baseNoStates.doorstates;
 import baseNoStates.Clock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -45,17 +42,24 @@ public class Unlocked_Shortly extends DoorState {
   public void unlockShortly() { }
 
   public void update(Observable o, Object arg) {
-    if (endDelay(LocalDateTime.now()) >= 10) {
+    if (endDelay(LocalDateTime.now()) >= 10000) {
       logger.info("HAN PASADO MAS DE 10 SEGUNDOS!!");
+      if (door.isClosed()) {
+        door.setState(new Locked(door));
+      } else {
+        //door.setState(new Unlocked(door));
+        //falta crear el estado propped
+        door.setState(new Propped(door));
+      }
+      ck.deleteObserver(this);
+      if (ck.countObservers() == 0) {
+        ck.stop();
+      }
     }
     logger.info("Unlocked_shortly ha sido notificado");
   }
 
   private double endDelay(LocalDateTime timeToCompare) {
-    double timeDifference = 0.0;
-
-    timeDifference = unlockedShortlyStartTime.until(timeToCompare, ChronoUnit.MILLIS);
-
-    return timeDifference;
+    return unlockedShortlyStartTime.until(timeToCompare, ChronoUnit.MILLIS);
   }
 }
