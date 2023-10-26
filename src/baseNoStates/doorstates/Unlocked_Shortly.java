@@ -1,6 +1,7 @@
 package baseNoStates.doorstates;
 
 import baseNoStates.Clock;
+import baseNoStates.requests.RequestRefresh;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
@@ -47,8 +48,6 @@ public class Unlocked_Shortly extends DoorState {
       if (door.isClosed()) {
         door.setState(new Locked(door));
       } else {
-        //door.setState(new Unlocked(door));
-        //falta crear el estado propped
         door.setState(new Propped(door));
       }
       ck.deleteObserver(this);

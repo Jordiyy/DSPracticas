@@ -1,12 +1,10 @@
 package baseNoStates.doorstates;
 
-import baseNoStates.Clock;
 import baseNoStates.areas.Space;
 import baseNoStates.requests.RequestReader;
+import baseNoStates.requests.RequestRefresh;
 import org.json.JSONObject;
 import java.util.Objects;
-import java.util.Observable;
-import java.util.Observer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,7 +113,9 @@ public class Door {
     return json;
   }
 
-  public void setState(DoorState doorState) { this.doorState = doorState; }
+  public void setState(DoorState doorState) {
+    this.doorState = doorState;
+  }
 
   public Space getTo() {
     return to;

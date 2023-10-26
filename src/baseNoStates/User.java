@@ -1,6 +1,8 @@
 package baseNoStates;
 
 import java.time.LocalDateTime;
+
+import baseNoStates.UserGroup;
 import baseNoStates.areas.Area;
 import java.util.ArrayList;
 import java.util.List;
