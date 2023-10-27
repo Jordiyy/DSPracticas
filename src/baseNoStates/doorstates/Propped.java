@@ -22,6 +22,7 @@ public class Propped extends DoorState {
     door.setState(new Locked(door));
     logger.info("Unlocked_Shortly to Lock door");
   }
+
   @Override
   public void unlock() {
     logger.info("NOT IMPLEMENTED");

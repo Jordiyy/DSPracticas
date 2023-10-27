@@ -63,17 +63,17 @@ public class Door {
         }
         break;
       case Actions.LOCK:
-        if(!Objects.equals(doorState.getName(), State.LOCKED)) {
+        if (!Objects.equals(doorState.getName(), State.LOCKED)) {
           doorState.lock();
         }
         break;
       case Actions.UNLOCK:
-        if(!Objects.equals(doorState.getName(), State.UNLOCKED)) {
+        if (!Objects.equals(doorState.getName(), State.UNLOCKED)) {
           doorState.unlock();
         }
         break;
       case Actions.UNLOCK_SHORTLY:
-        if(!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
+        if (!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
           doorState.unlockShortly();
         }
         break;

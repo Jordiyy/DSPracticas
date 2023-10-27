@@ -28,7 +28,7 @@ public class Locked extends DoorState {
   }
 
   @Override
-  public void unlockShortly(){
+  public void unlockShortly() {
     door.setState(new Unlocked_Shortly(door));
     logger.info("Locked to Unlocked_Shortly");
   }

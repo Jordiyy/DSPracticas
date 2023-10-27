@@ -32,11 +32,11 @@ public abstract class DoorState implements Observer {
    * Methods with inheritance to open or close the door.
    */
   protected void open() {
-    isClosed=false;
+    isClosed = false;
   }
 
   protected void close() {
-    isClosed=true;
+    isClosed = true;
   }
 
   /**

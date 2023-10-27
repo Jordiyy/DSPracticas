@@ -1,7 +1,9 @@
 package baseNoStates;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.Observable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Background clock control class following Singleton Pattern because we only need one instance

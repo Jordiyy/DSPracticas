@@ -1,8 +1,9 @@
 package baseNoStates.doorstates;
 
+import java.util.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.Observable;
+
 
 /**
  * Door Unlocked status.
@@ -27,7 +28,9 @@ public class Unlocked extends DoorState {
   }
 
   @Override
-  public void unlockShortly() { logger.info("NOT IMPLEMENTED"); }
+  public void unlockShortly() {
+    logger.info("NOT IMPLEMENTED");
+  }
 
   @Override
   public void propped() {

@@ -1,5 +1,6 @@
 package baseNoStates;
 
+import baseNoStates.UserGroup;
 import baseNoStates.areas.Area;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -79,6 +80,10 @@ public class User {
    */
   public boolean checkDayWeek(LocalDateTime day) {
     return rol.checkDay(day);
+  }
+
+  public UserGroup getRol() {
+    return rol;
   }
 
 }

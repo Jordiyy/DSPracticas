@@ -53,18 +53,26 @@ public class Partition extends Area {
    */
   @Override
   public Area findAreaById(String id) {
-    if (this.getId().equals(id)) { return this; }
+    if (this.getId().equals(id)) {
+      return this;
+    }
 
     for (Area area : allAreas) {
-      if (area.getId().equals(id)) { return area; }
+      if (area.getId().equals(id)) {
+        return area;
+      }
 
       Area subArea = area.findAreaById(id);
-      if (subArea != null){ return subArea; }
+      if (subArea != null) {
+        return subArea;
+      }
     }
 
     return null;
   }
 
   @Override
-  public List<Area> getSpaces() { return allAreas; }
+  public List<Area> getSpaces() {
+    return allAreas;
+  }
 }

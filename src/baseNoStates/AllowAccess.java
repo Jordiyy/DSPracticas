@@ -49,21 +49,29 @@ public class AllowAccess {
   }
 
   /**
-   * Method that checks that the time is within the allowed range
-   * @param time is the time to check
-   * @return a condition fulfillment check boolean
+   * Method that checks that the time is within the allowed range.
+   * @param time is the time to check.
+   * @return a condition fulfillment check boolean.
    */
   public boolean checkTime(LocalTime time) {
-    return time.isAfter(startHour) && time.isBefore(endHour);
+    try {
+      return time.isAfter(startHour) && time.isBefore(endHour);
+    } catch (NullPointerException e) {
+      return false;
+    }
   }
 
   /**
-   * Method that checks that the date is within the allowed range
-   * @param date is the date to check
-   * @return a condition fulfillment check boolean
+   * Method that checks that the date is within the allowed range.
+   * @param date is the date to check.
+   * @return a condition fulfillment check boolean.
    */
   public boolean checkPeriod(LocalDate date) {
-    return date.isAfter(startPeriod) && date.isBefore(endPeriod);
+    try {
+      return date.isAfter(startPeriod) && date.isBefore(endPeriod);
+    } catch (NullPointerException e) {
+      return false;
+    }
   }
 
   /**
@@ -72,7 +80,11 @@ public class AllowAccess {
    * @return a condition fulfillment check boolean
    */
   public boolean checkDayWeek(int day) {
-    return day >= startingDayWeek && day <= endDayWeek;
+    try {
+      return day >= startingDayWeek && day <= endDayWeek;
+    } catch (NullPointerException e) {
+      return false;
+    }
   }
 
 }

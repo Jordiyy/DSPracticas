@@ -31,6 +31,7 @@ public class Unlocked_Shortly extends DoorState {
     door.setState(new Locked(door));
     logger.info("Unlocked_Shortly to Lock door");
   }
+
   @Override
   public void unlock() {
     logger.info("NOT IMPLEMENTED");
@@ -50,10 +51,8 @@ public class Unlocked_Shortly extends DoorState {
     if (endDelay(LocalDateTime.now()) >= 10000) {
       logger.info("IT'S BEEN MORE THAN 10 SECONDS!!");
       if (door.isClosed()) {
-         lock();
+        lock();
       } else {
-        //door.setState(new Unlocked(door));
-        //falta crear el estado propped
         propped();
       }
       ck.deleteObserver(this);

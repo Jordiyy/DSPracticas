@@ -90,7 +90,7 @@ class User {
 }
 
 
-abstract class DoorState {
+abstract class DoorState extends Observer{
     # door : Door
     # name : String
     # isClosed : boolean
@@ -229,15 +229,11 @@ Door --> "1" DoorState
 Partition o-- "1..*" Door
 Clock "1" <-- "*" Unlocked_Shortly
 Door --> Area : "uses"
-DoorState --|> Observable : observes
-Unlocked_Shortly --|> Observable : observes
 
-Propped --|> Observable : observes
-Locked --|> Observable : observes
-Clock --> Locked : <<observer>>
-Clock --> Unlocked : <<observer>>
+
+
 Clock --> Unlocked_Shortly : <<observer>>
-Clock --> Propped : <<observer>>
+
 
 
 Main -[hidden]down- Webserver

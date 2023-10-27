@@ -19,14 +19,18 @@ public class Space extends Area {
     allDoors.addAll(doors);
   }
 
-  public List<Door> getAllDoors() { return allDoors; }
+  public List<Door> getAllDoors() {
+    return allDoors;
+  }
 
   public void setOneDoor(Door door) {
     allDoors.add(door);
   }
 
   @Override
-  public List<Door> getDoorsGivingAccess() { return allDoors; }
+  public List<Door> getDoorsGivingAccess() {
+    return allDoors;
+  }
 
   @Override
   public Area findAreaById(String id) {
@@ -34,5 +38,7 @@ public class Space extends Area {
   }
 
   @Override
-  public List<Area> getSpaces() { return null; }
+  public List<Area> getSpaces() {
+    return null;
+  }
 }

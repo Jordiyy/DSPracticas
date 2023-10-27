@@ -49,17 +49,16 @@ public class UserGroup {
    */
   public void setAreaPermission(List<Area> areas, List<String> notPermissionArea) {
     for (Area area : areas) {
-      if (area instanceof Partition && !notPermissionArea.contains(area.getId())){
+      if (area instanceof Partition && !notPermissionArea.contains(area.getId())) {
         setAreaPermission(area.getSpaces(), notPermissionArea);
       }
 
       if (area instanceof Space) {
-        if(groupName=="admin" || groupName=="manager") {
+        if (groupName.equals("admin") || groupName.equals("manager")) {
           areaPermission.add(area);
-        }else if (groupName=="employee" && !notPermissionArea.contains(area.getId())) {
+        } else if (groupName.equals("employee") && !notPermissionArea.contains(area.getId())) {
           areaPermission.add(area);
         }
-
       }
     }
   }
@@ -129,6 +128,10 @@ public class UserGroup {
         this.access.setEndDayWeek(0);
         break;
     }
+  }
+
+  public String getGroupName() {
+    return groupName;
   }
 
 }
