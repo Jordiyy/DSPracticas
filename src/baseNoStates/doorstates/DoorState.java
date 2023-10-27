@@ -1,5 +1,6 @@
 package baseNoStates.doorstates;
 
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -32,11 +33,23 @@ public abstract class DoorState implements Observer {
    * Methods with inheritance to open or close the door.
    */
   protected void open() {
-    isClosed = false;
+    if(isClosed && (Objects.equals(name, State.UNLOCKED) || Objects.equals(name, State.UNLOCKEDSHORTLY))) {
+      isClosed = false;
+    } else{
+      System.out.println("Can't open door " + door.getId() + " because it's already open");
+    }
   }
 
   protected void close() {
-    isClosed = true;
+    if(!isClosed){
+      isClosed = true;
+      if(Objects.equals(door.getStateName(), State.PROPPED)){
+        door.setState(new Locked(door));
+      }
+    }
+    else{
+      System.out.println("Can't close door " + door.getId() + " because it's already closed");
+    }
   }
 
   /**

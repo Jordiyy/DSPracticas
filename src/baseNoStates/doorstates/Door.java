@@ -49,33 +49,19 @@ public class Door {
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (doorState.getIsClose() && (Objects.equals(doorState.getName(), State.UNLOCKED) || Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY))) {
-          doorState.open();
-        } else {
-          System.out.println("Can't open door " + id + " because it's already open");
-        }
+        doorState.open();
         break;
       case Actions.CLOSE:
-        if (doorState.getIsClose()) {
-          System.out.println("Can't close door " + id + " because it's already closed");
-        } else {
-          doorState.close();
-        }
+        doorState.close();
         break;
       case Actions.LOCK:
-        if (!Objects.equals(doorState.getName(), State.LOCKED)) {
-          doorState.lock();
-        }
+        doorState.lock();
         break;
       case Actions.UNLOCK:
-        if (!Objects.equals(doorState.getName(), State.UNLOCKED)) {
-          doorState.unlock();
-        }
+        doorState.unlock();
         break;
       case Actions.UNLOCK_SHORTLY:
-        if (!Objects.equals(doorState.getName(), State.UNLOCKEDSHORTLY)) {
-          doorState.unlockShortly();
-        }
+        doorState.unlockShortly();
         break;
       default:
         assert false : "Unknown action " + action;
