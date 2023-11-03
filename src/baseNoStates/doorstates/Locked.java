@@ -18,24 +18,26 @@ public class Locked extends DoorState {
 
   @Override
   public void lock() {
-    logger.info("NOT IMPLEMENTED");
+    logger.debug("State LOCKED: lock() not implemented.");
   }
 
   @Override
   public void unlock() {
     door.setState(new Unlocked(door));
-    logger.info("Locked to Unlocked door");
+    logger.debug("Locked state to Unlocked state.");
+    logger.info("Locked to Unlocked door.");
   }
 
   @Override
   public void unlockShortly() {
     door.setState(new Unlocked_Shortly(door));
-    logger.info("Locked to Unlocked_Shortly");
+    logger.debug("Locked state to Unlocked Shortly state.");
+    logger.info("Locked to Unlocked Shortly door.");
   }
 
   @Override
   public void propped() {
-    logger.info("NOT IMPLEMENTED");
+    logger.debug("State LOCKED: propped() not implemented.");
   }
 
   /**
@@ -46,6 +48,6 @@ public class Locked extends DoorState {
    */
   @Override
   public void update(Observable o, Object arg) {
-    logger.info("Locked ha sido notificado");
+    logger.debug("State LOCKED had been notified.");
   }
 }

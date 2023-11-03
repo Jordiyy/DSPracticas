@@ -11,7 +11,7 @@ public class Main {
     DirectoryAreas.makeAreas();
     DirectoryUserGroups.makeUserGroups();
 
-    logger.info("\n\nTesting LOGGER\n\n");
+    logger.debug("\n\nWebserver thread creation.\n\n");
     new WebServer();
   }
 }

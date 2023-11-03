@@ -18,6 +18,8 @@ public class DirectoryUserGroups {
    * Create all Users, UserGroups and UserGroup permissions that the application will use.
    */
   public static void makeUserGroups() throws ParseException {
+    logger.debug("Groups, Users and Permissions initialization.");
+
     UserGroup admin = new UserGroup("admin", new ArrayList<User>(), LocalDateTime.of(2023,1,1,0,0), LocalDateTime.of(2100,12,31,23,59));
     UserGroup manager = new UserGroup("manager", new ArrayList<User>(), LocalDateTime.of(2023,9,1,8,0), LocalDateTime.of(2024,3,1,20,0));
     UserGroup employee = new UserGroup("employee", new ArrayList<User>(), LocalDateTime.of(2023,9,1,9,0), LocalDateTime.of(2024,3,1,17,0));
@@ -50,11 +52,14 @@ public class DirectoryUserGroups {
     for (UserGroup group : userGroups) {
       userList = group.getUserList();
       for (User user : userList) {
-        if (user.getCredential().equals(credential)) { return user; }
+        if (user.getCredential().equals(credential)) {
+          logger.debug("User with credential " + credential + " found.");
+          return user;
+        }
       }
     }
 
-    logger.info("user with credential " + credential + " not found");
+    logger.warn("User with credential " + credential + " not found.");
     return null; // otherwise we get a Java error
   }
 

@@ -21,6 +21,8 @@ public final class DirectoryAreas {
    * Method that initializes the areas and doors.
    */
   public static void makeAreas() {
+    logger.debug("Areas and Doors initialization.");
+
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
@@ -83,15 +85,15 @@ public final class DirectoryAreas {
   public static Door findDoorById(String id) {
     for (Door door : allDoors) {
       if (door.getId().equals(id)) {
+        logger.info("Doors with id " + id + " found.");
         return door;
       }
     }
-    logger.info("door with id " + id + " not found");
+    logger.warn("Door with id " + id + " not found.");
     return null; // otherwise we get a Java error
   }
 
   public static List<Door> getAllDoors() {
-    logger.info(allDoors.toString());
     return allDoors;
   }
 
