@@ -8,16 +8,19 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class that defines a group of user with his permissions to enter an Area.
  */
 public class UserGroup {
-  private final String groupName;           //Name of the UserGroup.
-  private final List<User> userList;        //List of user that belongs to that UserGroup.
-  private final AllowAccess access;         //Object that controls if a User has permissions
-                                            // to access with date and time.
+  private final String groupName; //Name of the UserGroup.
+  private final List<User> userList;  //List of user that belongs to that UserGroup.
+  private final AllowAccess access; //Object that controls if a User has permissions
+  // to access with date and time.
   private final List<Area> areaPermission;  //List of Areas that he UserGroup is allowed to acces.
+  static Logger logger = LoggerFactory.getLogger(UserGroup.class);
 
   public UserGroup(String groupName, ArrayList<User> userList,
                    LocalDateTime startTime, LocalDateTime endTime) {

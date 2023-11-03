@@ -1,4 +1,5 @@
 package baseNoStates;
+
 import baseNoStates.areas.Area;
 import baseNoStates.areas.Partition;
 import baseNoStates.areas.Space;
@@ -21,6 +22,8 @@ public final class DirectoryAreas {
    * Method that initializes the areas and doors.
    */
   public static void makeAreas() {
+    logger.debug("Areas and Doors initialization.");
+
     Partition building = new Partition("building", "...", null);
 
     Partition basement = new Partition("basement", "...", building);
@@ -61,7 +64,8 @@ public final class DirectoryAreas {
     groundFloor.setAllAreas(new ArrayList<>(Arrays.asList(hall, room1, room2)));
     floor1.setAllAreas(new ArrayList<>(Arrays.asList(room3, corridor, IT)));
 
-    building.setAllAreas(new ArrayList<>(Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
+    building.setAllAreas(new ArrayList<>(
+        Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
     rootArea = building;
   }
@@ -83,10 +87,11 @@ public final class DirectoryAreas {
   public static Door findDoorById(String id) {
     for (Door door : allDoors) {
       if (door.getId().equals(id)) {
+        logger.info("Doors with id " + id + " found.");
         return door;
       }
     }
-    logger.info("door with id " + id + " not found");
+    logger.warn("door with id " + id + " not found");
     return null; // otherwise we get a Java error
   }
 

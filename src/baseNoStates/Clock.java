@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Background clock control class following Singleton Pattern because we only need one instance
@@ -13,6 +15,7 @@ public class Clock extends Observable {
   private LocalDateTime date;
   private final Timer timer;
   private static Clock ck;
+  static Logger logger = LoggerFactory.getLogger(Clock.class);
 
   public Clock() {
     ck = null;
@@ -26,7 +29,7 @@ public class Clock extends Observable {
     TimerTask repeatedTask = new TimerTask() {
       public void run() {
         date = LocalDateTime.now();
-        System.out.println("run() executed at " + date);
+        logger.debug("run() executed at " + date);
         setChanged();
         notifyObservers();
       }
@@ -42,7 +45,11 @@ public class Clock extends Observable {
   public static Clock getInstance() {
     if (ck == null) {
       ck = new Clock();
+      logger.debug("New Clock instance created.");
+    } else {
+      logger.debug("Clock instance already created. Return created Clock instance");
     }
+
     return ck;
   }
 

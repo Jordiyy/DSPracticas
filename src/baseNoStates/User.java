@@ -1,14 +1,16 @@
 package baseNoStates;
 
-import baseNoStates.UserGroup;
 import baseNoStates.areas.Area;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class User {
   private final String name;
   private final String credential;
   private final UserGroup rol;
+  static Logger logger = LoggerFactory.getLogger(User.class);
 
   public User(String name, String credential, UserGroup rol) {
     this.name = name;
@@ -42,9 +44,11 @@ public class User {
 
     for (Area area : listArea) {
       if (area.getId().equals(areaFrom)) {
+        logger.debug("User can be in " + area.getId() + ".");
         areaFromFound = true;
       }
       if (area.getId().equals(areaTo)) {
+        logger.debug("User can acces in " + area.getId() + ".");
         areaToFound = true;
       }
       if (areaFromFound && areaToFound) {

@@ -3,6 +3,9 @@ package baseNoStates.doorstates;
 import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * We use State Design Pattern because it allows you to create new states of the door without
@@ -15,6 +18,7 @@ public abstract class DoorState implements Observer {
   protected Door door;
   protected String name;
   protected boolean isClosed; //Door is closed if value is true, Door is opened is value is false.
+  static Logger logger = LoggerFactory.getLogger(DoorState.class);
 
   public DoorState(Door door) {
     this.door = door;
@@ -33,22 +37,26 @@ public abstract class DoorState implements Observer {
    * Methods with inheritance to open or close the door.
    */
   protected void open() {
-    if(isClosed && (Objects.equals(name, State.UNLOCKED) || Objects.equals(name, State.UNLOCKEDSHORTLY))) {
+    if (isClosed && (Objects.equals(name, State.UNLOCKED)
+        || Objects.equals(name, State.UNLOCKEDSHORTLY))) {
       isClosed = false;
-    } else{
-      System.out.println("Can't open door " + door.getId() + " because it's already open");
+      logger.debug("Door with id " + door.getId() + " is open.");
+      logger.info("Door opened.");
+    } else {
+      logger.warn("Can't open door " + door.getId() + " because it's already open.");
     }
   }
 
   protected void close() {
-    if(!isClosed){
+    if (!isClosed) {
       isClosed = true;
-      if(Objects.equals(door.getStateName(), State.PROPPED)){
+      if (Objects.equals(door.getStateName(), State.PROPPED)) {
         door.setState(new Locked(door));
+        logger.debug("Door with id " + door.getId() + " is closed.");
+        logger.info("Door closed.");
       }
-    }
-    else{
-      System.out.println("Can't close door " + door.getId() + " because it's already closed");
+    } else {
+      logger.warn("Can't close door " + door.getId() + " because it's already closed.");
     }
   }
 
