@@ -97,7 +97,7 @@ public class RequestReader implements Request {
     } else {
       //TODO: get the who, where, when and what in order to decide, and if not
       // authorized add the reason(s)
-      boolean check = user.canBeInArea(door.getTo().getId(), door.getFrom().getId());
+      boolean check = user.canBeInArea(door.getHasAccessToArea().getId(), door.getHasAccessFromArea().getId());
       boolean checkTime = user.checkTime(now);
       boolean checkDate = user.checkDate(now);
       boolean checkDayWeek = user.checkDayWeek(now);

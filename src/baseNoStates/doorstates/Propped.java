@@ -1,6 +1,5 @@
 package baseNoStates.doorstates;
 
-import java.util.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +18,7 @@ public class Propped extends DoorState {
 
   @Override
   public void lock() {
-    door.setState(new Locked(door));
+    door.setNewDoorState(new Locked(door));
     logger.info("Unlocked_Shortly to Lock door");
   }
 

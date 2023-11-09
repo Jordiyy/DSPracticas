@@ -2,7 +2,6 @@ package baseNoStates.doorstates;
 
 import baseNoStates.areas.Area;
 import baseNoStates.requests.RequestReader;
-import java.util.Objects;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,15 +12,15 @@ import org.slf4j.LoggerFactory;
  */
 public class Door {
   private final String id;      //Door id
-  private final Area to;        //Door destination area
-  private final Area from;      //Door origin area
+  private final Area hasAccessToArea;        //Door destination area
+  private final Area hasAccessFromArea;      //Door origin area
   private DoorState doorState;  //Door state
   static Logger logger = LoggerFactory.getLogger(Door.class);
 
   public Door(String id, Area to, Area from) {
     this.id = id;
-    this.to = to;
-    this.from = from;
+    this.hasAccessToArea = to;
+    this.hasAccessFromArea = from;
 
     doorState = new Unlocked(this);
   }
@@ -36,7 +35,7 @@ public class Door {
       String action = request.getAction();
       doAction(action);
     } else {
-      logger.info("not authorized");
+      logger.info("Not authorized");
     }
     request.setDoorStateName(getStateName());
   }
@@ -103,18 +102,19 @@ public class Door {
     json.put("id", id);
     json.put("state", getStateName());
     json.put("closed", doorState.getIsClose());
+    logger.debug("JSON object created.");
     return json;
   }
 
-  public void setState(DoorState doorState) {
+  public void setNewDoorState(DoorState doorState) {
     this.doorState = doorState;
   }
 
-  public Area getTo() {
-    return to;
+  public Area getHasAccessToArea() {
+    return hasAccessToArea;
   }
 
-  public Area getFrom() {
-    return from;
+  public Area getHasAccessFromArea() {
+    return hasAccessFromArea;
   }
 }

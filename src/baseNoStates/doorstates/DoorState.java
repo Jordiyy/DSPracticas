@@ -1,14 +1,11 @@
 package baseNoStates.doorstates;
 
-import baseNoStates.DirectoryAreas;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -55,7 +52,7 @@ public abstract class DoorState implements Observer {
     if (!isClosed) {
       isClosed = true;
       if (Objects.equals(door.getStateName(), State.PROPPED)) {
-        door.setState(new Locked(door));
+        door.setNewDoorState(new Locked(door));
         logger.debug("Door with id " + door.getId() + " is closed.");
         logger.info("Door closed.");
       }
