@@ -29,16 +29,18 @@ public class DirectoryUserGroups {
 
     User u1 = new User("Bernat", "12345", blank); // "blank"
     User u2 = new User("Blai", "77532", blank); //, "blank"
+    blank.addAllUsers(new ArrayList<>(Arrays.asList(u1, u2)));
+
     User u3 = new User("Ernest", "74984", employee); //, "employee"
     User u4 = new User("Eulalia", "43295", employee); //, "employee"
+    employee.addAllUsers(new ArrayList<>(Arrays.asList(u3, u4)));
+
     User u5 = new User("Manel", "95783", manager); //, "manager"
     User u6 = new User("Marta", "05827", manager); //, "manager"
-    User u7 = new User("Ana", "11343", admin); //, "admin"
-
-    admin.addUser(u7);
     manager.addAllUsers(new ArrayList<>(Arrays.asList(u5, u6)));
-    employee.addAllUsers(new ArrayList<>(Arrays.asList(u3, u4)));
-    blank.addAllUsers(new ArrayList<>(Arrays.asList(u1, u2)));
+
+    User u7 = new User("Ana", "11343", admin); //, "admin"
+    admin.addUser(u7);
 
     userGroups.addAll(new ArrayList<>(Arrays.asList(admin, manager, employee, blank)));
 

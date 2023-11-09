@@ -36,7 +36,7 @@ public final class DirectoryAreas {
     Space room2 = new Space("room2", "...", groundFloor);
     Space room3 = new Space("room3", "...", floor1);
     Space corridor = new Space("corridor", "...", floor1);
-    Space IT = new Space("IT", "...", floor1);
+    Space it = new Space("IT", "...", floor1);
     Space stairs = new Space("stairs", "...", building);
     Space exterior = new Space("exterior", "...", building);
 
@@ -48,7 +48,7 @@ public final class DirectoryAreas {
     Door d6 = new Door("D6", hall, room2);
     Door d7 = new Door("D7", stairs, corridor);
     Door d8 = new Door("D8", corridor, room3);
-    Door d9 = new Door("D9", corridor, IT);
+    Door d9 = new Door("D9", corridor, it);
 
     allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
 
@@ -58,11 +58,11 @@ public final class DirectoryAreas {
     room2.setOneDoor(d6);
     room3.setOneDoor(d8);
     corridor.setOneDoor(d7);
-    IT.setOneDoor(d9);
+    it.setOneDoor(d9);
 
     basement.setArea(parking);
     groundFloor.setAllAreas(new ArrayList<>(Arrays.asList(hall, room1, room2)));
-    floor1.setAllAreas(new ArrayList<>(Arrays.asList(room3, corridor, IT)));
+    floor1.setAllAreas(new ArrayList<>(Arrays.asList(room3, corridor, it)));
 
     building.setAllAreas(new ArrayList<>(
         Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));

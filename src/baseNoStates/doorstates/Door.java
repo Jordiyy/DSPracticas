@@ -36,7 +36,7 @@ public class Door {
       String action = request.getAction();
       doAction(action);
     } else {
-      System.out.println("not authorized");
+      logger.info("not authorized");
     }
     request.setDoorStateName(getStateName());
   }

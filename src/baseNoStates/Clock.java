@@ -23,7 +23,9 @@ public class Clock extends Observable {
   }
 
   /**
-   * Method that starts the clock
+   * Method that starts the clock.
+   * Sets a TimerTask that repeats a defined task every X period time.
+   * Task is to notify all observers avery 1 second.
    */
   public void start() {
     TimerTask repeatedTask = new TimerTask() {
@@ -39,7 +41,7 @@ public class Clock extends Observable {
   }
 
   /**
-   * Recovers an instance of the Clock.
+   * Create a Clock instance or recovers the Clock instance created before.
    * @return The Clock instance.
    */
   public static Clock getInstance() {

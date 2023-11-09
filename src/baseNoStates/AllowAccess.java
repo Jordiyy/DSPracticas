@@ -2,6 +2,9 @@ package baseNoStates;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * Class that checks access by date and time.
@@ -9,14 +12,15 @@ import java.time.LocalTime;
 public class AllowAccess {
   private LocalDate startPeriod;
   private LocalDate endPeriod;
-  private int startingDayWeek;
+  private int startDayWeek;
   private int endDayWeek;
   private LocalTime startHour;
   private LocalTime endHour;
+  static Logger logger = LoggerFactory.getLogger(AllowAccess.class);
 
   public AllowAccess() {
     startPeriod = null;
-    startingDayWeek = 0;
+    startDayWeek = 0;
     startHour = null;
 
     endPeriod = null;
@@ -32,8 +36,8 @@ public class AllowAccess {
     this.endPeriod = endPeriod;
   }
 
-  public void setStartingDayWeek(int startingDayWeek) {
-    this.startingDayWeek = startingDayWeek;
+  public void setStartDayWeek(int startDayWeek) {
+    this.startDayWeek = startDayWeek;
   }
 
   public void setEndDayWeek(int endDayWeek) {
@@ -55,8 +59,10 @@ public class AllowAccess {
    */
   public boolean checkTime(LocalTime time) {
     try {
+      logger.debug("Checking access time.");
       return time.isAfter(startHour) && time.isBefore(endHour);
     } catch (NullPointerException e) {
+      logger.error("Variable missing. Set access time again or checked parameters are null.");
       return false;
     }
   }
@@ -68,8 +74,10 @@ public class AllowAccess {
    */
   public boolean checkPeriod(LocalDate date) {
     try {
+      logger.debug("Checking access period.");
       return date.isAfter(startPeriod) && date.isBefore(endPeriod);
     } catch (NullPointerException e) {
+      logger.error("Variable missing. Set period time again or checked parameters are null.");
       return false;
     }
   }
@@ -81,8 +89,11 @@ public class AllowAccess {
    */
   public boolean checkDayWeek(int day) {
     try {
-      return day >= startingDayWeek && day <= endDayWeek;
+      logger.debug("Checking if day is accessible.");
+      return day >= startDayWeek && day <= endDayWeek;
     } catch (NullPointerException e) {
+      logger.error("Variable missing."
+          + " Set days of week entry again or checked parameter is null.");
       return false;
     }
   }

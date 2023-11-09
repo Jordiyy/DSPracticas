@@ -33,16 +33,16 @@ public class User {
 
   /**
    * Method that checks if a user has permissions to go from one area to another through a door
-   * @param areaTo is the to area
-   * @param areaFrom is the from area
-   * @return a boolean to control whether the user has access to the two areas
+   * @param areaTo is the first area to check permision
+   * @param areaFrom is the second area to check permision
+   * @return a boolean to control whether the user has access to both areas
    */
   public boolean canBeInArea(String areaTo, String areaFrom) {
     boolean areaFromFound = false;
     boolean areaToFound = false;
-    List<Area> listArea = rol.getAreaPermission();
+    List<Area> listOfAllAccesibleAreas = rol.getAreaPermission();
 
-    for (Area area : listArea) {
+    for (Area area : listOfAllAccesibleAreas) {
       if (area.getId().equals(areaFrom)) {
         logger.debug("User can be in " + area.getId() + ".");
         areaFromFound = true;
@@ -60,7 +60,7 @@ public class User {
   }
 
   /**
-   * Method that checks if time is allowed for a role.
+   * Method that checks if time is allowed for a certain role.
    * @param time is time to check.
    * @return a condition control boolean.
    */
@@ -69,7 +69,7 @@ public class User {
   }
 
   /**
-   * Method that checks if date is allowed for a role.
+   * Method that checks if date is allowed for a certain role.
    * @param date is date to check.
    * @return a condition control boolean.
    */
@@ -78,7 +78,7 @@ public class User {
   }
 
   /**
-   * Method that checks if day is allowed for a role.
+   * Method that checks if day is allowed for a certain role.
    * @param day is day to check.
    * @return a condition control boolean.
    */

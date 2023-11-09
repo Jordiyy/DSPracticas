@@ -17,20 +17,20 @@ import org.slf4j.LoggerFactory;
 public class UserGroup {
   private final String groupName; //Name of the UserGroup.
   private final List<User> userList;  //List of user that belongs to that UserGroup.
-  private final AllowAccess access; //Object that controls if a User has permissions
+  private final AllowAccess hasAccess; //Object that controls if a User has permissions
   // to access with date and time.
-  private final List<Area> areaPermission;  //List of Areas that he UserGroup is allowed to acces.
+  private final List<Area> areasPermissionForGroup;  //List of Areas that he UserGroup is allowed to acces.
   static Logger logger = LoggerFactory.getLogger(UserGroup.class);
 
   public UserGroup(String groupName, ArrayList<User> userList,
                    LocalDateTime startTime, LocalDateTime endTime) {
     this.groupName = groupName;
     this.userList = userList;
-    this.access = new AllowAccess();
+    this.hasAccess = new AllowAccess();
 
     setAllowAccess(startTime, endTime);
 
-    areaPermission = new ArrayList<>();
+    areasPermissionForGroup = new ArrayList<>();
   }
 
   public List<User> getUserList() {
@@ -58,16 +58,16 @@ public class UserGroup {
 
       if (area instanceof Space) {
         if (groupName.equals("admin") || groupName.equals("manager")) {
-          areaPermission.add(area);
+          areasPermissionForGroup.add(area);
         } else if (groupName.equals("employee") && !notPermissionArea.contains(area.getId())) {
-          areaPermission.add(area);
+          areasPermissionForGroup.add(area);
         }
       }
     }
   }
 
   public List<Area> getAreaPermission() {
-    return areaPermission;
+    return areasPermissionForGroup;
   }
 
   /**
@@ -76,7 +76,7 @@ public class UserGroup {
    * @return a condition control boolean.
    */
   public boolean checkDay(LocalDateTime dayToCheck) {
-    return this.access.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
+    return this.hasAccess.checkDayWeek(dayToCheck.getDayOfWeek().getValue());
   }
 
   /**
@@ -85,7 +85,7 @@ public class UserGroup {
    * @return a condition control boolean.
    */
   public boolean checkTime(LocalDateTime timeToCheck) {
-    return this.access.checkTime(timeToCheck.toLocalTime());
+    return this.hasAccess.checkTime(timeToCheck.toLocalTime());
   }
 
   /**
@@ -94,7 +94,7 @@ public class UserGroup {
    * @return a condition control boolean.
    */
   public boolean checkPeriod(LocalDateTime dateToCheck) {
-    return this.access.checkPeriod(dateToCheck.toLocalDate());
+    return this.hasAccess.checkPeriod(dateToCheck.toLocalDate());
   }
 
   /**
@@ -104,31 +104,31 @@ public class UserGroup {
    */
   private void  setAllowAccess(LocalDateTime startTime, LocalDateTime endTime) {
     if (startTime != null) {
-      this.access.setStartPeriod(LocalDate.of(startTime.getYear(), startTime.getMonth(), startTime.getDayOfMonth()));
-      this.access.setStartHour(LocalTime.of(startTime.getHour(), startTime.getMinute()));
+      this.hasAccess.setStartPeriod(LocalDate.of(startTime.getYear(), startTime.getMonth(), startTime.getDayOfMonth()));
+      this.hasAccess.setStartHour(LocalTime.of(startTime.getHour(), startTime.getMinute()));
     }
 
     if (endTime != null) {
-      this.access.setEndPeriod(LocalDate.of(endTime.getYear(), endTime.getMonth(), endTime.getDayOfMonth()));
-      this.access.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
+      this.hasAccess.setEndPeriod(LocalDate.of(endTime.getYear(), endTime.getMonth(), endTime.getDayOfMonth()));
+      this.hasAccess.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
     }
 
     switch (this.groupName) {
       case "admin":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(7);
+        this.hasAccess.setStartDayWeek(1);
+        this.hasAccess.setEndDayWeek(7);
         break;
       case "manager":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(6);
+        this.hasAccess.setStartDayWeek(1);
+        this.hasAccess.setEndDayWeek(6);
         break;
       case "employee":
-        this.access.setStartingDayWeek(1);
-        this.access.setEndDayWeek(5);
+        this.hasAccess.setStartDayWeek(1);
+        this.hasAccess.setEndDayWeek(5);
         break;
       default:
-        this.access.setStartingDayWeek(0);
-        this.access.setEndDayWeek(0);
+        this.hasAccess.setStartDayWeek(0);
+        this.hasAccess.setEndDayWeek(0);
         break;
     }
   }
