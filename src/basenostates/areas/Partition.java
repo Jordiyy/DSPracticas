@@ -17,11 +17,12 @@ public class Partition extends Area {
 
   public void setAllAreasToPartition(List<Area> areas) {
     allAreas.addAll(areas);
-
+    logger.debug("List of Areas added to Partition " + this.id + ".");
   }
 
   public void setAreaToPartition(Area area) {
     allAreas.add(area);
+    logger.debug("Area added to Partition " + this.id + ".");
   }
 
   /**
@@ -38,7 +39,7 @@ public class Partition extends Area {
 
       if (area instanceof Space) {
         Space space = (Space) area;
-        doors.addAll(space.getAllDoorsFromSpace());
+        doors.addAll(space.getDoorsGivingAccessToArea());
       }
     }
 
@@ -72,6 +73,7 @@ public class Partition extends Area {
 
   @Override
   public List<Area> getSpacesFromArea() {
+    logger.debug("Return a list of Partitions and Spaces that belong to Area " + this.id + ".");
     return allAreas;
   }
 }

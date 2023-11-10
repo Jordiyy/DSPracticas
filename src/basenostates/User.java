@@ -56,6 +56,10 @@ public class User {
       }
     }
 
+    if (!areaFromFound || !areaToFound) {
+      logger.warn("You cannot be in that Area!!");
+    }
+
     return areaFromFound && areaToFound;
   }
 
