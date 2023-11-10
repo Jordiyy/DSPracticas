@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <configuration>
 
-        <property name="LOG" value="./logs"/>
+        <property name="LOG" value="./src/logs/"/>
 
         <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
@@ -23,7 +23,7 @@
             <appender-ref ref="FILE" />
         </root>
 
-        <root level="warn">
+        <root level="info">
             <appender-ref ref="STDOUT" />
         </root>
     </configuration>
