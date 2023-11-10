@@ -1,22 +1,20 @@
-package baseNoStates.requests;
+package basenostates.requests;
 
-import baseNoStates.doorstates.Actions;
-import baseNoStates.areas.Area;
-import baseNoStates.doorstates.Door;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import baseNoStates.DirectoryAreas;
-
+import basenostates.DirectoryAreas;
+import basenostates.areas.Area;
+import basenostates.doorstates.Actions;
+import basenostates.doorstates.Door;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class RequestArea implements Request {
   private final String credential;
   private final String action;
   private final String areaId;
   private final LocalDateTime now;
-  private ArrayList<RequestReader> requests = new ArrayList<>();
+  private final ArrayList<RequestReader> requests = new ArrayList<>();
 
 
   public RequestArea(String credential, String action, LocalDateTime now, String areaId) {
@@ -49,7 +47,7 @@ public class RequestArea implements Request {
   @Override
   public String toString() {
     String requestsDoorsStr;
-    if (requests.size() == 0) {
+    if (requests.isEmpty()) {
       requestsDoorsStr = "";
     } else {
       requestsDoorsStr = requests.toString();
@@ -74,12 +72,12 @@ public class RequestArea implements Request {
     Area area = DirectoryAreas.findAreaById(areaId);
     // an Area is a Space or a Partition
     if (area != null) {
-      // is null when from the app we click on an action but no place is selected because
-      // there (flutter) I don't control like I do in javascript that all the parameters are provided
+      //is null when from the app we click on an action but no place is selected because
+      //there (flutter) I don't control like I do in javascript that all the parameters are provided
 
       // Make all the door requests, one for each door in the area, and process them.
       // Look for the doors in the spaces of this area that give access to them.
-      for (Door door : area.getDoorsGivingAccess()) {
+      for (Door door : area.getDoorsGivingAccessToArea()) {
 
         RequestReader requestReader = new RequestReader(credential, action, now, door.getId());
         requestReader.process();

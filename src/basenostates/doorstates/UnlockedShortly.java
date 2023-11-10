@@ -1,6 +1,6 @@
-package baseNoStates.doorstates;
+package basenostates.doorstates;
 
-import baseNoStates.Clock;
+import basenostates.Clock;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Observable;
@@ -12,12 +12,12 @@ import org.slf4j.LoggerFactory;
  * Door Unlocked_Shortly status.
  * Defines abstract methods to states that can change.
  */
-public class Unlocked_Shortly extends DoorState {
+public class UnlockedShortly extends DoorState {
   private final Clock ck;
   private final LocalDateTime unlockedShortlyStartTime;
   static Logger logger = LoggerFactory.getLogger(Locked.class);
 
-  public Unlocked_Shortly(Door door) {
+  public UnlockedShortly(Door door) {
     super(door);
     name = State.UNLOCKEDSHORTLY;
     unlockedShortlyStartTime = LocalDateTime.now();

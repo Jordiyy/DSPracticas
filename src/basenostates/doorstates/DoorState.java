@@ -1,11 +1,11 @@
-package baseNoStates.doorstates;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package basenostates.doorstates;
 
 import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 
 /**

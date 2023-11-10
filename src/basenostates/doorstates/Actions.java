@@ -1,4 +1,4 @@
-package baseNoStates.doorstates;
+package basenostates.doorstates;
 
 /**
  * Constants that define the possible actions in the reader and area request

@@ -1,7 +1,7 @@
-package baseNoStates.doorstates;
+package basenostates.doorstates;
 
-import baseNoStates.areas.Area;
-import baseNoStates.requests.RequestReader;
+import basenostates.areas.Area;
+import basenostates.requests.RequestReader;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

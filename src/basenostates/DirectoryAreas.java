@@ -1,9 +1,9 @@
-package baseNoStates;
+package basenostates;
 
-import baseNoStates.areas.Area;
-import baseNoStates.areas.Partition;
-import baseNoStates.areas.Space;
-import baseNoStates.doorstates.Door;
+import basenostates.areas.Area;
+import basenostates.areas.Partition;
+import basenostates.areas.Space;
+import basenostates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,19 +52,19 @@ public final class DirectoryAreas {
 
     allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
 
-    parking.setDoors(new ArrayList<>(Arrays.asList(d1, d2)));
-    hall.setDoors(new ArrayList<>(Arrays.asList(d3, d4)));
-    room1.setOneDoor(d5);
-    room2.setOneDoor(d6);
-    room3.setOneDoor(d8);
-    corridor.setOneDoor(d7);
-    it.setOneDoor(d9);
+    parking.setDoorsToSpace(new ArrayList<>(Arrays.asList(d1, d2)));
+    hall.setDoorsToSpace(new ArrayList<>(Arrays.asList(d3, d4)));
+    room1.setOneDoorToSpace(d5);
+    room2.setOneDoorToSpace(d6);
+    room3.setOneDoorToSpace(d8);
+    corridor.setOneDoorToSpace(d7);
+    it.setOneDoorToSpace(d9);
 
-    basement.setArea(parking);
-    groundFloor.setAllAreas(new ArrayList<>(Arrays.asList(hall, room1, room2)));
-    floor1.setAllAreas(new ArrayList<>(Arrays.asList(room3, corridor, it)));
+    basement.setAreaToPartition(parking);
+    groundFloor.setAllAreasToPartition(new ArrayList<>(Arrays.asList(hall, room1, room2)));
+    floor1.setAllAreasToPartition(new ArrayList<>(Arrays.asList(room3, corridor, it)));
 
-    building.setAllAreas(new ArrayList<>(
+    building.setAllAreasToPartition(new ArrayList<>(
         Arrays.asList(basement, groundFloor, floor1, stairs, exterior)));
 
     rootArea = building;

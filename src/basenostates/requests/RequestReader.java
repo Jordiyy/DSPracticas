@@ -1,13 +1,11 @@
-package baseNoStates.requests;
+package basenostates.requests;
 
-import baseNoStates.DirectoryAreas;
-import baseNoStates.DirectoryUserGroups;
-import baseNoStates.User;
-import baseNoStates.doorstates.Door;
-
+import basenostates.DirectoryAreas;
+import basenostates.DirectoryUserGroups;
+import basenostates.User;
+import basenostates.doorstates.Door;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -97,7 +95,8 @@ public class RequestReader implements Request {
     } else {
       //TODO: get the who, where, when and what in order to decide, and if not
       // authorized add the reason(s)
-      boolean check = user.canBeInArea(door.getHasAccessToArea().getId(), door.getHasAccessFromArea().getId());
+      boolean check = user.canBeInArea(door.getHasAccessToArea().getId(),
+          door.getHasAccessFromArea().getId());
       boolean checkTime = user.checkTime(now);
       boolean checkDate = user.checkDate(now);
       boolean checkDayWeek = user.checkDayWeek(now);

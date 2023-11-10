@@ -1,25 +1,25 @@
-package baseNoStates.doorstates;
+package basenostates.doorstates;
 
-import java.util.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 /**
- * Door Unlocked status.
+ * Door Propped status.
  * Defines abstract methods to states that can change.
  */
-public class Unlocked extends DoorState {
-  static Logger logger = LoggerFactory.getLogger(Unlocked.class);
-  public Unlocked(Door door) {
+public class Propped extends DoorState {
+  static Logger logger = LoggerFactory.getLogger(Propped.class);
+
+  public Propped(Door door) {
     super(door);
-    name = State.UNLOCKED;
+    isClosed = false;
+    name = State.PROPPED;
   }
 
   @Override
   public void lock() {
     door.setNewDoorState(new Locked(door));
-    logger.info("Unlocked to Locked door");
+    logger.info("Unlocked_Shortly to Lock door");
   }
 
   @Override
@@ -35,10 +35,5 @@ public class Unlocked extends DoorState {
   @Override
   public void propped() {
     logger.info("NOT IMPLEMENTED");
-  }
-
-  @Override
-  public void update(Observable o, Object arg) {
-    logger.info("Unlocked ha sido notificado");
   }
 }

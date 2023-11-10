@@ -1,7 +1,9 @@
-package baseNoStates.areas;
-import baseNoStates.doorstates.Door;
+package basenostates.areas;
 
+import basenostates.doorstates.Door;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * We use a Composite Design Patters because the structure of the different spaces follows the
@@ -15,6 +17,7 @@ public abstract class Area {
   protected String id;
   protected String description;
   protected Partition partitionDad;
+  static Logger logger = LoggerFactory.getLogger(Area.class);
 
   public Area(String id, String description, Partition partitionDad) {
     this.id = id;
@@ -26,9 +29,9 @@ public abstract class Area {
     return id;
   }
 
-  public abstract List<Door> getDoorsGivingAccess();
+  public abstract List<Door> getDoorsGivingAccessToArea();
 
   public abstract Area findAreaById(String id);
 
-  public abstract List<Area> getSpaces();
+  public abstract List<Area> getSpacesFromArea();
 }

@@ -1,6 +1,6 @@
-package baseNoStates;
+package basenostates;
 
-import baseNoStates.areas.Area;
+import basenostates.areas.Area;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.slf4j.Logger;

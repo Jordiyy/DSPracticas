@@ -1,4 +1,4 @@
-package baseNoStates;
+package basenostates;
 
 import java.text.ParseException;
 import org.slf4j.Logger;

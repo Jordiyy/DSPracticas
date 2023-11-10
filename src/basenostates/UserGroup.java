@@ -1,8 +1,8 @@
-package baseNoStates;
+package basenostates;
 
-import baseNoStates.areas.Area;
-import baseNoStates.areas.Partition;
-import baseNoStates.areas.Space;
+import basenostates.areas.Area;
+import basenostates.areas.Partition;
+import basenostates.areas.Space;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -19,7 +19,7 @@ public class UserGroup {
   private final List<User> userList;  //List of user that belongs to that UserGroup.
   private final AllowAccess hasAccess; //Object that controls if a User has permissions
   // to access with date and time.
-  private final List<Area> areasPermissionForGroup;  //List of Areas that he UserGroup is allowed to acces.
+  private final List<Area> areasPermissionForGroup;  //List of Areas that UserGroup has acces.
   static Logger logger = LoggerFactory.getLogger(UserGroup.class);
 
   public UserGroup(String groupName, ArrayList<User> userList,
@@ -53,7 +53,7 @@ public class UserGroup {
   public void setAreaPermission(List<Area> areas, List<String> notPermissionArea) {
     for (Area area : areas) {
       if (area instanceof Partition && !notPermissionArea.contains(area.getId())) {
-        setAreaPermission(area.getSpaces(), notPermissionArea);
+        setAreaPermission(area.getSpacesFromArea(), notPermissionArea);
       }
 
       if (area instanceof Space) {
@@ -104,12 +104,14 @@ public class UserGroup {
    */
   private void  setAllowAccess(LocalDateTime startTime, LocalDateTime endTime) {
     if (startTime != null) {
-      this.hasAccess.setStartPeriod(LocalDate.of(startTime.getYear(), startTime.getMonth(), startTime.getDayOfMonth()));
+      this.hasAccess.setStartPeriod(LocalDate.of(startTime.getYear(),
+          startTime.getMonth(), startTime.getDayOfMonth()));
       this.hasAccess.setStartHour(LocalTime.of(startTime.getHour(), startTime.getMinute()));
     }
 
     if (endTime != null) {
-      this.hasAccess.setEndPeriod(LocalDate.of(endTime.getYear(), endTime.getMonth(), endTime.getDayOfMonth()));
+      this.hasAccess.setEndPeriod(LocalDate.of(endTime.getYear(),
+          endTime.getMonth(), endTime.getDayOfMonth()));
       this.hasAccess.setEndHour(LocalTime.of(endTime.getHour(), endTime.getMinute()));
     }
 

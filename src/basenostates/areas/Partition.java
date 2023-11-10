@@ -1,6 +1,6 @@
-package baseNoStates.areas;
+package basenostates.areas;
 
-import baseNoStates.doorstates.Door;
+import basenostates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,30 +15,30 @@ public class Partition extends Area {
     allAreas = new ArrayList<>();
   }
 
-  public void setAllAreas(List<Area> areas) {
+  public void setAllAreasToPartition(List<Area> areas) {
     allAreas.addAll(areas);
+
   }
 
-  public void setArea(Area area) {
+  public void setAreaToPartition(Area area) {
     allAreas.add(area);
   }
 
   /**
    * Get all doors that are in a Space recursively
-   *
    * @return doors List of doors that are in a zone of Partitions and Spaces
    */
   @Override
-  public List<Door> getDoorsGivingAccess() {
+  public List<Door> getDoorsGivingAccessToArea() {
     List<Door> doors = new ArrayList<>();
     for (Area area : allAreas) {
       if (area instanceof Partition) {
-        doors.addAll(area.getDoorsGivingAccess());
+        doors.addAll(area.getDoorsGivingAccessToArea());
       }
 
       if (area instanceof Space) {
         Space space = (Space) area;
-        doors.addAll(space.getAllDoors());
+        doors.addAll(space.getAllDoorsFromSpace());
       }
     }
 
@@ -47,9 +47,8 @@ public class Partition extends Area {
 
   /**
    * Get a Partition or Space recursively.
-   *
-   * @param id
-   * @return
+   * @param id as String
+   * @return Area
    */
   @Override
   public Area findAreaById(String id) {
@@ -72,7 +71,7 @@ public class Partition extends Area {
   }
 
   @Override
-  public List<Area> getSpaces() {
+  public List<Area> getSpacesFromArea() {
     return allAreas;
   }
 }

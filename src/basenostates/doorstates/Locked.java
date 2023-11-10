@@ -1,4 +1,4 @@
-package baseNoStates.doorstates;
+package basenostates.doorstates;
 
 import java.util.Observable;
 import org.slf4j.Logger;
@@ -30,7 +30,7 @@ public class Locked extends DoorState {
 
   @Override
   public void unlockShortly() {
-    door.setNewDoorState(new Unlocked_Shortly(door));
+    door.setNewDoorState(new UnlockedShortly(door));
     logger.debug("Locked state to Unlocked Shortly state.");
     logger.info("Locked to Unlocked Shortly door.");
   }

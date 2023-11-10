@@ -1,6 +1,6 @@
-package baseNoStates.areas;
+package basenostates.areas;
 
-import baseNoStates.doorstates.Door;
+import basenostates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +15,20 @@ public class Space extends Area {
     allDoors = new ArrayList<>();
   }
 
-  public void setDoors(ArrayList<Door> doors) {
+  public void setDoorsToSpace(ArrayList<Door> doors) {
     allDoors.addAll(doors);
   }
 
-  public List<Door> getAllDoors() {
+  public List<Door> getAllDoorsFromSpace() {
     return allDoors;
   }
 
-  public void setOneDoor(Door door) {
+  public void setOneDoorToSpace(Door door) {
     allDoors.add(door);
   }
 
   @Override
-  public List<Door> getDoorsGivingAccess() {
+  public List<Door> getDoorsGivingAccessToArea() {
     return allDoors;
   }
 
@@ -38,7 +38,7 @@ public class Space extends Area {
   }
 
   @Override
-  public List<Area> getSpaces() {
+  public List<Area> getSpacesFromArea() {
     return null;
   }
 }

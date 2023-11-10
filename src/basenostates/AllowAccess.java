@@ -1,4 +1,4 @@
-package baseNoStates;
+package basenostates;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

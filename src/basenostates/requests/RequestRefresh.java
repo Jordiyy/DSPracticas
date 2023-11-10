@@ -1,8 +1,7 @@
-package baseNoStates.requests;
+package basenostates.requests;
 
-import baseNoStates.DirectoryAreas;
-import baseNoStates.doorstates.Door;
-
+import basenostates.DirectoryAreas;
+import basenostates.doorstates.Door;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
