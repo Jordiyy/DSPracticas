@@ -1,7 +1,11 @@
 package basenostates.areas;
 
 import basenostates.doorstates.Door;
+import basenostates.visitor.Visitor;
+import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -32,6 +36,17 @@ public class Partition extends Area {
   @Override
   public List<Door> getDoorsGivingAccessToArea() {
     List<Door> doors = new ArrayList<>();
+    /*List<?> auxDoorList = new ArrayList<>();
+
+    this.visit = new VisitorGetDoorsGivingAccesToArea();
+
+    for (Area area : allAreas) {
+      auxDoorList = area.accept(visit);
+      if (auxDoorList != null) {
+        doors.addAll((Collection<? extends Door>) auxDoorList);
+      }
+    }*/
+
     for (Area area : allAreas) {
       if (area instanceof Partition) {
         doors.addAll(area.getDoorsGivingAccessToArea());
@@ -75,5 +90,10 @@ public class Partition extends Area {
   public List<Area> getSpacesFromArea() {
     logger.debug("Return a list of Partitions and Spaces that belong to Area " + this.id + ".");
     return allAreas;
+  }
+
+  @Override
+  public List<?> accept(Visitor visit) {
+    return visit.visitPartition(this);
   }
 }

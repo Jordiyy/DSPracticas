@@ -2,6 +2,8 @@ package basenostates.areas;
 
 import basenostates.doorstates.Door;
 import java.util.List;
+
+import basenostates.visitor.Visitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +19,7 @@ public abstract class Area {
   protected String id;
   protected String description;
   protected Partition partitionDad;
+  protected Visitor visit;
   static Logger logger = LoggerFactory.getLogger(Area.class);
 
   public Area(String id, String description, Partition partitionDad) {
@@ -34,4 +37,8 @@ public abstract class Area {
   public abstract Area findAreaById(String id);
 
   public abstract List<Area> getSpacesFromArea();
+
+  public List<?> accept(Visitor visit) {
+    return null;
+  }
 }

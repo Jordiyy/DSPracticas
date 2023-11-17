@@ -4,9 +4,11 @@ import basenostates.areas.Area;
 
 import java.util.List;
 
-public class visitorFindAreaById implements Visitor {
+public class VisitorFindAreaById implements Visitor {
+/*
   @Override
-  public List<Object> visitPartition(List<Area> allAreas) {
+  public List<?> visitPartition(Area areas) {
+
     if (this.getId().equals(id)) {
       return this;
     }
@@ -24,4 +26,6 @@ public class visitorFindAreaById implements Visitor {
 
     return null;
   }
+ */
+
 }
