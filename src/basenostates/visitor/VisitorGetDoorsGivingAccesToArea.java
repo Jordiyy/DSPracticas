@@ -16,9 +16,14 @@ public class VisitorGetDoorsGivingAccesToArea implements Visitor {
       return area.getDoorsGivingAccessToArea();
     }
     if (area instanceof Partition) {
-      return area.getSpacesFromArea();
+      return area.getDoorsGivingAccessToArea();
     }
     return null;
+  }
+
+  @Override
+  public List<?> visitSpace(Area area) {
+    return area.getDoorsGivingAccessToArea();
   }
 
 }

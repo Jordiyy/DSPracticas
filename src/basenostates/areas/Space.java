@@ -1,6 +1,8 @@
 package basenostates.areas;
 
 import basenostates.doorstates.Door;
+import basenostates.visitor.Visitor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +43,9 @@ public class Space extends Area {
   public List<Area> getSpacesFromArea() {
     logger.warn("Doesn't exist a list of Partitions or Spaces.");
     return null;
+  }
+
+  public List<?> accept(Visitor visit) {
+    return visit.visitSpace(this);
   }
 }
