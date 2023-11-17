@@ -12,13 +12,7 @@ public class VisitorGetDoorsGivingAccesToArea implements Visitor {
 
   @Override
   public List<?> visitPartition(Area area) {
-    if (area instanceof Space) {
-      return area.getDoorsGivingAccessToArea();
-    }
-    if (area instanceof Partition) {
-      return area.getDoorsGivingAccessToArea();
-    }
-    return null;
+    return area.getDoorsGivingAccessToArea();
   }
 
   @Override
