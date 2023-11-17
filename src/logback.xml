@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <configuration>
-
         <property name="LOG" value="./src/logs/"/>
 
         <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -19,11 +18,18 @@
             <file>${LOG}test.dat</file>
         </appender>
 
-        <root level="info">
-            <appender-ref ref="FILE" />
-        </root>
+        <appender name="HTML" class="ch.qos.logback.core.FileAppender">
+            <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                    <pattern>%relative%thread%mdc%level%logger%msg</pattern>
+                </layout>
+            </encoder>
+            <file>${LOG}test.html</file>
+        </appender>
 
         <root level="info">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="HTML" />
             <appender-ref ref="STDOUT" />
         </root>
     </configuration>
