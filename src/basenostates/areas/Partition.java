@@ -36,15 +36,11 @@ public class Partition extends Area {
   @Override
   public List<Door> getDoorsGivingAccessToArea() {
     List<Door> doors = new ArrayList<>();
-    List<?> auxDoorList = new ArrayList<>();
 
     this.visit = new VisitorGetDoorsGivingAccesToArea();
 
     for (Area area : allAreas) {
-      auxDoorList = area.accept(visit);
-      if (auxDoorList != null) {
-        doors.addAll((List<Door>) auxDoorList);
-      }
+      doors.addAll((List<Door>) area.accept(visit));
     }
 
     return doors;
