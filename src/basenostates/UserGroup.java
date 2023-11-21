@@ -20,7 +20,7 @@ public class UserGroup {
   private final AllowAccess hasAccess; //Object that controls if a User has permissions
   // to access with date and time.
   private final List<Area> areasPermissionForGroup;  //List of Areas that UserGroup has acces.
-  static Logger logger = LoggerFactory.getLogger(UserGroup.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public UserGroup(String groupName, ArrayList<User> userList,
                    LocalDateTime startTime, LocalDateTime endTime) {

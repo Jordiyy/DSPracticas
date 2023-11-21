@@ -1,6 +1,7 @@
 package basenostates.doorstates;
 
 import java.util.Observable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,8 +10,6 @@ import org.slf4j.LoggerFactory;
  * Defines abstract methods to states that can change.
  */
 public class Locked extends DoorState {
-  static Logger logger = LoggerFactory.getLogger(Locked.class);
-
   public Locked(Door door) {
     super(door);
     name = State.LOCKED;

@@ -10,8 +10,6 @@ import org.slf4j.LoggerFactory;
  * Defines abstract methods to states that can change.
  */
 public class Unlocked extends DoorState {
-  static Logger logger = LoggerFactory.getLogger(Unlocked.class);
-
   public Unlocked(Door door) {
     super(door);
     name = State.UNLOCKED;
@@ -19,6 +17,7 @@ public class Unlocked extends DoorState {
 
   @Override
   public void lock() {
+    logger.debug("Unlocked to Locked door");
     door.setNewDoorState(new Locked(door));
     logger.info("Unlocked to Locked door");
   }

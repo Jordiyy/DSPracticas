@@ -2,10 +2,9 @@ package basenostates.areas;
 
 import basenostates.doorstates.Door;
 import basenostates.visitor.Visitor;
+import basenostates.visitor.VisitorFindAreaById;
 import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -35,15 +34,15 @@ public class Partition extends Area {
    */
   @Override
   public List<Door> getDoorsGivingAccessToArea() {
-    List<Door> doors = new ArrayList<>();
+    List<Door> listDoors = new ArrayList<>();
 
     this.visit = new VisitorGetDoorsGivingAccesToArea();
 
     for (Area area : allAreas) {
-      doors.addAll((List<Door>) area.accept(visit));
+      listDoors.addAll((List<Door>) area.accept(visit));
     }
 
-    return doors;
+    return listDoors;
   }
 
   /**
@@ -53,22 +52,21 @@ public class Partition extends Area {
    */
   @Override
   public Area findAreaById(String id) {
-    if (this.getId().equals(id)) {
-      return this;
-    }
+    this.visit = new VisitorFindAreaById();
+    List<Area> areaFound = new ArrayList<>();
 
     for (Area area : allAreas) {
-      if (area.getId().equals(id)) {
-        return area;
-      }
+      area.setIdToSearch(id);
+      areaFound.addAll((List<Area>) area.accept(visit));
+    }
 
-      Area subArea = area.findAreaById(id);
-      if (subArea != null) {
+    for (Area subArea : areaFound) {
+      if (subArea.getId().equals(subArea.getIdToSearch())) {
         return subArea;
       }
     }
 
-    return null;
+    return this;
   }
 
   @Override

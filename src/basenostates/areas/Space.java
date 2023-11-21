@@ -36,7 +36,7 @@ public class Space extends Area {
   @Override
   public Area findAreaById(String id) {
     logger.warn("Cannot search into Space because is an endpoint of the tree.");
-    return null;
+    return this;
   }
 
   @Override

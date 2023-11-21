@@ -7,11 +7,11 @@ import basenostates.doorstates.Door;
 import java.util.List;
 
 public interface Visitor {
-  default List<?> visitSpace(Area area) {
+  default List<?> visitSpace(Object obj) {
     return null;
   }
 
-  default List<?> visitPartition(Area area) {
+  default List<?> visitPartition(Object obj) {
     return null;
   }
 

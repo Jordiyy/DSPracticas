@@ -15,7 +15,7 @@ public class Door {
   private final Area hasAccessToArea;        //Door destination area
   private final Area hasAccessFromArea;      //Door origin area
   private DoorState doorState;  //Door state
-  static Logger logger = LoggerFactory.getLogger(Door.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public Door(String id, Area to, Area from) {
     this.id = id;

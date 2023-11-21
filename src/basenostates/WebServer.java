@@ -24,7 +24,7 @@ public class WebServer {
   private static final int PORT = 8080; // port to listen connection
   private static final DateTimeFormatter formatter =
           DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-  static Logger logger = LoggerFactory.getLogger(WebServer.class);
+  static Logger logger = LoggerFactory.getLogger("Consola");
 
   public WebServer() {
     try {

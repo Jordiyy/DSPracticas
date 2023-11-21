@@ -10,12 +10,36 @@
             </encoder>
         </appender>
 
-        <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-            <append>true</append>   <!-- default -->
+        <!-- FILE -->
+
+        <appender name="fita_1" class="ch.qos.logback.core.FileAppender">
+            <append>true</append>
             <encoder>
                 <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
             </encoder>
-            <file>${LOG}test.dat</file>
+            <file>${LOG}fita_1.log</file>
+            <!--
+            <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                <level>DEBUG</level>
+                <onMatch>ACCEPT</onMatch>
+                <onMismatch>DENY</onMismatch>
+            </filter>
+            -->
+        </appender>
+
+        <appender name="fita_2" class="ch.qos.logback.core.FileAppender">
+            <append>true</append>
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+            <file>${LOG}fita_2.log</file>
+            <!--
+            <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                <level>DEBUG</level>
+                <onMatch>ACCEPT</onMatch>
+                <onMismatch>DENY</onMismatch>
+            </filter>
+            -->
         </appender>
 
         <appender name="HTML" class="ch.qos.logback.core.FileAppender">
@@ -25,11 +49,28 @@
                 </layout>
             </encoder>
             <file>${LOG}test.html</file>
+            <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                <level>DEBUG</level>
+                <onMatch>ACCEPT</onMatch>
+                <onMismatch>DENY</onMismatch>
+            </filter>
         </appender>
 
         <root level="info">
-            <appender-ref ref="FILE" />
-            <appender-ref ref="HTML" />
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="HTML" />
         </root>
+
+        <logger name="Fita1" level="INFO" additivity="false">
+            <appender-ref ref="fita_1" />
+        </logger>
+
+        <logger name="Fita2" level="DEBUG" additivity="false">
+            <appender-ref ref="fita_2" />
+        </logger>
+
+        <logger name="Consola" level="DEBUG" additivity="false">
+            <appender-ref ref="STDOUT" />
+        </logger>
+
     </configuration>

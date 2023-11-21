@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public final class DirectoryAreas {
   private static List<Door> allDoors;
   private static Area rootArea;
-  static Logger logger = LoggerFactory.getLogger(DirectoryAreas.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   /**
    * Method that initializes the areas and doors.

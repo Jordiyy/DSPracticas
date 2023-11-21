@@ -16,7 +16,7 @@ public class AllowAccess {
   private int endDayWeek;
   private LocalTime startHour;
   private LocalTime endHour;
-  static Logger logger = LoggerFactory.getLogger(AllowAccess.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public AllowAccess() {
     startPeriod = null;

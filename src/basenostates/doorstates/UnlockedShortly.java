@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Observable;
 import java.util.Observer;
+
+import basenostates.doorstates.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +17,6 @@ import org.slf4j.LoggerFactory;
 public class UnlockedShortly extends DoorState {
   private final Clock ck;
   private final LocalDateTime unlockedShortlyStartTime;
-  static Logger logger = LoggerFactory.getLogger(Locked.class);
 
   public UnlockedShortly(Door door) {
     super(door);

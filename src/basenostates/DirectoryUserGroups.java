@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public class DirectoryUserGroups {
   private static final List<UserGroup> userGroups = new ArrayList<>();
-  static Logger logger = LoggerFactory.getLogger(DirectoryUserGroups.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   /**
    * Create all Users, UserGroups and UserGroup permissions that the application will use.

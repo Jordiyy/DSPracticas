@@ -19,7 +19,7 @@ public abstract class DoorState implements Observer {
   protected Door door;
   protected String name;
   protected boolean isClosed; //Door is closed if value is true, Door is opened is value is false.
-  static Logger logger = LoggerFactory.getLogger(DoorState.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public DoorState(Door door) {
     this.door = door;

@@ -10,7 +10,7 @@ public class User {
   private final String name;
   private final String credential;
   private final UserGroup rol;
-  static Logger logger = LoggerFactory.getLogger(User.class);
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public User(String name, String credential, UserGroup rol) {
     this.name = name;

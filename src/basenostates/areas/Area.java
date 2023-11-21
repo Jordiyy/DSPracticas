@@ -20,7 +20,8 @@ public abstract class Area {
   protected String description;
   protected Partition partitionDad;
   protected Visitor visit;
-  static Logger logger = LoggerFactory.getLogger(Area.class);
+  protected String idToSearch;
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public Area(String id, String description, Partition partitionDad) {
     this.id = id;
@@ -40,5 +41,13 @@ public abstract class Area {
 
   public List<?> accept(Visitor visit) {
     return null;
+  }
+
+  public String getIdToSearch() {
+    return idToSearch;
+  }
+
+  public void setIdToSearch(String id) {
+    this.idToSearch = id;
   }
 }
