@@ -18,13 +18,6 @@
                 <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
             </encoder>
             <file>${LOG}fita_1.log</file>
-            <!--
-            <filter class="ch.qos.logback.classic.filter.LevelFilter">
-                <level>DEBUG</level>
-                <onMatch>ACCEPT</onMatch>
-                <onMismatch>DENY</onMismatch>
-            </filter>
-            -->
         </appender>
 
         <appender name="fita_2" class="ch.qos.logback.core.FileAppender">
@@ -42,18 +35,22 @@
             -->
         </appender>
 
-        <appender name="HTML" class="ch.qos.logback.core.FileAppender">
+        <appender name="HTML_1" class="ch.qos.logback.core.FileAppender">
             <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
                 <layout class="ch.qos.logback.classic.html.HTMLLayout">
                     <pattern>%relative%thread%mdc%level%logger%msg</pattern>
                 </layout>
             </encoder>
-            <file>${LOG}test.html</file>
-            <filter class="ch.qos.logback.classic.filter.LevelFilter">
-                <level>DEBUG</level>
-                <onMatch>ACCEPT</onMatch>
-                <onMismatch>DENY</onMismatch>
-            </filter>
+            <file>${LOG}fita1.html</file>
+        </appender>
+
+        <appender name="HTML_2" class="ch.qos.logback.core.FileAppender">
+            <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                    <pattern>%relative%thread%mdc%level%logger%msg</pattern>
+                </layout>
+            </encoder>
+            <file>${LOG}fita2.html</file>
         </appender>
 
         <root level="info">
@@ -61,12 +58,14 @@
             <appender-ref ref="HTML" />
         </root>
 
-        <logger name="Fita1" level="INFO" additivity="false">
+        <logger name="Fita1" level="DEBUG" additivity="false">
             <appender-ref ref="fita_1" />
+            <appender-ref ref="HTML_1" />
         </logger>
 
         <logger name="Fita2" level="DEBUG" additivity="false">
             <appender-ref ref="fita_2" />
+            <appender-ref ref="HTML_2" />
         </logger>
 
         <logger name="Consola" level="DEBUG" additivity="false">

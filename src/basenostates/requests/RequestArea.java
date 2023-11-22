@@ -6,6 +6,8 @@ import basenostates.doorstates.Actions;
 import basenostates.doorstates.Door;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -77,7 +79,9 @@ public class RequestArea implements Request {
 
       // Make all the door requests, one for each door in the area, and process them.
       // Look for the doors in the spaces of this area that give access to them.
-      for (Door door : area.getDoorsGivingAccessToArea()) {
+      VisitorGetDoorsGivingAccesToArea.initListDoorsToArea();
+      area.accept(new VisitorGetDoorsGivingAccesToArea());
+      for (Door door : VisitorGetDoorsGivingAccesToArea.getListDoorsToArea()) {
 
         RequestReader requestReader = new RequestReader(credential, action, now, door.getId());
         requestReader.process();

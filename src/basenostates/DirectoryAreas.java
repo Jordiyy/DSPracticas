@@ -7,6 +7,8 @@ import basenostates.doorstates.Door;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import basenostates.visitor.VisitorFindAreaById;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +78,9 @@ public final class DirectoryAreas {
    * @return area found.
    */
   public static Area findAreaById(String areaId) {
-    return rootArea.findAreaById(areaId);
+    rootArea.setIdToSearch(areaId);
+    rootArea.accept(new VisitorFindAreaById());
+    return VisitorFindAreaById.getFoundArea();
   }
 
   /**

@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
  * Defines abstract methods to states that can change.
  */
 public class Propped extends DoorState {
+  static Logger logger = LoggerFactory.getLogger("Fita1");
+
   public Propped(Door door) {
     super(door);
     isClosed = false;

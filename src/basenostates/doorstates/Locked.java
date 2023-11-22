@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
  * Defines abstract methods to states that can change.
  */
 public class Locked extends DoorState {
+  static Logger logger = LoggerFactory.getLogger("Fita1");
+
   public Locked(Door door) {
     super(door);
     name = State.LOCKED;

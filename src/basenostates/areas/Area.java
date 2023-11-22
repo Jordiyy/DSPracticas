@@ -33,15 +33,9 @@ public abstract class Area {
     return id;
   }
 
-  public abstract List<Door> getDoorsGivingAccessToArea();
-
-  public abstract Area findAreaById(String id);
-
   public abstract List<Area> getSpacesFromArea();
 
-  public List<?> accept(Visitor visit) {
-    return null;
-  }
+  public void accept(Visitor visit) {}
 
   public String getIdToSearch() {
     return idToSearch;

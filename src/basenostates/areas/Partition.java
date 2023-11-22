@@ -4,6 +4,9 @@ import basenostates.doorstates.Door;
 import basenostates.visitor.Visitor;
 import basenostates.visitor.VisitorFindAreaById;
 import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,7 @@ import java.util.List;
  */
 public class Partition extends Area {
   private final List<Area> allAreas; //List that contains Partitions or Spaces.
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public Partition(String id, String description, Partition partitionDad) {
     super(id, description, partitionDad);
@@ -28,45 +32,8 @@ public class Partition extends Area {
     logger.debug("Area added to Partition " + this.id + ".");
   }
 
-  /**
-   * Get all doors that are in a Space recursively
-   * @return doors List of doors that are in a zone of Partitions and Spaces
-   */
-  @Override
-  public List<Door> getDoorsGivingAccessToArea() {
-    List<Door> listDoors = new ArrayList<>();
-
-    this.visit = new VisitorGetDoorsGivingAccesToArea();
-
-    for (Area area : allAreas) {
-      listDoors.addAll((List<Door>) area.accept(visit));
-    }
-
-    return listDoors;
-  }
-
-  /**
-   * Get a Partition or Space recursively.
-   * @param id as String
-   * @return Area
-   */
-  @Override
-  public Area findAreaById(String id) {
-    this.visit = new VisitorFindAreaById();
-    List<Area> areaFound = new ArrayList<>();
-
-    for (Area area : allAreas) {
-      area.setIdToSearch(id);
-      areaFound.addAll((List<Area>) area.accept(visit));
-    }
-
-    for (Area subArea : areaFound) {
-      if (subArea.getId().equals(subArea.getIdToSearch())) {
-        return subArea;
-      }
-    }
-
-    return this;
+  public List<Area> getAllAreas() {
+    return allAreas;
   }
 
   @Override
@@ -76,7 +43,7 @@ public class Partition extends Area {
   }
 
   @Override
-  public List<?> accept(Visitor visit) {
-    return visit.visitPartition(this);
+  public void accept(Visitor visit) {
+    visit.visitPartition(this);
   }
 }

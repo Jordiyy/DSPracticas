@@ -1,29 +1,37 @@
 package basenostates.visitor;
 
 import basenostates.areas.Area;
+import basenostates.areas.Partition;
+import basenostates.areas.Space;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class VisitorFindAreaById implements Visitor {
 
-  @Override
-  public List<?> visitPartition(Object obj) {
-    List<Area> list = new ArrayList<>();
-    Area area = (Area) obj;
+  private static Area foundArea = null;
 
-    list.add(area.findAreaById(area.getIdToSearch()));
-    return list;
+  @Override
+  public void visitPartition(Partition partition) {
+    if (partition.getId().equals(partition.getIdToSearch())) {
+      foundArea = partition;
+    } else {
+      for (Area area : partition.getAllAreas()) {
+        area.setIdToSearch(partition.getIdToSearch());
+        area.accept(new VisitorFindAreaById());
+      }
+    }
   }
 
   @Override
-  public List<?> visitSpace(Object obj) {
-    List<Area> list = new ArrayList<>();
-    Area area = (Area) obj;
-
-    if (area.getId().equals(area.getIdToSearch())) {
-      list.add(area.findAreaById(area.getIdToSearch()));
+  public void visitSpace(Space space) {
+    if (space.getId().equals(space.getIdToSearch())) {
+      foundArea = space;
     }
-    return list;
+  }
+
+  public static Area getFoundArea() {
+    return foundArea;
   }
 
 }

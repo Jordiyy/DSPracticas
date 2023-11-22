@@ -2,6 +2,8 @@ package basenostates.areas;
 
 import basenostates.doorstates.Door;
 import basenostates.visitor.Visitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
  */
 public class Space extends Area {
   private final List<Door> allDoors; //List of doors that are in one Space.
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public Space(String id, String description, Partition partitionDad) {
     super(id, description, partitionDad);
@@ -28,24 +31,16 @@ public class Space extends Area {
   }
 
   @Override
-  public List<Door> getDoorsGivingAccessToArea() {
-    logger.debug("Return a list of all doors of Space " + this.id + ".");
-    return allDoors;
-  }
-
-  @Override
-  public Area findAreaById(String id) {
-    logger.warn("Cannot search into Space because is an endpoint of the tree.");
-    return this;
-  }
-
-  @Override
   public List<Area> getSpacesFromArea() {
     logger.warn("Doesn't exist a list of Partitions or Spaces.");
     return null;
   }
 
-  public List<?> accept(Visitor visit) {
-    return visit.visitSpace(this);
+  public List<Door> getAllDoors() {
+    return allDoors;
+  }
+
+  public void accept(Visitor visit) {
+    visit.visitSpace(this);
   }
 }

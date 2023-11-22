@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 public class UnlockedShortly extends DoorState {
   private final Clock ck;
   private final LocalDateTime unlockedShortlyStartTime;
+  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public UnlockedShortly(Door door) {
     super(door);
