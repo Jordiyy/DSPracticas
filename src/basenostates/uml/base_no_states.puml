@@ -32,8 +32,8 @@ class DirectoryUserGroups {
 class UserGroup {
     - groupName : String
     - userList : List<User>
-    - access : AllowAccess
-    - areaPermission : List<Area>
+    - hasAccess : AllowAccess
+    - areasPermissionForGroup : List<Area>
     + UserGroup(groupName : String, userList : ArrayList<User>, startTime : LocalDateTime, endTime : LocalDateTime)
     + getUserList() : List<User>
     + addUser(user : User) : void
@@ -43,6 +43,7 @@ class UserGroup {
     + checkDay(dayToCheck : LocalDateTime) : boolean
     + checkTime(timeToCheck : LocalDateTime) : boolean
     + checkPeriod(dateToCheck : LocalDateTime) : boolean
+    + getGroupName() : String
     - setAllowAccess(startTime: LocalDateTime, endTime : LocalDateTime) : void
 }
 
