@@ -51,6 +51,7 @@ public class UserGroup {
    * @param notPermissionArea is a list of strings with the names of the disallowed areas.
    */
   public void setAreaPermission(List<Area> areas, List<String> notPermissionArea) {
+    logger.debug("Set areas perission of " + groupName + ".");
     for (Area area : areas) {
       if (area instanceof Partition && !notPermissionArea.contains(area.getId())) {
         setAreaPermission(area.getSpacesFromArea(), notPermissionArea);
@@ -103,6 +104,7 @@ public class UserGroup {
    * @param endTime gets the end time to set into AllowAccess object.
    */
   private void  setAllowAccess(LocalDateTime startTime, LocalDateTime endTime) {
+    logger.debug("Initialization of " + groupName + " access time periods.");
     if (startTime != null) {
       this.hasAccess.setStartPeriod(LocalDate.of(startTime.getYear(),
           startTime.getMonth(), startTime.getDayOfMonth()));

@@ -1,11 +1,7 @@
 package basenostates.areas;
 
-import basenostates.doorstates.Door;
-import java.util.List;
-
 import basenostates.visitor.Visitor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
 
 /**
  * We use a Composite Design Patters because the structure of the different spaces follows the
@@ -21,7 +17,6 @@ public abstract class Area {
   protected Partition partitionDad;
   protected Visitor visit;
   protected String idToSearch;
-  static Logger logger = LoggerFactory.getLogger("Fita1");
 
   public Area(String id, String description, Partition partitionDad) {
     this.id = id;

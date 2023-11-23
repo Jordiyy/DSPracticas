@@ -3,17 +3,18 @@ package basenostates.visitor;
 import basenostates.areas.Area;
 import basenostates.areas.Partition;
 import basenostates.areas.Space;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class VisitorFindAreaById implements Visitor {
 
   private static Area foundArea = null;
+  static Logger logger = LoggerFactory.getLogger("Fita2");
 
   @Override
   public void visitPartition(Partition partition) {
     if (partition.getId().equals(partition.getIdToSearch())) {
+      logger.debug("Area found.");
       foundArea = partition;
     } else {
       for (Area area : partition.getAllAreas()) {
@@ -26,6 +27,7 @@ public class VisitorFindAreaById implements Visitor {
   @Override
   public void visitSpace(Space space) {
     if (space.getId().equals(space.getIdToSearch())) {
+      logger.debug("Area found.");
       foundArea = space;
     }
   }

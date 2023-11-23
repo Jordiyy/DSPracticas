@@ -4,10 +4,9 @@ import basenostates.DirectoryAreas;
 import basenostates.areas.Area;
 import basenostates.doorstates.Actions;
 import basenostates.doorstates.Door;
+import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
-import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

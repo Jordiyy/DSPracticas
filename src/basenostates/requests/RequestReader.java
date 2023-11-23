@@ -6,8 +6,6 @@ import basenostates.User;
 import basenostates.doorstates.Door;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
-import basenostates.requests.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

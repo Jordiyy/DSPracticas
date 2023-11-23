@@ -29,6 +29,7 @@ public class WebServer {
   public WebServer() {
     try {
       ServerSocket serverConnect = new ServerSocket(PORT);
+      logger.debug("ServerSocket created.");
       logger.info("Server started.\nListening for connections on port : " + PORT + " ...\n");
       // we listen until user halts server execution
       while (true) {
@@ -73,7 +74,7 @@ public class WebServer {
         StringTokenizer parse = new StringTokenizer(input);
         String method = parse.nextToken().toUpperCase(); // we get the HTTP method of the client
         if (!method.equals("GET")) {
-          logger.debug("501 Not Implemented : " + method + " method.");
+          logger.warn("501 Not Implemented : " + method + " method.");
         } else {
           // what comes after "localhost:8080"
           resource = parse.nextToken();

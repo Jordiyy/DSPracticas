@@ -1,14 +1,11 @@
 package basenostates.areas;
 
-import basenostates.doorstates.Door;
 import basenostates.visitor.Visitor;
-import basenostates.visitor.VisitorFindAreaById;
-import basenostates.visitor.VisitorGetDoorsGivingAccesToArea;
+import java.util.ArrayList;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Class that defines Partition object.
