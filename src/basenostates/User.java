@@ -90,8 +90,4 @@ public class User {
     return rol.checkDay(day);
   }
 
-  public UserGroup getRol() {
-    return rol;
-  }
-
 }

@@ -29,10 +29,6 @@ public class Partition extends Area {
     logger.debug("Area added to Partition " + this.id + ".");
   }
 
-  public List<Area> getAllAreas() {
-    return allAreas;
-  }
-
   @Override
   public List<Area> getSpacesFromArea() {
     logger.debug("Return a list of Partitions and Spaces that belong to Area " + this.id + ".");

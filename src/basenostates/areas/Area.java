@@ -15,7 +15,6 @@ public abstract class Area {
   protected String id;
   protected String description;
   protected Partition partitionDad;
-  protected Visitor visit;
   protected String idToSearch;
 
   public Area(String id, String description, Partition partitionDad) {
@@ -30,7 +29,7 @@ public abstract class Area {
 
   public abstract List<Area> getSpacesFromArea();
 
-  public void accept(Visitor visit) {}
+  public abstract void accept(Visitor visit);
 
   public String getIdToSearch() {
     return idToSearch;

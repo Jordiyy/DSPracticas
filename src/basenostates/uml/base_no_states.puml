@@ -58,24 +58,22 @@ class DirectoryAreas {
 
 class Door {
     - id : String
-    - to : Area
-    - from : Area
+    - hasAccessToArea : Area
+    - hasAccessFromArea : Area
     - doorState : DoorState
 
     + Door(id : String, to : Area, from : Area)
     + processRequest(request : RequestReader) : void
     - doAction(action : String) : void
+    + isClosed() : boolean
     + getId(): String
     + getStateName(): String
-    + isClosed() : boolean
     + toString() : String
     + toJson() : JSONObject
-    + setState(doorState : DoorState)
-    + getTo(): Area
-    + getFrom(): Area
+    + setNewDoorState(doorState : DoorState)
+    + getHasAccessToArea(): Area
+    + getHasAccessFromArea(): Area
 }
-
-
 
 class User {
     - name : String
@@ -109,14 +107,19 @@ abstract class DoorState extends Observer{
 
 class Locked extends DoorState {
     + Locked(door : Door)
+    + lock() : void
     + unlock() : void
     + unlockShortly() : void
+    + propped() : void
     + update (o : Observable, arg : Object)
 }
 
 class Unlocked extends DoorState {
     + Unlocked(door : Door)
     + lock() : void
+    + unlock() : void
+    + unlockShortly() : void
+    + propped() : void
     + update (o : Observable, arg : Object)
 }
 
@@ -125,6 +128,8 @@ class Unlocked_Shortly extends DoorState {
     - unlockedShortlyStartTime : LocalDateTime
     + Unlocked_Shortly(door : Door)
     + lock() : void
+    + unlock() : void
+    + unlockShortly() : void
     + propped() : void
     + update(o : Observable, arg :  Object) : void
     - endDelay(timeToCompare : LocalDateTime) : double
@@ -133,37 +138,40 @@ class Unlocked_Shortly extends DoorState {
 class Propped extends DoorState {
     + Propped(door : Door)
     + lock() : void
+    + unlock() : void
+    + unlockShortly() : void
+    + propped() : void
 }
 
 abstract class Area {
     # id : String
     # description : String
     # partitionDad : Partition
+    # idToSearch : String
     + Area(id : String, description : String, partitionDad : Partition)
     + getId() : String
-    + {abstract} getDoorsGivingAccess() : List<Door>
-    + {abstract} findAreaById(id : String) : Area
-    + {abstract} getSpaces() : List<Area>
+    + {abstract} getSpacesFromArea() : List<Area>
+    + {abstract} accept(Visitor visit) : void
+    + getIdToSearch() : String
+    + setIdToSearch(id : String) : void
 }
 
 class Partition extends Area {
     - allAreas : List<Area>
     + Partition(id : String, description : String, partitionDad : Partition)
-    + setAllAreas(areas : List<Area>) : void
-    + setArea(area: Area) : void
-    + getDoorsGivingAccess() : List<Door>
-    + findAreaById(id : String) : Area
-    + getSpaces() : List <Area>
+    + setAllAreasToPartition(areas : List<Area>) : void
+    + setAreaToPartition(area: Area) : void
+    + getSpacesFromArea() : List <Area>
+    + accept(Visitor visit) : void
 }
 
 class Space extends Area {
     - allDoors : List<Door>
-    + getDoorsGivingAccess() : List<Door>
-    + setDoors(doors: List<Door>) : void
+    + setDoorsToSpace(doors: List<Door>) : void
     + getAllDoors(): List<Door>
-    + setOneDoor(door: Door) : void
-    + findAreaById(id : String) : Area
-    + getSpaces() : List <Area>
+    + setOneDoorToSpace(door: Door) : void
+    + getSpacesFromArea() : List <Area>
+    + accept(Visitor visit) : void
 }
 
 class AllowAccess {
@@ -211,6 +219,25 @@ class Actions {
 
 class Main {
     + {static} main(args : String)
+}
+
+interface Visitor{
+    + visitSpace(space : Space) : void
+    + visitPartition(partition : Partition) : void
+}
+
+class VisitorFindAreaById implements Visitor{
+    - {static} foundArea : Area
+    + visitPartition(partition : Partition) : void
+    + visitSpace(space : Space) : void
+    + {static} getFoundArea() : Area
+}
+class VisitorGetDoorsGivingAccesToArea implements Visitor{
+    - {static} listDoorsToArea : List<Door>
+    + visitPartition(partition : Partition) : void
+    + visitSpace(space : Space) : void
+    + {static} initListDoorsToArea() : void
+    + {static} getListDoorsToArea() : List<Door>
 }
 
 note right of Main::main
