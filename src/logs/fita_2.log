@@ -1,15 +1,110 @@
-20:14:58.088 [main] DEBUG Fita2 - Area found.
-20:15:06.569 [Thread-1] INFO  Fita2 - Doors with id D6 found.
-20:15:08.738 [Thread-2] INFO  Fita2 - Doors with id D6 found.
-20:15:11.700 [Thread-3] DEBUG Fita2 - Area found.
-20:15:11.704 [Thread-3] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
-20:15:11.704 [Thread-3] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
-20:15:11.704 [Thread-3] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
-20:15:11.705 [Thread-3] INFO  Fita2 - Doors with id D3 found.
-20:15:11.707 [Thread-3] INFO  Fita2 - Doors with id D4 found.
-20:15:11.708 [Thread-3] INFO  Fita2 - Doors with id D5 found.
-20:15:11.709 [Thread-3] INFO  Fita2 - Doors with id D6 found.
-20:15:15.962 [Thread-4] INFO  Fita2 - Doors with id D5 found.
-20:15:19.598 [Thread-5] INFO  Fita2 - Doors with id D2 found.
-20:15:20.995 [Thread-6] INFO  Fita2 - Doors with id D2 found.
-21:15:58.324 [main] DEBUG Fita2 - Area found.
+08:56:59.884 [main] DEBUG Fita2 - Area found.
+08:57:23.387 [Thread-1] DEBUG Fita2 - Area found.
+08:57:23.387 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.387 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.387 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.387 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.395 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.396 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.396 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.396 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:23.396 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+08:57:30.569 [Thread-2] DEBUG Fita2 - New Clock instance created.
+08:57:30.569 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:30.569734700
+08:57:31.584 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:31.584902900
+08:57:32.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:32.577581600
+08:57:33.571 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:33.571789100
+08:57:34.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:34.573728300
+08:57:35.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:35.577520200
+08:57:36.573 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:36.573580200
+08:57:37.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:37.582709200
+08:57:38.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:38.576803
+08:57:39.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:39.579706600
+08:57:40.584 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:40.584281600
+08:57:41.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:41.577170800
+08:57:42.569 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:42.569512400
+08:57:43.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:43.576646200
+08:57:44.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:44.577030900
+08:57:45.571 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:45.571759300
+08:57:46.597 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:46.597101100
+08:57:47.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:47.578906900
+08:57:48.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:48.581116800
+08:57:49.583 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:49.583605300
+08:57:50.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:50.579926700
+08:57:51.583 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:51.583033300
+08:57:52.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:52.577744400
+08:57:53.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:53.576045700
+08:57:54.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:54.576367500
+08:57:55.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:55.577632700
+08:57:56.572 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:56.572291
+08:57:57.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:57.581027100
+08:57:58.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:58.575518300
+08:57:59.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:57:59.581192100
+08:58:00.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:00.578851400
+08:58:01.573 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:01.573510400
+08:58:02.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:02.575046
+08:58:03.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:03.576378300
+08:58:04.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:04.574644300
+08:58:05.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:05.578033800
+08:58:06.571 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:06.571114900
+08:58:07.570 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:07.570189600
+08:58:08.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:08.574681200
+08:58:09.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:09.575788700
+08:58:10.570 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:10.570715400
+08:58:11.592 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:11.592756400
+08:58:12.570 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:12.570508400
+08:58:13.573 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:13.573446200
+08:58:14.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:14.574631900
+08:58:15.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:15.578690
+08:58:16.585 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:16.585363700
+08:58:17.571 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:17.571250800
+08:58:18.580 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:18.580899300
+08:58:19.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:19.579514900
+08:58:20.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:20.575889600
+08:58:21.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:21.574307400
+08:58:22.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:22.579881100
+08:58:23.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:23.582704600
+08:58:24.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:24.581432700
+08:58:25.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:25.577444
+08:58:26.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:26.574304900
+08:58:27.586 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:27.586650200
+08:58:28.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:28.579656800
+08:58:29.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:29.578770500
+08:58:30.572 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:30.572656100
+08:58:31.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:31.577875400
+08:58:32.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:32.579174700
+08:58:33.585 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:33.585344300
+08:58:34.570 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:34.570999200
+08:58:35.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:35.578067300
+08:58:36.569 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:36.569288300
+08:58:37.569 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:37.569579
+08:58:38.583 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:38.583033300
+08:58:39.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:39.578537800
+08:58:40.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:40.582149100
+08:58:41.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:41.577509800
+08:58:42.571 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:42.571178600
+08:58:43.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:43.576357900
+08:58:44.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:44.582882200
+08:58:45.584 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:45.584788300
+08:58:46.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:46.575917100
+08:58:47.573 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:47.573228300
+08:58:48.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:48.574040200
+08:58:49.585 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:49.585050700
+08:58:50.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:50.574595700
+08:58:51.583 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:51.583979200
+08:58:52.575 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:52.575510300
+08:58:53.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:53.581907100
+08:58:54.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:54.582983200
+08:58:55.584 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:55.584261300
+08:58:56.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:56.576870
+08:58:57.576 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:57.576449100
+08:58:58.582 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:58.582667400
+08:58:59.574 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:58:59.574483900
+08:59:00.580 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:00.580902200
+08:59:01.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:01.577158400
+08:59:02.579 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:02.579985
+08:59:03.578 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:03.578690400
+08:59:04.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:04.577488300
+08:59:05.577 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:05.577145900
+08:59:06.583 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:06.583755200
+08:59:07.581 [Timer-0] DEBUG Fita2 - run() executed at 2023-11-24T08:59:07.581359800

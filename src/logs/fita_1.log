@@ -1,178 +1,181 @@
-20:14:58.038 [main] DEBUG Fita1 - Areas and Doors initialization.
-20:14:58.046 [main] DEBUG Fita1 - List of doors added to Space parking.
-20:14:58.046 [main] DEBUG Fita1 - List of doors added to Space hall.
-20:14:58.046 [main] DEBUG Fita1 - Door added to Space room1.
-20:14:58.047 [main] DEBUG Fita1 - Door added to Space room2.
-20:14:58.047 [main] DEBUG Fita1 - Door added to Space room3.
-20:14:58.047 [main] DEBUG Fita1 - Door added to Space corridor.
-20:14:58.047 [main] DEBUG Fita1 - Door added to Space IT.
-20:14:58.048 [main] DEBUG Fita1 - Area added to Partition basement.
-20:14:58.048 [main] DEBUG Fita1 - List of Areas added to Partition ground_floor.
-20:14:58.048 [main] DEBUG Fita1 - List of Areas added to Partition floor1.
-20:14:58.080 [main] DEBUG Fita1 - List of Areas added to Partition building.
-20:14:58.082 [main] DEBUG Fita1 - Groups, Users and Permissions initialization.
-20:14:58.084 [main] DEBUG Fita1 - Initialization of blank access time periods.
-20:14:58.086 [main] DEBUG Fita1 - Initialization of employee access time periods.
-20:14:58.086 [main] DEBUG Fita1 - Initialization of manager access time periods.
-20:14:58.087 [main] DEBUG Fita1 - Initialization of admin access time periods.
-20:14:58.088 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-20:14:58.089 [main] DEBUG Fita1 - Set areas perission of admin.
-20:14:58.089 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-20:14:58.089 [main] DEBUG Fita1 - Set areas perission of admin.
-20:14:58.090 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-20:14:58.090 [main] DEBUG Fita1 - Set areas perission of admin.
-20:14:58.090 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-20:14:58.090 [main] DEBUG Fita1 - Set areas perission of admin.
-20:14:58.090 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-20:14:58.090 [main] DEBUG Fita1 - Set areas perission of manager.
-20:14:58.090 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-20:14:58.090 [main] DEBUG Fita1 - Set areas perission of manager.
-20:14:58.090 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-20:14:58.091 [main] DEBUG Fita1 - Set areas perission of manager.
-20:14:58.091 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-20:14:58.091 [main] DEBUG Fita1 - Set areas perission of manager.
-20:14:58.091 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-20:14:58.091 [main] DEBUG Fita1 - Set areas perission of employee.
-20:14:58.091 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-20:14:58.091 [main] DEBUG Fita1 - Set areas perission of employee.
-20:14:58.091 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-20:14:58.091 [main] DEBUG Fita1 - Set areas perission of employee.
-20:14:58.092 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-20:14:58.092 [main] DEBUG Fita1 - Set areas perission of employee.
-20:14:58.092 [main] DEBUG Fita1 - 
+08:56:59.853 [main] DEBUG Fita1 - Areas and Doors initialization.
+08:56:59.869 [main] DEBUG Fita1 - List of doors added to Space parking.
+08:56:59.869 [main] DEBUG Fita1 - List of doors added to Space hall.
+08:56:59.869 [main] DEBUG Fita1 - Door added to Space room1.
+08:56:59.869 [main] DEBUG Fita1 - Door added to Space room2.
+08:56:59.869 [main] DEBUG Fita1 - Door added to Space room3.
+08:56:59.869 [main] DEBUG Fita1 - Door added to Space corridor.
+08:56:59.869 [main] DEBUG Fita1 - Door added to Space IT.
+08:56:59.869 [main] DEBUG Fita1 - Area added to Partition basement.
+08:56:59.869 [main] DEBUG Fita1 - List of Areas added to Partition ground_floor.
+08:56:59.869 [main] DEBUG Fita1 - List of Areas added to Partition floor1.
+08:56:59.869 [main] DEBUG Fita1 - List of Areas added to Partition building.
+08:56:59.869 [main] DEBUG Fita1 - Groups, Users and Permissions initialization.
+08:56:59.884 [main] DEBUG Fita1 - Initialization of blank access time periods.
+08:56:59.884 [main] DEBUG Fita1 - Initialization of employee access time periods.
+08:56:59.884 [main] DEBUG Fita1 - Initialization of manager access time periods.
+08:56:59.884 [main] DEBUG Fita1 - Initialization of admin access time periods.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of admin.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of admin.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of admin.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of admin.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of manager.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of manager.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of manager.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of manager.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of employee.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of employee.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of employee.
+08:56:59.884 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
+08:56:59.884 [main] DEBUG Fita1 - Set areas perission of employee.
+08:56:59.884 [main] DEBUG Fita1 - 
 
 Webserver thread creation.
 
 
-20:15:01.046 [Thread-0] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=unlocked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:01.055 [Thread-0] DEBUG Fita1 - JSON object created.
-20:15:06.562 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
-20:15:06.568 [Thread-1] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=unlocked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:06.569 [Thread-1] DEBUG Fita1 - User can acces in hall.
-20:15:06.569 [Thread-1] DEBUG Fita1 - User can be in room2.
-20:15:06.569 [Thread-1] DEBUG Fita1 - Checking access time.
-20:15:06.569 [Thread-1] DEBUG Fita1 - Checking access period.
-20:15:06.570 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
-20:15:06.570 [Thread-1] DEBUG Fita1 - Door with id D6 is open.
-20:15:06.570 [Thread-1] INFO  Fita1 - Door opened.
-20:15:08.736 [Thread-2] DEBUG Fita1 - User with credential 11343 found.
-20:15:08.738 [Thread-2] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=unlocked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=false, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:08.738 [Thread-2] DEBUG Fita1 - User can acces in hall.
-20:15:08.738 [Thread-2] DEBUG Fita1 - User can be in room2.
-20:15:08.738 [Thread-2] DEBUG Fita1 - Checking access time.
-20:15:08.738 [Thread-2] DEBUG Fita1 - Checking access period.
-20:15:08.738 [Thread-2] DEBUG Fita1 - Checking if day is accessible.
-20:15:11.704 [Thread-3] DEBUG Fita1 - User with credential 11343 found.
-20:15:11.705 [Thread-3] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=unlocked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:11.705 [Thread-3] DEBUG Fita1 - User can be in hall.
-20:15:11.705 [Thread-3] DEBUG Fita1 - User can acces in exterior.
-20:15:11.705 [Thread-3] DEBUG Fita1 - Checking access time.
-20:15:11.705 [Thread-3] DEBUG Fita1 - Checking access period.
-20:15:11.705 [Thread-3] DEBUG Fita1 - Checking if day is accessible.
-20:15:11.705 [Thread-3] DEBUG Fita1 - Unlocked to Locked door
-20:15:11.706 [Thread-3] INFO  Fita1 - Unlocked to Locked door
-20:15:11.706 [Thread-3] DEBUG Fita1 - User with credential 11343 found.
-20:15:11.707 [Thread-3] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:11.707 [Thread-3] DEBUG Fita1 - User can be in hall.
-20:15:11.707 [Thread-3] DEBUG Fita1 - User can acces in stairs.
-20:15:11.707 [Thread-3] DEBUG Fita1 - Checking access time.
-20:15:11.707 [Thread-3] DEBUG Fita1 - Checking access period.
-20:15:11.707 [Thread-3] DEBUG Fita1 - Checking if day is accessible.
-20:15:11.707 [Thread-3] DEBUG Fita1 - Unlocked to Locked door
-20:15:11.707 [Thread-3] INFO  Fita1 - Unlocked to Locked door
-20:15:11.707 [Thread-3] DEBUG Fita1 - User with credential 11343 found.
-20:15:11.708 [Thread-3] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:11.708 [Thread-3] DEBUG Fita1 - User can acces in hall.
-20:15:11.708 [Thread-3] DEBUG Fita1 - User can be in room1.
-20:15:11.708 [Thread-3] DEBUG Fita1 - Checking access time.
-20:15:11.708 [Thread-3] DEBUG Fita1 - Checking access period.
-20:15:11.708 [Thread-3] DEBUG Fita1 - Checking if day is accessible.
-20:15:11.708 [Thread-3] DEBUG Fita1 - Unlocked to Locked door
-20:15:11.708 [Thread-3] INFO  Fita1 - Unlocked to Locked door
-20:15:11.708 [Thread-3] DEBUG Fita1 - User with credential 11343 found.
-20:15:11.708 [Thread-3] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=true, state=locked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:11.709 [Thread-3] DEBUG Fita1 - User can acces in hall.
-20:15:11.709 [Thread-3] DEBUG Fita1 - User can be in room2.
-20:15:11.709 [Thread-3] DEBUG Fita1 - Checking access time.
-20:15:11.709 [Thread-3] DEBUG Fita1 - Checking access period.
-20:15:11.709 [Thread-3] DEBUG Fita1 - Checking if day is accessible.
-20:15:11.709 [Thread-3] DEBUG Fita1 - Unlocked to Locked door
-20:15:11.709 [Thread-3] INFO  Fita1 - Unlocked to Locked door
-20:15:15.961 [Thread-4] DEBUG Fita1 - User with credential 11343 found.
-20:15:15.962 [Thread-4] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=true, state=locked}, Door{, id='D6', closed=true, state=locked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:15.962 [Thread-4] DEBUG Fita1 - User can acces in hall.
-20:15:15.962 [Thread-4] DEBUG Fita1 - User can be in room1.
-20:15:15.962 [Thread-4] DEBUG Fita1 - Checking access time.
-20:15:15.962 [Thread-4] DEBUG Fita1 - Checking access period.
-20:15:15.962 [Thread-4] DEBUG Fita1 - Checking if day is accessible.
-20:15:15.963 [Thread-4] WARN  Fita1 - Can't open door D5 because it's already open.
-20:15:19.598 [Thread-5] DEBUG Fita1 - User with credential 11343 found.
-20:15:19.598 [Thread-5] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=true, state=locked}, Door{, id='D6', closed=true, state=locked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:19.598 [Thread-5] DEBUG Fita1 - User can be in parking.
-20:15:19.598 [Thread-5] DEBUG Fita1 - User can acces in stairs.
-20:15:19.598 [Thread-5] DEBUG Fita1 - Checking access time.
-20:15:19.598 [Thread-5] DEBUG Fita1 - Checking access period.
-20:15:19.598 [Thread-5] DEBUG Fita1 - Checking if day is accessible.
-20:15:19.598 [Thread-5] DEBUG Fita1 - Door with id D2 is open.
-20:15:19.598 [Thread-5] INFO  Fita1 - Door opened.
-20:15:20.995 [Thread-6] DEBUG Fita1 - User with credential 11343 found.
-20:15:20.995 [Thread-6] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=false, state=unlocked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=true, state=locked}, Door{, id='D6', closed=true, state=locked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
-20:15:20.995 [Thread-6] DEBUG Fita1 - User can be in parking.
-20:15:20.995 [Thread-6] DEBUG Fita1 - User can acces in stairs.
-20:15:20.995 [Thread-6] DEBUG Fita1 - Checking access time.
-20:15:20.995 [Thread-6] DEBUG Fita1 - Checking access period.
-20:15:20.995 [Thread-6] DEBUG Fita1 - Checking if day is accessible.
-21:15:58.258 [main] DEBUG Fita1 - Areas and Doors initialization.
-21:15:58.284 [main] DEBUG Fita1 - List of doors added to Space parking.
-21:15:58.285 [main] DEBUG Fita1 - List of doors added to Space hall.
-21:15:58.285 [main] DEBUG Fita1 - Door added to Space room1.
-21:15:58.285 [main] DEBUG Fita1 - Door added to Space room2.
-21:15:58.286 [main] DEBUG Fita1 - Door added to Space room3.
-21:15:58.286 [main] DEBUG Fita1 - Door added to Space corridor.
-21:15:58.286 [main] DEBUG Fita1 - Door added to Space IT.
-21:15:58.289 [main] DEBUG Fita1 - Area added to Partition basement.
-21:15:58.289 [main] DEBUG Fita1 - List of Areas added to Partition ground_floor.
-21:15:58.289 [main] DEBUG Fita1 - List of Areas added to Partition floor1.
-21:15:58.289 [main] DEBUG Fita1 - List of Areas added to Partition building.
-21:15:58.298 [main] DEBUG Fita1 - Groups, Users and Permissions initialization.
-21:15:58.305 [main] DEBUG Fita1 - Initialization of blank access time periods.
-21:15:58.317 [main] DEBUG Fita1 - Initialization of employee access time periods.
-21:15:58.317 [main] DEBUG Fita1 - Initialization of manager access time periods.
-21:15:58.317 [main] DEBUG Fita1 - Initialization of admin access time periods.
-21:15:58.324 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of admin.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of admin.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of admin.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of admin.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of manager.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of manager.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-21:15:58.325 [main] DEBUG Fita1 - Set areas perission of manager.
-21:15:58.325 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-21:15:58.326 [main] DEBUG Fita1 - Set areas perission of manager.
-21:15:58.326 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
-21:15:58.326 [main] DEBUG Fita1 - Set areas perission of employee.
-21:15:58.326 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
-21:15:58.326 [main] DEBUG Fita1 - Set areas perission of employee.
-21:15:58.326 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
-21:15:58.326 [main] DEBUG Fita1 - Set areas perission of employee.
-21:15:58.326 [main] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
-21:15:58.326 [main] DEBUG Fita1 - Set areas perission of employee.
-21:15:58.326 [main] DEBUG Fita1 - 
-
-Webserver thread creation.
-
-
+08:57:11.147 [Thread-0] INFO  Fita1 - [Door{, id='D1', closed=true, state=unlocked}, Door{, id='D2', closed=true, state=unlocked}, Door{, id='D3', closed=true, state=unlocked}, Door{, id='D4', closed=true, state=unlocked}, Door{, id='D5', closed=true, state=unlocked}, Door{, id='D6', closed=true, state=unlocked}, Door{, id='D7', closed=true, state=unlocked}, Door{, id='D8', closed=true, state=unlocked}, Door{, id='D9', closed=true, state=unlocked}]
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:11.163 [Thread-0] DEBUG Fita1 - JSON object created.
+08:57:23.387 [Thread-1] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area building.
+08:57:23.387 [Thread-1] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area basement.
+08:57:23.387 [Thread-1] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area ground_floor.
+08:57:23.387 [Thread-1] DEBUG Fita1 - Return a list of Partitions and Spaces that belong to Area floor1.
+08:57:23.400 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.400 [Thread-1] INFO  Fita1 - Doors with id D1 found.
+08:57:23.400 [Thread-1] DEBUG Fita1 - User can be in parking.
+08:57:23.400 [Thread-1] DEBUG Fita1 - User can acces in exterior.
+08:57:23.400 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.400 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.400 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.400 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D2 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in parking.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in stairs.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D3 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in hall.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in exterior.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D4 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in hall.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in stairs.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D5 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in hall.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in room1.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D6 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in hall.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in room2.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D8 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in room3.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in corridor.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.403 [Thread-1] INFO  Fita1 - Doors with id D7 found.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can be in corridor.
+08:57:23.403 [Thread-1] DEBUG Fita1 - User can acces in stairs.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.403 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.403 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:23.411 [Thread-1] DEBUG Fita1 - User with credential 11343 found.
+08:57:23.412 [Thread-1] INFO  Fita1 - Doors with id D9 found.
+08:57:23.412 [Thread-1] DEBUG Fita1 - User can acces in corridor.
+08:57:23.412 [Thread-1] DEBUG Fita1 - User can be in IT.
+08:57:23.412 [Thread-1] DEBUG Fita1 - Checking access time.
+08:57:23.412 [Thread-1] DEBUG Fita1 - Checking access period.
+08:57:23.412 [Thread-1] DEBUG Fita1 - Checking if day is accessible.
+08:57:23.412 [Thread-1] DEBUG Fita1 - Unlocked to Locked door
+08:57:23.412 [Thread-1] INFO  Fita1 - Unlocked to Locked door
+08:57:30.561 [Thread-2] DEBUG Fita1 - User with credential 11343 found.
+08:57:30.561 [Thread-2] INFO  Fita1 - Doors with id D5 found.
+08:57:30.561 [Thread-2] DEBUG Fita1 - User can acces in hall.
+08:57:30.561 [Thread-2] DEBUG Fita1 - User can be in room1.
+08:57:30.561 [Thread-2] DEBUG Fita1 - Checking access time.
+08:57:30.561 [Thread-2] DEBUG Fita1 - Checking access period.
+08:57:30.561 [Thread-2] DEBUG Fita1 - Checking if day is accessible.
+08:57:30.569 [Thread-2] DEBUG Fita1 - Locked state to Unlocked Shortly state.
+08:57:30.569 [Thread-2] INFO  Fita1 - Locked to Unlocked Shortly door.
+08:57:30.569 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:31.584 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:32.578 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:32.811 [Thread-4] DEBUG Fita1 - User with credential 11343 found.
+08:57:32.811 [Thread-4] INFO  Fita1 - Doors with id D5 found.
+08:57:32.811 [Thread-4] DEBUG Fita1 - User can acces in hall.
+08:57:32.811 [Thread-4] DEBUG Fita1 - User can be in room1.
+08:57:32.811 [Thread-4] DEBUG Fita1 - Checking access time.
+08:57:32.811 [Thread-4] DEBUG Fita1 - Checking access period.
+08:57:32.811 [Thread-4] DEBUG Fita1 - Checking if day is accessible.
+08:57:32.811 [Thread-4] DEBUG Fita1 - Door with id D5 is open.
+08:57:32.811 [Thread-4] INFO  Fita1 - Door opened.
+08:57:33.571 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:34.574 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:35.577 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:36.573 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:37.582 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:38.576 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:39.579 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:40.584 [Timer-0] INFO  Fita1 - IT'S BEEN MORE THAN 10 SECONDS!!
+08:57:40.585 [Timer-0] INFO  Fita1 - Unlocked_shortly has been notified
+08:57:44.542 [Thread-5] INFO  Fita1 - [Door{, id='D1', closed=true, state=locked}, Door{, id='D2', closed=true, state=locked}, Door{, id='D3', closed=true, state=locked}, Door{, id='D4', closed=true, state=locked}, Door{, id='D5', closed=false, state=propped}, Door{, id='D6', closed=true, state=locked}, Door{, id='D7', closed=true, state=locked}, Door{, id='D8', closed=true, state=locked}, Door{, id='D9', closed=true, state=locked}]
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.
+08:57:44.542 [Thread-5] DEBUG Fita1 - JSON object created.

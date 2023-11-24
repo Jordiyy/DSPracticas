@@ -10,8 +10,6 @@
             </encoder>
         </appender>
 
-        <!-- FILE -->
-
         <appender name="fita_1" class="ch.qos.logback.core.FileAppender">
             <append>true</append>
             <encoder>
