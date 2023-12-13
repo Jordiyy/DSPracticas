@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class User {
   late String name;
   late String credential;
+  late List<Map<String, String>> history;
 
-  User(this.name, this.credential);
+  User(this.name, this.credential, this.history);
 }
 
 class UserGroup {
@@ -64,8 +65,8 @@ class usersData {
       scheduleAdmin,
       Actions.all,
       [
-        User("Ana", "89325"),
-        User("Aureli", "87325"),
+        User("Ana", "89325", []),
+        User("Aureli", "87325", []),
       ]);
 
   // Managers
@@ -90,10 +91,10 @@ class usersData {
       scheduleManagers,
       Actions.all,
       [
-        User("Manel", "43762"),
-        User("Miquel", "77832"),
-        User("Maria", "89324"),
-        User("Maure", "12345"),
+        User("Manel", "43762", []),
+        User("Miquel", "77832", []),
+        User("Maria", "89324", []),
+        User("Maure", "12345", []),
       ]);
 
   // Employees
@@ -115,9 +116,9 @@ class usersData {
       scheduleEmployees,
       [Actions.open, Actions.close, Actions.unlockShortly],
       [
-        User("Eva", "89325"),
-        User("Eulalia", "87325"),
-        User("Esteve", "43623"),
+        User("Eva", "89325", []),
+        User("Eulalia", "87325", []),
+        User("Esteve", "43623", []),
       ]);
 
   static List<UserGroup> userGroups = [admin, managers, employees];

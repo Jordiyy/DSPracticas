@@ -1,8 +1,11 @@
+import 'package:agile_access/nav_bar.dart';
+import 'package:agile_access/screen_home_partition.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 
 import 'package:agile_access/data/user_data.dart';
+import 'screen_door.dart';
 import 'data/door_tree.dart';
 
 class ScreenSpace extends StatefulWidget {
@@ -25,7 +28,7 @@ class _ScreenSpace extends State<ScreenSpace> {
   late User userData;
   late String areaName;
   late Tree doorTree;
-
+  int idxNavBar = 0;
   List<bool> switchValue = [false, false, false];
 
   @override
@@ -37,9 +40,26 @@ class _ScreenSpace extends State<ScreenSpace> {
     doorTree = getTree(areaName);
   }
 
+  void _ItemNavSelected(int idx) {
+    setState(() {
+      idxNavBar = idx;
+    });
+
+    if (idxNavBar == 0) {
+      Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: (context) => ScreenHomePartition(
+            userGroup: userGroup,
+            userData: userData,
+            areaName: userGroup.areas.first),
+      ));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar:
+            NavBar(ItemNavSelected: (index) => _ItemNavSelected(index)).bar,
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -66,7 +86,14 @@ class _ScreenSpace extends State<ScreenSpace> {
 
   Widget _buildRow(Door door, int index) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute<void>(
+          builder: (context) => ScreenDoor(
+              userGroup: userGroup,
+              userData: userData,
+              doorName: doorTree.root.children[index].id),
+        ));
+      },
       child: Card(
           child: Padding(
               padding:

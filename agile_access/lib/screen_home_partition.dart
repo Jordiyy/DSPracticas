@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
+import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
 import 'screen_space.dart';
 
@@ -29,7 +30,9 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   late Tree doorTree;
 
   List<bool> switchValue = [false, false, false];
-  String iconImgBuilding = Mdi.office_building_remove;
+  String iconImgBuilding = Mdi.door_closed_lock;
+
+  int idxNavBar = 0;
 
   @override
   void initState() {
@@ -40,9 +43,26 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     doorTree = getTree(areaName);
   }
 
+  void _ItemNavSelected(int idx) {
+    setState(() {
+      idxNavBar = idx;
+    });
+
+    if (idxNavBar == 0) {
+      Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: (context) => ScreenHomePartition(
+            userGroup: userGroup,
+            userData: userData,
+            areaName: userGroup.areas.first),
+      ));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar:
+            NavBar(ItemNavSelected: (index) => _ItemNavSelected(index)).bar,
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -66,9 +86,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                               switchValue.every((value) => value == true);
                           switchValue =
                               List.filled(switchValue.length, !allFalse);
-                          iconImgBuilding = allFalse
-                              ? Mdi.office_building_remove
-                              : Mdi.office_building;
+                          iconImgBuilding =
+                              allFalse ? Mdi.door_closed_lock : Mdi.door_closed;
                         });
                       },
                     ))
