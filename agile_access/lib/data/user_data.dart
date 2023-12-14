@@ -21,7 +21,7 @@ class UserGroup {
 }
 
 class Schedule {
-  late List<int> weekdays; // DateTime.monday==1, DateTime.sunday==7
+  late List<bool> weekdays; // DateTime.monday==1, DateTime.sunday==7
   late DateTime fromDate;
   late DateTime toDate;
   late TimeOfDay fromTime;
@@ -43,13 +43,13 @@ class Actions {
 class usersData {
   // Admin
   static Schedule scheduleAdmin = Schedule([
-    DateTime.monday,
-    DateTime.tuesday,
-    DateTime.wednesday,
-    DateTime.thursday,
-    DateTime.friday,
-    DateTime.saturday,
-    DateTime.sunday
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
   ],
       DateTime(2023, 1, 1),
       DateTime(2026, 1, 1),
@@ -71,12 +71,13 @@ class usersData {
 
   // Managers
   static Schedule scheduleManagers = Schedule([
-    DateTime.monday,
-    DateTime.tuesday,
-    DateTime.wednesday,
-    DateTime.thursday,
-    DateTime.friday,
-    DateTime.saturday,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
   ],
       DateTime(2023, 9, 1),
       DateTime(2024, 8, 30),
@@ -99,11 +100,13 @@ class usersData {
 
   // Employees
   static Schedule scheduleEmployees = Schedule([
-    DateTime.monday,
-    DateTime.tuesday,
-    DateTime.wednesday,
-    DateTime.thursday,
-    DateTime.friday,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
   ],
       DateTime(2023, 9, 1),
       DateTime(2024, 3, 1),
@@ -125,11 +128,13 @@ class usersData {
 
   // defaults for new user group
   static Schedule defaultSchedule = Schedule([
-    DateTime.monday,
-    DateTime.tuesday,
-    DateTime.wednesday,
-    DateTime.thursday,
-    DateTime.friday,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
   ],
       DateTime.now(),
       DateTime.now().add(const Duration(days: 365)),

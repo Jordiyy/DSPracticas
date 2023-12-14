@@ -61,3 +61,7 @@ Tree getTree(String id) {
 
   return Tree(areas[id]!);
 }
+
+class LastVisited {
+  static List<Door> lastVisitedList = [];
+}

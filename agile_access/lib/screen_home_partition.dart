@@ -1,6 +1,8 @@
+import 'package:agile_access/utils/nav_bar_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/fa6_solid.dart';
 
 import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
@@ -30,9 +32,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   late Tree doorTree;
 
   List<bool> switchValue = [false, false, false];
-  String iconImgBuilding = Mdi.door_closed_lock;
-
-  int idxNavBar = 0;
+  String iconImgBuilding = Fa6Solid.building_lock;
 
   @override
   void initState() {
@@ -43,26 +43,12 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     doorTree = getTree(areaName);
   }
 
-  void _ItemNavSelected(int idx) {
-    setState(() {
-      idxNavBar = idx;
-    });
-
-    if (idxNavBar == 0) {
-      Navigator.of(context).push(MaterialPageRoute<void>(
-        builder: (context) => ScreenHomePartition(
-            userGroup: userGroup,
-            userData: userData,
-            areaName: userGroup.areas.first),
-      ));
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar:
-            NavBar(ItemNavSelected: (index) => _ItemNavSelected(index)).bar,
+        bottomNavigationBar: NavBar(
+            ItemNavSelected: (index) =>
+                ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -86,8 +72,9 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                               switchValue.every((value) => value == true);
                           switchValue =
                               List.filled(switchValue.length, !allFalse);
-                          iconImgBuilding =
-                              allFalse ? Mdi.door_closed_lock : Mdi.door_closed;
+                          iconImgBuilding = allFalse
+                              ? Fa6Solid.building_lock
+                              : Mdi.office_building;
                         });
                       },
                     ))

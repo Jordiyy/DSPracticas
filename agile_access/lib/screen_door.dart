@@ -1,4 +1,5 @@
 import 'package:agile_access/screen_home_partition.dart';
+import 'package:agile_access/utils/nav_bar_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
@@ -44,26 +45,12 @@ class _ScreenDoor extends State<ScreenDoor> {
     doorName = widget.doorName;
   }
 
-  void _ItemNavSelected(int idx) {
-    setState(() {
-      idxNavBar = idx;
-    });
-
-    if (idxNavBar == 0) {
-      Navigator.of(context).push(MaterialPageRoute<void>(
-        builder: (context) => ScreenHomePartition(
-            userGroup: userGroup,
-            userData: userData,
-            areaName: userGroup.areas.first),
-      ));
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar:
-            NavBar(ItemNavSelected: (index) => _ItemNavSelected(index)).bar,
+        bottomNavigationBar: NavBar(
+            ItemNavSelected: (index) =>
+                ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
