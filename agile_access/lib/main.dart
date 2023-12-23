@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screen_sing_up.dart';
+import 'screen_log_in.dart';
 
 void main() {
   runApp(const MyApp());

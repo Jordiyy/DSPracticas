@@ -30,15 +30,15 @@ class Tree {
 
 Tree getTree(String id) {
   final List<Door> doors = List<Door>.of([
-    Door(id: "D1"),
-    Door(id: "D2"),
-    Door(id: "D3"),
-    Door(id: "D4"),
-    Door(id: "D5"),
-    Door(id: "D6"),
-    Door(id: "D7"),
-    Door(id: "D8"),
-    Door(id: "D9")
+    Door(id: "D1", closed: true, state: "unlocked"),
+    Door(id: "D2", closed: true, state: "unlocked"),
+    Door(id: "D3", closed: true, state: "unlocked"),
+    Door(id: "D4", closed: true, state: "unlocked"),
+    Door(id: "D5", closed: true, state: "unlocked"),
+    Door(id: "D6", closed: true, state: "unlocked"),
+    Door(id: "D7", closed: true, state: "unlocked"),
+    Door(id: "D8", closed: true, state: "unlocked"),
+    Door(id: "D9", closed: true, state: "unlocked")
   ]);
 
   Map<String, Area> areas = {};

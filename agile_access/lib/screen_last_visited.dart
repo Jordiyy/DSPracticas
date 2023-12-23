@@ -72,8 +72,8 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<void>(
-          builder: (context) => ScreenDoor(
-              userGroup: userGroup, userData: userData, doorName: door.id),
+          builder: (context) =>
+              ScreenDoor(userGroup: userGroup, userData: userData, door: door),
         ));
       },
       child: Card(

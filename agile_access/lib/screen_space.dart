@@ -80,7 +80,7 @@ class _ScreenSpace extends State<ScreenSpace> {
           builder: (context) => ScreenDoor(
               userGroup: userGroup,
               userData: userData,
-              doorName: doorTree.root.children[index].id),
+              door: doorTree.root.children[index]),
         ));
       },
       child: Card(

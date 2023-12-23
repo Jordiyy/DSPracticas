@@ -31,7 +31,7 @@ class Schedule {
       this.weekdays, this.fromDate, this.toDate, this.fromTime, this.toTime);
 }
 
-class Actions {
+class ActionsDoor {
   static const String open = "open";
   static const String close = "close";
   static const String lock = "lock";
@@ -63,7 +63,7 @@ class usersData {
         "building",
       ],
       scheduleAdmin,
-      Actions.all,
+      ActionsDoor.all,
       [
         User("Ana", "89325", []),
         User("Aureli", "87325", []),
@@ -90,7 +90,7 @@ class usersData {
         "building",
       ],
       scheduleManagers,
-      Actions.all,
+      ActionsDoor.all,
       [
         User("Manel", "43762", []),
         User("Miquel", "77832", []),
@@ -117,7 +117,7 @@ class usersData {
       "employees of own departments plus oursourcing companies",
       ["ground_floor", "room3", "corridor"],
       scheduleEmployees,
-      [Actions.open, Actions.close, Actions.unlockShortly],
+      [ActionsDoor.open, ActionsDoor.close, ActionsDoor.unlockShortly],
       [
         User("Eva", "89325", []),
         User("Eulalia", "87325", []),

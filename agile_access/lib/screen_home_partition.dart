@@ -1,4 +1,5 @@
 import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
@@ -145,9 +146,21 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                   ),
                   Switch(
                       value: switchValue[index],
-                      onChanged: (bool value) {
+                      onChanged: (bool value) async {
+                        Future<Tree> futureTree = lockAllDoor(area);
+                        await futureTree;
                         setState(() {
                           switchValue[index] = value;
+                          if (switchValue[index] == true) {
+                            futureTree
+                                .then((Tree tree) => {
+                                      doorTree.root.children[index].children =
+                                          tree.root.children
+                                    })
+                                .catchError((error) {
+                              print(error);
+                            });
+                          }
                         });
                       }),
                 ],
