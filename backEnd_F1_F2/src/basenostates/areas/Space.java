@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.json.JSONObject;
+import org.json.JSONArray;
 
 /**
  * Class that defines Space object.
@@ -41,5 +43,17 @@ public class Space extends Area {
 
   public void accept(Visitor visit) {
     visit.visitSpace(this);
+  }
+
+  public JSONObject toJson(int depth) { // depth not used here
+    JSONObject json = new JSONObject();
+    json.put("class", "space");
+    json.put("id", id);
+    JSONArray jsonDoors = new JSONArray();
+    for (Door d : allDoors) {
+      jsonDoors.put(d.toJson());
+    }
+    json.put("access_doors", jsonDoors);
+    return json;
   }
 }

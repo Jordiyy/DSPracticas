@@ -31,7 +31,9 @@ class _ScreenDoor extends State<ScreenDoor> {
   late UserGroup userGroup;
   late User userData;
   late Door door;
+  late Future<Tree> doorTree;
   int idxNavBar = 0;
+  late int idxDoor;
 
   List<String> iconList = [
     Bi.door_open,
@@ -51,116 +53,143 @@ class _ScreenDoor extends State<ScreenDoor> {
     userGroup = widget.userGroup;
     userData = widget.userData;
     door = widget.door;
+    doorTree = getTreeQuery(door.id);
+
     stateDoor = door.state;
     stateBoton = door.state == "unlocked" ? "Lock" : "Unlock";
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: NavBar(
-            ItemNavSelected: (index) =>
-                ItemNavSelected(context, index, userGroup, userData)).bar,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: Text("Door ${door.id}"),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("${door.id} options"),
-            Text.rich(TextSpan(children: [
-              const TextSpan(text: "Estatus: "),
-              TextSpan(
-                  text: "${stateDoor}",
-                  style: TextStyle(
-                      color:
-                          stateDoor == "locked" ? Colors.red : Colors.green)),
-              TextSpan(text: " - "),
-              TextSpan(text: "Closed"),
-            ])),
-            Row(
-              children: [
-                ElevatedButton(
-                    child: Column(
-                        children: [Iconify(iconList[0]), Text(closedBoton)]),
-                    onPressed: () async {
-                      /* door.state == "unlocked"
+    return FutureBuilder<Tree>(
+      future: doorTree,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Scaffold(
+              bottomNavigationBar: NavBar(
+                  ItemNavSelected: (index) =>
+                      ItemNavSelected(context, index, userGroup, userData)).bar,
+              appBar: AppBar(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                title: Text("Door ${door.id}"),
+              ),
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("${door.id} options"),
+                  Text.rich(TextSpan(children: [
+                    const TextSpan(text: "Estatus: "),
+                    TextSpan(
+                        text: "${stateDoor}",
+                        style: TextStyle(
+                            color: stateDoor == "locked"
+                                ? Colors.red
+                                : Colors.green)),
+                    TextSpan(text: " - "),
+                    TextSpan(text: "Closed"),
+                  ])),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                          child: Column(children: [
+                            Iconify(iconList[0]),
+                            Text(closedBoton)
+                          ]),
+                          onPressed: () async {
+                            /* door.state == "unlocked"
                           ? await openDoor(door)
                           : await closeDoor(door);*/
-                      setState(() {
-                        if (door.closed == false) {
-                          iconList[1] = Bi.door_open;
-                          closedDoor = "Open door";
-                          closedBoton = "Close door";
-                        } else {
-                          iconList[1] = Bi.door_closed;
-                          closedDoor = "Close door";
-                          closedBoton = "ClCloseose door";
-                        }
-                      });
-                      userData.history.add({
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${closedDoor}"
-                      });
-                    }),
-                ElevatedButton(
-                    child: Column(
-                        children: [Iconify(iconList[1]), Text(stateBoton)]),
-                    onPressed: () {
-                      door.state == "unlocked"
-                          ? lockDoor(door)
-                          : unlockDoor(door);
+                            setState(() {
+                              if (door.closed == false) {
+                                iconList[1] = Bi.door_open;
+                                closedDoor = "Open door";
+                                closedBoton = "Close door";
+                              } else {
+                                iconList[1] = Bi.door_closed;
+                                closedDoor = "Close door";
+                                closedBoton = "ClCloseose door";
+                              }
+                            });
+                            userData.history.add({
+                              door.id:
+                                  "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${closedDoor}"
+                            });
+                          }),
+                      ElevatedButton(
+                          child: Column(children: [
+                            Iconify(iconList[1]),
+                            Text(stateBoton)
+                          ]),
+                          onPressed: () {
+                            idxDoor = snapshot.data!.root.children
+                                .indexWhere((d) => d.id == door.id);
+                            snapshot.data!.root.children[idxDoor].state ==
+                                    "unlocked"
+                                ? lockDoor(door)
+                                : unlockDoor(door);
 
-                      setState(() {
-                        if (door.state == "unlocked") {
-                          iconList[1] = MaterialSymbols.lock_open_outline;
-                          stateDoor = "locked";
-                          stateBoton = "Unlock";
-                        } else {
-                          iconList[1] = MaterialSymbols.lock_outline;
-                          stateDoor = "Unlock";
-                          stateBoton = "Lock";
-                        }
-                      });
-                      userData.history.insert(0, {
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} $stateDoor door"
-                      });
-                    }),
-                ElevatedButton(
-                    child: Column(children: [
-                      Iconify(iconList[2]),
-                      const Text("Unlocked\nShortly")
-                    ]),
-                    onPressed: () {
-                      userData.history.add({
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy').format(DateTime.now())}\n $userData.name blocked the door."
-                      });
-                      setState(() {
-                        iconList[2] =
-                            iconList[2] == MaterialSymbols.lock_clock_outline
-                                ? MaterialSymbols.lock_reset
-                                : MaterialSymbols.lock_clock_outline;
-                      });
-                    }),
-              ],
-            ),
-            Text("History"),
-            Expanded(
-              child: userData.history.isEmpty
-                  ? Text("No data in history")
-                  : ListView.builder(
-                      padding: const EdgeInsets.all(16.0),
-                      itemCount: userData.history.length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          _buildRow(userData.history[index], door.id),
-                    ),
-            )
-          ],
-        ));
+                            setState(() {
+                              if (snapshot.data!.root.children[idxDoor].state ==
+                                  "unlocked") {
+                                iconList[1] = MaterialSymbols.lock_open_outline;
+                                stateDoor = "locked";
+                                stateBoton = "Unlock";
+                              } else {
+                                iconList[1] = MaterialSymbols.lock_outline;
+                                stateDoor = "Unlock";
+                                stateBoton = "Lock";
+                              }
+                              doorTree = getTreeQuery(door.id);
+                            });
+                            userData.history.insert(0, {
+                              door.id:
+                                  "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} $stateDoor door"
+                            });
+                          }),
+                      ElevatedButton(
+                          child: Column(children: [
+                            Iconify(iconList[2]),
+                            const Text("Unlocked\nShortly")
+                          ]),
+                          onPressed: () {
+                            userData.history.add({
+                              door.id:
+                                  "${DateFormat('dd/MM/yyyy').format(DateTime.now())}\n $userData.name blocked the door."
+                            });
+                            setState(() {
+                              iconList[2] = iconList[2] ==
+                                      MaterialSymbols.lock_clock_outline
+                                  ? MaterialSymbols.lock_reset
+                                  : MaterialSymbols.lock_clock_outline;
+                            });
+                          }),
+                    ],
+                  ),
+                  Text("History"),
+                  Expanded(
+                    child: userData.history.isEmpty
+                        ? Text("No data in history")
+                        : ListView.builder(
+                            padding: const EdgeInsets.all(16.0),
+                            itemCount: userData.history.length,
+                            itemBuilder: (BuildContext context, int index) =>
+                                _buildRow(userData.history[index], door.id),
+                          ),
+                  )
+                ],
+              ));
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
+        }
+        return Container(
+            height: MediaQuery.of(context).size.height,
+            color: Colors.white,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ));
+      },
+    );
   }
 
   Widget _buildRow(Map<String, String> info, String doorN) {

@@ -30,9 +30,9 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   late UserGroup userGroup;
   late User userData;
   late String areaName;
-  late Tree doorTree;
+  late Future<Tree> areaTree;
 
-  List<bool> switchValue = [false, false, false];
+  List<bool> switchValue = [false, false, false, false, false];
   String iconImgBuilding = Fa6Solid.building_lock;
 
   @override
@@ -41,56 +41,78 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     userGroup = widget.userGroup;
     userData = widget.userData;
     areaName = widget.areaName;
-    doorTree = getTree(areaName);
+    areaTree = getTreeQuery(areaName);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: NavBar(
-            ItemNavSelected: (index) =>
-                ItemNavSelected(context, index, userGroup, userData)).bar,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: Text(areaName == "building" ? "Home" : areaName),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(areaName == "building"
-                    ? "Building floors"
-                    : "${areaName} areas"),
-                Visibility(
-                    visible: areaName == "building",
-                    child: IconButton(
-                      icon: Iconify(iconImgBuilding),
-                      onPressed: () {
-                        setState(() {
-                          bool allFalse =
-                              switchValue.every((value) => value == true);
-                          switchValue =
-                              List.filled(switchValue.length, !allFalse);
-                          iconImgBuilding = allFalse
-                              ? Fa6Solid.building_lock
-                              : Mdi.office_building;
-                        });
-                      },
-                    ))
-              ],
-            ),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(16.0),
-                itemCount: doorTree.root.children.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    _buildRow(doorTree.root.children[index], index),
+    return FutureBuilder<Tree>(
+      future: areaTree,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Scaffold(
+              bottomNavigationBar: NavBar(
+                  ItemNavSelected: (index) =>
+                      ItemNavSelected(context, index, userGroup, userData)).bar,
+              appBar: AppBar(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                title: Text(areaName == "building" ? "Home" : areaName),
               ),
-            )
-          ],
-        ));
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(areaName == "building"
+                          ? "Building floors"
+                          : "${areaName} areas"),
+                      Visibility(
+                          visible: areaName == "building",
+                          child: IconButton(
+                            icon: Iconify(iconImgBuilding),
+                            onPressed: () {
+                              if (switchValue
+                                  .every((element) => element == false)) {
+                                lockAllDoor(snapshot.data!.root);
+                              } else if (switchValue
+                                  .every((element) => element == true)) {
+                                unlocAllkDoor(snapshot.data!.root);
+                              }
+                              setState(() {
+                                bool allFalse =
+                                    switchValue.every((value) => value == true);
+                                switchValue =
+                                    List.filled(switchValue.length, !allFalse);
+                                iconImgBuilding = allFalse
+                                    ? Fa6Solid.building_lock
+                                    : Mdi.office_building;
+                              });
+                            },
+                          ))
+                    ],
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.all(16.0),
+                      itemCount: snapshot.data!.root.children.length,
+                      itemBuilder: (BuildContext context, int index) =>
+                          _buildRow(snapshot.data!.root.children[index], index),
+                    ),
+                  )
+                ],
+              ));
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
+        }
+        return Container(
+            height: MediaQuery.of(context).size.height,
+            color: Colors.white,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ));
+      },
+    );
   }
 
   Widget _buildRow(Area area, int index) {
@@ -105,21 +127,25 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     }
     return GestureDetector(
       onTap: () {
-        if (doorTree.root.children[index] is Partition) {
-          Navigator.of(context).push(MaterialPageRoute<void>(
+        if (area is Partition) {
+          Navigator.of(context)
+              .push(MaterialPageRoute<void>(
             builder: (context) => ScreenHomePartition(
-                userGroup: userGroup,
-                userData: userData,
-                areaName: doorTree.root.children[index].id),
-          ));
+                userGroup: userGroup, userData: userData, areaName: area.id),
+          ))
+              .then((var value) {
+            _refresh();
+          });
         }
-        if (doorTree.root.children[index] is Space) {
-          Navigator.of(context).push(MaterialPageRoute<void>(
+        if (area is Space) {
+          Navigator.of(context)
+              .push(MaterialPageRoute<void>(
             builder: (context) => ScreenSpace(
-                userGroup: userGroup,
-                userData: userData,
-                areaName: doorTree.root.children[index].id),
-          ));
+                userGroup: userGroup, userData: userData, areaName: area.id),
+          ))
+              .then((var value) {
+            _refresh();
+          });
         }
       },
       child: Card(
@@ -136,7 +162,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                         area.id,
                         style: const TextStyle(fontSize: 15.0),
                       ),
-                      Text('${doorTree.root.children.length}' " Areas",
+                      Text('${area.children.length}' " Areas",
                           style: const TextStyle(fontSize: 15.0)),
                       const Text(
                         "0 Locked doors, 0 Unlocked doors",
@@ -147,24 +173,22 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                   Switch(
                       value: switchValue[index],
                       onChanged: (bool value) async {
-                        Future<Tree> futureTree = lockAllDoor(area);
-                        await futureTree;
                         setState(() {
                           switchValue[index] = value;
                           if (switchValue[index] == true) {
-                            futureTree
-                                .then((Tree tree) => {
-                                      doorTree.root.children[index].children =
-                                          tree.root.children
-                                    })
-                                .catchError((error) {
-                              print(error);
-                            });
+                            lockAllDoor(area);
+                          } else if (switchValue[index] == false) {
+                            unlocAllkDoor(area);
                           }
                         });
                       }),
                 ],
               ))),
     );
+  }
+
+  void _refresh() async {
+    areaTree = getTreeQuery(areaName);
+    setState(() {});
   }
 }

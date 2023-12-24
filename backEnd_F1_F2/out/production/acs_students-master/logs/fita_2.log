@@ -312,3 +312,6 @@
 21:40:46.026 [main] DEBUG Fita2 - Area found.
 21:40:57.130 [Thread-1] DEBUG Fita2 - Area found.
 21:40:57.130 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+21:44:04.320 [main] DEBUG Fita2 - Area found.
+21:44:09.304 [Thread-1] DEBUG Fita2 - Area found.
+21:44:09.305 [Thread-1] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.

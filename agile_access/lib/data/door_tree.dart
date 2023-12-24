@@ -25,7 +25,29 @@ class Door {
 class Tree {
   late Area root;
 
-  Tree(this.root);
+  Tree(Map<String, dynamic> dec) {
+    if (dec['class'] == "partition") {
+      List<Area> children = <Area>[]; // is growable
+      for (Map<String, dynamic> area in dec['areas']) {
+        if (area['class'] == "partition") {
+          children.add(Partition(area['id'], <Area>[]));
+        } else if (area['class'] == "space") {
+          children.add(Space(area['id'], <Door>[]));
+        } else {
+          assert(false);
+        }
+      }
+      root = Partition(dec['id'], children);
+    } else if (dec['class'] == "space") {
+      List<Door> children = <Door>[];
+      for (Map<String, dynamic> d in dec['access_doors']) {
+        children.add(Door(id: d['id'], state: d['state'], closed: d['closed']));
+      }
+      root = Space(dec['id'], children);
+    } else {
+      assert(false);
+    }
+  }
 }
 
 Tree getTree(String id) {
@@ -59,7 +81,7 @@ Tree getTree(String id) {
       List<Area>.of(
           [areas["basement"]!, areas["ground_floor"]!, areas["floor1"]!]));
 
-  return Tree(areas[id]!);
+  return Tree(areas);
 }
 
 class LastVisited {

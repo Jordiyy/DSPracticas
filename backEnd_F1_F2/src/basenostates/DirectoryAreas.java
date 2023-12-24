@@ -77,9 +77,14 @@ public final class DirectoryAreas {
    * @return area found.
    */
   public static Area findAreaById(String areaId) {
-    rootArea.setIdToSearch(areaId);
-    rootArea.accept(new VisitorFindAreaById());
-    return VisitorFindAreaById.getFoundArea();
+    if(areaId.equals("ROOT"))
+    {
+      return rootArea;
+    } else {
+      rootArea.setIdToSearch(areaId);
+      rootArea.accept(new VisitorFindAreaById());
+      return VisitorFindAreaById.getFoundArea();
+    }
   }
 
   /**
