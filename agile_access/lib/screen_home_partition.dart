@@ -1,4 +1,4 @@
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -41,7 +41,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     userGroup = widget.userGroup;
     userData = widget.userData;
     areaName = widget.areaName;
-    areaTree = getTreeQuery(areaName);
+    areaTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
   }
 
   @override
@@ -162,7 +162,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                         area.id,
                         style: const TextStyle(fontSize: 15.0),
                       ),
-                      Text('${area.children.length}' " Areas",
+                      Text(
+                          '${area.children.length} ${area.children.isNotEmpty && area.children[0] is Door ? "Doors" : "Area"}',
                           style: const TextStyle(fontSize: 15.0)),
                       const Text(
                         "0 Locked doors, 0 Unlocked doors",
@@ -188,7 +189,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   }
 
   void _refresh() async {
-    areaTree = getTreeQuery(areaName);
+    areaTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
     setState(() {});
   }
 }

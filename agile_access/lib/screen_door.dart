@@ -1,6 +1,6 @@
 import 'package:agile_access/data/door_tree.dart';
 import 'package:agile_access/screen_home_partition.dart';
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -35,17 +35,11 @@ class _ScreenDoor extends State<ScreenDoor> {
   int idxNavBar = 0;
   late int idxDoor;
 
-  List<String> iconList = [
-    Bi.door_open,
-    MaterialSymbols.lock_outline,
-    MaterialSymbols.lock_clock_outline
-  ];
+  late List<String> iconList;
 
   late String stateDoor;
-  late String stateBoton;
 
-  String closedDoor = "Open";
-  String closedBoton = "Open";
+  late bool closedDoor;
 
   @override
   void initState() {
@@ -53,10 +47,19 @@ class _ScreenDoor extends State<ScreenDoor> {
     userGroup = widget.userGroup;
     userData = widget.userData;
     door = widget.door;
-    doorTree = getTreeQuery(door.id);
+    doorTree = getTreeRequest(door.id);
 
-    stateDoor = door.state;
-    stateBoton = door.state == "unlocked" ? "Lock" : "Unlock";
+    stateDoor = door.state == "unlocked" ? "Unlock" : "Lock";
+
+    closedDoor = door.closed;
+
+    iconList = [
+      closedDoor == true ? Bi.door_open : Bi.door_closed,
+      stateDoor == "Unlock"
+          ? MaterialSymbols.lock_outline
+          : MaterialSymbols.lock_open_outline,
+      MaterialSymbols.lock_clock_outline
+    ];
   }
 
   @override
@@ -81,35 +84,44 @@ class _ScreenDoor extends State<ScreenDoor> {
                   Text.rich(TextSpan(children: [
                     const TextSpan(text: "Estatus: "),
                     TextSpan(
-                        text: "${stateDoor}",
+                        text: stateDoor == "Unlock" ? "Unlocked" : "Locked",
                         style: TextStyle(
-                            color: stateDoor == "locked"
+                            color: stateDoor == "Lock"
                                 ? Colors.red
                                 : Colors.green)),
                     TextSpan(text: " - "),
-                    TextSpan(text: "Closed"),
+                    TextSpan(
+                        text: closedDoor == false ? "Opened" : "Closed",
+                        style: TextStyle(
+                            color: closedDoor == true
+                                ? Colors.red
+                                : Colors.green)),
                   ])),
                   Row(
                     children: [
                       ElevatedButton(
                           child: Column(children: [
                             Iconify(iconList[0]),
-                            Text(closedBoton)
+                            Text(closedDoor == true ? "Open" : "Close")
                           ]),
                           onPressed: () async {
-                            /* door.state == "unlocked"
-                          ? await openDoor(door)
-                          : await closeDoor(door);*/
+                            idxDoor = snapshot.data!.root.children
+                                .indexWhere((d) => d.id == door.id);
+                            snapshot.data!.root.children[idxDoor].closed ==
+                                    false
+                                ? closeDoor(door)
+                                : openDoor(door);
                             setState(() {
-                              if (door.closed == false) {
-                                iconList[1] = Bi.door_open;
-                                closedDoor = "Open door";
-                                closedBoton = "Close door";
+                              if (snapshot
+                                      .data!.root.children[idxDoor].closed ==
+                                  false) {
+                                iconList[0] = Bi.door_open;
+                                closedDoor = true;
                               } else {
-                                iconList[1] = Bi.door_closed;
-                                closedDoor = "Close door";
-                                closedBoton = "ClCloseose door";
+                                iconList[0] = Bi.door_closed;
+                                closedDoor = false;
                               }
+                              doorTree = getTreeRequest(door.id);
                             });
                             userData.history.add({
                               door.id:
@@ -119,7 +131,7 @@ class _ScreenDoor extends State<ScreenDoor> {
                       ElevatedButton(
                           child: Column(children: [
                             Iconify(iconList[1]),
-                            Text(stateBoton)
+                            Text(stateDoor == "Unlock" ? "Lock" : "Unlock")
                           ]),
                           onPressed: () {
                             idxDoor = snapshot.data!.root.children
@@ -133,14 +145,14 @@ class _ScreenDoor extends State<ScreenDoor> {
                               if (snapshot.data!.root.children[idxDoor].state ==
                                   "unlocked") {
                                 iconList[1] = MaterialSymbols.lock_open_outline;
-                                stateDoor = "locked";
-                                stateBoton = "Unlock";
+                                stateDoor = "Lock";
+                                //stateBoton = "Unlock";
                               } else {
                                 iconList[1] = MaterialSymbols.lock_outline;
                                 stateDoor = "Unlock";
-                                stateBoton = "Lock";
+                                //stateBoton = "Lock";
                               }
-                              doorTree = getTreeQuery(door.id);
+                              doorTree = getTreeRequest(door.id);
                             });
                             userData.history.insert(0, {
                               door.id:
@@ -166,10 +178,10 @@ class _ScreenDoor extends State<ScreenDoor> {
                           }),
                     ],
                   ),
-                  Text("History"),
+                  const Text("History"),
                   Expanded(
                     child: userData.history.isEmpty
-                        ? Text("No data in history")
+                        ? const Text("No data in history")
                         : ListView.builder(
                             padding: const EdgeInsets.all(16.0),
                             itemCount: userData.history.length,
@@ -185,7 +197,7 @@ class _ScreenDoor extends State<ScreenDoor> {
         return Container(
             height: MediaQuery.of(context).size.height,
             color: Colors.white,
-            child: Center(
+            child: const Center(
               child: CircularProgressIndicator(),
             ));
       },
@@ -196,7 +208,7 @@ class _ScreenDoor extends State<ScreenDoor> {
     String? name = info[doorN];
 
     if (name == null) {
-      return Text("No data in history");
+      return const Text("No data in history");
     } else {
       return Card(child: Text(name));
     }

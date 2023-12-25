@@ -29,10 +29,8 @@ class Tree {
     if (dec['class'] == "partition") {
       List<Area> children = <Area>[]; // is growable
       for (Map<String, dynamic> area in dec['areas']) {
-        if (area['class'] == "partition") {
-          children.add(Partition(area['id'], <Area>[]));
-        } else if (area['class'] == "space") {
-          children.add(Space(area['id'], <Door>[]));
+        if (area['class'] == "partition" || area['class'] == "space") {
+          children.add(Tree(area).root);
         } else {
           assert(false);
         }

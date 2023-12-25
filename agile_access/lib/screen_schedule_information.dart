@@ -1,4 +1,4 @@
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 

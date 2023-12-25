@@ -1,6 +1,6 @@
 import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/last_visited_function.dart';
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -40,7 +40,7 @@ class _ScreenSpace extends State<ScreenSpace> {
     userGroup = widget.userGroup;
     userData = widget.userData;
     areaName = widget.areaName;
-    doorTree = getTreeQuery(areaName);
+    doorTree = getTreeRequest(areaName);
   }
 
   @override
@@ -125,7 +125,7 @@ class _ScreenSpace extends State<ScreenSpace> {
   }
 
   void _refresh() async {
-    doorTree = getTreeQuery(areaName);
+    doorTree = getTreeRequest(areaName);
     setState(() {});
   }
 }

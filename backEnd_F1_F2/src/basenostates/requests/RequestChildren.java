@@ -27,6 +27,7 @@ public class RequestChildren implements Request{
 
   public void process() {
     Area area = DirectoryAreas.findAreaById(areaId);
-    jsonTree = area.toJson(1);
+    int i = areaId.equals("ROOT") ? 3 : 1;
+    jsonTree = area.toJson(i);
   }
 }
