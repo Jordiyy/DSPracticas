@@ -2,7 +2,7 @@ import 'package:agile_access/data/user_data.dart';
 import 'package:agile_access/main.dart';
 import 'package:agile_access/nav_bar.dart';
 import 'package:agile_access/screen_door.dart';
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
