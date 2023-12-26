@@ -1,3 +1,4 @@
+import 'package:agile_access/main.dart';
 import 'package:agile_access/screen_group_information.dart';
 import 'package:agile_access/screen_schedule_information.dart';
 import 'package:agile_access/screen_user_information.dart';
@@ -43,8 +44,8 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          backgroundColor: AgileAccessColors.azul3,
+          foregroundColor: AgileAccessColors.text,
           title: const Text("User profile"),
         ),
         body: Column(

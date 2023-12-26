@@ -1,3 +1,4 @@
+import 'package:agile_access/main.dart';
 import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_bar_functions.dart';
@@ -49,14 +50,16 @@ class _ScreenSpace extends State<ScreenSpace> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          backgroundColor: AgileAccessColors.azul3,
+          foregroundColor: AgileAccessColors.text,
           title: Text(areaName == "building" ? "Home" : areaName),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("${areaName} doors"),
+            Text(
+              "${areaName} doors",
+            ),
             Text("You have acces to "
                 '${doorTree.root.children.length}'
                 " doors"),

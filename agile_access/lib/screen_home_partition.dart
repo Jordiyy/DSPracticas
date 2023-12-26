@@ -1,3 +1,4 @@
+import 'package:agile_access/main.dart';
 import 'package:agile_access/utils/nav_bar_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
@@ -51,8 +52,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          backgroundColor: AgileAccessColors.azul3,
+          foregroundColor: AgileAccessColors.text,
           title: Text(areaName == "building" ? "Home" : areaName),
         ),
         body: Column(
@@ -60,30 +61,29 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
           children: [
             Row(
               children: [
-                Text(areaName == "building"
-                    ? "Building floors"
-                    : "${areaName} areas"),
+                Expanded(
+                    child: Text(areaName == "building"
+                        ? "Building floors"
+                        : "${areaName} areas")),
                 Visibility(
-                    visible: areaName == "building",
                     child: IconButton(
-                      icon: Iconify(iconImgBuilding),
-                      onPressed: () {
-                        setState(() {
-                          bool allFalse =
-                              switchValue.every((value) => value == true);
-                          switchValue =
-                              List.filled(switchValue.length, !allFalse);
-                          iconImgBuilding = allFalse
-                              ? Fa6Solid.building_lock
-                              : Mdi.office_building;
-                        });
-                      },
-                    ))
+                  icon: Iconify(iconImgBuilding),
+                  onPressed: () {
+                    setState(() {
+                      bool allFalse =
+                          switchValue.every((value) => value == true);
+                      switchValue = List.filled(switchValue.length, !allFalse);
+                      iconImgBuilding = allFalse
+                          ? Fa6Solid.building_lock
+                          : Mdi.office_building;
+                    });
+                  },
+                ))
               ],
             ),
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(10.0),
                 itemCount: doorTree.root.children.length,
                 itemBuilder: (BuildContext context, int index) =>
                     _buildRow(doorTree.root.children[index], index),
@@ -123,12 +123,15 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
         }
       },
       child: Card(
+          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Row(
                 children: [
-                  Iconify(iconIMG),
+                  Padding(
+                      child: Iconify(iconIMG),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 15, 0)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

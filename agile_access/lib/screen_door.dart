@@ -1,4 +1,5 @@
 import 'package:agile_access/data/door_tree.dart';
+import 'package:agile_access/main.dart';
 import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/nav_bar_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
@@ -62,8 +63,8 @@ class _ScreenDoor extends State<ScreenDoor> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          backgroundColor: AgileAccessColors.azul3,
+          foregroundColor: AgileAccessColors.text,
           title: Text("Door ${door.id}"),
         ),
         body: Column(
