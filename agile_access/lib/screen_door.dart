@@ -70,9 +70,12 @@ class _ScreenDoor extends State<ScreenDoor> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("${door.id} options"),
+            Text(
+              "${door.id} options",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             Text.rich(TextSpan(children: [
-              const TextSpan(text: "Estatus: "),
+              const TextSpan(text: "Status: "),
               TextSpan(
                   text: "${stateDoor}",
                   style: TextStyle(

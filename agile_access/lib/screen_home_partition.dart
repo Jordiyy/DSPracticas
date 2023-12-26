@@ -54,7 +54,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: Text(areaName == "building" ? "Home" : areaName),
+          title: Text(areaName == "building" ? "Home" : areaName,
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,9 +63,11 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
             Row(
               children: [
                 Expanded(
-                    child: Text(areaName == "building"
-                        ? "Building floors"
-                        : "${areaName} areas")),
+                    child: Text(
+                        areaName == "building"
+                            ? "Building floors"
+                            : "${areaName} areas",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
                 Visibility(
                     child: IconButton(
                   icon: Iconify(iconImgBuilding),
@@ -137,7 +140,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                     children: [
                       Text(
                         area.id,
-                        style: const TextStyle(fontSize: 15.0),
+                        style: const TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),
                       Text('${doorTree.root.children.length}' " Areas",
                           style: const TextStyle(fontSize: 15.0)),

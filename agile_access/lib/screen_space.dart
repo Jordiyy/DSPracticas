@@ -59,6 +59,7 @@ class _ScreenSpace extends State<ScreenSpace> {
           children: [
             Text(
               "${areaName} doors",
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text("You have acces to "
                 '${doorTree.root.children.length}'
@@ -87,18 +88,22 @@ class _ScreenSpace extends State<ScreenSpace> {
         ));
       },
       child: Card(
+          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Row(
                 children: [
-                  Iconify(Bi.door_closed),
+                  Padding(
+                      child: Iconify(Bi.door_closed),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 15, 0)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         door.id,
-                        style: const TextStyle(fontSize: 15.0),
+                        style: const TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),
                       Text("Unlocked - Closed",
                           style: const TextStyle(fontSize: 15.0)),
