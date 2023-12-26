@@ -1,5 +1,4 @@
-import 'package:agile_access/main.dart';
-import 'package:agile_access/utils/nav_bar_functions.dart';
+import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 
@@ -39,8 +38,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: AgileAccessColors.azul3,
-          foregroundColor: AgileAccessColors.text,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
           title: const Text("Schedule Information"),
         ),
         body: Column(

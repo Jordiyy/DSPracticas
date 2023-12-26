@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.json.JSONObject;
+import org.json.JSONArray;
 
 
 /**
@@ -38,5 +40,21 @@ public class Partition extends Area {
   @Override
   public void accept(Visitor visit) {
     visit.visitPartition(this);
+  }
+
+  public JSONObject toJson(int depth) {
+    // for depth=1 only the root and children,
+    // for recusive = all levels use Integer.MAX_VALUE
+    JSONObject json = new JSONObject();
+    json.put("class", "partition");
+    json.put("id", id);
+    JSONArray jsonAreas = new JSONArray();
+    if (depth > 0) {
+      for (Area a : allAreas) {
+        jsonAreas.put(a.toJson(depth - 1));
+      }
+      json.put("areas", jsonAreas);
+    }
+    return json;
   }
 }

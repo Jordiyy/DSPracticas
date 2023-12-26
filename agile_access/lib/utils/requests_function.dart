@@ -12,7 +12,6 @@ const String BASE_URL = "http://10.0.2.2:8080";
 
 Future<String> sendRequest(Uri uri) async {
   final response = await http.get(uri);
-// response is NOT a Future because of await
   if (response.statusCode == 200) {
     // server returns an OK response
     print("statusCode=$response.statusCode");
@@ -24,73 +23,68 @@ Future<String> sendRequest(Uri uri) async {
   }
 }
 
-Future<Tree> getNewTree(Area area, String action) async {
-  String strNow = DATEFORMATTER.format(DateTime.now());
-  Uri uri = Uri.parse("${BASE_URL}/area?credential=11343&action=$action"
-      "&datetime=$strNow&areaId=${area.id}");
-  final String responseBody = await sendRequest(uri);
-  Map<String, dynamic> decoded = jsonDecode(responseBody);
-
-  Area newArea = area is Partition
-      ? Partition(area.id, area.children.cast<Area>())
-      : Space(area.id, area.children.cast<Door>());
-
-  newArea = updatePartition(newArea, decoded["requestsDoors"]);
-
-  return Tree(newArea);
-}
-
-Area updatePartition(Area area, List<dynamic> doors) {
-  List<Map<String, dynamic>> delElement = [];
-  for (Area a in area.children) {
-    if (doors.isEmpty) {
-      break;
-    } else if (a is Space) {
-      for (Door door in a.children) {
-        for (Map<String, dynamic> newDoors in doors) {
-          if (door.id == newDoors["doorId"]) {
-            door.state = newDoors["action"]!;
-            delElement.add(newDoors);
-          }
-        }
-      }
-    } else {
-      updatePartition(a, doors);
-    }
+Future<Tree> getTreeRequest(String areaId) async {
+  Uri uri = Uri.parse("${BASE_URL}/get_children?$areaId");
+  final response = await http.get(uri);
+  if (response.statusCode == 200) {
+    print("statusCode=$response.statusCode");
+    print(response.body);
+    Map<String, dynamic> decoded = json.decode(response.body);
+    return Tree(decoded);
+  } else {
+    print("statusCode=$response.statusCode");
+    throw Exception('failed to get answer to request $uri');
   }
-  doors.removeWhere((door) => delElement.contains(door));
-  return area;
 }
 
 Future<void> lockDoor(Door door) async {
-  lockUnlockDoor(door, ActionsDoor.lock);
+  actionDoorRequest(door, ActionsDoor.lock);
 }
 
 Future<void> unlockDoor(Door door) async {
-  lockUnlockDoor(door, ActionsDoor.unlock);
+  actionDoorRequest(door, ActionsDoor.unlock);
 }
 
-Future<Tree> lockAllDoor(Area areaID) async {
-  return getNewTree(areaID, ActionsDoor.lock);
+Future<void> lockAllDoor(Area areaID) async {
+  lockUnlockArea(areaID, ActionsDoor.lock);
 }
 
-Future<Tree> unlocAllkDoor(Area areaID) async {
-  return getNewTree(areaID, ActionsDoor.unlock);
+Future<void> unlocAllkDoor(Area areaID) async {
+  lockUnlockArea(areaID, ActionsDoor.unlock);
 }
 
-Future<void> lockUnlockDoor(Door door, String action) async {
-// From the simulator : when asking to lock door D1, of parking, the request is
-// http://localhost:8080/reader?credential=11343&action=lock
-// &datetime=2023-12-08T09:30&doorId=D1
-  assert((action == 'lock') | (action == 'unlock'));
+Future<void> openDoor(Door door) async {
+  actionDoorRequest(door, ActionsDoor.open);
+}
+
+Future<void> closeDoor(Door door) async {
+  actionDoorRequest(door, ActionsDoor.close);
+}
+
+Future<void> actionDoorRequest(Door door, String action) async {
+  assert((action == 'lock') |
+      (action == 'unlock') |
+      (action == 'open') |
+      (action == 'close'));
   String strNow = DATEFORMATTER.format(DateTime.now());
   print(strNow);
   Uri uri = Uri.parse("${BASE_URL}/reader?credential=11343&action=$action"
       "&datetime=$strNow&doorId=${door.id}");
-// credential 11343 corresponds to user Ana of Administrator group
-  print('lock ${door.id}, uri $uri');
+
   final String responseBody = await sendRequest(uri);
   Map<String, dynamic> decoded = jsonDecode(responseBody);
-  door.state = decoded['state'];
-  print('requests.dart : door ${door.id} is ${door.state}');
+  print('requests.dart : door ${door.id} is ${decoded['state']}');
+}
+
+Future<void> lockUnlockArea(Area area, String action) async {
+  assert((action == 'lock') | (action == 'unlock'));
+  String strNow = DATEFORMATTER.format(DateTime.now());
+  print(strNow);
+  Uri uri = Uri.parse("${BASE_URL}/area?credential=11343&action=$action"
+      "&datetime=$strNow&areaId=${area.id}");
+
+  print('lock ${area.id}, uri $uri');
+  final String responseBody = await sendRequest(uri);
+  Map<String, dynamic> decoded = jsonDecode(responseBody);
+  print('requests.dart : door ${area.id} is ${decoded['state']}');
 }

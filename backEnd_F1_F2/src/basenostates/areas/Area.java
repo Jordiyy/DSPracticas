@@ -1,6 +1,8 @@
 package basenostates.areas;
 
 import basenostates.visitor.Visitor;
+import org.json.JSONObject;
+
 import java.util.List;
 
 /**
@@ -31,6 +33,8 @@ public abstract class Area {
 
   public abstract void accept(Visitor visit);
 
+  public abstract JSONObject toJson(int i);
+
   public String getIdToSearch() {
     return idToSearch;
   }
@@ -38,4 +42,5 @@ public abstract class Area {
   public void setIdToSearch(String id) {
     this.idToSearch = id;
   }
+
 }
