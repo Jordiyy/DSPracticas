@@ -41,96 +41,114 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: const Text("Schedule Information"),
+          title: const Text(
+            "Schedule Information",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("Schedule Information"),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Start date",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.fromDate.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "End date",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.toDate.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Weekdays",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  WeekdaySelector(
-                    selectedColor: Colors.blue,
-                    onChanged: (value) {},
-                    values: userGroup.schedule.weekdays,
-                  ),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Start time",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.fromTime.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "End time",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.toTime.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-          ],
-        ));
+        body: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Schedule Information",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                ),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Start date",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.schedule.fromDate.toString(),
+                              style: TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "End date",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.schedule.toDate.toString(),
+                              style: TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Weekdays",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          WeekdaySelector(
+                            selectedColor: Colors.blue,
+                            onChanged: (value) {},
+                            values: userGroup.schedule.weekdays,
+                          ),
+                        ],
+                      ),
+                    )),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Start time",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.schedule.fromTime.toString(),
+                              style: TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "End time",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.schedule.toTime.toString(),
+                              style: TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+              ],
+            )));
   }
 }

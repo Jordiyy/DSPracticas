@@ -43,44 +43,57 @@ class _ScreenGroupInformation extends State<ScreenGroupInformation> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: const Text("Group Information"),
+          title: const Text(
+            "Group Information",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("Group account Information"),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Group name",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.name, style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Description",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.description,
-                      style: const TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-          ],
-        ));
+        body: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text(
+                  "Group account Information",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                ),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const Text(
+                            "Group name",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.name,
+                              style: TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+                Card(
+                    color: AgileAccessColors.azul4,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Description",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(userGroup.description,
+                              style: const TextStyle(fontSize: 15.0)),
+                        ],
+                      ),
+                    )),
+              ],
+            )));
   }
 }

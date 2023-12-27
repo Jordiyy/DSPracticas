@@ -46,103 +46,126 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: const Text("User profile"),
+          title: const Text("User profile",
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("User account"),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute<void>(
-                  builder: (context) => ScreenUserInformation(
-                    userGroup: userGroup,
-                    userData: userData,
-                  ),
-                ));
-              },
-              child: const Card(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                      child: Row(
-                        children: [
-                          Iconify(MaterialSymbols.info_outline),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+        body: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("User account",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute<void>(
+                      builder: (context) => ScreenUserInformation(
+                        userGroup: userGroup,
+                        userData: userData,
+                      ),
+                    ));
+                  },
+                  child: const Card(
+                      margin: const EdgeInsets.all(10),
+                      color: AgileAccessColors.azul4,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
                             children: [
-                              Text(
-                                "User",
-                                style: TextStyle(fontSize: 15.0),
+                              Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: Iconify(MaterialSymbols.info_outline)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "User",
+                                    style: TextStyle(
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text("User information",
+                                      style: TextStyle(fontSize: 15.0)),
+                                ],
                               ),
-                              Text("User information",
-                                  style: TextStyle(fontSize: 15.0)),
                             ],
-                          ),
-                        ],
-                      ))),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute<void>(
-                  builder: (context) => ScreenGroupInformation(
-                    userGroup: userGroup,
-                    userData: userData,
-                  ),
-                ));
-              },
-              child: const Card(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                      child: Row(
-                        children: [
-                          Iconify(Ic.baseline_groups),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          ))),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute<void>(
+                      builder: (context) => ScreenGroupInformation(
+                        userGroup: userGroup,
+                        userData: userData,
+                      ),
+                    ));
+                  },
+                  child: const Card(
+                      margin: const EdgeInsets.all(10),
+                      color: AgileAccessColors.azul4,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
                             children: [
-                              Text(
-                                "Group",
-                                style: TextStyle(fontSize: 15.0),
+                              Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: Iconify(Ic.baseline_groups)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Group",
+                                    style: TextStyle(
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text("User group information",
+                                      style: TextStyle(fontSize: 15.0)),
+                                ],
                               ),
-                              Text("User group information",
-                                  style: TextStyle(fontSize: 15.0)),
                             ],
-                          ),
-                        ],
-                      ))),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute<void>(
-                  builder: (context) => ScreenScheduleInformation(
-                    userGroup: userGroup,
-                    userData: userData,
-                  ),
-                ));
-              },
-              child: const Card(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                      child: Row(
-                        children: [
-                          Iconify(Uil.schedule),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          ))),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute<void>(
+                      builder: (context) => ScreenScheduleInformation(
+                        userGroup: userGroup,
+                        userData: userData,
+                      ),
+                    ));
+                  },
+                  child: const Card(
+                      margin: const EdgeInsets.all(10),
+                      color: AgileAccessColors.azul4,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
                             children: [
-                              Text(
-                                "Schedule",
-                                style: TextStyle(fontSize: 15.0),
+                              Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: Iconify(Uil.schedule)),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Schedule",
+                                    style: TextStyle(
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text("User schedule information",
+                                      style: TextStyle(fontSize: 15.0)),
+                                ],
                               ),
-                              Text("User schedule information",
-                                  style: TextStyle(fontSize: 15.0)),
                             ],
-                          ),
-                        ],
-                      ))),
-            ),
-          ],
-        ));
+                          ))),
+                ),
+              ],
+            )));
   }
 }

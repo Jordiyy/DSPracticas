@@ -55,26 +55,28 @@ class _ScreenSpace extends State<ScreenSpace> {
           title: Text(areaName == "building" ? "Home" : areaName,
               style: TextStyle(fontWeight: FontWeight.bold)),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "${areaName} doors",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Text("You have acces to "
-                '${doorTree.root.children.length}'
-                " doors"),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(16.0),
-                itemCount: doorTree.root.children.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    _buildRow(doorTree.root.children[index], index),
-              ),
-            )
-          ],
-        ));
+        body: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${areaName} doors",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text("You have acces to "
+                    '${doorTree.root.children.length}'
+                    " doors"),
+                Expanded(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(16.0),
+                    itemCount: doorTree.root.children.length,
+                    itemBuilder: (BuildContext context, int index) =>
+                        _buildRow(doorTree.root.children[index], index),
+                  ),
+                )
+              ],
+            )));
   }
 
   Widget _buildRow(Door door, int index) {

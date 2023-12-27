@@ -54,25 +54,28 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-                child: const Text("History",
-                    style: TextStyle(fontWeight: FontWeight.bold))),
-            Expanded(
-              child: LastVisited.lastVisitedList.isEmpty
-                  ? Text("No data in history")
-                  : ListView.builder(
-                      padding: const EdgeInsets.all(10.0),
-                      itemCount: LastVisited.lastVisitedList.length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          _buildRow(LastVisited.lastVisitedList[index]),
-                    ),
-            )
-          ],
-        ));
+        body: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: const Text("History",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24))),
+                Expanded(
+                  child: LastVisited.lastVisitedList.isEmpty
+                      ? Text("No data in history")
+                      : ListView.builder(
+                          padding: const EdgeInsets.all(10.0),
+                          itemCount: LastVisited.lastVisitedList.length,
+                          itemBuilder: (BuildContext context, int index) =>
+                              _buildRow(LastVisited.lastVisitedList[index]),
+                        ),
+                )
+              ],
+            )));
   }
 
   Widget _buildRow(Door door) {
@@ -90,13 +93,16 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Row(
                 children: [
-                  const Iconify(Bi.door_closed),
+                  Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: const Iconify(Bi.door_closed)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         door.id,
-                        style: const TextStyle(fontSize: 15.0),
+                        style: const TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),
                       const Text("Unlocked - Closed",
                           style: TextStyle(fontSize: 15.0)),

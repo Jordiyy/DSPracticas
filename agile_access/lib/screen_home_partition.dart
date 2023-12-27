@@ -48,53 +48,57 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: NavBar(
-            ItemNavSelected: (index) =>
-                ItemNavSelected(context, index, userGroup, userData)).bar,
-        appBar: AppBar(
-          backgroundColor: AgileAccessColors.azul3,
-          foregroundColor: AgileAccessColors.text,
-          title: Text(areaName == "building" ? "Home" : areaName,
-              style: TextStyle(fontWeight: FontWeight.bold)),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                    child: Text(
-                        areaName == "building"
-                            ? "Building floors"
-                            : "${areaName} areas",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold))),
-                Visibility(
-                    child: IconButton(
-                  icon: Iconify(iconImgBuilding),
-                  onPressed: () {
-                    setState(() {
-                      bool allFalse =
-                          switchValue.every((value) => value == true);
-                      switchValue = List.filled(switchValue.length, !allFalse);
-                      iconImgBuilding = allFalse
-                          ? Fa6Solid.building_lock
-                          : Mdi.office_building;
-                    });
-                  },
-                ))
-              ],
-            ),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(10.0),
-                itemCount: doorTree.root.children.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    _buildRow(doorTree.root.children[index], index),
+      bottomNavigationBar: NavBar(
+          ItemNavSelected: (index) =>
+              ItemNavSelected(context, index, userGroup, userData)).bar,
+      appBar: AppBar(
+        backgroundColor: AgileAccessColors.azul3,
+        foregroundColor: AgileAccessColors.text,
+        title: Text(areaName == "building" ? "Home" : areaName,
+            style: TextStyle(fontWeight: FontWeight.bold)),
+      ),
+      body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                      child: Text(
+                          areaName == "building"
+                              ? "Building floors"
+                              : "${areaName} areas",
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold))),
+                  Visibility(
+                      child: IconButton(
+                    icon: Iconify(iconImgBuilding),
+                    onPressed: () {
+                      setState(() {
+                        bool allFalse =
+                            switchValue.every((value) => value == true);
+                        switchValue =
+                            List.filled(switchValue.length, !allFalse);
+                        iconImgBuilding = allFalse
+                            ? Fa6Solid.building_lock
+                            : Mdi.office_building;
+                      });
+                    },
+                  ))
+                ],
               ),
-            )
-          ],
-        ));
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(10.0),
+                  itemCount: doorTree.root.children.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      _buildRow(doorTree.root.children[index], index),
+                ),
+              )
+            ],
+          )),
+    );
   }
 
   Widget _buildRow(Area area, int index) {
@@ -134,8 +138,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
               child: Row(
                 children: [
                   Padding(
-                      child: Iconify(iconIMG),
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0)),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Iconify(iconIMG)),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
