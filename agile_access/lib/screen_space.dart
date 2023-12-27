@@ -52,14 +52,15 @@ class _ScreenSpace extends State<ScreenSpace> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: Text(areaName == "building" ? "Home" : areaName),
+          title: Text(areaName == "building" ? "Home" : areaName,
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "${areaName} doors",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text("You have acces to "
                 '${doorTree.root.children.length}'
@@ -88,6 +89,7 @@ class _ScreenSpace extends State<ScreenSpace> {
         ));
       },
       child: Card(
+          color: AgileAccessColors.azul4,
           margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
               padding:
@@ -96,8 +98,9 @@ class _ScreenSpace extends State<ScreenSpace> {
                 children: [
                   Padding(
                       child: Iconify(Bi.door_closed),
-                      padding: const EdgeInsets.fromLTRB(0, 0, 15, 0)),
-                  Column(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0)),
+                  Expanded(
+                      child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -108,7 +111,7 @@ class _ScreenSpace extends State<ScreenSpace> {
                       Text("Unlocked - Closed",
                           style: const TextStyle(fontSize: 15.0)),
                     ],
-                  ),
+                  )),
                 ],
               ))),
     );

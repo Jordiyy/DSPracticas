@@ -67,7 +67,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                         areaName == "building"
                             ? "Building floors"
                             : "${areaName} areas",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold))),
                 Visibility(
                     child: IconButton(
                   icon: Iconify(iconImgBuilding),
@@ -126,30 +127,32 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
         }
       },
       child: Card(
+          color: AgileAccessColors.azul4,
           margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Row(
                 children: [
                   Padding(
                       child: Iconify(iconIMG),
-                      padding: const EdgeInsets.fromLTRB(0, 0, 15, 0)),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        area.id,
-                        style: const TextStyle(
-                            fontSize: 15.0, fontWeight: FontWeight.bold),
-                      ),
-                      Text('${doorTree.root.children.length}' " Areas",
-                          style: const TextStyle(fontSize: 15.0)),
-                      const Text(
-                        "0 Locked doors, 0 Unlocked doors",
-                        style: TextStyle(fontSize: 15.0),
-                      )
-                    ],
+                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0)),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          area.id,
+                          style: const TextStyle(
+                              fontSize: 15.0, fontWeight: FontWeight.bold),
+                        ),
+                        Text('${doorTree.root.children.length}' " Areas",
+                            style: const TextStyle(fontSize: 15.0)),
+                        const Text(
+                          "0 Locked doors, 0 Unlocked doors",
+                          style: TextStyle(fontSize: 15.0),
+                        )
+                      ],
+                    ),
                   ),
                   Switch(
                       value: switchValue[index],

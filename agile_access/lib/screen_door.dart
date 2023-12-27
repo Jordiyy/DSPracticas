@@ -65,99 +65,138 @@ class _ScreenDoor extends State<ScreenDoor> {
         appBar: AppBar(
           backgroundColor: AgileAccessColors.azul3,
           foregroundColor: AgileAccessColors.text,
-          title: Text("Door ${door.id}"),
+          title: Text(
+            "Door ${door.id}",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "${door.id} options",
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 5),
+              child: Text(
+                "${door.id} options",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
-            Text.rich(TextSpan(children: [
-              const TextSpan(text: "Status: "),
-              TextSpan(
-                  text: "${stateDoor}",
-                  style: TextStyle(
-                      color:
-                          stateDoor == "locked" ? Colors.red : Colors.green)),
-              TextSpan(text: " - "),
-              TextSpan(text: "Closed"),
-            ])),
-            Row(
-              children: [
-                ElevatedButton(
-                    child: Column(
-                        children: [Iconify(iconList[0]), Text(closedBoton)]),
-                    onPressed: () async {
-                      /* door.state == "unlocked"
+            Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                child: Text.rich(TextSpan(children: [
+                  const TextSpan(text: "Status: "),
+                  TextSpan(
+                      text: "${stateDoor}",
+                      style: TextStyle(
+                          color: stateDoor == "locked"
+                              ? Colors.red
+                              : Colors.green)),
+                  TextSpan(text: " - "),
+                  TextSpan(text: "Closed"),
+                ]))),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 15),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                          child: ElevatedButton(
+                            child: Column(children: [
+                              Iconify(iconList[0]),
+                              Text(closedBoton)
+                            ]),
+                            onPressed: () async {
+                              /* door.state == "unlocked"
                           ? await openDoor(door)
                           : await closeDoor(door);*/
-                      setState(() {
-                        if (door.closed == false) {
-                          iconList[1] = Bi.door_open;
-                          closedDoor = "Open door";
-                          closedBoton = "Close door";
-                        } else {
-                          iconList[1] = Bi.door_closed;
-                          closedDoor = "Close door";
-                          closedBoton = "ClCloseose door";
-                        }
-                      });
-                      userData.history.add({
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${closedDoor}"
-                      });
-                    }),
-                ElevatedButton(
-                    child: Column(
-                        children: [Iconify(iconList[1]), Text(stateBoton)]),
-                    onPressed: () {
-                      door.state == "unlocked"
-                          ? lockDoor(door)
-                          : unlockDoor(door);
+                              setState(() {
+                                if (door.closed == false) {
+                                  iconList[1] = Bi.door_open;
+                                  closedDoor = "Open door";
+                                  closedBoton = "Close door";
+                                } else {
+                                  iconList[1] = Bi.door_closed;
+                                  closedDoor = "Close door";
+                                  closedBoton = "ClCloseose door";
+                                }
+                              });
+                              userData.history.add({
+                                door.id:
+                                    "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${closedDoor}"
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: AgileAccessColors.azul4),
+                          )),
+                    ),
+                    Expanded(
+                      child: Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                          child: ElevatedButton(
+                            child: Column(children: [
+                              Iconify(iconList[1]),
+                              Text(stateBoton)
+                            ]),
+                            onPressed: () {
+                              door.state == "unlocked"
+                                  ? lockDoor(door)
+                                  : unlockDoor(door);
 
-                      setState(() {
-                        if (door.state == "unlocked") {
-                          iconList[1] = MaterialSymbols.lock_open_outline;
-                          stateDoor = "locked";
-                          stateBoton = "Unlock";
-                        } else {
-                          iconList[1] = MaterialSymbols.lock_outline;
-                          stateDoor = "Unlock";
-                          stateBoton = "Lock";
-                        }
-                      });
-                      userData.history.insert(0, {
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} $stateDoor door"
-                      });
-                    }),
-                ElevatedButton(
-                    child: Column(children: [
-                      Iconify(iconList[2]),
-                      const Text("Unlocked\nShortly")
-                    ]),
-                    onPressed: () {
-                      userData.history.add({
-                        door.id:
-                            "${DateFormat('dd/MM/yyyy').format(DateTime.now())}\n $userData.name blocked the door."
-                      });
-                      setState(() {
-                        iconList[2] =
-                            iconList[2] == MaterialSymbols.lock_clock_outline
-                                ? MaterialSymbols.lock_reset
-                                : MaterialSymbols.lock_clock_outline;
-                      });
-                    }),
-              ],
-            ),
-            Text("History"),
+                              setState(() {
+                                if (door.state == "unlocked") {
+                                  iconList[1] =
+                                      MaterialSymbols.lock_open_outline;
+                                  stateDoor = "locked";
+                                  stateBoton = "Unlock";
+                                } else {
+                                  iconList[1] = MaterialSymbols.lock_outline;
+                                  stateDoor = "Unlock";
+                                  stateBoton = "Lock";
+                                }
+                              });
+                              userData.history.insert(0, {
+                                door.id:
+                                    "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} $stateDoor door"
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: AgileAccessColors.azul4),
+                          )),
+                    ),
+                    Expanded(
+                        child: Padding(
+                            padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                            child: ElevatedButton(
+                              child: Column(children: [
+                                Iconify(iconList[2]),
+                                const Text("Unlocked\nShortly")
+                              ]),
+                              onPressed: () {
+                                userData.history.add({
+                                  door.id:
+                                      "${DateFormat('dd/MM/yyyy').format(DateTime.now())}\n $userData.name blocked the door."
+                                });
+                                setState(() {
+                                  iconList[2] = iconList[2] ==
+                                          MaterialSymbols.lock_clock_outline
+                                      ? MaterialSymbols.lock_reset
+                                      : MaterialSymbols.lock_clock_outline;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: AgileAccessColors.azul4),
+                            )))
+                  ],
+                )),
+            Padding(padding: const EdgeInsets.all(10), child: Text("History")),
             Expanded(
               child: userData.history.isEmpty
-                  ? Text("No data in history")
+                  ? Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text("No data in history"),
+                    )
                   : ListView.builder(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(10),
                       itemCount: userData.history.length,
                       itemBuilder: (BuildContext context, int index) =>
                           _buildRow(userData.history[index], door.id),
@@ -173,7 +212,10 @@ class _ScreenDoor extends State<ScreenDoor> {
     if (name == null) {
       return Text("No data in history");
     } else {
-      return Card(child: Text(name));
+      return Card(
+          margin: const EdgeInsets.all(5),
+          color: AgileAccessColors.azul4,
+          child: Padding(padding: const EdgeInsets.all(10), child: Text(name)));
     }
   }
 }
