@@ -618,3 +618,377 @@
 22:20:00.900 [Thread-64] DEBUG Fita2 - Area found.
 22:20:02.676 [Thread-66] DEBUG Fita2 - Area found.
 22:20:07.989 [Thread-68] DEBUG Fita2 - Area found.
+19:12:49.439 [main] DEBUG Fita2 - Area found.
+19:17:27.062 [Thread-2] DEBUG Fita2 - Area found.
+19:17:28.345 [Thread-3] DEBUG Fita2 - Area found.
+19:17:31.441 [Thread-4] DEBUG Fita2 - Area found.
+19:17:34.407 [Thread-6] DEBUG Fita2 - Area found.
+19:17:35.044 [Thread-7] DEBUG Fita2 - Area found.
+19:17:37.793 [Thread-8] DEBUG Fita2 - Area found.
+19:19:12.327 [Thread-10] DEBUG Fita2 - Area found.
+19:24:01.792 [Thread-12] DEBUG Fita2 - Area found.
+19:24:01.814 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:01.815 [Thread-12] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:04.635 [Thread-13] DEBUG Fita2 - Area found.
+19:24:04.635 [Thread-13] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:04.635 [Thread-13] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:04.635 [Thread-13] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.897 [Thread-14] DEBUG Fita2 - Area found.
+19:24:07.897 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.897 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:07.898 [Thread-14] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:24:13.674 [Thread-15] DEBUG Fita2 - Area found.
+19:24:14.289 [Thread-16] DEBUG Fita2 - Area found.
+19:24:21.212 [Thread-20] DEBUG Fita2 - Area found.
+19:24:25.345 [Thread-26] DEBUG Fita2 - Area found.
+19:25:13.507 [Thread-30] DEBUG Fita2 - Area found.
+19:25:32.056 [Thread-32] DEBUG Fita2 - Area found.
+19:25:32.956 [Thread-33] DEBUG Fita2 - Area found.
+19:25:35.312 [Thread-35] DEBUG Fita2 - Area found.
+19:25:36.010 [Thread-36] DEBUG Fita2 - Area found.
+19:25:42.304 [Thread-38] DEBUG Fita2 - Area found.
+19:25:42.304 [Thread-38] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:25:48.863 [Thread-39] DEBUG Fita2 - Area found.
+19:25:48.864 [Thread-39] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:25:51.739 [Thread-40] DEBUG Fita2 - Area found.
+19:25:51.739 [Thread-40] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:30.777 [Thread-41] DEBUG Fita2 - Area found.
+19:26:35.312 [Thread-43] DEBUG Fita2 - Area found.
+19:26:41.332 [Thread-45] DEBUG Fita2 - Area found.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.333 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.334 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:41.334 [Thread-45] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Area found.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:26:42.429 [Thread-46] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:28:19.923 [Thread-47] DEBUG Fita2 - Area found.
+19:28:24.156 [Thread-48] DEBUG Fita2 - Area found.
+19:28:28.395 [Thread-49] DEBUG Fita2 - Area found.
+19:28:36.271 [Thread-51] DEBUG Fita2 - Area found.
+20:08:34.729 [Thread-61] DEBUG Fita2 - Area found.
+20:09:33.616 [Thread-63] DEBUG Fita2 - Area found.
+20:09:34.895 [Thread-64] DEBUG Fita2 - Area found.
+20:09:49.052 [Thread-65] DEBUG Fita2 - Area found.
+20:11:53.308 [Thread-68] DEBUG Fita2 - Area found.
+20:18:32.642 [Thread-73] DEBUG Fita2 - Area found.
+20:20:38.846 [main] DEBUG Fita2 - Area found.
+20:24:53.859 [Thread-5] DEBUG Fita2 - Area found.
+20:29:21.693 [Thread-8] DEBUG Fita2 - Area found.
+20:29:38.420 [Thread-10] DEBUG Fita2 - Area found.
+20:36:07.143 [Thread-13] DEBUG Fita2 - Area found.
+20:39:30.949 [Thread-15] DEBUG Fita2 - Area found.
+20:39:32.147 [Thread-16] DEBUG Fita2 - Area found.
+20:39:33.779 [Thread-17] DEBUG Fita2 - Area found.
+20:45:27.853 [Thread-19] DEBUG Fita2 - Area found.
+20:45:53.707 [Thread-21] DEBUG Fita2 - Area found.
+20:46:34.729 [Thread-23] DEBUG Fita2 - Area found.
+20:46:56.509 [Thread-25] DEBUG Fita2 - Area found.
+20:47:37.777 [Thread-27] DEBUG Fita2 - Area found.
+20:52:19.337 [Thread-30] DEBUG Fita2 - Area found.
+20:52:30.925 [Thread-32] DEBUG Fita2 - Area found.
+20:55:02.045 [Thread-37] DEBUG Fita2 - Area found.
+20:55:15.552 [Thread-38] DEBUG Fita2 - Area found.
+20:55:15.566 [Thread-38] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+21:03:06.239 [Thread-41] DEBUG Fita2 - Area found.
+21:04:14.441 [Thread-42] DEBUG Fita2 - Area found.
+21:04:23.285 [Thread-44] DEBUG Fita2 - Area found.
+21:05:15.197 [Thread-46] DEBUG Fita2 - Area found.
+21:05:18.195 [Thread-47] DEBUG Fita2 - Area found.
+21:09:01.401 [Thread-49] DEBUG Fita2 - Area found.
+21:09:21.548 [Thread-50] DEBUG Fita2 - Area found.
+21:09:29.941 [Thread-52] DEBUG Fita2 - Area found.
+21:09:32.944 [Thread-53] DEBUG Fita2 - Area found.
+21:09:43.244 [Thread-57] DEBUG Fita2 - Area found.
+21:09:56.115 [Thread-60] DEBUG Fita2 - Area found.
+21:09:59.115 [Thread-61] DEBUG Fita2 - Area found.
+21:10:02.115 [Thread-62] DEBUG Fita2 - Area found.
+21:10:08.215 [Thread-64] DEBUG Fita2 - Area found.
+21:10:11.215 [Thread-65] DEBUG Fita2 - Area found.
+21:10:14.213 [Thread-66] DEBUG Fita2 - Area found.
+21:10:17.215 [Thread-67] DEBUG Fita2 - Area found.
+21:10:20.212 [Thread-68] DEBUG Fita2 - Area found.
+21:10:23.214 [Thread-69] DEBUG Fita2 - Area found.
+21:10:26.212 [Thread-70] DEBUG Fita2 - Area found.
+21:10:29.213 [Thread-71] DEBUG Fita2 - Area found.
+21:10:32.213 [Thread-72] DEBUG Fita2 - Area found.
+21:10:35.214 [Thread-73] DEBUG Fita2 - Area found.
+21:10:38.217 [Thread-74] DEBUG Fita2 - Area found.
+21:10:41.212 [Thread-75] DEBUG Fita2 - Area found.
+21:10:45.473 [Thread-76] DEBUG Fita2 - Area found.
+21:11:39.651 [Thread-78] DEBUG Fita2 - Area found.
+21:11:39.653 [Thread-79] DEBUG Fita2 - Area found.
+21:14:57.014 [Thread-82] DEBUG Fita2 - Area found.
+21:14:57.018 [Thread-83] DEBUG Fita2 - Area found.
+21:14:57.025 [Thread-84] DEBUG Fita2 - Area found.
+21:15:05.211 [Thread-86] DEBUG Fita2 - Area found.
+21:16:42.515 [Thread-87] DEBUG Fita2 - Area found.
+21:16:54.688 [Thread-89] DEBUG Fita2 - Area found.
+19:17:56.320 [main] DEBUG Fita2 - Area found.
+19:18:24.748 [Thread-2] DEBUG Fita2 - Area found.
+19:18:57.849 [Thread-4] DEBUG Fita2 - Area found.
+19:19:58.246 [Thread-5] DEBUG Fita2 - Area found.
+19:20:08.521 [Thread-7] DEBUG Fita2 - Area found.
+19:20:12.526 [Thread-8] DEBUG Fita2 - Area found.
+19:20:16.523 [Thread-9] DEBUG Fita2 - Area found.
+19:20:20.524 [Thread-10] DEBUG Fita2 - Area found.
+19:20:24.516 [Thread-11] DEBUG Fita2 - Area found.
+19:20:39.964 [Thread-13] DEBUG Fita2 - Area found.
+19:22:49.447 [Thread-14] DEBUG Fita2 - Area found.
+19:23:01.051 [Thread-16] DEBUG Fita2 - Area found.
+19:23:18.360 [Thread-17] DEBUG Fita2 - Area found.
+19:23:29.811 [Thread-19] DEBUG Fita2 - Area found.
+19:24:24.941 [Thread-20] DEBUG Fita2 - Area found.
+19:25:15.194 [Thread-22] DEBUG Fita2 - Area found.
+19:25:15.197 [Thread-23] DEBUG Fita2 - Area found.
+19:25:45.202 [Thread-31] DEBUG Fita2 - Area found.
+19:25:45.223 [Thread-31] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:28:01.871 [Thread-69] DEBUG Fita2 - Area found.
+19:28:05.879 [Thread-70] DEBUG Fita2 - Area found.
+19:28:09.875 [Thread-71] DEBUG Fita2 - Area found.
+19:28:13.871 [Thread-72] DEBUG Fita2 - Area found.
+19:28:17.869 [Thread-73] DEBUG Fita2 - Area found.
+19:28:21.870 [Thread-74] DEBUG Fita2 - Area found.
+19:28:25.868 [Thread-75] DEBUG Fita2 - Area found.
+19:33:26.917 [Thread-147] DEBUG Fita2 - Area found.
+19:33:30.930 [Thread-148] DEBUG Fita2 - Area found.
+19:33:34.539 [Thread-149] DEBUG Fita2 - Area found.
+19:33:34.539 [Thread-149] DEBUG Fita2 - Found Space, adding Doors to list of DoorsGivingAccessToArea.
+19:33:34.913 [Thread-150] DEBUG Fita2 - Area found.
+19:33:38.915 [Thread-151] DEBUG Fita2 - Area found.
+19:33:42.927 [Thread-152] DEBUG Fita2 - Area found.
+19:33:46.923 [Thread-153] DEBUG Fita2 - Area found.
+19:33:50.130 [Thread-154] DEBUG Fita2 - Area found.
+19:33:54.134 [Thread-155] DEBUG Fita2 - Area found.
+19:33:58.121 [Thread-156] DEBUG Fita2 - Area found.
+19:34:02.122 [Thread-157] DEBUG Fita2 - Area found.
+19:34:06.136 [Thread-158] DEBUG Fita2 - Area found.
+19:34:10.125 [Thread-159] DEBUG Fita2 - Area found.
+19:34:14.119 [Thread-160] DEBUG Fita2 - Area found.
+19:34:18.130 [Thread-161] DEBUG Fita2 - Area found.
+19:34:22.132 [Thread-162] DEBUG Fita2 - Area found.
+19:34:26.126 [Thread-163] DEBUG Fita2 - Area found.
+19:34:30.122 [Thread-164] DEBUG Fita2 - Area found.
+19:34:34.124 [Thread-165] DEBUG Fita2 - Area found.
+19:34:38.125 [Thread-166] DEBUG Fita2 - Area found.
+19:36:33.512 [Thread-168] DEBUG Fita2 - Area found.
+19:36:37.514 [Thread-169] DEBUG Fita2 - Area found.
+19:36:41.510 [Thread-170] DEBUG Fita2 - Area found.
+19:36:45.519 [Thread-171] DEBUG Fita2 - Area found.
+19:36:49.538 [Thread-172] DEBUG Fita2 - Area found.
+19:36:53.514 [Thread-173] DEBUG Fita2 - Area found.
+19:36:57.518 [Thread-174] DEBUG Fita2 - Area found.
+19:37:01.514 [Thread-175] DEBUG Fita2 - Area found.
+19:37:05.521 [Thread-176] DEBUG Fita2 - Area found.
+19:37:09.522 [Thread-177] DEBUG Fita2 - Area found.
+19:37:13.511 [Thread-178] DEBUG Fita2 - Area found.
+19:37:17.515 [Thread-179] DEBUG Fita2 - Area found.
+19:37:21.527 [Thread-180] DEBUG Fita2 - Area found.
+19:37:25.532 [Thread-181] DEBUG Fita2 - Area found.
+19:37:29.521 [Thread-182] DEBUG Fita2 - Area found.
+19:37:33.514 [Thread-183] DEBUG Fita2 - Area found.
+19:37:37.517 [Thread-184] DEBUG Fita2 - Area found.
+19:37:41.509 [Thread-185] DEBUG Fita2 - Area found.
+19:37:45.514 [Thread-186] DEBUG Fita2 - Area found.
+19:37:49.519 [Thread-187] DEBUG Fita2 - Area found.
+19:37:53.517 [Thread-188] DEBUG Fita2 - Area found.
+19:37:57.519 [Thread-189] DEBUG Fita2 - Area found.
+19:38:01.516 [Thread-190] DEBUG Fita2 - Area found.
+19:38:05.515 [Thread-191] DEBUG Fita2 - Area found.
+19:38:09.515 [Thread-192] DEBUG Fita2 - Area found.
+19:38:13.514 [Thread-193] DEBUG Fita2 - Area found.
+19:38:17.521 [Thread-194] DEBUG Fita2 - Area found.
+19:38:21.517 [Thread-195] DEBUG Fita2 - Area found.
+19:38:25.518 [Thread-196] DEBUG Fita2 - Area found.
+19:38:29.517 [Thread-197] DEBUG Fita2 - Area found.
+19:38:33.513 [Thread-198] DEBUG Fita2 - Area found.
+19:38:37.526 [Thread-199] DEBUG Fita2 - Area found.
+19:38:41.515 [Thread-200] DEBUG Fita2 - Area found.
+19:38:45.515 [Thread-201] DEBUG Fita2 - Area found.
+19:39:01.505 [Thread-203] DEBUG Fita2 - Area found.
+19:39:02.627 [Thread-204] DEBUG Fita2 - Area found.
+19:39:06.618 [Thread-205] DEBUG Fita2 - Area found.
+19:39:10.628 [Thread-206] DEBUG Fita2 - Area found.
+19:39:14.640 [Thread-207] DEBUG Fita2 - Area found.
+19:39:18.625 [Thread-208] DEBUG Fita2 - Area found.
+19:39:22.622 [Thread-209] DEBUG Fita2 - Area found.
+19:39:26.640 [Thread-210] DEBUG Fita2 - Area found.
+19:39:30.625 [Thread-211] DEBUG Fita2 - Area found.
+19:39:34.633 [Thread-212] DEBUG Fita2 - Area found.
+19:39:38.622 [Thread-213] DEBUG Fita2 - Area found.
+19:39:42.622 [Thread-214] DEBUG Fita2 - Area found.
+19:39:46.621 [Thread-215] DEBUG Fita2 - Area found.
+19:39:50.631 [Thread-216] DEBUG Fita2 - Area found.
+19:39:54.627 [Thread-217] DEBUG Fita2 - Area found.
+19:39:58.629 [Thread-218] DEBUG Fita2 - Area found.
+19:40:02.625 [Thread-219] DEBUG Fita2 - Area found.
+19:40:06.630 [Thread-220] DEBUG Fita2 - Area found.
+19:40:10.624 [Thread-221] DEBUG Fita2 - Area found.
+19:40:14.624 [Thread-222] DEBUG Fita2 - Area found.
+19:40:18.632 [Thread-223] DEBUG Fita2 - Area found.
+19:40:22.625 [Thread-224] DEBUG Fita2 - Area found.
+19:40:26.627 [Thread-225] DEBUG Fita2 - Area found.
+19:40:30.641 [Thread-226] DEBUG Fita2 - Area found.
+19:40:34.642 [Thread-227] DEBUG Fita2 - Area found.
+19:40:38.631 [Thread-228] DEBUG Fita2 - Area found.
+19:40:42.625 [Thread-229] DEBUG Fita2 - Area found.
+19:40:46.626 [Thread-230] DEBUG Fita2 - Area found.
+19:40:50.618 [Thread-231] DEBUG Fita2 - Area found.
+19:40:54.630 [Thread-232] DEBUG Fita2 - Area found.
+19:40:58.635 [Thread-233] DEBUG Fita2 - Area found.
+19:41:02.639 [Thread-234] DEBUG Fita2 - Area found.
+19:41:06.622 [Thread-235] DEBUG Fita2 - Area found.
+19:41:10.633 [Thread-236] DEBUG Fita2 - Area found.
+19:41:14.626 [Thread-237] DEBUG Fita2 - Area found.
+19:41:18.624 [Thread-238] DEBUG Fita2 - Area found.
+19:41:22.623 [Thread-239] DEBUG Fita2 - Area found.
+19:41:26.625 [Thread-240] DEBUG Fita2 - Area found.
+19:41:30.621 [Thread-241] DEBUG Fita2 - Area found.
+19:41:34.628 [Thread-242] DEBUG Fita2 - Area found.
+19:41:38.617 [Thread-243] DEBUG Fita2 - Area found.
+19:41:42.623 [Thread-244] DEBUG Fita2 - Area found.
+19:41:46.630 [Thread-245] DEBUG Fita2 - Area found.
+19:41:50.621 [Thread-246] DEBUG Fita2 - Area found.
+19:41:54.618 [Thread-247] DEBUG Fita2 - Area found.
+19:41:58.633 [Thread-248] DEBUG Fita2 - Area found.
+19:42:02.627 [Thread-249] DEBUG Fita2 - Area found.
+19:42:06.621 [Thread-250] DEBUG Fita2 - Area found.
+19:42:10.628 [Thread-251] DEBUG Fita2 - Area found.
+19:42:14.620 [Thread-252] DEBUG Fita2 - Area found.
+19:42:18.616 [Thread-253] DEBUG Fita2 - Area found.
+19:42:22.622 [Thread-254] DEBUG Fita2 - Area found.
+19:42:26.635 [Thread-255] DEBUG Fita2 - Area found.
+19:42:30.595 [Thread-257] DEBUG Fita2 - Area found.
+19:42:44.294 [Thread-259] DEBUG Fita2 - Area found.
+19:42:48.294 [Thread-260] DEBUG Fita2 - Area found.
+19:42:52.301 [Thread-261] DEBUG Fita2 - Area found.
+19:42:56.294 [Thread-263] DEBUG Fita2 - Area found.
+19:43:00.295 [Thread-264] DEBUG Fita2 - Area found.
+19:43:04.297 [Thread-265] DEBUG Fita2 - Area found.
+19:43:08.295 [Thread-266] DEBUG Fita2 - Area found.
+19:43:12.315 [Thread-267] DEBUG Fita2 - Area found.
+19:43:16.298 [Thread-268] DEBUG Fita2 - Area found.
+19:43:20.310 [Thread-269] DEBUG Fita2 - Area found.
+19:43:24.295 [Thread-271] DEBUG Fita2 - Area found.
+19:43:28.303 [Thread-272] DEBUG Fita2 - Area found.
+19:43:32.305 [Thread-273] DEBUG Fita2 - Area found.
+19:43:36.295 [Thread-274] DEBUG Fita2 - Area found.
+19:43:40.300 [Thread-277] DEBUG Fita2 - Area found.
+19:43:44.312 [Thread-278] DEBUG Fita2 - Area found.
+19:43:48.295 [Thread-279] DEBUG Fita2 - Area found.
+19:43:52.294 [Thread-281] DEBUG Fita2 - Area found.
+19:43:56.315 [Thread-283] DEBUG Fita2 - Area found.
+19:44:00.047 [Thread-285] DEBUG Fita2 - Area found.
+19:44:02.883 [Thread-287] DEBUG Fita2 - Area found.
+19:44:06.890 [Thread-288] DEBUG Fita2 - Area found.
+19:44:10.890 [Thread-289] DEBUG Fita2 - Area found.
+19:44:14.888 [Thread-290] DEBUG Fita2 - Area found.
+19:44:18.898 [Thread-291] DEBUG Fita2 - Area found.
+19:44:22.886 [Thread-292] DEBUG Fita2 - Area found.
+19:44:26.894 [Thread-293] DEBUG Fita2 - Area found.
+19:44:30.886 [Thread-294] DEBUG Fita2 - Area found.
+19:44:34.926 [Thread-295] DEBUG Fita2 - Area found.
+19:44:38.898 [Thread-296] DEBUG Fita2 - Area found.
+19:44:42.902 [Thread-298] DEBUG Fita2 - Area found.
+19:44:46.894 [Thread-299] DEBUG Fita2 - Area found.
+19:44:50.899 [Thread-300] DEBUG Fita2 - Area found.
+19:44:54.887 [Thread-301] DEBUG Fita2 - Area found.
+19:44:58.889 [Thread-302] DEBUG Fita2 - Area found.
+19:45:02.904 [Thread-303] DEBUG Fita2 - Area found.
+19:45:06.889 [Thread-304] DEBUG Fita2 - Area found.
+19:45:10.921 [Thread-305] DEBUG Fita2 - Area found.
+19:45:14.892 [Thread-306] DEBUG Fita2 - Area found.
+19:45:18.890 [Thread-307] DEBUG Fita2 - Area found.
+19:45:22.892 [Thread-308] DEBUG Fita2 - Area found.
+19:45:26.906 [Thread-309] DEBUG Fita2 - Area found.
+19:45:30.886 [Thread-310] DEBUG Fita2 - Area found.
+19:45:34.891 [Thread-311] DEBUG Fita2 - Area found.
+19:45:38.891 [Thread-312] DEBUG Fita2 - Area found.
+19:45:42.892 [Thread-313] DEBUG Fita2 - Area found.
+19:45:46.889 [Thread-314] DEBUG Fita2 - Area found.
+19:45:50.892 [Thread-315] DEBUG Fita2 - Area found.
+19:45:54.903 [Thread-316] DEBUG Fita2 - Area found.
+19:45:58.895 [Thread-317] DEBUG Fita2 - Area found.
+19:46:02.890 [Thread-318] DEBUG Fita2 - Area found.
+19:46:06.889 [Thread-319] DEBUG Fita2 - Area found.
+19:46:10.899 [Thread-320] DEBUG Fita2 - Area found.
+19:46:14.902 [Thread-321] DEBUG Fita2 - Area found.
+19:46:18.902 [Thread-322] DEBUG Fita2 - Area found.
+19:46:22.904 [Thread-323] DEBUG Fita2 - Area found.
+19:46:26.889 [Thread-324] DEBUG Fita2 - Area found.
+19:46:30.900 [Thread-325] DEBUG Fita2 - Area found.
+19:46:34.902 [Thread-326] DEBUG Fita2 - Area found.
+19:46:38.889 [Thread-327] DEBUG Fita2 - Area found.
+19:46:42.893 [Thread-328] DEBUG Fita2 - Area found.
+19:46:46.888 [Thread-329] DEBUG Fita2 - Area found.
+19:46:50.886 [Thread-330] DEBUG Fita2 - Area found.
+19:46:54.889 [Thread-331] DEBUG Fita2 - Area found.
+19:46:58.884 [Thread-332] DEBUG Fita2 - Area found.
+19:47:02.890 [Thread-333] DEBUG Fita2 - Area found.
+19:47:06.903 [Thread-334] DEBUG Fita2 - Area found.
+19:47:10.891 [Thread-335] DEBUG Fita2 - Area found.
+19:47:14.889 [Thread-336] DEBUG Fita2 - Area found.
+19:47:18.892 [Thread-337] DEBUG Fita2 - Area found.
+19:47:22.885 [Thread-338] DEBUG Fita2 - Area found.
+19:47:26.890 [Thread-339] DEBUG Fita2 - Area found.
+19:47:30.890 [Thread-340] DEBUG Fita2 - Area found.
+19:47:34.896 [Thread-341] DEBUG Fita2 - Area found.
+19:47:38.890 [Thread-342] DEBUG Fita2 - Area found.
+19:47:42.891 [Thread-343] DEBUG Fita2 - Area found.
+19:47:46.889 [Thread-344] DEBUG Fita2 - Area found.
+19:47:50.888 [Thread-345] DEBUG Fita2 - Area found.
+19:47:54.890 [Thread-346] DEBUG Fita2 - Area found.
+19:49:07.451 [Thread-366] DEBUG Fita2 - Area found.
+19:50:55.458 [Thread-369] DEBUG Fita2 - Area found.
+19:53:19.135 [Thread-374] DEBUG Fita2 - Area found.
+19:53:40.706 [Thread-380] DEBUG Fita2 - Area found.
+19:53:57.675 [Thread-384] DEBUG Fita2 - Area found.
+19:53:58.605 [Thread-385] DEBUG Fita2 - Area found.
+20:03:40.775 [Thread-388] DEBUG Fita2 - Area found.
+20:03:41.493 [Thread-389] DEBUG Fita2 - Area found.
+20:20:48.061 [Thread-678] DEBUG Fita2 - Area found.
+20:20:48.570 [Thread-679] DEBUG Fita2 - Area found.
+20:29:29.256 [Thread-682] DEBUG Fita2 - Area found.
+20:29:29.856 [Thread-683] DEBUG Fita2 - Area found.
+20:30:45.723 [Thread-686] DEBUG Fita2 - Area found.
+20:30:46.224 [Thread-687] DEBUG Fita2 - Area found.
+20:36:29.112 [Thread-690] DEBUG Fita2 - Area found.
+20:36:29.723 [Thread-691] DEBUG Fita2 - Area found.
+20:41:22.380 [Thread-795] DEBUG Fita2 - Area found.
+20:41:22.834 [Thread-796] DEBUG Fita2 - Area found.
+20:41:50.271 [Thread-804] DEBUG Fita2 - Area found.
+20:43:24.102 [Thread-842] DEBUG Fita2 - Area found.
+20:45:02.935 [Thread-884] DEBUG Fita2 - Area found.
+20:46:34.317 [Thread-912] DEBUG Fita2 - Area found.
+20:47:21.741 [Thread-935] DEBUG Fita2 - Area found.
+20:47:22.376 [Thread-936] DEBUG Fita2 - Area found.
+20:50:44.723 [Thread-1010] DEBUG Fita2 - Area found.
+20:50:54.986 [Thread-1018] DEBUG Fita2 - Area found.
+20:51:19.543 [Thread-1024] DEBUG Fita2 - Area found.
+20:51:19.547 [Thread-1025] DEBUG Fita2 - Area found.
+20:51:20.846 [Thread-1026] DEBUG Fita2 - Area found.

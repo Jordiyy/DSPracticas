@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'package:agile_access/utils/door_functions.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   List<bool> switchValue = [false, false, false, false, false];
   String iconImgBuilding = Fa6Solid.building_lock;
 
+  Timer _timer = Timer(Duration.zero, () {});
+
   @override
   void initState() {
     super.initState();
@@ -42,6 +46,13 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     userData = widget.userData;
     areaName = widget.areaName;
     areaTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
+    _activateTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -108,7 +119,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
         return Container(
             height: MediaQuery.of(context).size.height,
             color: Colors.white,
-            child: Center(
+            child: const Center(
               child: CircularProgressIndicator(),
             ));
       },
@@ -117,6 +128,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
 
   Widget _buildRow(Area area, int index) {
     String iconIMG;
+    List<int> countStateDoor = countEstateDoorDoor(area);
 
     if (index == 0) {
       iconIMG = Mdi.home_floor_negative_1;
@@ -127,6 +139,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     }
     return GestureDetector(
       onTap: () {
+        _timer.cancel();
         if (area is Partition) {
           Navigator.of(context)
               .push(MaterialPageRoute<void>(
@@ -134,6 +147,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                 userGroup: userGroup, userData: userData, areaName: area.id),
           ))
               .then((var value) {
+            _activateTimer();
             _refresh();
           });
         }
@@ -144,6 +158,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                 userGroup: userGroup, userData: userData, areaName: area.id),
           ))
               .then((var value) {
+            _activateTimer();
             _refresh();
           });
         }
@@ -163,12 +178,12 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                         style: const TextStyle(fontSize: 15.0),
                       ),
                       Text(
-                          '${area.children.length} ${area.children.isNotEmpty && area.children[0] is Door ? "Doors" : "Area"}',
+                          '${area.children.length} ${area.children.isNotEmpty && area.children[0] is Door ? "Doors" : "Area"} ${area is Partition ? '- ${countStateDoor[2] + countStateDoor[3]} Doors' : ''}',
                           style: const TextStyle(fontSize: 15.0)),
-                      const Text(
-                        "0 Locked doors, 0 Unlocked doors",
-                        style: TextStyle(fontSize: 15.0),
-                      )
+                      Text(
+                        '${countStateDoor[1]} Locked doors - ${countStateDoor[2]} Closed doors',
+                        style: const TextStyle(fontSize: 15.0),
+                      ),
                     ],
                   ),
                   Switch(
@@ -191,5 +206,12 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
   void _refresh() async {
     areaTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
     setState(() {});
+  }
+
+  void _activateTimer() {
+    _timer = Timer.periodic(const Duration(seconds: periodeRefresh), (Timer t) {
+      areaTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
+      setState(() {});
+    });
   }
 }

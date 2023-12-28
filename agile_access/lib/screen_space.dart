@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_functions.dart';
@@ -32,6 +34,8 @@ class _ScreenSpace extends State<ScreenSpace> {
   late String areaName;
   late Future<Tree> doorTree;
 
+  Timer _timer = Timer(Duration.zero, () {});
+
   int idxNavBar = 0;
 
   @override
@@ -41,6 +45,13 @@ class _ScreenSpace extends State<ScreenSpace> {
     userData = widget.userData;
     areaName = widget.areaName;
     doorTree = getTreeRequest(areaName);
+    _activateTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -61,7 +72,7 @@ class _ScreenSpace extends State<ScreenSpace> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${areaName} doors"),
+                  Text("$areaName doors"),
                   Text("You have acces to "
                       '${snapshot.data!.root.children.length}'
                       " doors"),
@@ -81,7 +92,7 @@ class _ScreenSpace extends State<ScreenSpace> {
         return Container(
             height: MediaQuery.of(context).size.height,
             color: Colors.white,
-            child: Center(
+            child: const Center(
               child: CircularProgressIndicator(),
             ));
       },
@@ -91,6 +102,7 @@ class _ScreenSpace extends State<ScreenSpace> {
   Widget _buildRow(Door door, int index) {
     return GestureDetector(
       onTap: () {
+        _timer.cancel();
         controlLastVisited(door, index);
         Navigator.of(context)
             .push(MaterialPageRoute<void>(
@@ -98,6 +110,7 @@ class _ScreenSpace extends State<ScreenSpace> {
               ScreenDoor(userGroup: userGroup, userData: userData, door: door),
         ))
             .then((var value) {
+          _activateTimer();
           _refresh();
         });
       },
@@ -107,7 +120,7 @@ class _ScreenSpace extends State<ScreenSpace> {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Row(
                 children: [
-                  Iconify(Bi.door_closed),
+                  const Iconify(Bi.door_closed),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -115,8 +128,25 @@ class _ScreenSpace extends State<ScreenSpace> {
                         door.id,
                         style: const TextStyle(fontSize: 15.0),
                       ),
-                      const Text("Unlocked - Closed",
-                          style: TextStyle(fontSize: 15.0)),
+                      Text.rich(TextSpan(children: [
+                        TextSpan(
+                            text: door.state == "unlocked"
+                                ? "Unlocked"
+                                : "Locked",
+                            style: TextStyle(
+                                color: door.state == "locked"
+                                    ? Colors.red
+                                    : Colors.green,
+                                fontSize: 15.0)),
+                        const TextSpan(text: " - "),
+                        TextSpan(
+                            text: door.closed == true ? "Closed" : "Opened",
+                            style: TextStyle(
+                                color: door.closed == true
+                                    ? Colors.red
+                                    : Colors.green,
+                                fontSize: 15.0)),
+                      ])),
                     ],
                   ),
                 ],
@@ -127,5 +157,12 @@ class _ScreenSpace extends State<ScreenSpace> {
   void _refresh() async {
     doorTree = getTreeRequest(areaName);
     setState(() {});
+  }
+
+  void _activateTimer() {
+    _timer = Timer.periodic(const Duration(seconds: periodeRefresh), (Timer t) {
+      doorTree = getTreeRequest(areaName == "building" ? "ROOT" : areaName);
+      setState(() {});
+    });
   }
 }

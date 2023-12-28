@@ -27,15 +27,17 @@ class Tree {
 
   Tree(Map<String, dynamic> dec) {
     if (dec['class'] == "partition") {
-      List<Area> children = <Area>[]; // is growable
-      for (Map<String, dynamic> area in dec['areas']) {
-        if (area['class'] == "partition" || area['class'] == "space") {
-          children.add(Tree(area).root);
-        } else {
-          assert(false);
+      List<Area> children = <Area>[];
+      if (dec['areas'] != null) {
+        for (Map<String, dynamic> area in dec['areas']) {
+          if (area['class'] == "partition" || area['class'] == "space") {
+            children.add(Tree(area).root);
+          } else {
+            assert(false);
+          }
         }
+        root = Partition(dec['id'], children);
       }
-      root = Partition(dec['id'], children);
     } else if (dec['class'] == "space") {
       List<Door> children = <Door>[];
       for (Map<String, dynamic> d in dec['access_doors']) {
