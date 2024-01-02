@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:agile_access/utils/door_functions.dart';
 import 'package:agile_access/utils/nav_functions.dart';
+import 'package:agile_access/utils/alert_helper_fuctions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/fa6_solid.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 
 import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
@@ -39,6 +41,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
 
   Timer _timer = Timer(Duration.zero, () {});
 
+  bool isButtonPressed = false;
+
   @override
   void initState() {
     super.initState();
@@ -60,6 +64,21 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     return FutureBuilder<Tree>(
       future: areaTree,
       builder: (context, snapshot) {
+        List<int> countStateDoorRoot;
+        if (snapshot.data != null) {
+          countStateDoorRoot = countEstateDoorDoor(snapshot.data!.root);
+
+          if (snapshot.data != null && countStateDoorRoot[0] == 0) {
+            iconImgBuilding = Mdi.office_building;
+            isButtonPressed = true;
+          } else {
+            iconImgBuilding = Fa6Solid.building_lock;
+            isButtonPressed = false;
+          }
+        } else {
+          countStateDoorRoot = [0, 0, 0, 0];
+        }
+
         if (snapshot.hasData) {
           return Scaffold(
               bottomNavigationBar: NavBar(
@@ -79,28 +98,33 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                           ? "Building floors"
                           : "${areaName} areas"),
                       Visibility(
-                          visible: areaName == "building",
                           child: IconButton(
-                            icon: Iconify(iconImgBuilding),
-                            onPressed: () {
-                              if (switchValue
-                                  .every((element) => element == false)) {
+                        icon: Iconify(iconImgBuilding),
+                        onPressed: () {
+                          setState(() {
+                            if (!isButtonPressed) {
+                              if (countStateDoorRoot[3] == 0) {
                                 lockAllDoor(snapshot.data!.root);
-                              } else if (switchValue
-                                  .every((element) => element == true)) {
-                                unlocAllkDoor(snapshot.data!.root);
+                                iconImgBuilding = Mdi.office_building;
+                                isButtonPressed = true;
+                                areaTree = getTreeRequest(
+                                    areaName == "building" ? "ROOT" : areaName);
+                              } else {
+                                AlertHelper.showAlert(
+                                    context,
+                                    "Full non-lockable area",
+                                    "There are doors that are open. Close all doors to block the complete area.");
                               }
-                              setState(() {
-                                bool allFalse =
-                                    switchValue.every((value) => value == true);
-                                switchValue =
-                                    List.filled(switchValue.length, !allFalse);
-                                iconImgBuilding = allFalse
-                                    ? Fa6Solid.building_lock
-                                    : Mdi.office_building;
-                              });
-                            },
-                          ))
+                            } else if (isButtonPressed) {
+                              unlocAllkDoor(snapshot.data!.root);
+                              iconImgBuilding = Fa6Solid.building_lock;
+                              isButtonPressed = false;
+                              areaTree = getTreeRequest(
+                                  areaName == "building" ? "ROOT" : areaName);
+                            }
+                          });
+                        },
+                      ))
                     ],
                   ),
                   Expanded(
@@ -130,6 +154,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     String iconIMG;
     List<int> countStateDoor = countEstateDoorDoor(area);
 
+    switchValue[index] = area.children.isNotEmpty && countStateDoor[0] == 0;
+
     if (index == 0) {
       iconIMG = Mdi.home_floor_negative_1;
     } else if (index == 1) {
@@ -137,30 +163,36 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
     } else {
       iconIMG = Mdi.home_floor_1;
     }
+
     return GestureDetector(
       onTap: () {
-        _timer.cancel();
-        if (area is Partition) {
-          Navigator.of(context)
-              .push(MaterialPageRoute<void>(
-            builder: (context) => ScreenHomePartition(
-                userGroup: userGroup, userData: userData, areaName: area.id),
-          ))
-              .then((var value) {
-            _activateTimer();
-            _refresh();
-          });
-        }
-        if (area is Space) {
-          Navigator.of(context)
-              .push(MaterialPageRoute<void>(
-            builder: (context) => ScreenSpace(
-                userGroup: userGroup, userData: userData, areaName: area.id),
-          ))
-              .then((var value) {
-            _activateTimer();
-            _refresh();
-          });
+        if (area.children.isNotEmpty) {
+          _timer.cancel();
+          if (area is Partition) {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(
+              builder: (context) => ScreenHomePartition(
+                  userGroup: userGroup, userData: userData, areaName: area.id),
+            ))
+                .then((var value) {
+              _activateTimer();
+              _refresh();
+            });
+          } else {
+            AlertHelper.showAlert(context, "Non-accessible area",
+                "It is not possible to access the area, because it has no doors. \nContact the administrator.");
+          }
+          if (area is Space) {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(
+              builder: (context) => ScreenSpace(
+                  userGroup: userGroup, userData: userData, areaName: area.id),
+            ))
+                .then((var value) {
+              _activateTimer();
+              _refresh();
+            });
+          }
         }
       },
       child: Card(
@@ -186,15 +218,38 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                       ),
                     ],
                   ),
-                  Switch(
-                      value: switchValue[index],
-                      onChanged: (bool value) async {
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: switchValue[index] == true
+                              ? Colors.blue
+                              : Colors.white),
+                      child: Column(children: [
+                        Iconify(switchValue[index]
+                            ? MaterialSymbols.lock_open_outline
+                            : MaterialSymbols.lock_outline),
+                      ]),
+                      onPressed: () {
                         setState(() {
-                          switchValue[index] = value;
-                          if (switchValue[index] == true) {
-                            lockAllDoor(area);
-                          } else if (switchValue[index] == false) {
-                            unlocAllkDoor(area);
+                          if (area.children.isNotEmpty) {
+                            if (switchValue[index] == true) {
+                              unlocAllkDoor(area);
+                              switchValue[index] = false;
+                            } else if (switchValue[index] == false) {
+                              if (countStateDoor[3] == 0) {
+                                lockAllDoor(area);
+                                switchValue[index] = true;
+                              } else {
+                                AlertHelper.showAlert(
+                                    context,
+                                    "Non-lockable area",
+                                    "There are doors that are open. Close all doors to block the area.");
+                              }
+                            }
+                            areaTree = getTreeRequest(
+                                areaName == "building" ? "ROOT" : areaName);
+                          } else {
+                            AlertHelper.showAlert(context, "Non-lockable area",
+                                "It is not possible to lock the doors of the area, because it does not have.");
                           }
                         });
                       }),
