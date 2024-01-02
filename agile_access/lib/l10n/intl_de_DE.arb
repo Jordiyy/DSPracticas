@@ -1,0 +1,46 @@
+{
+    "@@locale": "de_DE",
+    "Locked": "Gesperrt",
+    "Unlocked": "Entsperrt",
+    "Open": "Offen",
+    "Close": "Schließen",
+    "LogInFormTitle": "Anmeldung",
+    "LogInLabelText": "Benutzer",
+    "LogInEmpty": "Bitte geben Sie den Namen Benutzer ein",
+    "LogInNoUser": "Benutzer nicht gefunden",
+    "LogInSumbit": "Einreichen",
+    "HomeAppBar": "Heim",
+    "HomeBuildingFloor": "Gebäudeböden",
+    "HomeFloorAreas": "{areaname} Bereiche",
+    "HomeCardStatusWithAreas": {
+        "zero": " ",
+        "one": "Bereich",
+        "other": "Bereiche"
+    },
+    "HomeCardStatusWithDoors": {
+        "zero": " ",
+        "one": "Tür",
+        "other": "Türen"
+    },
+    "HomeCardDoorsStatusLocked":  {
+        "zero": "verschlossene Türen",
+        "one": "verschlossene Tür",
+        "other": "verschlossene Türen"
+    },
+    "HomeCardDoorsStatusClosed": {
+        "zero": "verschlossene Türen",
+        "one": "geschlossene Tür",
+        "other": "verschlossene Türen"
+    },
+    "SpaceDoors": "{areaname} Türen",
+    "SpaceNumDoors": {
+        "zero": "Keine Türen vorhanden",
+        "one": "Sie haben Zugang zu 1 Tür",
+        "other": "Sie haben Zugang zu {numDoors} Türen"
+    },
+    "DoorID": "Tür {id}",
+    "DoorOptions": "{id} Optionen",
+    "DoorsStatus": "Status",
+    "DoorHistory": "Geschichte",
+    "DoorNoHistoryList": "Keine Daten im Verlauf"
+}

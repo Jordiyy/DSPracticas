@@ -1,0 +1,46 @@
+{
+    "@@locale": "en_US",
+    "Locked": "Locked",
+    "Unlocked": "Unlocked",
+    "Open": "Open",
+    "Close": "Close",
+    "LogInFormTitle": "Log In",
+    "LogInLabelText": "User",
+    "LogInEmpty": "Please enter name user",
+    "LogInNoUser": "User not found",
+    "LogInSumbit": "Submit",
+    "HomeAppBar": "Home",
+    "HomeBuildingFloor": "Building floors",
+    "HomeFloorAreas": "{areaname} areas",
+    "HomeCardStatusWithAreas": {
+        "zero": " ",
+        "one": "Area",
+        "other": "Areas"
+    },
+    "HomeCardStatusWithDoors": {
+        "zero": " ",
+        "one": "Door",
+        "other": "Doors"
+    },
+    "HomeCardDoorsStatusLocked":  {
+        "zero": "locked doors",
+        "one": "locked door",
+        "other": "locked doors"
+    },
+    "HomeCardDoorsStatusClosed": {
+        "zero": "closed doors",
+        "one": "closed door",
+        "other": "closed doors"
+    },
+    "SpaceDoors": "{areaname} doors",
+    "SpaceNumDoors": {
+        "zero": "No doors available",
+        "one": "You have acces to 1 door",
+        "other": "You have acces to {numDoors} doors"
+    },
+    "DoorID": "Door {id}",
+    "DoorOptions": "{id} options",
+    "DoorsStatus": "Status",
+    "DoorHistory": "History",
+    "DoorNoHistoryList": "No data in history"
+}

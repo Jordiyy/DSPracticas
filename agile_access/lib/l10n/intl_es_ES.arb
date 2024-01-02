@@ -1,0 +1,46 @@
+{
+    "@@locale": "es_ES",
+    "Locked": "Bloqueada",
+    "Unlocked": "Desbloqueada",
+    "Open": "Abierta",
+    "Close": "Cerrada",
+    "LogInFormTitle": "Iniciar Sesión",
+    "LogInLabelText": "Usuario",
+    "LogInEmpty": "Introduce un usuario válido",
+    "LogInNoUser": "Usuario no encontrado",
+    "LogInSumbit": "Entrar",
+    "HomeAppBar": "Inicio",
+    "HomeBuildingFloor": "Plantas del edificio",
+    "HomeFloorAreas": " Areas de {areaname}",
+    "HomeCardStatusWithAreas": {
+        "zero": " ",
+        "one": "Area",
+        "other": "Areas"
+    },
+    "HomeCardStatusWithDoors": {
+        "zero": " ",
+        "one": "Puerta",
+        "other": "Puertas"
+    },
+    "HomeCardDoorsStatusLocked":  {
+        "zero": "Puertas Bloqueadas",
+        "one": "Puerta Bloqueada",
+        "other": "Puertas Bloqueadas"
+    },
+    "HomeCardDoorsStatusClosed": {
+        "zero": "Puertas Cerradas",
+        "one": "Puerta Cerrada",
+        "other": "Puertas Cerradas"
+    },
+    "SpaceDoors": "Puertas de {areaname}",
+    "SpaceNumDoors": {
+        "zero": "No tienes acceso a ninguna puerta",
+        "one": "Tienes acceso a una puerta",
+        "other": "Tienes acceso a {numDoors} puertas"
+    },
+    "DoorID": "Puerta {id}",
+    "DoorOptions": "Opciones de la puerta {id}",
+    "DoorsStatus": "Estado",
+    "DoorHistory": "Historial",
+    "DoorNoHistoryList": "No has realizado ninguna acción con la puerta"
+}
