@@ -1,3 +1,4 @@
+import 'package:agile_access/main.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
@@ -10,6 +11,7 @@ class NavBar {
 
   NavBar({required this.ItemNavSelected}) {
     bar = BottomNavigationBar(
+      backgroundColor: AgileAccessColors.azul3,
       items: const [
         BottomNavigationBarItem(
             icon: Iconify(MaterialSymbols.home_outline), label: 'Home'),
@@ -18,6 +20,8 @@ class NavBar {
         BottomNavigationBarItem(icon: Iconify(Ph.user_circle), label: 'User'),
       ],
       onTap: ItemNavSelected,
+      selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
     );
   }
 }
