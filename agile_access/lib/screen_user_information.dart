@@ -1,9 +1,5 @@
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
-import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/uil.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
@@ -54,7 +50,7 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                     usersData.images[userData.name.toLowerCase()]!)),
             Card(
                 child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -62,13 +58,13 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                     "Name",
                     style: TextStyle(fontSize: 15.0),
                   ),
-                  Text(userData.name, style: TextStyle(fontSize: 15.0)),
+                  Text(userData.name, style: const TextStyle(fontSize: 15.0)),
                 ],
               ),
             )),
             Card(
                 child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,13 +72,13 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                     "Credentials",
                     style: TextStyle(fontSize: 15.0),
                   ),
-                  Text(userData.credential, style: TextStyle(fontSize: 15.0)),
+                  Text(userData.credential, style: const TextStyle(fontSize: 15.0)),
                 ],
               ),
             )),
             Card(
                 child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -90,7 +86,7 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                     "Group",
                     style: TextStyle(fontSize: 15.0),
                   ),
-                  Text(userGroup.name, style: TextStyle(fontSize: 15.0)),
+                  Text(userGroup.name, style: const TextStyle(fontSize: 15.0)),
                 ],
               ),
             )),

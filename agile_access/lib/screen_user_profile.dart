@@ -67,7 +67,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                     ));
                   },
                   child: const Card(
-                      margin: const EdgeInsets.all(10),
+                      margin: EdgeInsets.all(10),
                       color: AgileAccessColors.azul4,
                       child: Padding(
                           padding: EdgeInsets.all(10),
@@ -75,7 +75,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             children: [
                               Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                      EdgeInsets.fromLTRB(0, 0, 10, 0),
                                   child: Iconify(MaterialSymbols.info_outline)),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +103,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                     ));
                   },
                   child: const Card(
-                      margin: const EdgeInsets.all(10),
+                      margin: EdgeInsets.all(10),
                       color: AgileAccessColors.azul4,
                       child: Padding(
                           padding: EdgeInsets.all(10),
@@ -111,7 +111,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             children: [
                               Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                      EdgeInsets.fromLTRB(0, 0, 10, 0),
                                   child: Iconify(Ic.baseline_groups)),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +139,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                     ));
                   },
                   child: const Card(
-                      margin: const EdgeInsets.all(10),
+                      margin: EdgeInsets.all(10),
                       color: AgileAccessColors.azul4,
                       child: Padding(
                           padding: EdgeInsets.all(10),
@@ -147,7 +147,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             children: [
                               Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                      EdgeInsets.fromLTRB(0, 0, 10, 0),
                                   child: Iconify(Uil.schedule)),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

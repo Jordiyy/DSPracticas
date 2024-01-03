@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 abstract class Area {
   late String id;
@@ -7,11 +6,11 @@ abstract class Area {
 }
 
 class Partition extends Area {
-  Partition(String id, List<Area> children) : super(id, children);
+  Partition(super.id, List<Area> super.children);
 }
 
 class Space extends Area {
-  Space(String id, List<Door> children) : super(id, children);
+  Space(super.id, List<Door> super.children);
 }
 
 class Door {

@@ -1,8 +1,6 @@
-import 'dart:collection';
 
 import 'package:agile_access/data/door_tree.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:agile_access/data/user_data.dart';
@@ -24,7 +22,7 @@ Future<String> sendRequest(Uri uri) async {
 }
 
 Future<Tree> getTreeRequest(String areaId) async {
-  Uri uri = Uri.parse("${BASE_URL}/get_children?$areaId");
+  Uri uri = Uri.parse("$BASE_URL/get_children?$areaId");
   final response = await http.get(uri);
   if (response.statusCode == 200) {
     print("statusCode=$response.statusCode");
@@ -68,7 +66,7 @@ Future<void> actionDoorRequest(Door door, String action) async {
       (action == 'close'));
   String strNow = DATEFORMATTER.format(DateTime.now());
   print(strNow);
-  Uri uri = Uri.parse("${BASE_URL}/reader?credential=11343&action=$action"
+  Uri uri = Uri.parse("$BASE_URL/reader?credential=11343&action=$action"
       "&datetime=$strNow&doorId=${door.id}");
 
   final String responseBody = await sendRequest(uri);
@@ -80,7 +78,7 @@ Future<void> lockUnlockArea(Area area, String action) async {
   assert((action == 'lock') | (action == 'unlock'));
   String strNow = DATEFORMATTER.format(DateTime.now());
   print(strNow);
-  Uri uri = Uri.parse("${BASE_URL}/area?credential=11343&action=$action"
+  Uri uri = Uri.parse("$BASE_URL/area?credential=11343&action=$action"
       "&datetime=$strNow&areaId=${area.id}");
 
   print('lock ${area.id}, uri $uri');

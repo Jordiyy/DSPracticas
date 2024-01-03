@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';

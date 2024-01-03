@@ -20,8 +20,8 @@ class NavBar {
         BottomNavigationBarItem(icon: Iconify(Ph.user_circle), label: 'User'),
       ],
       onTap: ItemNavSelected,
-      selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
     );
   }
 }

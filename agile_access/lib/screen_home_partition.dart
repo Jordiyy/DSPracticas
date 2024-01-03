@@ -96,7 +96,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                     children: [
                       Text(areaName == "building"
                           ? "Building floors"
-                          : "${areaName} areas"),
+                          : "$areaName areas"),
                       Visibility(
                           child: IconButton(
                         icon: Iconify(iconImgBuilding),

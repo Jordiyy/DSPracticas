@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'screen_log_in.dart';
 
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 20),
         ),
       ),
-      home: ScreenSingUp(),
+      home: const ScreenSingUp(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

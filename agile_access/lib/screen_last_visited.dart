@@ -59,14 +59,14 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: const Text("History",
+                const Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: Text("History",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 24))),
                 Expanded(
                   child: LastVisited.lastVisitedList.isEmpty
-                      ? Text("No data in history")
+                      ? const Text("No data in history")
                       : ListView.builder(
                           padding: const EdgeInsets.all(10.0),
                           itemCount: LastVisited.lastVisitedList.length,
@@ -88,14 +88,14 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
       },
       child: Card(
           color: AgileAccessColors.azul4,
-          margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+          margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Row(
                 children: [
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child: const Iconify(Bi.door_closed)),
+                  const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Iconify(Bi.door_closed)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

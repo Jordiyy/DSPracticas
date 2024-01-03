@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:agile_access/data/door_tree.dart';
-import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,6 @@ import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:intl/intl.dart';
 
-import 'package:agile_access/data/user_data.dart';
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
 

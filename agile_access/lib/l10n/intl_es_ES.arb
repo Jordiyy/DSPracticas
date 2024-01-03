@@ -1,46 +1,26 @@
 {
     "@@locale": "es_ES",
-    "Locked": "Bloqueada",
-    "Unlocked": "Desbloqueada",
-    "Open": "Abierta",
-    "Close": "Cerrada",
-    "LogInFormTitle": "Iniciar Sesión",
-    "LogInLabelText": "Usuario",
-    "LogInEmpty": "Introduce un usuario válido",
-    "LogInNoUser": "Usuario no encontrado",
-    "LogInSumbit": "Entrar",
-    "HomeAppBar": "Inicio",
-    "HomeBuildingFloor": "Plantas del edificio",
-    "HomeFloorAreas": " Areas de {areaname}",
-    "HomeCardStatusWithAreas": {
-        "zero": " ",
-        "one": "Area",
-        "other": "Areas"
-    },
-    "HomeCardStatusWithDoors": {
-        "zero": " ",
-        "one": "Puerta",
-        "other": "Puertas"
-    },
-    "HomeCardDoorsStatusLocked":  {
-        "zero": "Puertas Bloqueadas",
-        "one": "Puerta Bloqueada",
-        "other": "Puertas Bloqueadas"
-    },
-    "HomeCardDoorsStatusClosed": {
-        "zero": "Puertas Cerradas",
-        "one": "Puerta Cerrada",
-        "other": "Puertas Cerradas"
-    },
-    "SpaceDoors": "Puertas de {areaname}",
-    "SpaceNumDoors": {
-        "zero": "No tienes acceso a ninguna puerta",
-        "one": "Tienes acceso a una puerta",
-        "other": "Tienes acceso a {numDoors} puertas"
-    },
-    "DoorID": "Puerta {id}",
-    "DoorOptions": "Opciones de la puerta {id}",
-    "DoorsStatus": "Estado",
-    "DoorHistory": "Historial",
-    "DoorNoHistoryList": "No has realizado ninguna acción con la puerta"
+    "locked": "Bloqueada",
+    "unlocked": "Desbloqueada",
+    "open": "Abierta",
+    "close": "Cerrada",
+    "logInFormTitle": "Iniciar Sesión",
+    "logInLabelText": "Usuario",
+    "logInEmpty": "Introduce un usuario válido",
+    "logInNoUser": "Usuario no encontrado",
+    "logInSumbit": "Entrar",
+    "homeAppBar": "Inicio",
+    "homeBuildingFloor": "Plantas del edificio",
+    "homeFloorAreas": " Areas de {areaname}",
+    "homeCardStatusWithAreas": "{count, plural, =0{Areas} =1{Area} other{Areas}}",
+    "homeCardStatusWithDoors": "{count, plural, =0{Puertas} =1{Puerta} other{Puertas}}",
+    "homeCardDoorsStatusLocked":  "{count, plural, =0{Puertas Bloqueadas} =1{Puerta Bloqueada} other{Puertas Bloqueadas}}",
+    "homeCardDoorsStatusClosed": "{count, plural, =0{Puertas Cerradas} =1{Puerta Cerrada} other{Puertas Cerradas}}",
+    "spaceDoors": "Puertas de {areaname}",
+    "spaceNumDoors": "{count, plural, =0{No tienes acceso a ninguna puerta} =1{Tienes acceso a una puerta} other{Tienes acceso a {count} puertas}}",
+    "doorID": "Puerta {id}",
+    "doorOptions": "Opciones de la puerta {id}",
+    "doorsStatus": "Estado",
+    "doorHistory": "Historial",
+    "doorNoHistoryList": "No has realizado ninguna acción con la puerta"
 }
