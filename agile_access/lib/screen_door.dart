@@ -50,14 +50,6 @@ class _ScreenDoor extends State<ScreenDoor> {
     door = widget.door;
     doorTree = getTreeRequest(door.id);
 
-    /*iconList = [
-      door.closed == true ? Bi.door_open : Bi.door_closed,
-      stateDoor == "Unlock"
-          ? MaterialSymbols.lock_outline
-          : MaterialSymbols.lock_open_outline,
-      MaterialSymbols.lock_clock_outline
-    ];*/
-
     _activateTimer();
   }
 
@@ -86,9 +78,10 @@ class _ScreenDoor extends State<ScreenDoor> {
           ];
 
           return Scaffold(
-              bottomNavigationBar: NavBar(
-                  ItemNavSelected: (index) =>
-                      ItemNavSelected(context, index, userGroup, userData)).bar,
+              bottomNavigationBar: NavBar(ItemNavSelected: (index) {
+                _timer.cancel();
+                ItemNavSelected(context, index, userGroup, userData);
+              }).bar,
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -250,8 +243,10 @@ class _ScreenDoor extends State<ScreenDoor> {
 
   void _activateTimer() {
     _timer = Timer.periodic(const Duration(seconds: periodeRefresh), (Timer t) {
-      doorTree = getTreeRequest(door.id);
-      setState(() {});
+      if (mounted) {
+        doorTree = getTreeRequest(door.id);
+        setState(() {});
+      }
     });
   }
 }

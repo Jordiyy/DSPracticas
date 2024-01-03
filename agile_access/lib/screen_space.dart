@@ -61,9 +61,10 @@ class _ScreenSpace extends State<ScreenSpace> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
-              bottomNavigationBar: NavBar(
-                  ItemNavSelected: (index) =>
-                      ItemNavSelected(context, index, userGroup, userData)).bar,
+              bottomNavigationBar: NavBar(ItemNavSelected: (index) {
+                _timer.cancel();
+                ItemNavSelected(context, index, userGroup, userData);
+              }).bar,
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
