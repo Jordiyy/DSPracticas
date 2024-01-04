@@ -8,6 +8,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:intl/intl.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
@@ -39,6 +40,8 @@ class _ScreenDoor extends State<ScreenDoor> {
   late List<String> iconList;
 
   Timer _timer = Timer(Duration.zero, () {});
+
+  final DateTime _now = DateTime.now();
 
   @override
   void initState() {
@@ -83,19 +86,21 @@ class _ScreenDoor extends State<ScreenDoor> {
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                title: Text("Door ${snapshot.data!.root.children[idxDoor].id}"),
+                title: Text(
+                    "${S.of(context).doorID(snapshot.data!.root.children[idxDoor].id)}"),
               ),
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${snapshot.data!.root.children[idxDoor].id} options"),
+                  Text(
+                      "${S.of(context).doorOptions(snapshot.data!.root.children[idxDoor].id)}"),
                   Text.rich(TextSpan(children: [
-                    const TextSpan(text: "Estatus: "),
+                    TextSpan(text: "${S.of(context).doorsStatus}: "),
                     TextSpan(
                         text: snapshot.data!.root.children[idxDoor].state ==
                                 "unlocked"
-                            ? "Unlocked"
-                            : "Locked",
+                            ? "${S.of(context).unlocked}"
+                            : "${S.of(context).locked}",
                         style: TextStyle(
                             color:
                                 snapshot.data!.root.children[idxDoor].state ==
@@ -106,8 +111,8 @@ class _ScreenDoor extends State<ScreenDoor> {
                     TextSpan(
                         text:
                             snapshot.data!.root.children[idxDoor].closed == true
-                                ? "Closed"
-                                : "Opened",
+                                ? "${S.of(context).close}"
+                                : "${S.of(context).open}",
                         style: TextStyle(
                             color:
                                 snapshot.data!.root.children[idxDoor].closed ==
@@ -149,7 +154,7 @@ class _ScreenDoor extends State<ScreenDoor> {
                             });
                             userData.history.add({
                               snapshot.data!.root.children[idxDoor].id:
-                                  "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${snapshot.data!.root.children[idxDoor].closed == false ? "Open" : "Close"}"
+                                  "${S.of(context).dateTime(_now, _now)} \n${userData.name} ${snapshot.data!.root.children[idxDoor].closed == false ? "Open" : "Close"}"
                             });
                           }),
                       ElevatedButton(
@@ -180,7 +185,7 @@ class _ScreenDoor extends State<ScreenDoor> {
                             });
                             userData.history.insert(0, {
                               snapshot.data!.root.children[idxDoor].id:
-                                  "${DateFormat('dd/MM/yyyy - HH:mm:ss').format(DateTime.now())}\n${userData.name} ${snapshot.data!.root.children[idxDoor].state} door"
+                                  "${S.of(context).dateTime(_now, _now)}\n${userData.name} ${snapshot.data!.root.children[idxDoor].state} door"
                             });
                           }),
                       ElevatedButton(
@@ -191,7 +196,7 @@ class _ScreenDoor extends State<ScreenDoor> {
                           onPressed: () {
                             userData.history.add({
                               snapshot.data!.root.children[idxDoor].id:
-                                  "${DateFormat('dd/MM/yyyy').format(DateTime.now())}\n $userData.name blocked the door."
+                                  "${S.of(context).dateTime(_now, _now)}\n $userData.name blocked the door."
                             });
                             setState(() {
                               iconList[2] = iconList[2] ==
@@ -202,10 +207,10 @@ class _ScreenDoor extends State<ScreenDoor> {
                           }),
                     ],
                   ),
-                  const Text("History"),
+                  Text(S.of(context).doorHistory),
                   Expanded(
                     child: userData.history.isEmpty
-                        ? const Text("No data in history")
+                        ? Text(S.of(context).doorNoHistoryList)
                         : ListView.builder(
                             padding: const EdgeInsets.all(16.0),
                             itemCount: userData.history.length,
@@ -233,7 +238,7 @@ class _ScreenDoor extends State<ScreenDoor> {
     String? name = info[doorN];
 
     if (name == null) {
-      return const Text("No data in history");
+      return Text(S.of(context).doorNoHistoryList);
     } else {
       return Card(child: Text(name));
     }

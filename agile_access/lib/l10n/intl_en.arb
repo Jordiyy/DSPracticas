@@ -2,8 +2,8 @@
     "@@locale": "en",
     "locked": "Locked",
     "unlocked": "Unlocked",
-    "open": "Open",
-    "close": "Close",
+    "open": "Opened",
+    "close": "Closed",
     "logInFormTitle": "Log In",
     "logInLabelText": "User",
     "logInEmpty": "Please enter name user",
@@ -22,5 +22,18 @@
     "doorOptions": "{id} options",
     "doorsStatus": "Status",
     "doorHistory": "History",
-    "doorNoHistoryList": "No data in history"
+    "doorNoHistoryList": "No data in history",
+    "dateTime": " {date} - {time} ",
+    "@dateTime": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            },
+            "time": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    }
 }

@@ -8,6 +8,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/fa6_solid.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
@@ -87,7 +88,9 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                title: Text(areaName == "building" ? "Home" : areaName),
+                title: Text(areaName == "building"
+                    ? S.of(context).homeAppBar
+                    : areaName),
               ),
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +98,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                   Row(
                     children: [
                       Text(areaName == "building"
-                          ? "Building floors"
+                          ? S.of(context).homeBuildingFloor
                           : "$areaName areas"),
                       Visibility(
                           child: IconButton(
@@ -205,17 +208,25 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        area.id,
-                        style: const TextStyle(fontSize: 15.0),
-                      ),
-                      Text(
-                          '${area.children.length} ${area.children.isNotEmpty && area.children[0] is Door ? "Doors" : "Area"} ${area is Partition ? '- ${countStateDoor[2] + countStateDoor[3]} Doors' : ''}',
-                          style: const TextStyle(fontSize: 15.0)),
-                      Text(
-                        '${countStateDoor[1]} Locked doors - ${countStateDoor[2]} Closed doors',
-                        style: const TextStyle(fontSize: 15.0),
-                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                            area.id,
+                            style: const TextStyle(fontSize: 15.0),
+                          )),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                              '${area.children.length} ${area.children.isNotEmpty && area.children[0] is Door ? S.of(context).homeCardStatusWithDoors(area.children.length) : S.of(context).homeCardStatusWithAreas(area.children.length)} ${area is Partition ? '- ${countStateDoor[2] + countStateDoor[3]} ${S.of(context).homeCardStatusWithDoors(countStateDoor[2] + countStateDoor[3])}' : ''}',
+                              style: const TextStyle(fontSize: 15.0))),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                            "${countStateDoor[1]} ${S.of(context).homeCardDoorsStatusLocked(countStateDoor[1])} - ${countStateDoor[2]} ${S.of(context).homeCardDoorsStatusClosed(countStateDoor[2])}",
+                            style: const TextStyle(
+                                fontSize: 15.0,
+                                overflow: TextOverflow.ellipsis),
+                          )),
                     ],
                   ),
                   ElevatedButton(

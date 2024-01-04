@@ -20,46 +20,49 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
-  static String m0(id) => "Door ${id}";
+  static String m0(date, time) => " ${date} - ${time} ";
 
-  static String m1(id) => "${id} options";
+  static String m1(id) => "Door ${id}";
 
-  static String m2(count) =>
-      "${Intl.plural(count, zero: 'closed doors', one: 'closed door', other: 'closed doors')}";
+  static String m2(id) => "${id} options";
 
   static String m3(count) =>
-      "${Intl.plural(count, zero: 'locked doors', one: 'locked door', other: 'locked doors')}";
+      "${Intl.plural(count, zero: 'closed doors', one: 'closed door', other: 'closed doors')}";
 
   static String m4(count) =>
-      "${Intl.plural(count, zero: 'Areas', one: 'Area', other: 'Areas')}";
+      "${Intl.plural(count, zero: 'locked doors', one: 'locked door', other: 'locked doors')}";
 
   static String m5(count) =>
+      "${Intl.plural(count, zero: 'Areas', one: 'Area', other: 'Areas')}";
+
+  static String m6(count) =>
       "${Intl.plural(count, zero: 'Doors', one: 'Door', other: 'Doors')}";
 
-  static String m6(areaname) => "${areaname} areas";
+  static String m7(areaname) => "${areaname} areas";
 
-  static String m7(areaname) => "${areaname} doors";
+  static String m8(areaname) => "${areaname} doors";
 
-  static String m8(count) =>
+  static String m9(count) =>
       "${Intl.plural(count, zero: 'No doors available', one: 'You have acces to 1 door', other: 'You have acces to ${count} doors')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "close": MessageLookupByLibrary.simpleMessage("Closed"),
+        "dateTime": m0,
         "doorHistory": MessageLookupByLibrary.simpleMessage("History"),
-        "doorID": m0,
+        "doorID": m1,
         "doorNoHistoryList":
             MessageLookupByLibrary.simpleMessage("No data in history"),
-        "doorOptions": m1,
+        "doorOptions": m2,
         "doorsStatus": MessageLookupByLibrary.simpleMessage("Status"),
         "homeAppBar": MessageLookupByLibrary.simpleMessage("Home"),
         "homeBuildingFloor":
             MessageLookupByLibrary.simpleMessage("Building floors"),
-        "homeCardDoorsStatusClosed": m2,
-        "homeCardDoorsStatusLocked": m3,
-        "homeCardStatusWithAreas": m4,
-        "homeCardStatusWithDoors": m5,
-        "homeFloorAreas": m6,
+        "homeCardDoorsStatusClosed": m3,
+        "homeCardDoorsStatusLocked": m4,
+        "homeCardStatusWithAreas": m5,
+        "homeCardStatusWithDoors": m6,
+        "homeFloorAreas": m7,
         "locked": MessageLookupByLibrary.simpleMessage("Locked"),
         "logInEmpty":
             MessageLookupByLibrary.simpleMessage("Please enter name user"),
@@ -67,9 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "logInLabelText": MessageLookupByLibrary.simpleMessage("User"),
         "logInNoUser": MessageLookupByLibrary.simpleMessage("User not found"),
         "logInSumbit": MessageLookupByLibrary.simpleMessage("Submit"),
-        "open": MessageLookupByLibrary.simpleMessage("Open"),
-        "spaceDoors": m7,
-        "spaceNumDoors": m8,
+        "open": MessageLookupByLibrary.simpleMessage("Opened"),
+        "spaceDoors": m8,
+        "spaceNumDoors": m9,
         "unlocked": MessageLookupByLibrary.simpleMessage("Unlocked")
       };
 }

@@ -22,5 +22,18 @@
     "doorOptions": "Opciones de la puerta {id}",
     "doorsStatus": "Estado",
     "doorHistory": "Historial",
-    "doorNoHistoryList": "No has realizado ninguna acción con la puerta"
+    "doorNoHistoryList": "No has realizado ninguna acción con la puerta",
+    "dateTime": " {date} - {time} ",
+    "@dateTime": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            },
+            "time": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    }
 }

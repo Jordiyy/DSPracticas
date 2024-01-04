@@ -22,5 +22,18 @@
     "doorOptions": "{id} Optionen",
     "doorsStatus": "Status",
     "doorHistory": "Geschichte",
-    "doorNoHistoryList": "Keine Daten im Verlauf"
+    "doorNoHistoryList": "Keine Daten im Verlauf",
+    "dateTime": " {date} - {time} ",
+    "@dateTime": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            },
+            "time": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    }
 }

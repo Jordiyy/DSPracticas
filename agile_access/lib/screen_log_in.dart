@@ -28,6 +28,9 @@ class _ScreenSingUp extends State<ScreenSingUp> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      S.load(const Locale('es', 'ES'));
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AgileAccessColors.azul3,
@@ -38,7 +41,7 @@ class _ScreenSingUp extends State<ScreenSingUp> {
         key: _formKey,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           //const Text("Log in"),
-          Text(AppLocalizations.of(context)!.logInFormTitle),
+          Text(S.of(context).logInFormTitle),
           TextFormField(
             controller: _userNameController,
             decoration: const InputDecoration(
