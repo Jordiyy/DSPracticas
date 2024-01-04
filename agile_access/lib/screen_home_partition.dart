@@ -101,22 +101,27 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                           child: IconButton(
                         icon: Iconify(iconImgBuilding),
                         onPressed: () {
+                          if (!isButtonPressed) {
+                            if (countStateDoorRoot[3] == 0) {
+                              lockAllDoor(snapshot.data!.root);
+                            } else {
+                              AlertHelper.showAlert(
+                                  context,
+                                  "Full non-lockable area",
+                                  "There are doors that are open. Close all doors to block the complete area.");
+                            }
+                          } else if (isButtonPressed) {
+                            unlocAllkDoor(snapshot.data!.root);
+                          }
                           setState(() {
                             if (!isButtonPressed) {
                               if (countStateDoorRoot[3] == 0) {
-                                lockAllDoor(snapshot.data!.root);
                                 iconImgBuilding = Mdi.office_building;
                                 isButtonPressed = true;
                                 areaTree = getTreeRequest(
                                     areaName == "building" ? "ROOT" : areaName);
-                              } else {
-                                AlertHelper.showAlert(
-                                    context,
-                                    "Full non-lockable area",
-                                    "There are doors that are open. Close all doors to block the complete area.");
                               }
                             } else if (isButtonPressed) {
-                              unlocAllkDoor(snapshot.data!.root);
                               iconImgBuilding = Fa6Solid.building_lock;
                               isButtonPressed = false;
                               areaTree = getTreeRequest(
@@ -178,9 +183,6 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
               _activateTimer();
               _refresh();
             });
-          } else {
-            AlertHelper.showAlert(context, "Non-accessible area",
-                "It is not possible to access the area, because it has no doors. \nContact the administrator.");
           }
           if (area is Space) {
             Navigator.of(context)
@@ -193,6 +195,9 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
               _refresh();
             });
           }
+        } else {
+          AlertHelper.showAlert(context, "Non-accessible area",
+              "It is not possible to access the area, because it has no doors. \nContact the administrator.");
         }
       },
       child: Card(
@@ -229,27 +234,34 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                             : MaterialSymbols.lock_outline),
                       ]),
                       onPressed: () {
+                        if (area.children.isNotEmpty) {
+                          if (switchValue[index] == true) {
+                            unlocAllkDoor(area);
+                          } else if (switchValue[index] == false) {
+                            if (countStateDoor[3] == 0) {
+                              lockAllDoor(area);
+                            } else {
+                              AlertHelper.showAlert(
+                                  context,
+                                  "Non-lockable area",
+                                  "There are doors that are open. Close all doors to block the area.");
+                            }
+                          }
+                        } else {
+                          AlertHelper.showAlert(context, "Non-lockable area",
+                              "It is not possible to lock the doors of the area, because it does not have.");
+                        }
                         setState(() {
                           if (area.children.isNotEmpty) {
                             if (switchValue[index] == true) {
-                              unlocAllkDoor(area);
                               switchValue[index] = false;
                             } else if (switchValue[index] == false) {
                               if (countStateDoor[3] == 0) {
-                                lockAllDoor(area);
                                 switchValue[index] = true;
-                              } else {
-                                AlertHelper.showAlert(
-                                    context,
-                                    "Non-lockable area",
-                                    "There are doors that are open. Close all doors to block the area.");
                               }
                             }
                             areaTree = getTreeRequest(
                                 areaName == "building" ? "ROOT" : areaName);
-                          } else {
-                            AlertHelper.showAlert(context, "Non-lockable area",
-                                "It is not possible to lock the doors of the area, because it does not have.");
                           }
                         });
                       }),

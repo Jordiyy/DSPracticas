@@ -1,13 +1,13 @@
+import 'package:agile_access/data/door_tree.dart';
 import 'package:flutter/material.dart';
-
-const int periodeRefresh = 2;
 
 class User {
   late String name;
   late String credential;
   late List<Map<String, String>> history;
+  late List<Door> lastVisited;
 
-  User(this.name, this.credential, this.history);
+  User(this.name, this.credential, this.history, this.lastVisited);
 }
 
 class UserGroup {
@@ -67,8 +67,8 @@ class usersData {
       scheduleAdmin,
       ActionsDoor.all,
       [
-        User("Ana", "89325", []),
-        User("Aureli", "87325", []),
+        User("Ana", "89325", [], []),
+        User("Aureli", "87325", [], []),
       ]);
 
   // Managers
@@ -94,10 +94,10 @@ class usersData {
       scheduleManagers,
       ActionsDoor.all,
       [
-        User("Manel", "43762", []),
-        User("Miquel", "77832", []),
-        User("Maria", "89324", []),
-        User("Maure", "12345", []),
+        User("Manel", "43762", [], []),
+        User("Miquel", "77832", [], []),
+        User("Maria", "89324", [], []),
+        User("Maure", "12345", [], []),
       ]);
 
   // Employees
@@ -121,9 +121,9 @@ class usersData {
       scheduleEmployees,
       [ActionsDoor.open, ActionsDoor.close, ActionsDoor.unlockShortly],
       [
-        User("Eva", "89325", []),
-        User("Eulalia", "87325", []),
-        User("Esteve", "43623", []),
+        User("Eva", "89325", [], []),
+        User("Eulalia", "87325", [], []),
+        User("Esteve", "43623", [], []),
       ]);
 
   static List<UserGroup> userGroups = [admin, managers, employees];

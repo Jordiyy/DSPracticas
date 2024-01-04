@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const int periodeRefresh = 4;
+
 abstract class Area {
   late String id;
   late List<dynamic> children;

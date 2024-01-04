@@ -104,7 +104,8 @@ class _ScreenSpace extends State<ScreenSpace> {
     return GestureDetector(
       onTap: () {
         _timer.cancel();
-        controlLastVisited(door, index);
+        controlLastVisited(door);
+        userData.lastVisited = LastVisitedControl(userData.lastVisited, door);
         Navigator.of(context)
             .push(MaterialPageRoute<void>(
           builder: (context) =>

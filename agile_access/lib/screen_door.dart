@@ -67,6 +67,8 @@ class _ScreenDoor extends State<ScreenDoor> {
         if (snapshot.hasData) {
           idxDoor =
               snapshot.data!.root.children.indexWhere((d) => d.id == door.id);
+          idxDoor = idxDoor == -1 ? 0 : idxDoor;
+
           iconList = [
             snapshot.data!.root.children[idxDoor].closed == true
                 ? Bi.door_open
@@ -120,6 +122,12 @@ class _ScreenDoor extends State<ScreenDoor> {
                   Row(
                     children: [
                       ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: snapshot.data!.root
+                                          .children[idxDoor].closed ==
+                                      false
+                                  ? Colors.blue
+                                  : Colors.white),
                           child: Column(children: [
                             Iconify(
                                 snapshot.data!.root.children[idxDoor].closed ==
@@ -155,6 +163,12 @@ class _ScreenDoor extends State<ScreenDoor> {
                             });
                           }),
                       ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  snapshot.data!.root.children[idxDoor].state ==
+                                          "locked"
+                                      ? Colors.blue
+                                      : Colors.white),
                           child: Column(children: [
                             Iconify(iconList[1]),
                             Text(snapshot.data!.root.children[idxDoor].state ==
@@ -206,14 +220,22 @@ class _ScreenDoor extends State<ScreenDoor> {
                   ),
                   const Text("History"),
                   Expanded(
-                    child: userData.history.isEmpty
+                    child: userData.history
+                            .where((item) => item.containsKey(door.id))
+                            .isEmpty
                         ? const Text("No data in history")
                         : ListView.builder(
                             padding: const EdgeInsets.all(16.0),
-                            itemCount: userData.history.length,
-                            itemBuilder: (BuildContext context, int index) =>
-                                _buildRow(userData.history[index],
-                                    snapshot.data!.root.children[idxDoor].id),
+                            itemCount: userData.history
+                                .where((item) => item.containsKey(door.id))
+                                .length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final filterHistory = userData.history
+                                  .where((item) => item.containsKey(door.id))
+                                  .toList();
+                              return _buildRow(filterHistory[index],
+                                  snapshot.data!.root.children[idxDoor].id);
+                            },
                           ),
                   )
                 ],
@@ -243,10 +265,8 @@ class _ScreenDoor extends State<ScreenDoor> {
 
   void _activateTimer() {
     _timer = Timer.periodic(const Duration(seconds: periodeRefresh), (Timer t) {
-      if (mounted) {
-        doorTree = getTreeRequest(door.id);
-        setState(() {});
-      }
+      doorTree = getTreeRequest(door.id);
+      setState(() {});
     });
   }
 }

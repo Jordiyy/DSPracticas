@@ -136,8 +136,6 @@ public class WebServer {
           request = makeRequestArea(tokens);
           break;
         case "get_children":
-          //TODO: this is to be implemented when programming the mobile app in Flutter
-          // in order to navigate the hierarchy of partitions, spaces and doors
           request = makeRequestChildren(tokens);
           break;
         default:

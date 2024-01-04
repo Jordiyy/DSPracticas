@@ -55,20 +55,21 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
           children: [
             const Text("History"),
             Expanded(
-              child: LastVisited.lastVisitedList.isEmpty
+              //child: LastVisited.lastVisitedList.isEmpty
+              child: userData.lastVisited.isEmpty
                   ? Text("No data in history")
                   : ListView.builder(
                       padding: const EdgeInsets.all(16.0),
-                      itemCount: LastVisited.lastVisitedList.length,
+                      itemCount: userData.lastVisited.length,
                       itemBuilder: (BuildContext context, int index) =>
-                          _buildRow(LastVisited.lastVisitedList[index]),
+                          _buildRow(userData.lastVisited[index], index),
                     ),
             )
           ],
         ));
   }
 
-  Widget _buildRow(Door door) {
+  Widget _buildRow(Door door, int index) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<void>(
