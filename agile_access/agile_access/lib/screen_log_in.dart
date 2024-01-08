@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'data/user_data.dart';
 import 'screen_home_partition.dart';
@@ -25,6 +26,9 @@ class _ScreenSingUp extends State<ScreenSingUp> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      S.load(const Locale('es', 'ES'));
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -34,14 +38,15 @@ class _ScreenSingUp extends State<ScreenSingUp> {
       body: Form(
         key: _formKey,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Text("Log in"),
+          Text(S.of(context).logInFormTitle),
           TextFormField(
             controller: _userNameController,
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(), labelText: "User name"),
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "${S.of(context).logInLabelText}"),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter name user ';
+                return "${S.of(context).logInEmpty}";
               }
               User? userFound;
               for (UserGroup group in usersData.userGroups) {
@@ -53,7 +58,7 @@ class _ScreenSingUp extends State<ScreenSingUp> {
                   break;
                 }
               }
-              return userFound != null ? null : "User not found";
+              return userFound != null ? null : "${S.of(context).logInNoUser}";
             },
           ),
           Padding(
@@ -69,7 +74,7 @@ class _ScreenSingUp extends State<ScreenSingUp> {
                   ));
                 }
               },
-              child: const Text("Submit"),
+              child: Text(S.of(context).logInSumbit),
             ),
           )
         ]),

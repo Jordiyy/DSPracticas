@@ -1,3 +1,4 @@
+import 'package:agile_access/main.dart';
 import 'package:agile_access/screen_group_information.dart';
 import 'package:agile_access/screen_schedule_information.dart';
 import 'package:agile_access/screen_user_information.dart';
@@ -7,6 +8,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/uil.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
@@ -136,6 +138,54 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                               ),
                               Text("User schedule information",
                                   style: TextStyle(fontSize: 15.0)),
+                            ],
+                          ),
+                        ],
+                      ))),
+            ),
+            GestureDetector(
+              child: Card(
+                  margin: EdgeInsets.all(10),
+                  color: AgileAccessColors.azul4,
+                  child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                              child: Iconify(Uil.schedule)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Idiomas",
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Row(children: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        S.load(const Locale('es', 'ES'));
+                                      });
+                                    },
+                                    child: Text("Español")),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        S.load(const Locale('en', 'US'));
+                                      });
+                                    },
+                                    child: Text("Inglés")),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        S.load(const Locale('de', 'DE'));
+                                      });
+                                    },
+                                    child: Text("Alemán")),
+                              ])
                             ],
                           ),
                         ],
