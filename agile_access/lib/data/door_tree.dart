@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const int periodeRefresh = 4;
+const int periodeRefresh = 2;
 
 abstract class Area {
   late String id;

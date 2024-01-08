@@ -17,7 +17,7 @@ void controlLastVisited(Door door) {
   }
 }
 
-List<Door> LastVisitedControl(List<Door> lastVisited, Door door) {
+List<Area> LastVisitedControl(List<Area> lastVisited, Area door) {
   if (lastVisited.isEmpty) {
     lastVisited.add(door);
   } else {

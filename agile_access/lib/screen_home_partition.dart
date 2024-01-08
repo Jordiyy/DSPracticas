@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:agile_access/utils/door_functions.dart';
+import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/alert_helper_fuctions.dart';
 import 'package:agile_access/utils/requests_function.dart';
@@ -173,6 +174,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
       onTap: () {
         if (area.children.isNotEmpty) {
           _timer.cancel();
+          userData.lastVisited = LastVisitedControl(userData.lastVisited, area);
           if (area is Partition) {
             Navigator.of(context)
                 .push(MaterialPageRoute<void>(

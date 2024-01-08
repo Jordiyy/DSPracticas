@@ -1,6 +1,8 @@
 import 'package:agile_access/data/user_data.dart';
 import 'package:agile_access/nav_bar.dart';
 import 'package:agile_access/screen_door.dart';
+import 'package:agile_access/screen_home_partition.dart';
+import 'package:agile_access/screen_space.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -69,13 +71,18 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
         ));
   }
 
-  Widget _buildRow(Door door, int index) {
+  Widget _buildRow(Area door, int index) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute<void>(
-          builder: (context) =>
-              ScreenDoor(userGroup: userGroup, userData: userData, door: door),
-        ));
+        Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
+          if (door is Partition) {
+            return ScreenHomePartition(
+                userGroup: userGroup, userData: userData, areaName: door.id);
+          } else {
+            return ScreenSpace(
+                userGroup: userGroup, userData: userData, areaName: door.id);
+          }
+        }));
       },
       child: Card(
           child: Padding(

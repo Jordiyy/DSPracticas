@@ -67,18 +67,18 @@ class _ScreenDoor extends State<ScreenDoor> {
         if (snapshot.hasData) {
           idxDoor =
               snapshot.data!.root.children.indexWhere((d) => d.id == door.id);
-          idxDoor = idxDoor == -1 ? 0 : idxDoor;
 
-          iconList = [
-            snapshot.data!.root.children[idxDoor].closed == true
-                ? Bi.door_open
-                : Bi.door_closed,
-            snapshot.data!.root.children[idxDoor].state == "unlocked"
-                ? MaterialSymbols.lock_outline
-                : MaterialSymbols.lock_open_outline,
-            MaterialSymbols.lock_clock_outline
-          ];
-
+          if (snapshot.data!.root.children[idxDoor] is Door) {
+            iconList = [
+              snapshot.data!.root.children[idxDoor].closed == true
+                  ? Bi.door_open
+                  : Bi.door_closed,
+              snapshot.data!.root.children[idxDoor].state == "unlocked"
+                  ? MaterialSymbols.lock_outline
+                  : MaterialSymbols.lock_open_outline,
+              MaterialSymbols.lock_clock_outline
+            ];
+          }
           return Scaffold(
               bottomNavigationBar: NavBar(ItemNavSelected: (index) {
                 _timer.cancel();
