@@ -1,0 +1,39 @@
+{
+    "@@locale": "es_ES",
+    "locked": "Bloqueada",
+    "unlocked": "Desbloqueada",
+    "open": "Abierta",
+    "close": "Cerrada",
+    "logInFormTitle": "Iniciar Sesión",
+    "logInLabelText": "Usuario",
+    "logInEmpty": "Introduce un usuario válido",
+    "logInNoUser": "Usuario no encontrado",
+    "logInSumbit": "Entrar",
+    "homeAppBar": "Inicio",
+    "homeBuildingFloor": "Plantas del edificio",
+    "homeFloorAreas": " Areas de {areaname}",
+    "homeCardStatusWithAreas": "{count, plural, =0{Areas} =1{Area} other{Areas}}",
+    "homeCardStatusWithDoors": "{count, plural, =0{Puertas} =1{Puerta} other{Puertas}}",
+    "homeCardDoorsStatusLocked":  "{count, plural, =0{Puertas Bloqueadas} =1{Puerta Bloqueada} other{Puertas Bloqueadas}}",
+    "homeCardDoorsStatusClosed": "{count, plural, =0{Puertas Cerradas} =1{Puerta Cerrada} other{Puertas Cerradas}}",
+    "spaceDoors": "Puertas de {areaname}",
+    "spaceNumDoors": "{count, plural, =0{No tienes acceso a ninguna puerta} =1{Tienes acceso a una puerta} other{Tienes acceso a {count} puertas}}",
+    "doorID": "Puerta {id}",
+    "doorOptions": "Opciones de la puerta {id}",
+    "doorsStatus": "Estado",
+    "doorHistory": "Historial",
+    "doorNoHistoryList": "No has realizado ninguna acción con la puerta",
+    "dateTime": " {date} - {time} ",
+    "@dateTime": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            },
+            "time": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    }
+}

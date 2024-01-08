@@ -1,0 +1,39 @@
+{
+    "@@locale": "en",
+    "locked": "Locked",
+    "unlocked": "Unlocked",
+    "open": "Opened",
+    "close": "Closed",
+    "logInFormTitle": "Log In",
+    "logInLabelText": "User",
+    "logInEmpty": "Please enter name user",
+    "logInNoUser": "User not found",
+    "logInSumbit": "Submit",
+    "homeAppBar": "Home",
+    "homeBuildingFloor": "Building floors",
+    "homeFloorAreas": "{areaname} areas",
+    "homeCardStatusWithAreas": "{count, plural, =0{Areas} =1{Area} other{Areas}}",
+    "homeCardStatusWithDoors": "{count, plural, =0{Doors} =1{Door} other{Doors}}",
+    "homeCardDoorsStatusLocked":  "{count, plural, =0{locked doors} =1{locked door} other{locked doors}}",
+    "homeCardDoorsStatusClosed": "{count, plural, =0{closed doors} =1{closed door} other{closed doors}}",
+    "spaceDoors": "{areaname} doors",
+    "spaceNumDoors": "{count, plural, =0{No doors available} =1{You have acces to 1 door} other{You have acces to {count} doors}}",
+    "doorID": "Door {id}",
+    "doorOptions": "{id} options",
+    "doorsStatus": "Status",
+    "doorHistory": "History",
+    "doorNoHistoryList": "No data in history",
+    "dateTime": " {date} - {time} ",
+    "@dateTime": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd"
+            },
+            "time": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    }
+}

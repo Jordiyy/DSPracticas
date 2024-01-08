@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'screen_door.dart';
@@ -73,10 +73,9 @@ class _ScreenSpace extends State<ScreenSpace> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("$areaName doors"),
-                  Text("You have acces to "
-                      '${snapshot.data!.root.children.length}'
-                      " doors"),
+                  Text("${S.of(context).spaceDoors(areaName)}"),
+                  Text(
+                      "${S.of(context).spaceNumDoors(snapshot.data!.root.children.length)}"),
                   Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(16.0),
@@ -132,8 +131,8 @@ class _ScreenSpace extends State<ScreenSpace> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                             text: door.state == "unlocked"
-                                ? "Unlocked"
-                                : "Locked",
+                                ? "${S.of(context).unlocked}"
+                                : "${S.of(context).locked}",
                             style: TextStyle(
                                 color: door.state == "locked"
                                     ? Colors.red
@@ -141,7 +140,9 @@ class _ScreenSpace extends State<ScreenSpace> {
                                 fontSize: 15.0)),
                         const TextSpan(text: " - "),
                         TextSpan(
-                            text: door.closed == true ? "Closed" : "Opened",
+                            text: door.closed == true
+                                ? "${S.of(context).close}"
+                                : "${S.of(context).open}",
                             style: TextStyle(
                                 color: door.closed == true
                                     ? Colors.red

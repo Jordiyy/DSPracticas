@@ -1,11 +1,14 @@
+import 'package:agile_access/generated/l10n.dart';
+import 'package:agile_access/main.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'data/user_data.dart';
 import 'screen_home_partition.dart';
 
 class ScreenSingUp extends StatefulWidget {
-  ScreenSingUp({super.key});
+  const ScreenSingUp({super.key});
 
   @override
   State<ScreenSingUp> createState() => _ScreenSingUp();
@@ -25,16 +28,20 @@ class _ScreenSingUp extends State<ScreenSingUp> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      S.load(const Locale('es', 'ES'));
+    });
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        backgroundColor: AgileAccessColors.azul3,
+        foregroundColor: AgileAccessColors.text,
         title: const Text("Agile Access"),
       ),
       body: Form(
         key: _formKey,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Text("Log in"),
+          //const Text("Log in"),
+          Text(S.of(context).logInFormTitle),
           TextFormField(
             controller: _userNameController,
             decoration: const InputDecoration(
@@ -57,7 +64,7 @@ class _ScreenSingUp extends State<ScreenSingUp> {
             },
           ),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {

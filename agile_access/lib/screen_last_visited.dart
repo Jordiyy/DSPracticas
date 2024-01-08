@@ -1,4 +1,5 @@
 import 'package:agile_access/data/user_data.dart';
+import 'package:agile_access/main.dart';
 import 'package:agile_access/nav_bar.dart';
 import 'package:agile_access/screen_door.dart';
 import 'package:agile_access/screen_home_partition.dart';
@@ -48,9 +49,12 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
             ItemNavSelected: (index) =>
                 ItemNavSelected(context, index, userGroup, userData)).bar,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text("Last visited"),
+          backgroundColor: AgileAccessColors.azul3,
+          foregroundColor: AgileAccessColors.text,
+          title: const Text(
+            "Last visited",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,18 +89,22 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
         }));
       },
       child: Card(
+          color: AgileAccessColors.azul4,
+          margin: const EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Row(
                 children: [
-                  const Iconify(Bi.door_closed),
+                  const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Iconify(Bi.door_closed)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         door.id,
-                        style: const TextStyle(fontSize: 15.0),
+                        style: const TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),
                       const Text("Unlocked - Closed",
                           style: TextStyle(fontSize: 15.0)),
