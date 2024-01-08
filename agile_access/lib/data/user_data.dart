@@ -5,7 +5,7 @@ class User {
   late String name;
   late String credential;
   late List<Map<String, String>> history;
-  late List<Area> lastVisited;
+  late List<Door> lastVisited;
 
   User(this.name, this.credential, this.history, this.lastVisited);
 }

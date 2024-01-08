@@ -1,5 +1,5 @@
 
-const int periodeRefresh = 2;
+const int periodeRefresh = 4;
 
 abstract class Area {
   late String id;
