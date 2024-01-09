@@ -45,90 +45,112 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Schedule Information"),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Start date",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.fromDate.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
+            const SizedBox(height: 25),
+            const Text(
+              "Schedule Information",
+              style: TextStyle(
+                fontSize: 24.0,
               ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "End date",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.toDate.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Weekdays",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  WeekdaySelector(
-                    selectedColor: Colors.blue,
-                    onChanged: (value) {},
-                    values: userGroup.schedule.weekdays,
-                  ),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Start time",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.fromTime.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "End time",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.schedule.toTime.toString(),
-                      style: TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
+            ),
+            const SizedBox(height: 25),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Start date",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.schedule.fromDate.toString(),
+                        style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "End date",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.schedule.toDate.toString(),
+                        style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Weekdays",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    WeekdaySelector(
+                      selectedColor: Colors.blue,
+                      onChanged: (value) {},
+                      values: userGroup.schedule.weekdays,
+                    ),
+                  ],
+                ),
+              )),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Start time",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.schedule.fromTime.toString(),
+                        style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "End time",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.schedule.toTime.toString(),
+                        style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
           ],
         ));
   }

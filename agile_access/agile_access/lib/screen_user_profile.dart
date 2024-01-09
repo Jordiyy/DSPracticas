@@ -52,7 +52,14 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("User account"),
+            const SizedBox(height: 25),
+            const Text(
+              "User account",
+              style: TextStyle(
+                fontSize: 24.0,
+              ),
+            ),
+            const SizedBox(height: 25),
             GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute<void>(

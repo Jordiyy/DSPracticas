@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:agile_access/data/door_tree.dart';
 import 'package:agile_access/screen_home_partition.dart';
+import 'package:agile_access/utils/alert_helper_fuctions.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
@@ -90,21 +91,26 @@ class _ScreenDoor extends State<ScreenDoor> {
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                title: Text(
-                    "${S.of(context).doorID(snapshot.data!.root.children[idxDoor].id)}"),
+                title: Text(S
+                    .of(context)
+                    .doorID(snapshot.data!.root.children[idxDoor].id)),
               ),
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
                   Text(
-                      "${S.of(context).doorOptions(snapshot.data!.root.children[idxDoor].id)}"),
+                      S.of(context).doorOptions(
+                          snapshot.data!.root.children[idxDoor].id),
+                      style: const TextStyle(fontSize: 24.0)),
+                  const SizedBox(height: 10),
                   Text.rich(TextSpan(children: [
                     TextSpan(text: "${S.of(context).doorsStatus}: "),
                     TextSpan(
                         text: snapshot.data!.root.children[idxDoor].state ==
                                 "unlocked"
-                            ? "${S.of(context).unlocked}"
-                            : "${S.of(context).locked}",
+                            ? S.of(context).unlocked
+                            : S.of(context).locked,
                         style: TextStyle(
                             color:
                                 snapshot.data!.root.children[idxDoor].state ==
@@ -141,16 +147,27 @@ class _ScreenDoor extends State<ScreenDoor> {
                                     : iconList[0] = Bi.door_open),
                             Text(snapshot.data!.root.children[idxDoor].closed ==
                                     true
-                                ? "${S.of(context).close}"
-                                : "${S.of(context).open}")
+                                ? S.of(context).close
+                                : S.of(context).open)
                           ]),
                           onPressed: () async {
-                            snapshot.data!.root.children[idxDoor].closed ==
-                                    false
-                                ? closeDoor(
-                                    snapshot.data!.root.children[idxDoor])
-                                : openDoor(
-                                    snapshot.data!.root.children[idxDoor]);
+                            if (snapshot.data!.root.children[idxDoor].closed ==
+                                true) {
+                              if (snapshot.data!.root.children[idxDoor].state ==
+                                      "unlocked" ||
+                                  snapshot.data!.root.children[idxDoor].state ==
+                                      "propped") {
+                                openDoor(snapshot.data!.root.children[idxDoor]);
+                              } else {
+                                AlertHelper.showAlert(context, "Invalid action",
+                                    "Unlock the door first so you can open it.");
+                              }
+                            }
+                            if (snapshot.data!.root.children[idxDoor].closed ==
+                                false) {
+                              closeDoor(snapshot.data!.root.children[idxDoor]);
+                            }
+
                             setState(() {
                               if (snapshot
                                       .data!.root.children[idxDoor].closed ==
@@ -210,16 +227,8 @@ class _ScreenDoor extends State<ScreenDoor> {
                             const Text("Unlocked\nShortly")
                           ]),
                           onPressed: () {
-                            userData.history.add({
-                              snapshot.data!.root.children[idxDoor].id:
-                                  "${S.of(context).dateTime(_now, _now)}\n $userData.name blocked the door."
-                            });
-                            setState(() {
-                              iconList[2] = iconList[2] ==
-                                      MaterialSymbols.lock_clock_outline
-                                  ? MaterialSymbols.lock_reset
-                                  : MaterialSymbols.lock_clock_outline;
-                            });
+                            AlertHelper.showAlert(context, "Action error",
+                                "This function has not yet been implemented. In the future it will be operational.");
                           }),
                     ],
                   ),

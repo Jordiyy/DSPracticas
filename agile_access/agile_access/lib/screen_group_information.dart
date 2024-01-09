@@ -47,38 +47,51 @@ class _ScreenGroupInformation extends State<ScreenGroupInformation> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Group account Information"),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Group name",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.name, style: TextStyle(fontSize: 15.0)),
-                ],
+            const SizedBox(height: 25),
+            const Text(
+              "Group account Information",
+              style: TextStyle(
+                fontSize: 24.0,
               ),
-            )),
-            Card(
-                child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Description",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userGroup.description,
-                      style: const TextStyle(fontSize: 15.0)),
-                ],
-              ),
-            )),
+            ),
+            const SizedBox(height: 25),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Group name",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.name, style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Description",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userGroup.description,
+                        style: const TextStyle(fontSize: 15.0)),
+                  ],
+                ),
+              )),
+            ),
           ],
         ));
   }

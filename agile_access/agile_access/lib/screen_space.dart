@@ -76,7 +76,13 @@ class _ScreenSpace extends State<ScreenSpace> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${S.of(context).spaceDoors(areaName)}"),
+                  SizedBox(height: 20),
+                  Text(
+                    "${S.of(context).spaceDoors(areaName)}",
+                    style: const TextStyle(
+                      fontSize: 24.0,
+                    ),
+                  ),
                   Text(
                       "${S.of(context).spaceNumDoors(snapshot.data!.root.children.length)}"),
                   Expanded(
@@ -123,7 +129,7 @@ class _ScreenSpace extends State<ScreenSpace> {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Row(
                 children: [
-                  const Iconify(Bi.door_closed),
+                  Iconify(Bi.door_closed),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

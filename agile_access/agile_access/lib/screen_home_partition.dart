@@ -94,16 +94,26 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                     : areaName),
               ),
               body: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 20),
                   Row(
                     children: [
-                      Text(areaName == "building"
-                          ? "${S.of(context).homeBuildingFloor}"
-                          : "${S.of(context).homeFloorAreas(areaName)}"),
+                      SizedBox(width: 25),
+                      Text(
+                        areaName == "building"
+                            ? "${S.of(context).homeBuildingFloor}"
+                            : "${S.of(context).homeFloorAreas(areaName)}",
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                        ),
+                      ),
+                      SizedBox(width: 50),
                       Visibility(
-                          child: IconButton(
-                        icon: Iconify(iconImgBuilding),
+                          child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                isButtonPressed ? Colors.blue : Colors.white),
+                        child: Iconify(iconImgBuilding),
                         onPressed: () {
                           if (!isButtonPressed) {
                             if (countStateDoorRoot[3] == 0) {

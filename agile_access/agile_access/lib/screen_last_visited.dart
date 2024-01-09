@@ -55,7 +55,13 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("History"),
+            SizedBox(height: 20),
+            const Text(
+              "History",
+              style: const TextStyle(
+                fontSize: 24.0,
+              ),
+            ),
             Expanded(
               //child: LastVisited.lastVisitedList.isEmpty
               child: userData.lastVisited.isEmpty
@@ -98,8 +104,8 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
                         door.id,
                         style: const TextStyle(fontSize: 15.0),
                       ),
-                      const Text("Unlocked - Closed",
-                          style: TextStyle(fontSize: 15.0)),
+                      Text(door is Partition ? "Partition" : "Space",
+                          style: const TextStyle(fontSize: 15.0)),
                     ],
                   ),
                 ],

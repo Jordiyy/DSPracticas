@@ -44,29 +44,43 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
           title: const Text("User Information"),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("User account Information"),
-            CircleAvatar(
-                radius: 150,
-                foregroundImage: NetworkImage(
-                    usersData.images[userData.name.toLowerCase()]!)),
-            Card(
-                child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Name",
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                  Text(userData.name, style: TextStyle(fontSize: 15.0)),
-                ],
+        body: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          const SizedBox(height: 25),
+          const Text(
+            "User account Information",
+            style: const TextStyle(
+              fontSize: 24.0,
+            ),
+          ),
+          const SizedBox(height: 25),
+          CircleAvatar(
+              radius: 150,
+              foregroundImage:
+                  NetworkImage(usersData.images[userData.name.toLowerCase()]!)),
+          const SizedBox(height: 25),
+          SizedBox(
+            width: double.infinity,
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Name",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    Text(userData.name, style: TextStyle(fontSize: 15.0)),
+                  ],
+                ),
               ),
-            )),
-            Card(
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: Card(
                 child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Column(
@@ -80,7 +94,10 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                 ],
               ),
             )),
-            Card(
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: Card(
                 child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Column(
@@ -94,7 +111,7 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                 ],
               ),
             )),
-          ],
-        ));
+          ),
+        ])));
   }
 }
