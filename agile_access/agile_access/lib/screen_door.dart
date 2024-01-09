@@ -70,7 +70,7 @@ class _ScreenDoor extends State<ScreenDoor> {
         if (snapshot.hasData) {
           idxDoor =
               snapshot.data!.root.children.indexWhere((d) => d.id == door.id);
-
+          idxDoor = idxDoor == -1 ? 0 : idxDoor;
           if (snapshot.data!.root.children[idxDoor] is Door) {
             iconList = [
               snapshot.data!.root.children[idxDoor].closed == true
