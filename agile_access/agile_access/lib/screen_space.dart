@@ -123,7 +123,7 @@ class _ScreenSpace extends State<ScreenSpace> {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
               child: Row(
                 children: [
-                  const Iconify(Bi.door_closed),
+                  Iconify(Bi.door_closed),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
