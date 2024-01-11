@@ -10,7 +10,6 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/fa6_solid.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:agile_access/generated/l10n.dart';
-import 'package:intl/intl.dart';
 
 import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
@@ -18,6 +17,7 @@ import 'screen_space.dart';
 
 import 'data/door_tree.dart';
 
+// ignore: must_be_immutable
 class ScreenHomePartition extends StatefulWidget {
   UserGroup userGroup;
   User userData;

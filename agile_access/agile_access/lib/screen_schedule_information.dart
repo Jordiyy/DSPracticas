@@ -6,6 +6,7 @@ import 'package:agile_access/generated/l10n.dart';
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
 
+// ignore: must_be_immutable
 class ScreenScheduleInformation extends StatefulWidget {
   UserGroup userGroup;
   User userData;

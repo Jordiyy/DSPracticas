@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:agile_access/screen_home_partition.dart';
-import 'package:agile_access/utils/last_visited_function.dart';
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:agile_access/utils/requests_function.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +12,7 @@ import 'screen_door.dart';
 import 'data/door_tree.dart';
 import 'nav_bar.dart';
 
+// ignore: must_be_immutable
 class ScreenSpace extends StatefulWidget {
   UserGroup userGroup;
   User userData;

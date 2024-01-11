@@ -1,6 +1,5 @@
 import 'package:agile_access/data/user_data.dart';
 import 'package:agile_access/nav_bar.dart';
-import 'package:agile_access/screen_door.dart';
 import 'package:agile_access/screen_home_partition.dart';
 import 'package:agile_access/screen_space.dart';
 import 'package:agile_access/utils/nav_functions.dart';
@@ -11,6 +10,7 @@ import 'package:agile_access/generated/l10n.dart';
 
 import 'data/door_tree.dart';
 
+// ignore: must_be_immutable
 class ScreenLastVisited extends StatefulWidget {
   UserGroup userGroup;
   User userData;
