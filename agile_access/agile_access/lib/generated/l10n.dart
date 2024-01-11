@@ -310,6 +310,396 @@ class S {
       args: [dateString, timeString],
     );
   }
+
+  /// `Perfil de usuario`
+  String get userAppBar {
+    return Intl.message(
+      'Perfil de usuario',
+      name: 'userAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cuenta de usuario`
+  String get userTitle {
+    return Intl.message(
+      'Cuenta de usuario',
+      name: 'userTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Usuario`
+  String get userUSer {
+    return Intl.message(
+      'Usuario',
+      name: 'userUSer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del usuario`
+  String get userUserIngormation {
+    return Intl.message(
+      'Información del usuario',
+      name: 'userUserIngormation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grupo`
+  String get userGroup {
+    return Intl.message(
+      'Grupo',
+      name: 'userGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del grupo del usuario`
+  String get userGroupInformation {
+    return Intl.message(
+      'Información del grupo del usuario',
+      name: 'userGroupInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calendario`
+  String get userSchedule {
+    return Intl.message(
+      'Calendario',
+      name: 'userSchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del calendario del usuario`
+  String get userScheduleInformation {
+    return Intl.message(
+      'Información del calendario del usuario',
+      name: 'userScheduleInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Idioma`
+  String get userLanguage {
+    return Intl.message(
+      'Idioma',
+      name: 'userLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Español`
+  String get userLanguageSpanish {
+    return Intl.message(
+      'Español',
+      name: 'userLanguageSpanish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inglés`
+  String get userLanguageEnglish {
+    return Intl.message(
+      'Inglés',
+      name: 'userLanguageEnglish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alemán`
+  String get userLanguageGerman {
+    return Intl.message(
+      'Alemán',
+      name: 'userLanguageGerman',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del grupo`
+  String get groupAppBar {
+    return Intl.message(
+      'Información del grupo',
+      name: 'groupAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del grupo de la cuenta`
+  String get groupInfo {
+    return Intl.message(
+      'Información del grupo de la cuenta',
+      name: 'groupInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre del grupo`
+  String get groupName {
+    return Intl.message(
+      'Nombre del grupo',
+      name: 'groupName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Descripción`
+  String get groupDescription {
+    return Intl.message(
+      'Descripción',
+      name: 'groupDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Últimas vistas`
+  String get lastVisitedAppBar {
+    return Intl.message(
+      'Últimas vistas',
+      name: 'lastVisitedAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del calendario`
+  String get scheduleInformation {
+    return Intl.message(
+      'Información del calendario',
+      name: 'scheduleInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fecha de inicio`
+  String get scheduleStartDate {
+    return Intl.message(
+      'Fecha de inicio',
+      name: 'scheduleStartDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fecha de finalización`
+  String get scheduleEndDate {
+    return Intl.message(
+      'Fecha de finalización',
+      name: 'scheduleEndDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Días de la semana`
+  String get scheduleWeekdays {
+    return Intl.message(
+      'Días de la semana',
+      name: 'scheduleWeekdays',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hora de inicio`
+  String get scheduleStartTime {
+    return Intl.message(
+      'Hora de inicio',
+      name: 'scheduleStartTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hora de finalización`
+  String get scheduleEndTime {
+    return Intl.message(
+      'Hora de finalización',
+      name: 'scheduleEndTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información del usuario`
+  String get informationAppBar {
+    return Intl.message(
+      'Información del usuario',
+      name: 'informationAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Información de la cuenta del usuario`
+  String get informationTitle {
+    return Intl.message(
+      'Información de la cuenta del usuario',
+      name: 'informationTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre`
+  String get informationName {
+    return Intl.message(
+      'Nombre',
+      name: 'informationName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credenciales`
+  String get informationCredentials {
+    return Intl.message(
+      'Credenciales',
+      name: 'informationCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grupo`
+  String get informationGroup {
+    return Intl.message(
+      'Grupo',
+      name: 'informationGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edificio no bloqueable`
+  String get alertTypeNonFullLockable {
+    return Intl.message(
+      'Edificio no bloqueable',
+      name: 'alertTypeNonFullLockable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Area no accesible`
+  String get alertTypeNoAccessible {
+    return Intl.message(
+      'Area no accesible',
+      name: 'alertTypeNoAccessible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Area no bloqueable`
+  String get alertTypeNoLockArea {
+    return Intl.message(
+      'Area no bloqueable',
+      name: 'alertTypeNoLockArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acción inválida`
+  String get alertTypeInvalid {
+    return Intl.message(
+      'Acción inválida',
+      name: 'alertTypeInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acción errónea`
+  String get alertTypeError {
+    return Intl.message(
+      'Acción errónea',
+      name: 'alertTypeError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hay puertas abiertas. Cierra todas las puertas para bloquear todo el edificio.`
+  String get alertScreenHomeButtonFullLockUnlock {
+    return Intl.message(
+      'Hay puertas abiertas. Cierra todas las puertas para bloquear todo el edificio.',
+      name: 'alertScreenHomeButtonFullLockUnlock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No es possible acceder a dicha area, porque no hay puertas. \n Pónte en contacto con el administrador.`
+  String get alertScreenHomeNoAccessibleArea {
+    return Intl.message(
+      'No es possible acceder a dicha area, porque no hay puertas. \n Pónte en contacto con el administrador.',
+      name: 'alertScreenHomeNoAccessibleArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hay puertas abiertas. Cierra todas las puertas del área para bloquearla.`
+  String get alertScreenHomeButtonLockArea {
+    return Intl.message(
+      'Hay puertas abiertas. Cierra todas las puertas del área para bloquearla.',
+      name: 'alertScreenHomeButtonLockArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no es possible bloquear todas las puertas del area, porque no dispone de puertas.`
+  String get alertScreenHomeNoDoorsInArea {
+    return Intl.message(
+      'no es possible bloquear todas las puertas del area, porque no dispone de puertas.',
+      name: 'alertScreenHomeNoDoorsInArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Desbloquea la peurta para poder abrirla.`
+  String get alertScreenDoorButtonOpenClose {
+    return Intl.message(
+      'Desbloquea la peurta para poder abrirla.',
+      name: 'alertScreenDoorButtonOpenClose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Función no implementada. Se añadirá la función en una actualización futura.`
+  String get alertScreenDoorButtonUnlockShortly {
+    return Intl.message(
+      'Función no implementada. Se añadirá la función en una actualización futura.',
+      name: 'alertScreenDoorButtonUnlockShortly',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

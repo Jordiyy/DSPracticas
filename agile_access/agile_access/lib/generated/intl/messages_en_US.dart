@@ -47,6 +47,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alertScreenDoorButtonOpenClose": MessageLookupByLibrary.simpleMessage(
+            "Unlock the door first so you can open it."),
+        "alertScreenDoorButtonUnlockShortly": MessageLookupByLibrary.simpleMessage(
+            "This function has not yet been implemented. In the future it will be operational."),
+        "alertScreenHomeButtonFullLockUnlock": MessageLookupByLibrary.simpleMessage(
+            "There are doors that are open. Close all doors to block the complete area."),
+        "alertScreenHomeButtonLockArea": MessageLookupByLibrary.simpleMessage(
+            "There are doors that are open. Close all doors to block the area."),
+        "alertScreenHomeNoAccessibleArea": MessageLookupByLibrary.simpleMessage(
+            "It is not possible to access the area, because it has no doors. \nContact the administrator."),
+        "alertScreenHomeNoDoorsInArea": MessageLookupByLibrary.simpleMessage(
+            "It is not possible to lock the doors of the area, because it does not have."),
+        "alertTypeError": MessageLookupByLibrary.simpleMessage("Action error"),
+        "alertTypeInvalid":
+            MessageLookupByLibrary.simpleMessage("Invalid action"),
+        "alertTypeNoAccessible":
+            MessageLookupByLibrary.simpleMessage("Non-accessible area"),
+        "alertTypeNoLockArea":
+            MessageLookupByLibrary.simpleMessage("Non-lockable area"),
+        "alertTypeNonFullLockable":
+            MessageLookupByLibrary.simpleMessage("Full non-lockable area"),
         "close": MessageLookupByLibrary.simpleMessage("Closed"),
         "dateTime": m0,
         "doorHistory": MessageLookupByLibrary.simpleMessage("History"),
@@ -55,6 +76,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No data in history"),
         "doorOptions": m2,
         "doorsStatus": MessageLookupByLibrary.simpleMessage("Status"),
+        "groupAppBar":
+            MessageLookupByLibrary.simpleMessage("Group Information"),
+        "groupDescription": MessageLookupByLibrary.simpleMessage("Description"),
+        "groupInfo":
+            MessageLookupByLibrary.simpleMessage("Group account Information"),
+        "groupName": MessageLookupByLibrary.simpleMessage("Group name"),
         "homeAppBar": MessageLookupByLibrary.simpleMessage("Home"),
         "homeBuildingFloor":
             MessageLookupByLibrary.simpleMessage("Building floors"),
@@ -63,6 +90,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeCardStatusWithAreas": m5,
         "homeCardStatusWithDoors": m6,
         "homeFloorAreas": m7,
+        "informationAppBar":
+            MessageLookupByLibrary.simpleMessage("User Information"),
+        "informationCredentials":
+            MessageLookupByLibrary.simpleMessage("Credentials"),
+        "informationGroup": MessageLookupByLibrary.simpleMessage("Group"),
+        "informationName": MessageLookupByLibrary.simpleMessage("Name"),
+        "informationTitle":
+            MessageLookupByLibrary.simpleMessage("User account Information"),
+        "lastVisitedAppBar":
+            MessageLookupByLibrary.simpleMessage("Last visited"),
         "locked": MessageLookupByLibrary.simpleMessage("Locked"),
         "logInEmpty":
             MessageLookupByLibrary.simpleMessage("Please enter name user"),
@@ -71,8 +108,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "logInNoUser": MessageLookupByLibrary.simpleMessage("User not found"),
         "logInSumbit": MessageLookupByLibrary.simpleMessage("Submit"),
         "open": MessageLookupByLibrary.simpleMessage("Opened"),
+        "scheduleEndDate": MessageLookupByLibrary.simpleMessage("End date"),
+        "scheduleEndTime": MessageLookupByLibrary.simpleMessage("End time"),
+        "scheduleInformation":
+            MessageLookupByLibrary.simpleMessage("Schedule Information"),
+        "scheduleStartDate": MessageLookupByLibrary.simpleMessage("Start date"),
+        "scheduleStartTime": MessageLookupByLibrary.simpleMessage("Start time"),
+        "scheduleWeekdays": MessageLookupByLibrary.simpleMessage("Weekdays"),
         "spaceDoors": m8,
         "spaceNumDoors": m9,
-        "unlocked": MessageLookupByLibrary.simpleMessage("Unlocked")
+        "unlocked": MessageLookupByLibrary.simpleMessage("Unlocked"),
+        "userAppBar": MessageLookupByLibrary.simpleMessage("User profile"),
+        "userGroup": MessageLookupByLibrary.simpleMessage("Group"),
+        "userGroupInformation":
+            MessageLookupByLibrary.simpleMessage("User group information"),
+        "userLanguage": MessageLookupByLibrary.simpleMessage("Language"),
+        "userLanguageEnglish": MessageLookupByLibrary.simpleMessage("English"),
+        "userLanguageGerman": MessageLookupByLibrary.simpleMessage("German"),
+        "userLanguageSpanish": MessageLookupByLibrary.simpleMessage("Spanish"),
+        "userSchedule": MessageLookupByLibrary.simpleMessage("Schedule"),
+        "userScheduleInformation":
+            MessageLookupByLibrary.simpleMessage("User schedule information"),
+        "userTitle": MessageLookupByLibrary.simpleMessage("User account"),
+        "userUSer": MessageLookupByLibrary.simpleMessage("User"),
+        "userUserIngormation":
+            MessageLookupByLibrary.simpleMessage("User information")
       };
 }

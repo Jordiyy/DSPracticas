@@ -7,6 +7,7 @@ import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'data/door_tree.dart';
 
@@ -50,14 +51,14 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text("Last visited"),
+          title: Text("${S.of(context).lastVisitedAppBar}"),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),
-            const Text(
-              "History",
+            Text(
+              "${S.of(context).doorHistory}",
               style: const TextStyle(
                 fontSize: 24.0,
               ),
@@ -65,7 +66,7 @@ class _ScreenLastVisited extends State<ScreenLastVisited> {
             Expanded(
               //child: LastVisited.lastVisitedList.isEmpty
               child: userData.lastVisited.isEmpty
-                  ? Text("No data in history")
+                  ? Text("${S.of(context).doorNoHistoryList}")
                   : ListView.builder(
                       padding: const EdgeInsets.all(16.0),
                       itemCount: userData.lastVisited.length,

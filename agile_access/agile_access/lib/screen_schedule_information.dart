@@ -1,6 +1,7 @@
 import 'package:agile_access/utils/nav_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
@@ -40,14 +41,14 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text("Schedule Information"),
+          title: Text("${S.of(context).scheduleInformation}"),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 25),
-            const Text(
-              "Schedule Information",
+            Text(
+              "${S.of(context).scheduleInformation}",
               style: TextStyle(
                 fontSize: 24.0,
               ),
@@ -62,8 +63,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Start date",
+                    Text(
+                      "${S.of(context).scheduleStartDate}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     Text(userGroup.schedule.fromDate.toString(),
@@ -81,8 +82,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "End date",
+                    Text(
+                      "${S.of(context).scheduleEndDate}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     Text(userGroup.schedule.toDate.toString(),
@@ -100,8 +101,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Weekdays",
+                    Text(
+                      "${S.of(context).scheduleWeekdays}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     WeekdaySelector(
@@ -122,8 +123,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Start time",
+                    Text(
+                      "${S.of(context).scheduleStartTime}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     Text(userGroup.schedule.fromTime.toString(),
@@ -141,8 +142,8 @@ class _ScreenScheduleInformation extends State<ScreenScheduleInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "End time",
+                    Text(
+                      "${S.of(context).scheduleEndTime}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     Text(userGroup.schedule.toTime.toString(),

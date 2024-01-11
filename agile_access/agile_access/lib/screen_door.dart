@@ -147,8 +147,8 @@ class _ScreenDoor extends State<ScreenDoor> {
                                     : iconList[0] = Bi.door_open),
                             Text(snapshot.data!.root.children[idxDoor].closed ==
                                     true
-                                ? S.of(context).close
-                                : S.of(context).open)
+                                ? "Close"
+                                : "Open")
                           ]),
                           onPressed: () async {
                             if (snapshot.data!.root.children[idxDoor].closed ==
@@ -159,8 +159,10 @@ class _ScreenDoor extends State<ScreenDoor> {
                                       "propped") {
                                 openDoor(snapshot.data!.root.children[idxDoor]);
                               } else {
-                                AlertHelper.showAlert(context, "Invalid action",
-                                    "Unlock the door first so you can open it.");
+                                AlertHelper.showAlert(
+                                    context,
+                                    "${S.of(context).alertTypeInvalid}",
+                                    "${S.of(context).alertScreenDoorButtonOpenClose}");
                               }
                             }
                             if (snapshot.data!.root.children[idxDoor].closed ==
@@ -195,8 +197,8 @@ class _ScreenDoor extends State<ScreenDoor> {
                             Iconify(iconList[1]),
                             Text(snapshot.data!.root.children[idxDoor].state ==
                                     "unlocked"
-                                ? "${S.of(context).unlocked}"
-                                : "${S.of(context).locked}")
+                                ? "Unlock"
+                                : "Lock")
                           ]),
                           onPressed: () {
                             snapshot.data!.root.children[idxDoor].state ==
@@ -227,8 +229,10 @@ class _ScreenDoor extends State<ScreenDoor> {
                             const Text("Unlocked\nShortly")
                           ]),
                           onPressed: () {
-                            AlertHelper.showAlert(context, "Action error",
-                                "This function has not yet been implemented. In the future it will be operational.");
+                            AlertHelper.showAlert(
+                                context,
+                                "${S.of(context).alertTypeError}",
+                                "${S.of(context).alertScreenDoorButtonUnlockShortly}");
                           }),
                     ],
                   ),

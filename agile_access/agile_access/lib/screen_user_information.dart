@@ -4,6 +4,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/uil.dart';
+import 'package:agile_access/generated/l10n.dart';
 
 import 'package:agile_access/data/user_data.dart';
 import 'nav_bar.dart';
@@ -42,14 +43,14 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text("User Information"),
+          title: Text("${S.of(context).informationAppBar}"),
         ),
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           const SizedBox(height: 25),
-          const Text(
-            "User account Information",
+          Text(
+            "${S.of(context).informationTitle}",
             style: const TextStyle(
               fontSize: 24.0,
             ),
@@ -68,8 +69,8 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Name",
+                    Text(
+                      "${S.of(context).informationName}",
                       style: TextStyle(fontSize: 15.0),
                     ),
                     Text(userData.name, style: TextStyle(fontSize: 15.0)),
@@ -86,8 +87,8 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Credentials",
+                  Text(
+                    "${S.of(context).informationCredentials}",
                     style: TextStyle(fontSize: 15.0),
                   ),
                   Text(userData.credential, style: TextStyle(fontSize: 15.0)),
@@ -103,8 +104,8 @@ class _ScreenUserInformation extends State<ScreenUserInformation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Group",
+                  Text(
+                    "${S.of(context).informationGroup}",
                     style: TextStyle(fontSize: 15.0),
                   ),
                   Text(userGroup.name, style: TextStyle(fontSize: 15.0)),

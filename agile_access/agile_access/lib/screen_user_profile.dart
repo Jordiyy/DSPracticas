@@ -47,14 +47,14 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          title: const Text("User profile"),
+          title: Text("${S.of(context).userAppBar}"),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 25),
-            const Text(
-              "User account",
+            Text(
+              "${S.of(context).userTitle}",
               style: TextStyle(
                 fontSize: 24.0,
               ),
@@ -69,7 +69,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                   ),
                 ));
               },
-              child: const Card(
+              child: Card(
                   child: Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
@@ -80,10 +80,10 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "User",
+                                "${S.of(context).userUSer}",
                                 style: TextStyle(fontSize: 15.0),
                               ),
-                              Text("User information",
+                              Text("${S.of(context).userUserIngormation}",
                                   style: TextStyle(fontSize: 15.0)),
                             ],
                           ),
@@ -99,7 +99,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                   ),
                 ));
               },
-              child: const Card(
+              child: Card(
                   child: Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
@@ -110,10 +110,10 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Group",
+                                "${S.of(context).userGroup}",
                                 style: TextStyle(fontSize: 15.0),
                               ),
-                              Text("User group information",
+                              Text("${S.of(context).userGroupInformation}",
                                   style: TextStyle(fontSize: 15.0)),
                             ],
                           ),
@@ -129,7 +129,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                   ),
                 ));
               },
-              child: const Card(
+              child: Card(
                   child: Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
@@ -140,10 +140,10 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Schedule",
+                                "${S.of(context).userSchedule}",
                                 style: TextStyle(fontSize: 15.0),
                               ),
-                              Text("User schedule information",
+                              Text("${S.of(context).userScheduleInformation}",
                                   style: TextStyle(fontSize: 15.0)),
                             ],
                           ),
@@ -165,7 +165,7 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Idiomas",
+                                "${S.of(context).userLanguage}",
                                 style: TextStyle(
                                     fontSize: 15.0,
                                     fontWeight: FontWeight.bold),
@@ -177,21 +177,24 @@ class _ScreenUserProfile extends State<ScreenUserProfile> {
                                         S.load(const Locale('es', 'ES'));
                                       });
                                     },
-                                    child: Text("Español")),
+                                    child: Text(
+                                        "${S.of(context).userLanguageSpanish}")),
                                 ElevatedButton(
                                     onPressed: () {
                                       setState(() {
                                         S.load(const Locale('en', 'US'));
                                       });
                                     },
-                                    child: Text("Inglés")),
+                                    child: Text(
+                                        "${S.of(context).userLanguageEnglish}")),
                                 ElevatedButton(
                                     onPressed: () {
                                       setState(() {
                                         S.load(const Locale('de', 'DE'));
                                       });
                                     },
-                                    child: Text("Alemán")),
+                                    child: Text(
+                                        "${S.of(context).userLanguageGerman}")),
                               ])
                             ],
                           ),

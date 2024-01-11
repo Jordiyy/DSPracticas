@@ -10,6 +10,7 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/fa6_solid.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:agile_access/generated/l10n.dart';
+import 'package:intl/intl.dart';
 
 import 'nav_bar.dart';
 import 'package:agile_access/data/user_data.dart';
@@ -107,7 +108,7 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                           fontSize: 24.0,
                         ),
                       ),
-                      SizedBox(width: 50),
+                      SizedBox(width: 40),
                       Visibility(
                           child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -121,8 +122,8 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                             } else {
                               AlertHelper.showAlert(
                                   context,
-                                  "Full non-lockable area",
-                                  "There are doors that are open. Close all doors to block the complete area.");
+                                  "${S.of(context).alertTypeNonFullLockable}",
+                                  "${S.of(context).alertScreenHomeButtonFullLockUnlock}");
                             }
                           } else if (isButtonPressed) {
                             unlocAllkDoor(snapshot.data!.root);
@@ -211,8 +212,10 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
             });
           }
         } else {
-          AlertHelper.showAlert(context, "Non-accessible area",
-              "It is not possible to access the area, because it has no doors. \nContact the administrator.");
+          AlertHelper.showAlert(
+              context,
+              "${S.of(context).alertTypeNoAccessible}",
+              "${S.of(context).alertScreenHomeNoAccessibleArea}");
         }
       },
       child: Card(
@@ -262,13 +265,15 @@ class _ScreenHomePartition extends State<ScreenHomePartition> {
                             } else {
                               AlertHelper.showAlert(
                                   context,
-                                  "Non-lockable area",
-                                  "There are doors that are open. Close all doors to block the area.");
+                                  "${S.of(context).alertTypeNoLockArea}",
+                                  "${S.of(context).alertScreenHomeButtonLockArea}");
                             }
                           }
                         } else {
-                          AlertHelper.showAlert(context, "Non-lockable area",
-                              "It is not possible to lock the doors of the area, because it does not have.");
+                          AlertHelper.showAlert(
+                              context,
+                              "${S.of(context).alertTypeNoLockArea}",
+                              "${S.of(context).alertScreenHomeNoDoorsInArea}");
                         }
                         setState(() {
                           if (area.children.isNotEmpty) {
